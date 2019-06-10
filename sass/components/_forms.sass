@@ -1,0 +1,50 @@
+.inputer
+    position: relative
+    label
+        color: $line-color
+        position: absolute
+        left: 0.7em
+        top: 1em
+        transition-duration: .2s
+
+    input
+        width: 100%
+        border: 0
+        border-radius: 4px
+        border: solid 1px darken($realse, 2%)
+        background-color: darken($realse, 2%)
+        box-sizing: border-box
+        box-shadow: none
+        color: $root
+        font-family: inherit
+        height: 56px
+        padding: 8px 10px
+        padding: .5rem .625rem
+        font-size: 1rem
+        &:focus
+            border-color: $realse
+            background: $realse
+            outline: none
+            ~ label
+                color: darken($base-color, 20%)
+                font-size: $visual-scale-s3!important
+    textarea 
+        width: 100%
+        border: solid 1px darken($realse, 2%)
+        background-color: darken($realse, 2%)
+        border-radius: 4px
+        box-sizing: border-box
+        box-shadow: none
+        color: $root
+        font-family: inherit
+        height: 106px
+        padding: 8px 10px
+        padding: .5rem .625rem
+        font-size: 1rem
+        &:focus
+            border-color: $realse
+            background: $realse
+            
+input, textarea 
+    -webkit-appearance: none
+    -webkit-border-radius: 0

@@ -1,0 +1,85 @@
+html
+    font-family: $font-stack
+    line-height: 1.5
+
+body
+    letter-spacing: -.022em
+    color: $root
+    font-size: $visual-scale-base * 0.90
+    @media only screen and (min-width: $small-breakpoint)
+        font-size: $visual-scale-base * 0.95
+    @media only screen and (min-width: $large-breakpoint)
+        font-size: $visual-scale-base
+
+a
+    text-decoration: none
+    color: $root
+    &:visited:not(.button):not(.pill-button):not(.button-link):not(.disable-button)
+        color: $root
+
+
+blockquote
+    font-family: adobe-garamond-pro, serif
+    text-transform: uppercase
+    margin: 0
+    font-size: 150%
+
+p
+    margin-top: 0
+    color: rgba($root, .87)
+
+.entry-content p
+    font-size: 150%
+    font-weight: 300
+    line-height: 1.7
+
+
+ul
+    margin: 0
+    padding: 0
+    list-style: none
+
+h1, h2, h3, h4, h5, h6
+    font-weight: 500
+
+
+h1
+    font-size: $visual-scale-h1 * 0.75
+h2
+    font-size: $visual-scale-h2 * 0.75
+h3
+    font-size: $visual-scale-h3 * 0.75
+h4
+    font-size: $visual-scale-h4 * 0.75
+h5
+    font-size: $visual-scale-h5 * 0.75
+h6
+    font-size: $visual-scale-h6 * 0.75
+
+@media only screen and (min-width: $small-breakpoint)
+    h1
+        font-size: $visual-scale-h1 * 0.85
+    h2
+        font-size: $visual-scale-h2 * 0.85
+    h3
+        font-size: $visual-scale-h3 * 0.85
+    h4
+        font-size: $visual-scale-h4 * 0.85
+    h5
+        font-size: $visual-scale-h5 * 0.85
+    h6
+        font-size: $visual-scale-h6 * 0.85
+
+@media only screen and (min-width: $large-breakpoint)
+    h1
+        font-size: $visual-scale-h1
+    h2
+        font-size: $visual-scale-h2
+    h3
+        font-size: $visual-scale-h3
+    h4
+        font-size: $visual-scale-h4
+    h5
+        font-size: $visual-scale-h5
+    h6
+        font-size: $visual-scale-h6

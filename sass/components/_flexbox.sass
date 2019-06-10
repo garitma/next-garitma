@@ -1,0 +1,20 @@
+.coat
+  display: flex
+  flex-wrap: wrap
+
+  .block
+    width: 100%
+
+@for $i from 1 through $blocks
+  .block.small-#{$i}
+    flex: 0 0 100% / $blocks * $i
+
+@media only screen and (min-width: $small-breakpoint)
+  @for $i from 1 through $blocks
+    .block.medium-#{$i}
+      flex: 0 0 100% / $blocks * $i
+      
+@media only screen and (min-width: $large-breakpoint)
+  @for $i from 1 through $blocks
+    .block.large-#{$i}
+      flex: 0 0 100% / $blocks * $i

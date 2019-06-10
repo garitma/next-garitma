@@ -1,0 +1,56 @@
+body
+    margin: 0
+    min-width: 320px
+
+main 
+    position: relative
+    max-width: 1600px
+    margin: 0 auto
+
+.page
+    @media only screen and (max-width: $small-breakpoint)
+        padding-top: 48px
+
+article, aside, footer, header, nav, main, section, summary, figure, figcaption 
+    display: block
+
+.keep
+    position: relative
+    height: 100vh
+
+*
+    &::selection
+        color: $root
+        background: darken($TealGreen, 5%)
+
+.message.error
+    padding: 100px 0
+    .block
+        text-align: center
+        &.title-error
+            font-weight: 900
+
+.archives
+    background: $snow
+    
+.entry-content
+    img
+        max-width: 100%
+        height: auto
+
+
+.single-post-category
+    a
+        &:hover
+            text-decoration: underline
+
+.pagination-container
+    max-width: 330px
+    margin: 0 auto
+    padding-top: 60px
+    padding-bottom: 60px
+
+.page-numbers
+    height: 46px
+    line-height: 46px
+

@@ -1,0 +1,53 @@
+=box-shadow($left, $top, $radius, $color) 
+	box-shadow: $left $top $radius $color
+	-webkit-box-shadow: $left $top $radius $color
+	-moz-box-shadow: $left $top $radius $color
+
+=transition($property, $duration, $easing: linear) 
+	transition: $property $duration $easing
+	-webkit-transition: $property $duration $easing
+	-moz-transition: $property $duration $easing
+
+=stransition($duration)
+	-o-transition: $duration
+	-ms-transition: $duration
+	-moz-transition: $duration
+	-webkit-transition: $duration
+	transition: $duration
+
+=border-radius($radius) 
+	border-radius: $radius
+	-webkit-border-radius: $radius
+	-moz-border-radius: $radius
+
+=border-radii($topleft, $topright, $bottomright, $bottomleft) 
+	border-top-left-radius: $topleft
+	border-top-right-radius: $topright
+	border-bottom-right-radius: $bottomright
+	border-bottom-left-radius: $bottomleft
+	-webkit-border-top-left-radius: $topleft
+	-webkit-border-top-right-radius: $topright
+	-webkit-border-bottom-right-radius: $bottomright
+	-webkit-border-bottom-left-radius: $bottomleft
+	-moz-border-radius-topleft: $topleft
+	-moz-border-radius-topright: $topright
+	-moz-border-radius-bottomright: $bottomright
+	-moz-border-radius-bottomleft: $bottomleft
+
+=align-items($align)
+	-webkit-box-align: $align
+	-ms-flex-align: $align
+	align-items: $align
+
+=user-select($value)
+	-webkit-user-select: $value
+	-moz-user-select: $value
+	-ms-user-select: $value
+	user-select: $value
+
+=flexbox
+	display: -webkit-box
+	display: -moz-box
+	display: -ms-flexbox
+	display: -webkit-flex
+	display: flex

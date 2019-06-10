@@ -1,0 +1,53 @@
+.glyphsSprite
+    background-image: url("/static/images/sprite_glyphs.png")
+    background-repeat: no-repeat
+    height: 24px
+    width: 24px
+    display: inline-block
+    vertical-align: middle
+    @media only screen and (max-width: $small-breakpoint)
+        background-image: url("/static/images/sprite_glyphs@2.png")
+        background-size: 265px 260px
+
+    &.after
+        margin-left: .3em
+    &.before
+         margin-right: .3em
+    &.logo
+        background-position: 0 -48px
+        width: 48px
+        height: 48px
+    &.twitter
+        background-position: 0 -24px
+    &.facebook
+        background-position: -24px -24px
+    &.instagram
+        background-position: -48px -24px
+    &.youtube
+        background-position: -72px -24px
+    &.menu
+        background-position: -96px -24px
+    &.search
+        background-position: -130px 0
+    &.arrowDown
+        background-position: -154px 0
+    &.arrowRight
+        background-position: -154px 0
+        transform: rotate(-90deg)
+    &.arrowLeft
+        background-position: -154px 0
+        transform: rotate(90deg)
+    &.play
+        background-position: -48px -48px
+        width: 96px
+        height: 96px
+        cursor: pointer
+        transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1)
+    &.link
+         background-position: -144px -24px
+       
+
+
+
+ 
+    
