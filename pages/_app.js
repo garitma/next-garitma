@@ -1,9 +1,6 @@
 import App, { Container } from 'next/app'
 import React from 'react'
-import { Client } from '../components/prismic'
-import * as gtag from '../static/js/gtag'
-
-Router.events.on('routeChangeComplete', url => gtag.pageview(url))
+import { Client } from '../api/prismic'
 
 export default class extends App {
     static async getInitialProps({ Component, router, ctx, req }) {
