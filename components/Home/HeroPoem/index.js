@@ -10,8 +10,8 @@ export default class HeroBanner extends React.Component {
                         <div className='image-coat wallpaper-backgorund' style={{ background: `${document.data.color}` }}>
                             <div className='look hero-look'>
                                 <picture>
-                                    <source media='(min-width: 1155px)' srcset={document.data.featured_img.square.url} />
-                                    <source media='(min-width: 767px)' srcset={document.data.featured_img.url} />
+                                    <source media='(min-width: 1155px)' srcSet={document.data.featured_img.square.url} />
+                                    <source media='(min-width: 767px)' srcSet={document.data.featured_img.url} />
                                     <img className='responsive-image' src={document.data.featured_img.url} />
                                 </picture>
                             </div>

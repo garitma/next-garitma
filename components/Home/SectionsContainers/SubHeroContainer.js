@@ -1,4 +1,5 @@
-export default class SecondContainer extends React.Component {
+
+export default class SubHeroContainer extends React.Component {
 
     render() {
         const { children } = this.props

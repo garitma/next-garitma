@@ -17,7 +17,7 @@ export default class extends React.Component {
                             <p><a>{RichText.asText(document.data.title)}</a></p>
                         </div>
                         <div className='module-description'>
-                            {RichText.asText(document.data.title)}
+                            {RichText.asText(document.data.excerpt)}
                         </div>
                         <div className='module-cta'>
                             <a className='button-link'> Jugar</a>

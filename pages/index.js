@@ -1,16 +1,15 @@
 import Layout from '../components/Layout'
 import { Client, Prismic, linkResolver } from '../api/prismic'
-
 import HeroPoem from '../components/Home/HeroPoem'
-
 import SubHero from '../components/Home/SubHero'
 import SubHeroFirst from '../components/Home/SubHero/_First'
 import SubHeroSecond from '../components/Home/SubHero/_Second'
-import SubHeroSecondContainer from '../components/Home/SubHero/_SecondContainer'
+import SubSection from '../components/Home/SectionsContainers/SubHeroContainer'
 import SubHeroThird from '../components/Home/SubHero/_Third'
-
-
-
+import PromotionPlace from '../components/Home/PromotionPlace'
+import Section from '../components/Home/SectionsContainers/HomeContainer'
+import VideoTrailer from '../components/Home/VideoTrailer'
+import Featured from '../components/Home/Featured'
 
 export default class extends React.Component {
 
@@ -20,8 +19,12 @@ export default class extends React.Component {
             const quotes = await Client(req).query(Prismic.Predicates.at('document.type', 'frases'), { orderings: '[document.first_publication_date desc]', pageSize: 2 });
             const games = await Client(req).query(Prismic.Predicates.at('document.type', 'juegos'), { orderings: '[document.first_publication_date desc]', pageSize: 1 });
             const podcasts = await Client(req).query(Prismic.Predicates.at('document.type', 'podcasts'), { orderings: '[document.first_publication_date desc]', pageSize: 1 });
+            const comics = await Client(req).query(Prismic.Predicates.at('document.type', 'comics'), { orderings: '[document.first_publication_date desc]', pageSize: 1 });
+            const videos = await Client(req).query(Prismic.Predicates.at('document.type', 'videos'), { orderings: '[document.first_publication_date desc]', pageSize: 2 });
+            const downloads = await Client(req).query(Prismic.Predicates.at('document.type', 'descargas'), { orderings: '[document.first_publication_date desc]', pageSize: 1 });
+            const featured = await Client(req).query(Prismic.Predicates.at('document.tags', ['featured']), { orderings: '[document.first_publication_date desc]', pageSize: 3 });
 
-            return { poems, quotes, games, podcasts }
+            return { poems, quotes, games, podcasts, comics, videos, downloads, featured }
         } catch (error) {
             return { error: true }
         }
@@ -44,9 +47,35 @@ export default class extends React.Component {
             <SubHeroSecond document={document} />
         )
     }
+
     renderSubHeroThird() {
         return this.props.podcasts.results.map((document) =>
             <SubHeroThird document={document} />
+        )
+    }
+
+    renderPromotionPlaceComic() {
+        return this.props.comics.results.map((document) =>
+            <PromotionPlace document={document} />
+        )
+    }
+
+    renderVideoTrailer() {
+        return this.props.videos.results.map((document) =>
+            <VideoTrailer document={document} />
+        )
+    }
+
+    renderPromotionPlaceDownloads() {
+        return this.props.downloads.results.map((document) =>
+            <PromotionPlace document={document} />
+        )
+    }
+
+
+    renderFeatured() {
+        return this.props.featured.results.map((document) =>
+            <Featured document={document} />
         )
     }
 
@@ -56,14 +85,21 @@ export default class extends React.Component {
                 {this.renderPoems()}
                 <SubHero>
                     {this.renderSubHeroFirst()}
-                    <SubHeroSecondContainer>
+                    <SubSection>
                         {this.renderSubHeroSecond()}
-                    </SubHeroSecondContainer>
-                    <SubHeroSecondContainer>
+                    </SubSection>
+                    <SubSection>
                         {this.renderSubHeroThird()}
-                    </SubHeroSecondContainer>
-
+                    </SubSection>
                 </SubHero>
+                {this.renderPromotionPlaceComic()}
+                <Section name="VideoTrailer">
+                    {this.renderVideoTrailer()}
+                </Section>
+                {this.renderPromotionPlaceDownloads()}
+                <Section name="Featured">
+                    {this.renderFeatured()}
+                </Section>
             </Layout>
         )
     }
