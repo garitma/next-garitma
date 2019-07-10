@@ -1,11 +1,13 @@
+import Link from 'next/link'
 import { RichText } from 'prismic-reactjs'
 
-export default class HeroBanner extends React.Component {
+
+export default class HeroPoem extends React.Component {
     render() {
         const { document } = this.props
         return (
-            <ul>
-                <li className='hero-module' key={document.id} >
+            <ul key={document.id}>
+                <li className='hero-module'>
                     <a>
                         <div className='image-coat wallpaper-backgorund' style={{ background: `${document.data.color}` }}>
                             <div className='look hero-look'>
@@ -23,13 +25,18 @@ export default class HeroBanner extends React.Component {
                                     <h1>{RichText.asText(document.data.title)}</h1>
                                 </a>
                                 <div className='hero-description'>
-                                    {RichText.asText(document.data.title)}
+                                    <p>{RichText.asText(document.data.excerpt)}</p>
                                 </div>
-                                <p className='hero-cta'> <a className='button-link'>Leer</a>
+                                <p className='hero-cta'>
+                                    <Link href={document.uid} as={document.uid}>
+                                        <a className='button-link'>Leer</a>
+                                    </Link>
                                     <span>|</span>
-                                    <a className='button-link'>
-                                        Ver más {document.type}
-                                    </a>
+                                    <Link href='/categorias/[aid]/' as='/categorias/poemas/'>
+                                        <a className='button-link'>
+                                            Ver más {document.type}
+                                        </a>
+                                    </Link>
                                 </p>
                             </div>
                         </div>

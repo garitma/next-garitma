@@ -1,4 +1,4 @@
-import { Link } from "../../routes"
+import Link from 'next/link'
 
 export default class Navbar extends React.Component {
 
@@ -24,10 +24,12 @@ export default class Navbar extends React.Component {
                             <ul id="nav-large" className="nav-list page-nav-menu-large">
                                 <li className="logo item logo-container">
 
-                                    <Link route="home"><a title="Logo">
-                                        <div className="glyphsSprite logo" />
-                                    </a>
+                                    <Link href='/'>
+                                        <a title="Logo">
+                                            <div className="glyphsSprite logo" />
+                                        </a>
                                     </Link>
+
 
                                 </li>
                                 <li className="item button-link menu-toggle-button" onClick={this.toggle.bind(this)}>
@@ -46,14 +48,13 @@ export default class Navbar extends React.Component {
                                                 <input className="menu-item" id="search" type="search" placeholder="Buscar" name="s" required />
                                             </form>
                                         </li>
-                                        <li onClick={this.toggle.bind(this)}><Link route="archives" params={{ slug: 'poemas' }}><a className="menu-item">Poemas</a></Link></li>
-                                        <li onClick={this.toggle.bind(this)}><Link route="archives" params={{ slug: 'frases' }}><a className="menu-item">Frases</a></Link></li>
-                                        <li onClick={this.toggle.bind(this)}><Link route="archives" params={{ slug: 'comics' }}><a className="menu-item">Cómics</a></Link></li>
-                                        <li onClick={this.toggle.bind(this)}><Link route="archives" params={{ slug: 'videos' }}><a className="menu-item">Videos</a></Link></li>
-                                        <li onClick={this.toggle.bind(this)}><Link route="archives" params={{ slug: 'descargas' }}><a className="menu-item">Descargas</a></Link></li>
-                                        <li onClick={this.toggle.bind(this)}><Link route="archives" params={{ slug: 'podcasts' }}><a className="menu-item">Podcasts</a></Link></li>
-                                        <li onClick={this.toggle.bind(this)}><Link route="archives" params={{ slug: 'juegos' }}><a className="menu-item">Juegos</a></Link></li>
-                                        <li onClick={this.toggle.bind(this)}><Link route="authors"><a className="menu-item">Autores</a></Link></li>
+                                        <li onClick={this.toggle.bind(this)}><Link href='/categorias/[aid]/' as='/categorias/poemas/'><a className="menu-item">Poemas</a></Link></li>
+                                        <li onClick={this.toggle.bind(this)}><Link href='/categorias/[aid]/' as='/categorias/frases/'><a className="menu-item">Frases</a></Link></li>
+                                        <li onClick={this.toggle.bind(this)}><Link href='/categorias/[aid]/' as='/categorias/comics/'><a className="menu-item">Cómics</a></Link></li>
+                                        <li onClick={this.toggle.bind(this)}><Link href='/categorias/[aid]/' as='/categorias/videos/'><a className="menu-item">Videos</a></Link></li>
+                                        <li onClick={this.toggle.bind(this)}><Link href='/categorias/[aid]/' as='/categorias/descargas/'><a className="menu-item">Descargas</a></Link></li>
+                                        <li onClick={this.toggle.bind(this)}><Link href='/categorias/[aid]/' as='/categorias/podcast/'><a className="menu-item">Podcasts</a></Link></li>
+                                        <li onClick={this.toggle.bind(this)}><Link href='/categorias/[aid]/' as='/categorias/juegos/'><a className="menu-item">Juegos</a></Link></li>
                                     </ul>
                                 </div>
                             </div>

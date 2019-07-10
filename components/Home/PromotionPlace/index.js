@@ -12,7 +12,7 @@ export default class PromotionPlaces extends React.Component {
                                 <h2><a>{RichText.asText(document.data.title)}</a></h2>
                             </div>
                             <div className="module-description">
-
+                                <p>{RichText.asText(document.data.excerpt)}</p>
                             </div>
                             <div className="module-cta">
                                 <a className="button-link">Leer</a>
