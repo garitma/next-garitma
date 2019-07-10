@@ -1,5 +1,3 @@
-import { Link } from "../../routes"
-
 export default class Navbar extends React.Component {
 
     render() {
@@ -8,17 +6,17 @@ export default class Navbar extends React.Component {
                 <div className="coat smush page-footer-container">
                     <div className="page-footer-firs-section">
                         <div className="block-copyright">
-                            <Link route="/"><a><div className="glyphsSprite logo" /></a></Link>
-                            <p>© 2018 Garitma. Todos los derechos reservados</p>
+                            <a><div className="glyphsSprite logo" /></a>
+                            <p>© 2019 Garitma. Todos los derechos reservados</p>
                         </div>
 
                         <ul className="nav-list coat">
 
                             <li className="item">
-                                <Link route="post" params={{ slug: 'legal' }}><a>Terminos de uso</a></Link>
+                                <a>Terminos de uso</a>
                             </li>
                             <li className="item">
-                                <Link route="post" params={{ slug: 'legal' }}><a>Políticas de privacidad</a></Link>
+                                <a>Políticas de privacidad</a>
                             </li>
 
                         </ul>
@@ -32,7 +30,7 @@ export default class Navbar extends React.Component {
                             <li className="item"><a href="https://www.facebook.com/garitma" target="_blank"><div className="glyphsSprite facebook" /></a></li>
                         </ul>
                         <ul className="nav-list">
-                            <li className="item"><p><Link route="post" params={{ slug: 'informacion-de-contacto' }}><a>Información de contacto</a></Link></p></li>
+                            <li className="item"><p><a>Información de contacto</a></p></li>
                         </ul>
                     </div>
                 </div>
