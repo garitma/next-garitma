@@ -1,5 +1,5 @@
 import Layout from '../components/Layout'
-import { Client, Prismic, linkResolver } from '../api/prismic'
+import { Client, Prismic } from '../api/prismic'
 import HeroPoem from '../components/Home/HeroPoem'
 import SubHero from '../components/Home/SubHero'
 import SubHeroFirst from '../components/Home/SubHero/_First'
