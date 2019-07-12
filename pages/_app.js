@@ -1,26 +1,8 @@
-import App, { Container } from 'next/app'
-import React from 'react'
-import { Client } from '../api/prismic'
+import App from 'next/app'
+import Router from 'next/router'
 
-export default class extends App {
-    static async getInitialProps({ Component, router, ctx, req }) {
-        let pageProps = {}
+import * as gtag from '../static/js/gtag'
 
-        if (Component.getInitialProps) {
-            pageProps = await Component.getInitialProps(ctx)
-        }
+Router.events.on('routeChangeComplete', url => gtag.pageview(url))
 
-        const layout = await Client(req).getSingle('layout')
-
-        return { pageProps, layout }
-    }
-
-    render() {
-        const { Component, pageProps, layout } = this.props
-        return (
-            <Container>
-                <Component {...Object.assign(pageProps, { layout })} />
-            </Container>
-        )
-    }
-}
+export default App

@@ -17,7 +17,7 @@ export default class Featured extends React.Component {
                             <p><a>{RichText.asText(document.data.title)}</a></p>
                         </div>
                         <div className='module-description'>
-                            {RichText.asText(document.data.title)}
+                            <p>{RichText.asText(document.data.excerpt)}</p>
                         </div>
                         <div className="module-category">
                         </div>

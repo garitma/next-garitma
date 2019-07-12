@@ -1074,6 +1074,14 @@ footer .logo {
 .hero-module .hero-look {
   text-align: right;
 }
+@media only screen and (max-width: 767px) {
+  .hero-module .hero-look {
+    text-align: center;
+  }
+  .hero-module .hero-look img {
+    max-height: 35vh;
+  }
+}
 .hero-module .hero-content {
   padding: 50px 25px 50px;
   text-align: center;

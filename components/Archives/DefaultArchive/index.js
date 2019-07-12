@@ -24,7 +24,7 @@ export default class DefaultArchive extends React.Component {
                         </div>
 
                         <div className='module-description'>
-                            {RichText.asText(document.data.title)}
+                            <p>{RichText.asText(document.data.excerpt)}</p>
                         </div>
 
                         <div className="module-cta">

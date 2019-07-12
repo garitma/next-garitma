@@ -11,11 +11,7 @@ export default class HeroPoem extends React.Component {
                     <a>
                         <div className='image-coat wallpaper-backgorund' style={{ background: `${document.data.color}` }}>
                             <div className='look hero-look'>
-                                <picture>
-                                    <source media='(min-width: 1155px)' srcSet={document.data.featured_img.square.url} />
-                                    <source media='(min-width: 767px)' srcSet={document.data.featured_img.url} />
-                                    <img className='responsive-image' src={document.data.featured_img.url} />
-                                </picture>
+                                <img className='responsive-image' src={document.data.featured_img.square.url} />
                             </div>
                         </div></a>
                     <div className='hero-content' style={{ background: `${document.data.color}` }}>
@@ -32,7 +28,7 @@ export default class HeroPoem extends React.Component {
                                         <a className='button-link'>Leer</a>
                                     </Link>
                                     <span>|</span>
-                                    <Link href='/categorias/[aid]/' as='/categorias/poemas/'>
+                                    <Link href='/categorias/poemas'>
                                         <a className='button-link'>
                                             Ver más {document.type}
                                         </a>

@@ -1,9 +1,10 @@
-import { Client, Prismic } from '../../api/prismic'
+import { Client, Prismic } from '../api/prismic'
 import Link from 'next/link'
 
-import Layout from '../../components/Layout'
-import SubHeader from '../../components/SubHeader'
-import DefaultArchive from '../../components/Archives/DefaultArchive'
+import Layout from '../components/Layout'
+import SubHeader from '../components/SubHeader'
+import DefaultArchive from '../components/Archives/DefaultArchive'
+import QuoteArchives from '../components/Archives/QuoteArchives'
 
 
 export default class extends React.Component {
@@ -11,10 +12,11 @@ export default class extends React.Component {
     static async getInitialProps({ query, req }) {
 
         let page = query.page
+        const { uid } = query
 
         try {
             const request = req && req.headers ? req : null
-            const archive = await Client(request).query(Prismic.Predicates.at('document.type', 'poemas'), { orderings: '[document.first_publication_date desc]', pageSize: 12, page: `${page ? page : [1]}`, })
+            const archive = await Client(request).query(Prismic.Predicates.at('document.type', `${uid}`), { orderings: '[document.first_publication_date desc]', pageSize: 12, page: `${page ? page : [1]}`, })
             return { archive, page }
         } catch (error) {
             console.log(error)
@@ -25,6 +27,12 @@ export default class extends React.Component {
     renderArchives() {
         return this.props.archive.results.map((document) =>
             <DefaultArchive document={document} />
+        )
+    }
+
+    renderArchivesQuotes() {
+        return this.props.archive.results.map((document) =>
+            <QuoteArchives document={document} />
         )
     }
 
@@ -41,7 +49,7 @@ export default class extends React.Component {
                                     </a>
                                 }
                                 {this.props.archive.prev_page != null &&
-                                    <Link href='/categorias/[aid]' as={`/categorias/${this.props.archive.results[0].type}?page=${Number(this.props.archive.page) - 1
+                                    <Link href={`/categorias/${this.props.archive.results[0].type}?page=${Number(this.props.archive.page) - 1
                                         }`}>
                                         <a className="button-link">
                                             <div className="glyphsSprite arrowLeft" />
@@ -57,7 +65,7 @@ export default class extends React.Component {
                                     </a>
                                 }
                                 {this.props.archive.next_page != null &&
-                                    <Link href='/categorias/[aid]' as={`/categorias/${this.props.archive.results[0].type}?page=${Number(this.props.archive.page) + 1} `}>
+                                    <Link href={`/categorias/${this.props.archive.results[0].type}?page=${Number(this.props.archive.page) + 1} `}>
                                         <a className="button-link">
                                             <div className="glyphsSprite arrowRight" />
                                         </a>
@@ -73,10 +81,16 @@ export default class extends React.Component {
 
     renderBody() {
         return <Layout>
-            <SubHeader subtitle="Poema" />
+            <SubHeader subtitle={this.props.archive.results[0].type} />
             <div className="pad archives">
                 <div className="coat ">
-                    {this.renderArchives()}
+                    {this.props.archive.results[0].type != 'frases' &&
+                        this.renderArchives()
+                    }
+                    {this.props.archive.results[0].type == 'frases' &&
+                        this.renderArchivesQuotes()
+                    }
+
                 </div>
             </div>
             {this.renderPagination()}
