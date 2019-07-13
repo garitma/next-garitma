@@ -2,6 +2,7 @@ import Layout from '../components/Layout'
 import { Client, Prismic } from '../api/prismic'
 
 import SingleRead from '../components/SinglePost/SingleRead'
+import SingleComic from '../components/SinglePost/SingleComic'
 
 
 export default class Post extends React.Component {
@@ -12,23 +13,35 @@ export default class Post extends React.Component {
 
         try {
             const poems = await Client(req).query(Prismic.Predicates.at('my.poemas.uid', `${uid}`));
+            const comics = await Client(req).query(Prismic.Predicates.at('my.comics.uid', `${uid}`));
 
-            return { poems }
+            return { poems, comics }
         } catch (error) {
             return { error: true }
         }
     }
 
     renderPoems() {
-        return this.props.poems.results.map((document) =>
-            <SingleRead document={document} />
+        return this.props.poems.results.map((document, index) =>
+            <SingleRead document={document} key={index} />
+        )
+    }
+
+    renderComics() {
+        return this.props.comics.results.map((document, index) =>
+            <SingleComic document={document} key={index} />
         )
     }
 
     renderBody() {
         return (
             <Layout>
-                {this.renderPoems()}
+                {this.props.poems.results.length > 0 &&
+                    this.renderPoems()
+                }
+                {this.props.comics.results.length > 0 &&
+                    this.renderComics()
+                }
             </Layout>
         )
     }

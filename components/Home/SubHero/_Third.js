@@ -5,7 +5,7 @@ export default class extends React.Component {
     render() {
         const { document } = this.props
         return (
-            <div className="coat inside-pad" key={document.id}>
+            <div className="coat inside-pad">
                 <div className='block module-img-container'>
                     <a>
                         <img className='responsive-image' src={document.data.featured_img.square.url} />

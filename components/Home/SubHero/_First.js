@@ -5,7 +5,7 @@ export default class extends React.Component {
     render() {
         const { document } = this.props
         return (
-            <li className='block small-12 medium-12 large-6' key={document.id}>
+            <li className='block small-12 medium-12 large-6'>
                 <div className='coat inside-pad'>
                     <div className='block module-img-container'>
                         <a>

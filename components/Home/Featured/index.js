@@ -1,5 +1,7 @@
 
 import { RichText } from 'prismic-reactjs'
+import Link from 'next/link'
+
 
 export default class Featured extends React.Component {
     render() {
@@ -8,13 +10,17 @@ export default class Featured extends React.Component {
             <li className="block small-12 medium-4" key={document.id}>
                 <div className="coat inside-pad">
                     <div className="block module-img-container">
-                        <a>
+                        <Link href={document.uid}><a>
                             <img className="responsive-image" src={document.data.featured_img.square.url} />
-                        </a>
+                        </a></Link>
                     </div>
                     <div className="module-box-detail">
                         <div className="module-title">
-                            <p><a>{RichText.asText(document.data.title)}</a></p>
+                            <p>
+                                <Link href={document.uid}>
+                                    <a>{RichText.asText(document.data.title)}</a>
+                                </Link>
+                            </p>
                         </div>
                         <div className='module-description'>
                             <p>{RichText.asText(document.data.excerpt)}</p>
@@ -22,13 +28,17 @@ export default class Featured extends React.Component {
                         <div className="module-category">
                         </div>
                         <div className="module-cta">
-                            <a className="button-link">
-                                Leer
-                                            </a>
+                            <Link href={document.uid}>
+                                <a className="button-link">
+                                    Leer
+                                </a>
+                            </Link>
                             <span>|</span>
-                            <a className="button-link">
-                                Ver más {document.type}
-                            </a>
+                            <Link href={`/categorias/${document.type}`}>
+                                <a className="button-link">
+                                    Ver más {document.type}
+                                </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

@@ -31,51 +31,51 @@ export default class extends React.Component {
     }
 
     renderPoems() {
-        return this.props.poems.results.map((document) =>
-            <HeroPoem document={document} />
+        return this.props.poems.results.map((document, index) =>
+            <HeroPoem document={document} key={index} />
         )
     }
 
     renderSubHeroFirst() {
-        return this.props.games.results.map((document) =>
-            <SubHeroFirst document={document} />
+        return this.props.games.results.map((document, index) =>
+            <SubHeroFirst document={document} key={index} />
         )
     }
 
     renderSubHeroSecond() {
-        return this.props.quotes.results.map((document) =>
-            <SubHeroSecond document={document} />
+        return this.props.quotes.results.map((document, index) =>
+            <SubHeroSecond document={document} key={index} />
         )
     }
 
     renderSubHeroThird() {
-        return this.props.podcasts.results.map((document) =>
-            <SubHeroThird document={document} />
+        return this.props.podcasts.results.map((document, index) =>
+            <SubHeroThird document={document} key={index} />
         )
     }
 
     renderPromotionPlaceComic() {
-        return this.props.comics.results.map((document) =>
-            <PromotionPlace document={document} />
+        return this.props.comics.results.map((document, index) =>
+            <PromotionPlace document={document} key={index} />
         )
     }
 
     renderVideoTrailer() {
-        return this.props.videos.results.map((document) =>
-            <VideoTrailer document={document} />
+        return this.props.videos.results.map((document, index) =>
+            <VideoTrailer document={document} key={index} />
         )
     }
 
     renderPromotionPlaceDownloads() {
-        return this.props.downloads.results.map((document) =>
-            <PromotionPlace document={document} />
+        return this.props.downloads.results.map((document, index) =>
+            <PromotionPlace document={document} key={index} />
         )
     }
 
 
     renderFeatured() {
-        return this.props.featured.results.map((document) =>
-            <Featured document={document} />
+        return this.props.featured.results.map((document, index) =>
+            <Featured document={document} key={index} />
         )
     }
 
