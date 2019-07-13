@@ -12,11 +12,11 @@ export default class extends React.Component {
     static async getInitialProps({ query, req }) {
 
         let page = query.page
-        const { uid } = query
+        const { type } = query
 
         try {
             const request = req && req.headers ? req : null
-            const archive = await Client(request).query(Prismic.Predicates.at('document.type', `${uid}`), { orderings: '[document.first_publication_date desc]', pageSize: 12, page: `${page ? page : [1]}`, })
+            const archive = await Client(request).query(Prismic.Predicates.at('document.type', `${type}`), { orderings: '[document.first_publication_date desc]', pageSize: 12, page: `${page ? page : [1]}`, })
             return { archive, page }
         } catch (error) {
             console.log(error)

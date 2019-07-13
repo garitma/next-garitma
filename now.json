@@ -1,5 +1,6 @@
 {
     "version": 2,
+    "name": "Garitma",
     "builds": [
         {
             "src": "next.config.js",
@@ -16,7 +17,7 @@
             "dest": "/post?uid=$uid"
         },
         {
-            "src": "categorias/(?<uid>[^/]+)$",
+            "src": "categorias/(?<type>[^/]+)$",
             "dest": "/archive?uid=$uid"
         }
     ]
