@@ -1057,13 +1057,10 @@ footer .logo {
   .hero-module .hero-content .hero-body {
     width: 36%;
   }
-  .hero-module .hero-content .hero-body .hero-detail {
-    padding-top: 20%;
-  }
-  .hero-module .hero-content .hero-body .hero-detail .hero-description {
+  .hero-module .hero-content .hero-body .hero-description {
     text-align: center;
   }
-  .hero-module .hero-content .hero-body .hero-detail .hero-cta {
+  .hero-module .hero-content .hero-body .hero-cta {
     text-align: center;
   }
 }

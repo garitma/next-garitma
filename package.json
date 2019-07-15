@@ -22,9 +22,8 @@
   },
   "scripts": {
     "dev": "now dev",
-    "node-dev": "nodemon server.js",
-    "now-build": "next build",
-    "deploy": "now"
+    "build": "next build",
+    "start": "next start"
   },
   "repository": {
     "type": "git",

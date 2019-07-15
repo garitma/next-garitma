@@ -18,7 +18,7 @@
         },
         {
             "src": "categorias/(?<type>[^/]+)$",
-            "dest": "/archive?uid=$uid"
+            "dest": "/archive?type=$type"
         }
     ]
 }
