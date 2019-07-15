@@ -16,8 +16,8 @@ export default class extends React.Component {
 
         try {
             const request = req && req.headers ? req : null
-            const archive = await Client(request).query(Prismic.Predicates.at('document.type', `${type}`), { orderings: '[document.first_publication_date desc]', pageSize: 12, page: `${page ? page : [1]}`, })
-            return { archive, page }
+            const archive = await Client(request).query(Prismic.Predicates.at('document.type', `${type}`), { orderings: '[document.first_publication_date desc]', pageSize: 12 })
+            return { archive }
         } catch (error) {
             console.log(error)
             return { error: true }
