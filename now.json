@@ -6,19 +6,5 @@
             "src": "next.config.js",
             "use": "@now/next"
         }
-    ],
-    "routes": [
-        {
-            "src": "/preview",
-            "dest": "/preview"
-        },
-        {
-            "src": "/(?<uid>[^/]+)$",
-            "dest": "/post?uid=$uid"
-        },
-        {
-            "src": "categorias/(?<type>[^/]+)$",
-            "dest": "/archive?type=$type"
-        }
     ]
 }

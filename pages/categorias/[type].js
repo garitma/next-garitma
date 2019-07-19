@@ -1,10 +1,10 @@
-import { Client, Prismic } from '../api/prismic'
+import { Client, Prismic } from '../../api/prismic'
 import Link from 'next/link'
 
-import Layout from '../components/Layout'
-import SubHeader from '../components/SubHeader'
-import DefaultArchive from '../components/Archives/DefaultArchive'
-import QuoteArchives from '../components/Archives/QuoteArchives'
+import Layout from '../../components/Layout'
+import SubHeader from '../../components/SubHeader'
+import DefaultArchive from '../../components/Archives/DefaultArchive'
+import QuoteArchives from '../../components/Archives/QuoteArchives'
 
 
 export default class extends React.Component {
