@@ -3,6 +3,7 @@ import { Client, Prismic } from '../api/prismic'
 
 import SingleRead from '../components/SinglePost/SingleRead'
 import SingleComic from '../components/SinglePost/SingleComic'
+import SingleWallpaper from '../components/SinglePost/SingleWallpapers'
 
 
 export default class Post extends React.Component {
@@ -14,8 +15,9 @@ export default class Post extends React.Component {
         try {
             const poems = await Client(req).query(Prismic.Predicates.at('my.poemas.uid', `${uid}`));
             const comics = await Client(req).query(Prismic.Predicates.at('my.comics.uid', `${uid}`));
+            const descargas = await Client(req).query(Prismic.Predicates.at('my.descargas.uid', `${uid}`));
 
-            return { poems, comics }
+            return { poems, comics, descargas }
         } catch (error) {
             return { error: true }
         }
@@ -33,6 +35,12 @@ export default class Post extends React.Component {
         )
     }
 
+    renderWallpapers() {
+        return this.props.descargas.results.map((document, index) =>
+            <SingleWallpaper document={document} key={index} />
+        )
+    }
+
     renderBody() {
         return (
             <Layout>
@@ -41,6 +49,9 @@ export default class Post extends React.Component {
                 }
                 {this.props.comics.results.length > 0 &&
                     this.renderComics()
+                }
+                {this.props.descargas.results.length > 0 &&
+                    this.renderWallpapers()
                 }
             </Layout>
         )

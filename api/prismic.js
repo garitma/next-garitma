@@ -14,7 +14,5 @@ export const Prismic = PrismicLib
 
 export const linkResolver = doc => {
     if (doc.type === 'homepage') return '/'
-    else if (doc.type === 'poemas') return '/poemas'
-    else if (doc.type === 'frases') return '/frases'
     else return '/'
 }

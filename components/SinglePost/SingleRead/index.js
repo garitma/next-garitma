@@ -38,6 +38,7 @@ export default class SingleRead extends React.Component {
             <div className='smash'>
                 <div className='entry-content'>
                     {RichText.render(document.data.content)}
+                    <div data-wio-id={document.id}></div>
                 </div>
             </div>
         </div>
