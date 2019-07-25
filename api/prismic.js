@@ -12,7 +12,3 @@ export const Client = (req = null) => {
 }
 export const Prismic = PrismicLib
 
-export const linkResolver = doc => {
-    if (doc.type === 'homepage') return '/'
-    else return '/'
-}

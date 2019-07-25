@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import { RichText } from 'prismic-reactjs'
 
 export default class extends React.Component {
@@ -8,19 +10,19 @@ export default class extends React.Component {
             <li className='block small-12 medium-12 large-6'>
                 <div className='coat inside-pad'>
                     <div className='block module-img-container'>
-                        <a>
+                        <Link href={document.uid}><a>
                             <img className='responsive-image' src={document.data.featured_img.url} />
-                        </a>
+                        </a></Link>
                     </div>
                     <div className='module-box-detail'>
                         <div className='module-title'>
-                            <p><a>{RichText.asText(document.data.title)}</a></p>
+                            <p><Link href={document.uid}><a>{RichText.asText(document.data.title)}</a></Link></p>
                         </div>
                         <div className='module-description'>
                             {RichText.asText(document.data.excerpt)}
                         </div>
                         <div className='module-cta'>
-                            <a className='button-link'> Jugar</a>
+                            <Link href={document.uid}><a className='button-link'> Jugar</a></Link>
                         </div>
                     </div>
                 </div>

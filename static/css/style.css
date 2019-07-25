@@ -787,6 +787,20 @@ input, textarea {
   background-color: rgba(0, 0, 0, 0.9) !important;
 }
 
+.wio-link {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 21px;
+  background-color: #e8ebfe;
+  color: white;
+}
+
 #Top-bar {
   position: fixed;
   top: 0;
@@ -997,20 +1011,6 @@ footer .logo {
   position: absolute;
 }
 
-#searchform {
-  position: relative;
-}
-#searchform .search {
-  position: absolute;
-  right: 25px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.SuscribeBox h2 {
-  font-weight: 300;
-}
-
 .SubHeader {
   background: url("/static/images/rose-wallpaper.jpg");
   background-position: center;
@@ -1025,15 +1025,6 @@ footer .logo {
   text-transform: capitalize;
 }
 
-.search-box {
-  background: #fff;
-  margin-bottom: 30px;
-  text-align: center;
-}
-.search-box .search-title {
-  font-size: 1.3em;
-}
-
 .Featured {
   background: #fafafa;
 }
@@ -1041,43 +1032,8 @@ footer .logo {
 .hero-module {
   position: relative;
 }
-.hero-module .hero-content {
-  padding: 50px 25px 50px;
-  text-align: center;
-}
-@media only screen and (min-width: 767px) {
-  .hero-module .hero-content {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    top: 0;
-    padding: 50px 80px;
-  }
-  .hero-module .hero-content .hero-body {
-    width: 36%;
-  }
-  .hero-module .hero-content .hero-body .hero-description {
-    text-align: center;
-  }
-  .hero-module .hero-content .hero-body .hero-cta {
-    text-align: center;
-  }
-}
-
-.hero-module {
-  position: relative;
-}
 .hero-module .hero-look {
   text-align: right;
-}
-@media only screen and (max-width: 767px) {
-  .hero-module .hero-look {
-    text-align: center;
-  }
-  .hero-module .hero-look img {
-    max-height: 35vh;
-  }
 }
 .hero-module .hero-content {
   padding: 50px 25px 50px;
@@ -1107,13 +1063,6 @@ footer .logo {
   }
 }
 
-.SecondPromotionPlace {
-  background-color: #e8f7fe;
-}
-.SecondPromotionPlace .module-box-detail {
-  background-color: #e8f7fe;
-}
-
 .subhero {
   background-color: #fafafa;
 }
@@ -1136,46 +1085,6 @@ footer .logo {
 }
 .page-header-single .page-post-info .single-post-autor-date {
   margin-top: 30px;
-}
-
-.page-header-single {
-  text-align: center;
-}
-.page-header-single .page-post-info {
-  margin: 80px 0 50px 0;
-}
-.page-header-single .page-post-info .avatar-container .avatar {
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  max-width: 60px;
-}
-.page-header-single .page-post-info .single-post-autor-date {
-  margin-top: 30px;
-}
-
-.cover-play {
-  position: relative;
-}
-.cover-play .button {
-  position: absolute;
-  right: 20px;
-  bottom: 20px;
-}
-
-.SingleMovie .panel-video {
-  position: relative;
-}
-.SingleMovie .panel-video .hero-player {
-  cursor: pointer;
-  background-size: cover !important;
-  background-position: right !important;
-}
-.SingleMovie .panel-video .hero-player .hero-play-container {
-  padding: 190px 0;
-}
-.SingleMovie .movie-content {
-  margin: 60px 0;
 }
 
 .SinglePodcast .header-info {
@@ -1221,48 +1130,6 @@ footer .logo {
 }
 .page-header-single .page-post-info .single-post-autor-date {
   margin-top: 30px;
-}
-
-.page-header-single {
-  text-align: center;
-}
-.page-header-single .page-post-info {
-  margin: 80px 0 50px 0;
-}
-.page-header-single .page-post-info .avatar-container .avatar {
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  max-width: 60px;
-}
-.page-header-single .page-post-info .single-post-autor-date {
-  margin-top: 30px;
-}
-
-.SingleVideos .hero-player {
-  background-size: cover !important;
-  background-position: center !important;
-}
-.SingleVideos .hero-play-container {
-  height: 470px;
-  position: relative;
-}
-@media only screen and (max-width: 767px) {
-  .SingleVideos .hero-play-container {
-    height: 170px;
-  }
-}
-.SingleVideos .hero-play-container .play {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.SingleVideos .module-description .module-video-title {
-  text-align: center;
-}
-.SingleVideos .module-description .single-post-category {
-  text-align: center;
 }
 
 .SingleWallpapers .download-module {

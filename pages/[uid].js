@@ -2,7 +2,6 @@ import Layout from '../components/Layout'
 import { Client, Prismic } from '../api/prismic'
 
 import SingleRead from '../components/SinglePost/SingleRead'
-import SingleComic from '../components/SinglePost/SingleComic'
 import SingleWallpaper from '../components/SinglePost/SingleWallpapers'
 
 
@@ -16,8 +15,11 @@ export default class Post extends React.Component {
             const poems = await Client(req).query(Prismic.Predicates.at('my.poemas.uid', `${uid}`));
             const comics = await Client(req).query(Prismic.Predicates.at('my.comics.uid', `${uid}`));
             const descargas = await Client(req).query(Prismic.Predicates.at('my.descargas.uid', `${uid}`));
+            const games = await Client(req).query(Prismic.Predicates.at('my.juegos.uid', `${uid}`));
+            const podcasts = await Client(req).query(Prismic.Predicates.at('my.podcasts.uid', `${uid}`));
+            const videos = await Client(req).query(Prismic.Predicates.at('my.videos.uid', `${uid}`));
 
-            return { poems, comics, descargas }
+            return { poems, comics, descargas, games, podcasts, videos }
         } catch (error) {
             return { error: true }
         }
@@ -31,13 +33,31 @@ export default class Post extends React.Component {
 
     renderComics() {
         return this.props.comics.results.map((document, index) =>
-            <SingleComic document={document} key={index} />
+            <SingleRead document={document} key={index} />
         )
     }
 
     renderWallpapers() {
         return this.props.descargas.results.map((document, index) =>
             <SingleWallpaper document={document} key={index} />
+        )
+    }
+
+    renderGames() {
+        return this.props.games.results.map((document, index) =>
+            <SingleRead document={document} key={index} />
+        )
+    }
+
+    renderPodcasts() {
+        return this.props.podcasts.results.map((document, index) =>
+            <SingleRead document={document} key={index} />
+        )
+    }
+
+    renderVideos() {
+        return this.props.videos.results.map((document, index) =>
+            <SingleRead document={document} key={index} />
         )
     }
 
@@ -52,6 +72,15 @@ export default class Post extends React.Component {
                 }
                 {this.props.descargas.results.length > 0 &&
                     this.renderWallpapers()
+                }
+                {this.props.games.results.length > 0 &&
+                    this.renderGames()
+                }
+                {this.props.podcasts.results.length > 0 &&
+                    this.renderPodcasts()
+                }
+                {this.props.videos.results.length > 0 &&
+                    this.renderVideos()
                 }
             </Layout>
         )

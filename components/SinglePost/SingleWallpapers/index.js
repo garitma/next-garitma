@@ -10,6 +10,12 @@ export default class SingleWallpapers extends React.Component {
         return (
             <div className='SingleWallpapers'>
 
+                <div className='module' style={{ background: `${document.data.color}` }} >
+                    <div className='module-img smush'>
+                        <img className='responsive-image' src={document.data.featured_img.url} />
+                    </div>
+                </div>
+
                 <div className='smash'>
                     <div className='download-module pad'>
                         <div className='download-header'>

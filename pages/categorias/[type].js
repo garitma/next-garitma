@@ -16,7 +16,7 @@ export default class extends React.Component {
 
         try {
             const request = req && req.headers ? req : null
-            const archive = await Client(request).query(Prismic.Predicates.at('document.type', `${type}`), { orderings: '[document.first_publication_date desc]', pageSize: 12, page: `${page ? page : [1]}` })
+            const archive = await Client(request).query(Prismic.Predicates.at('document.type', `${type}`), { orderings: `[my.${type}.date desc]`, pageSize: 12, page: `${page ? page : [1]}` })
             return { archive }
         } catch (error) {
             console.log(error)
@@ -48,8 +48,16 @@ export default class extends React.Component {
                                         <div className="glyphsSprite arrowLeft disable" />
                                     </a>
                                 }
-                                {this.props.archive.prev_page != null &&
-                                    <Link href={`/categorias/${this.props.archive.results[0].type}?page=${Number(this.props.archive.page) - 1
+                                {this.props.archive.prev_page != null && this.props.archive.page == 2 &&
+                                    <Link href={`/categorias/${this.props.archive.results[0].type} `}>
+                                        <a className="button-link">
+                                            <div className="glyphsSprite arrowLeft" />
+                                        </a>
+                                    </Link>
+                                }
+
+                                {this.props.archive.prev_page != null && this.props.archive.page > 2 &&
+                                    <Link href={`/categorias/${this.props.archive.results[0].type}/?page=${Number(this.props.archive.page) - 1
                                         }`}>
                                         <a className="button-link">
                                             <div className="glyphsSprite arrowLeft" />
@@ -57,15 +65,21 @@ export default class extends React.Component {
                                     </Link>
                                 }
                             </li>
-                            <li className="items">{this.props.archive.page} de {this.props.archive.total_pages}</li>
+
+                            <li className="items page-numbers">
+
+                                {this.props.archive.page} de {this.props.archive.total_pages}
+
+                            </li>
                             <li className="items">
                                 {this.props.archive.next_page == null &&
                                     <a className="button-link">
                                         <div className="glyphsSprite arrowRight disable" />
                                     </a>
                                 }
+
                                 {this.props.archive.next_page != null &&
-                                    <Link href={`/categorias/${this.props.archive.results[0].type}?page=${Number(this.props.archive.page) + 1} `}>
+                                    <Link href={`/categorias/${this.props.archive.results[0].type}/?page=${Number(this.props.archive.page) + 1} `}>
                                         <a className="button-link">
                                             <div className="glyphsSprite arrowRight" />
                                         </a>

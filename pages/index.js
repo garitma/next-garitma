@@ -15,14 +15,14 @@ export default class extends React.Component {
 
     static async getInitialProps({ req, query }) {
         try {
-            const poems = await Client(req).query(Prismic.Predicates.at('document.type', 'poemas'), { orderings: '[document.first_publication_date desc]', pageSize: 1 });
-            const quotes = await Client(req).query(Prismic.Predicates.at('document.type', 'frases'), { orderings: '[document.first_publication_date desc]', pageSize: 2 });
-            const games = await Client(req).query(Prismic.Predicates.at('document.type', 'juegos'), { orderings: '[document.first_publication_date desc]', pageSize: 1 });
-            const podcasts = await Client(req).query(Prismic.Predicates.at('document.type', 'podcasts'), { orderings: '[document.first_publication_date desc]', pageSize: 1 });
-            const comics = await Client(req).query(Prismic.Predicates.at('document.type', 'comics'), { orderings: '[document.first_publication_date desc]', pageSize: 1 });
-            const videos = await Client(req).query(Prismic.Predicates.at('document.type', 'videos'), { orderings: '[document.first_publication_date desc]', pageSize: 2 });
-            const downloads = await Client(req).query(Prismic.Predicates.at('document.type', 'descargas'), { orderings: '[document.first_publication_date desc]', pageSize: 1 });
-            const featured = await Client(req).query(Prismic.Predicates.at('document.tags', ['featured']), { orderings: '[document.first_publication_date desc]', pageSize: 3 });
+            const poems = await Client(req).query(Prismic.Predicates.at('document.type', 'poemas'), { orderings: '[my.poemas.date desc]', pageSize: 1 });
+            const quotes = await Client(req).query(Prismic.Predicates.at('document.type', 'frases'), { orderings: '[my.frases.date desc]', pageSize: 2 });
+            const games = await Client(req).query(Prismic.Predicates.at('document.type', 'juegos'), { orderings: '[my.juegos.date desc]', pageSize: 1 });
+            const podcasts = await Client(req).query(Prismic.Predicates.at('document.type', 'podcasts'), { orderings: '[my.podcasts.date desc]', pageSize: 1 });
+            const comics = await Client(req).query(Prismic.Predicates.at('document.type', 'comics'), { orderings: '[my.comics.date desc]', pageSize: 1 });
+            const videos = await Client(req).query(Prismic.Predicates.at('document.type', 'videos'), { orderings: '[my.videos.date desc]', pageSize: 2 });
+            const downloads = await Client(req).query(Prismic.Predicates.at('document.type', 'descargas'), { orderings: '[my.descargas.date desc]', pageSize: 1 });
+            const featured = await Client(req).query(Prismic.Predicates.at('document.tags', ['featured']), { orderings: '[my.featured.date desc]', pageSize: 3 });
 
             return { poems, quotes, games, podcasts, comics, videos, downloads, featured }
         } catch (error) {
