@@ -37,6 +37,7 @@ export default class Layout extends React.Component {
                   window.prismic = { endpoint: '${PrismicConfig.apiEndpoint}' }
                  `}} />
                 <script src='//static.cdn.prismic.io/prismic.min.js' />
+                <script type="text/javascript" src="https://static.cdn.prismic.io/prismic.min.js" />
             </Head>
 
             <Navbar />

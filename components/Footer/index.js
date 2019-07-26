@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default class Navbar extends React.Component {
 
     render() {
@@ -13,10 +15,10 @@ export default class Navbar extends React.Component {
                         <ul className="nav-list coat">
 
                             <li className="item">
-                                <a>Terminos de uso</a>
+                                <Link href="/informacion-legal"><a>Terminos de uso</a></Link>
                             </li>
                             <li className="item">
-                                <a>Políticas de privacidad</a>
+                                <Link href="/informacion-legal"><a>Políticas de privacidad</a></Link>
                             </li>
 
                         </ul>

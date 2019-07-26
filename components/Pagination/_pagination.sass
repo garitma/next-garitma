@@ -1,0 +1,24 @@
+
+.page-numbers
+    height: 46px
+    line-height: 46px
+
+.current-page
+    border-radius: 4px
+    border: solid 1px darken($realse, 2%)
+    box-sizing: border-box
+    box-shadow: none
+    color: $root
+    height: 34px
+    width: 38px
+    text-align: right
+    font-size: $visual-scale-base * 0.90
+    margin-right: 5px
+    @media only screen and (min-width: $small-breakpoint)
+        font-size: $visual-scale-base * 0.95
+    @media only screen and (min-width: $large-breakpoint)
+        font-size: $visual-scale-base
+       
+
+#paginationform
+    display: inline-block

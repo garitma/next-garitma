@@ -5,6 +5,7 @@ import Layout from '../../components/Layout'
 import SubHeader from '../../components/SubHeader'
 import DefaultArchive from '../../components/Archives/DefaultArchive'
 import QuoteArchives from '../../components/Archives/QuoteArchives'
+import Pagination from '../../components/Pagination'
 
 
 export default class extends React.Component {
@@ -25,77 +26,26 @@ export default class extends React.Component {
     }
 
     renderArchives() {
-        return this.props.archive.results.map((document) =>
-            <DefaultArchive document={document} />
+        return this.props.archive.results.map((document, index) =>
+            <DefaultArchive document={document} key={index} />
         )
     }
 
     renderArchivesQuotes() {
-        return this.props.archive.results.map((document) =>
-            <QuoteArchives document={document} />
+        return this.props.archive.results.map((document, index) =>
+            <QuoteArchives document={document} key={index} />
         )
     }
 
     renderPagination() {
         return (
-            <div className="block">
-                <div className="pagination-container">
-                    <div className="">
-                        <ul className="nav-list">
-                            <li className="items">
-                                {this.props.archive.prev_page == null &&
-                                    <a className="button-link">
-                                        <div className="glyphsSprite arrowLeft disable" />
-                                    </a>
-                                }
-                                {this.props.archive.prev_page != null && this.props.archive.page == 2 &&
-                                    <Link href={`/categorias/${this.props.archive.results[0].type} `}>
-                                        <a className="button-link">
-                                            <div className="glyphsSprite arrowLeft" />
-                                        </a>
-                                    </Link>
-                                }
-
-                                {this.props.archive.prev_page != null && this.props.archive.page > 2 &&
-                                    <Link href={`/categorias/${this.props.archive.results[0].type}/?page=${Number(this.props.archive.page) - 1
-                                        }`}>
-                                        <a className="button-link">
-                                            <div className="glyphsSprite arrowLeft" />
-                                        </a>
-                                    </Link>
-                                }
-                            </li>
-
-                            <li className="items page-numbers">
-
-                                {this.props.archive.page} de {this.props.archive.total_pages}
-
-                            </li>
-                            <li className="items">
-                                {this.props.archive.next_page == null &&
-                                    <a className="button-link">
-                                        <div className="glyphsSprite arrowRight disable" />
-                                    </a>
-                                }
-
-                                {this.props.archive.next_page != null &&
-                                    <Link href={`/categorias/${this.props.archive.results[0].type}/?page=${Number(this.props.archive.page) + 1} `}>
-                                        <a className="button-link">
-                                            <div className="glyphsSprite arrowRight" />
-                                        </a>
-                                    </Link>
-                                }
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <Pagination document={this.props.archive} root={`/categorias/${this.props.archive.results[0].type}/`} />
         )
     }
 
     renderBody() {
         return <Layout>
-            <SubHeader subtitle={this.props.archive.results[0].type} />
+            <SubHeader text={this.props.archive.results[0].type} />
             <div className="pad archives">
                 <div className="coat ">
                     {this.props.archive.results[0].type != 'frases' &&

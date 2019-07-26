@@ -3,6 +3,7 @@ import { Client, Prismic } from '../api/prismic'
 
 import SingleRead from '../components/SinglePost/SingleRead'
 import SingleWallpaper from '../components/SinglePost/SingleWallpapers'
+import SinglePages from '../components/SinglePost/SinglePages'
 
 
 export default class Post extends React.Component {
@@ -18,8 +19,9 @@ export default class Post extends React.Component {
             const games = await Client(req).query(Prismic.Predicates.at('my.juegos.uid', `${uid}`));
             const podcasts = await Client(req).query(Prismic.Predicates.at('my.podcasts.uid', `${uid}`));
             const videos = await Client(req).query(Prismic.Predicates.at('my.videos.uid', `${uid}`));
+            const pages = await Client(req).query(Prismic.Predicates.at('my.paginas.uid', `${uid}`));
 
-            return { poems, comics, descargas, games, podcasts, videos }
+            return { poems, comics, descargas, games, podcasts, videos, pages }
         } catch (error) {
             return { error: true }
         }
@@ -61,6 +63,12 @@ export default class Post extends React.Component {
         )
     }
 
+    renderPages() {
+        return this.props.pages.results.map((document, index) =>
+            <SinglePages document={document} key={index} />
+        )
+    }
+
     renderBody() {
         return (
             <Layout>
@@ -81,6 +89,9 @@ export default class Post extends React.Component {
                 }
                 {this.props.videos.results.length > 0 &&
                     this.renderVideos()
+                }
+                {this.props.pages.results.length > 0 &&
+                    this.renderPages()
                 }
             </Layout>
         )

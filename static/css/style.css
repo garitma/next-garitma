@@ -272,11 +272,6 @@ article, aside, footer, header, nav, main, section, summary, figure, figcaption 
   padding-bottom: 60px;
 }
 
-.page-numbers {
-  height: 46px;
-  line-height: 46px;
-}
-
 .coat {
   display: flex;
   flex-wrap: wrap;
@@ -1025,6 +1020,48 @@ footer .logo {
   text-transform: capitalize;
 }
 
+#searchform {
+  position: relative;
+}
+#searchform .search {
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.page-numbers {
+  height: 46px;
+  line-height: 46px;
+}
+
+.current-page {
+  border-radius: 4px;
+  border: solid 1px #f0f2f5;
+  box-sizing: border-box;
+  box-shadow: none;
+  color: #262626;
+  height: 34px;
+  width: 38px;
+  text-align: right;
+  font-size: 0.9em;
+  margin-right: 5px;
+}
+@media only screen and (min-width: 767px) {
+  .current-page {
+    font-size: 0.95em;
+  }
+}
+@media only screen and (min-width: 1155px) {
+  .current-page {
+    font-size: 1em;
+  }
+}
+
+#paginationform {
+  display: inline-block;
+}
+
 .Featured {
   background: #fafafa;
 }
@@ -1034,6 +1071,14 @@ footer .logo {
 }
 .hero-module .hero-look {
   text-align: right;
+}
+@media only screen and (max-width: 767px) {
+  .hero-module .hero-look {
+    text-align: center;
+  }
+  .hero-module .hero-look img {
+    max-height: 35vh;
+  }
 }
 .hero-module .hero-content {
   padding: 50px 25px 50px;
@@ -1069,51 +1114,6 @@ footer .logo {
 
 .VideoTrailer {
   background: #fafafa;
-}
-
-.page-header-single {
-  text-align: center;
-}
-.page-header-single .page-post-info {
-  margin: 80px 0 50px 0;
-}
-.page-header-single .page-post-info .avatar-container .avatar {
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  max-width: 60px;
-}
-.page-header-single .page-post-info .single-post-autor-date {
-  margin-top: 30px;
-}
-
-.SinglePodcast .header-info {
-  padding: 20px 20px 45px 20px;
-}
-.SinglePodcast .header-info .SubHeader-title {
-  text-align: center;
-  font-weight: 300;
-}
-.SinglePodcast .header-info .single-post-category {
-  text-align: center;
-}
-.SinglePodcast .header-podcast {
-  padding: 0 30px;
-}
-.SinglePodcast .header-podcast .title-podcast {
-  margin: 0;
-}
-.SinglePodcast .podcast-player {
-  position: relative;
-}
-.SinglePodcast .podcast-player .player-wrap {
-  position: absolute;
-  width: 100%;
-  left: 0;
-  top: 0;
-  text-align: center;
-  vertical-align: middle;
-  padding-top: 30%;
 }
 
 .page-header-single {
