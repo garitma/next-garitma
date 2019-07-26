@@ -39,7 +39,7 @@ export default class extends React.Component {
 
     renderPagination() {
         return (
-            <Pagination document={this.props.archive} root={`/categorias/${this.props.archive.results[0].type}/`} />
+            <Pagination document={this.props.archive} root={`/categorias/${this.props.archive.results[0].type}/?`} />
         )
     }
 
@@ -54,10 +54,11 @@ export default class extends React.Component {
                     {this.props.archive.results[0].type == 'frases' &&
                         this.renderArchivesQuotes()
                     }
-
                 </div>
             </div>
-            {this.renderPagination()}
+            {this.props.archive.total_results_size > [12] &&
+                this.renderPagination()
+            }
         </Layout>
     }
 

@@ -5,6 +5,7 @@ import SearchForm from '../components/Search/SearchForm'
 import Layout from '../components/Layout'
 import SubHeader from '../components/SubHeader'
 import SearchResults from '../components/Search/SearchResults'
+import Pagination from '../components/Pagination'
 
 export default class extends React.Component {
 
@@ -15,7 +16,7 @@ export default class extends React.Component {
         const { s } = query
 
         try {
-            const search = await Client(req).query(Prismic.Predicates.fulltext('document', `${s}`), { pageSize: 12 });
+            const search = await Client(req).query(Prismic.Predicates.fulltext('document', `${s}`), { pageSize: 12, page: `${page ? page : [1]}` });
 
             return { search, s }
         } catch (error) {
@@ -25,7 +26,13 @@ export default class extends React.Component {
 
     renderSearchResults() {
         return this.props.search.results.map((document, index) =>
-            <></>
+            <SearchResults document={document} key={index} />
+        )
+    }
+
+    renderPagination() {
+        return (
+            <Pagination document={this.props.search} root={`/resultados?s=${this.props.s}&`} />
         )
     }
 
@@ -34,7 +41,7 @@ export default class extends React.Component {
         return <Layout>
             <SubHeader text={`Se encontraron ${this.props.search.total_results_size} resultados para ${this.props.s}`} />
             <div className="pad archives">
-                <div className="block smash">
+                <div className="block search-container">
                     <SearchForm />
                 </div>
 
@@ -45,6 +52,9 @@ export default class extends React.Component {
                     </div>
                 </ul>
             </div>
+            {this.props.search.total_results_size > [12] &&
+                this.renderPagination()
+            }
         </Layout>
     }
 

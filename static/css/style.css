@@ -1030,6 +1030,12 @@ footer .logo {
   transform: translateY(-50%);
 }
 
+.search-container {
+  max-width: 440px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .page-numbers {
   height: 46px;
   line-height: 46px;
