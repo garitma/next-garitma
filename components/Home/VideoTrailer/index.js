@@ -19,7 +19,7 @@ export default class VideoTrailer extends React.Component {
                         <div className="module-cta">
                             <Link href="/[uid]" as={document.uid}><a className="button-link">Ver</a></Link>
                             <span>|</span>
-                            <Link href={`/categorias/${document.type}`}><a className="button-link">Ver más {document.type}</a></Link>
+                            <Link href={`/categorias/${document.type}/`}><a className="button-link">Ver más {document.type}</a></Link>
                         </div>
                     </div>
                 </div>

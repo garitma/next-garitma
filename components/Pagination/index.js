@@ -14,7 +14,7 @@ export default class Pagination extends React.Component {
                                 </a>
                             }
                             {document.prev_page != null && document.page == 2 &&
-                                <Link href={`${root}${string}`}>
+                                <Link href={`${root}`}>
                                     <a className="button-link">
                                         <div className="glyphsSprite arrowLeft" />
                                     </a>
@@ -32,7 +32,7 @@ export default class Pagination extends React.Component {
 
                         <li className="items page-numbers">
                             <span>
-                                <form method="get" id="paginationform" action={`${root}`}>
+                                <form method="get" id="paginationform" action={`${root}${string}`}>
                                     <input className="current-page" pattern="[0-9]*" inputMode="numeric" type="number" name="page" placeholder={document.page} min="1" max={document.total_pages} required />
                                 </form>
                             </span>
@@ -47,7 +47,7 @@ export default class Pagination extends React.Component {
                             }
 
                             {document.next_page != null &&
-                                <Link href={`${root}page=${Number(document.page) + 1} `}>
+                                <Link href={`${root}${string}page=${Number(document.page) + 1} `}>
                                     <a className="button-link">
                                         <div className="glyphsSprite arrowRight" />
                                     </a>

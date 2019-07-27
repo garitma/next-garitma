@@ -605,7 +605,7 @@ input, textarea {
   transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .glyphsSprite.download {
-  background-position: -48px -48px;
+  background-position: -146px -48px;
   width: 96px;
   height: 96px;
   cursor: pointer;

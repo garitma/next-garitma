@@ -48,13 +48,13 @@ export default class Navbar extends React.Component {
                                                 <input className="menu-item" id="search" type="search" placeholder="Buscar" name="s" required />
                                             </form>
                                         </li>
-                                        <li onClick={this.toggle.bind(this)}><Link href='/categorias/poemas/'><a className="menu-item">Poemas</a></Link></li>
-                                        <li onClick={this.toggle.bind(this)}><Link href='/categorias/frases/'><a className="menu-item">Frases</a></Link></li>
-                                        <li onClick={this.toggle.bind(this)}><Link href='/categorias/comics/'><a className="menu-item">Cómics</a></Link></li>
-                                        <li onClick={this.toggle.bind(this)}><Link href='/categorias/videos/'><a className="menu-item">Videos</a></Link></li>
-                                        <li onClick={this.toggle.bind(this)}><Link href='/categorias/descargas/'><a className="menu-item">Descargas</a></Link></li>
-                                        <li onClick={this.toggle.bind(this)}><Link href='/categorias/podcasts/'><a className="menu-item">Podcasts</a></Link></li>
-                                        <li onClick={this.toggle.bind(this)}><Link href='/categorias/juegos/'><a className="menu-item">Juegos</a></Link></li>
+                                        <li onClick={this.toggle.bind(this)}><Link href='/categorias/[type]/' as='/categorias/poemas/'><a className="menu-item">Poemas</a></Link></li>
+                                        <li onClick={this.toggle.bind(this)}><Link href='/categorias/[type]/' as='/categorias/frases/'><a className="menu-item">Frases</a></Link></li>
+                                        <li onClick={this.toggle.bind(this)}><Link href='/categorias/[type]/' as='/categorias/comics/'><a className="menu-item">Cómics</a></Link></li>
+                                        <li onClick={this.toggle.bind(this)}><Link href='/categorias/[type]/' as='/categorias/videos/'><a className="menu-item">Videos</a></Link></li>
+                                        <li onClick={this.toggle.bind(this)}><Link href='/categorias/[type]/' as='/categorias/descargas/'><a className="menu-item">Descargas</a></Link></li>
+                                        <li onClick={this.toggle.bind(this)}><Link href='/categorias/[type]/' as='/categorias/podcasts/'><a className="menu-item">Podcasts</a></Link></li>
+                                        <li onClick={this.toggle.bind(this)}><Link href='/categorias/[type]/' as='/categorias/juegos/'><a className="menu-item">Juegos</a></Link></li>
                                     </ul>
                                 </div>
                             </div>
