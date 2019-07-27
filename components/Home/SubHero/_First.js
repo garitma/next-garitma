@@ -11,7 +11,7 @@ export default class extends React.Component {
                 <div className='coat inside-pad'>
                     <div className='block module-img-container'>
                         <Link href={document.uid}><a>
-                            <img className='responsive-image' src={document.data.featured_img.url} />
+                            <img className='responsive-image' src={document.data.featured_img.url} alt={document.data.featured_img.alt} />
                         </a></Link>
                     </div>
                     <div className='module-box-detail'>

@@ -14,7 +14,7 @@ export default class Pagination extends React.Component {
                                 </a>
                             }
                             {document.prev_page != null && document.page == 2 &&
-                                <Link href={`${root}`}>
+                                <Link href={`${root}`} as={`${root}`}>
                                     <a className="button-link">
                                         <div className="glyphsSprite arrowLeft" />
                                     </a>
@@ -22,8 +22,7 @@ export default class Pagination extends React.Component {
                             }
 
                             {document.prev_page != null && document.page > 2 &&
-                                <Link href={`${root}page=${Number(document.page) - 1
-                                    }`}>
+                                <Link href={`${root}page=${Number(document.page) - 1}`} as={`${root}page=${Number(document.page) - 1}`}>
                                     <a className="button-link">
                                         <div className="glyphsSprite arrowLeft" />
                                     </a>
@@ -49,7 +48,7 @@ export default class Pagination extends React.Component {
                             }
 
                             {document.next_page != null &&
-                                <Link href={`${root}page=${Number(document.page) + 1} `}>
+                                <Link as={`${root}page=${Number(document.page) + 1} `} href={`${root}page=${Number(document.page) + 1} `}>
                                     <a className="button-link">
                                         <div className="glyphsSprite arrowRight" />
                                     </a>

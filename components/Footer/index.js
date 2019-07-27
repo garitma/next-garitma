@@ -15,10 +15,10 @@ export default class Navbar extends React.Component {
                         <ul className="nav-list coat">
 
                             <li className="item">
-                                <Link href="/informacion-legal"><a>Terminos de uso</a></Link>
+                                <Link href="/[type]" as="/informacion-legal"><a>Terminos de uso</a></Link>
                             </li>
                             <li className="item">
-                                <Link href="/informacion-legal"><a>Políticas de privacidad</a></Link>
+                                <Link href="/[type]" as="/informacion-legal"><a>Políticas de privacidad</a></Link>
                             </li>
 
                         </ul>

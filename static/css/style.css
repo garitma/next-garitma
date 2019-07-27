@@ -1083,11 +1083,11 @@ footer .logo {
     text-align: center;
   }
   .hero-module .hero-look img {
-    max-height: 35vh;
+    max-height: 30vh;
   }
 }
 .hero-module .hero-content {
-  padding: 50px 25px 50px;
+  padding: 25px 25px 50px;
   text-align: center;
 }
 @media only screen and (min-width: 767px) {

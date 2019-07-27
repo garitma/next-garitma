@@ -8,8 +8,8 @@ export default class VideoTrailer extends React.Component {
             <li className="block small-12 medium-6">
                 <div className="coat inside-pad">
                     <div className="block module-img-container">
-                        <Link href={document.uid}><a>
-                            <img className="responsive-image" src={document.data.featured_img.url} />
+                        <Link href="/[uid]" as={document.uid}><a>
+                            <img className="responsive-image" src={document.data.featured_img.url} alt={document.data.featured_img.alt} />
                         </a></Link>
                     </div>
                     <div className="module-box-detail">
@@ -17,9 +17,9 @@ export default class VideoTrailer extends React.Component {
                             <p>{RichText.asText(document.data.title)}</p>
                         </div>
                         <div className="module-cta">
-                            <Link href={document.uid}><a className="button-link">Ver</a></Link>
+                            <Link href="/[uid]" as={document.uid}><a className="button-link">Ver</a></Link>
                             <span>|</span>
-                            <Link href={`/categorias/${document.type}`}><a className="button-link">Ver más {document.type}</a></Link>
+                            <Link href="/cateogorias/[type]" as={`/categorias/${document.type}`}><a className="button-link">Ver más {document.type}</a></Link>
                         </div>
                     </div>
                 </div>

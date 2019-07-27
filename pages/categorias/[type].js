@@ -1,5 +1,4 @@
 import { Client, Prismic } from '../../api/prismic'
-import Link from 'next/link'
 
 import Layout from '../../components/Layout'
 import SubHeader from '../../components/SubHeader'
@@ -20,7 +19,6 @@ export default class extends React.Component {
             const archive = await Client(request).query(Prismic.Predicates.at('document.type', `${type}`), { orderings: `[my.${type}.date desc]`, pageSize: 12, page: `${page ? page : [1]}` })
             return { archive }
         } catch (error) {
-            console.log(error)
             return { error: true }
         }
     }
@@ -44,7 +42,7 @@ export default class extends React.Component {
     }
 
     renderBody() {
-        return <Layout>
+        return (<Layout>
             <SubHeader text={this.props.archive.results[0].type} />
             <div className="pad archives">
                 <div className="coat ">
@@ -59,7 +57,7 @@ export default class extends React.Component {
             {this.props.archive.total_results_size > [12] &&
                 this.renderPagination()
             }
-        </Layout>
+        </Layout>)
     }
 
     render() {
