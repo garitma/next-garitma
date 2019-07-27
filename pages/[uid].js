@@ -2,7 +2,6 @@ import Layout from '../components/Layout'
 import { Client, Prismic } from '../api/prismic'
 
 import SingleRead from '../components/SinglePost/SingleRead'
-import SingleWallpaper from '../components/SinglePost/SingleWallpapers'
 import SinglePages from '../components/SinglePost/SinglePages'
 
 
@@ -41,7 +40,7 @@ export default class Post extends React.Component {
 
     renderWallpapers() {
         return this.props.descargas.results.map((document, index) =>
-            <SingleWallpaper document={document} key={index} />
+            <SingleRead document={document} key={index} />
         )
     }
 

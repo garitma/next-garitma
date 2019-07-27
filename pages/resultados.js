@@ -32,7 +32,7 @@ export default class extends React.Component {
 
     renderPagination() {
         return (
-            <Pagination document={this.props.search} root={`/resultados?s=${this.props.s}&`} />
+            <Pagination document={this.props.search} root={`/resultados?s=${this.props.s}`} string="&" />
         )
     }
 

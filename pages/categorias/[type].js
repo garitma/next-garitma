@@ -37,7 +37,7 @@ export default class extends React.Component {
 
     renderPagination() {
         return (
-            <Pagination document={this.props.archive} root={`/categorias/${this.props.archive.results[0].type}/?`} />
+            <Pagination document={this.props.archive} root={`/categorias/${this.props.archive.results[0].type}/`} string="?" />
         )
     }
 

@@ -604,6 +604,13 @@ input, textarea {
   cursor: pointer;
   transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
+.glyphsSprite.download {
+  background-position: -48px -48px;
+  width: 96px;
+  height: 96px;
+  cursor: pointer;
+  transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
 .glyphsSprite.link {
   background-position: -144px -24px;
 }
@@ -1125,6 +1132,18 @@ footer .logo {
 .page-header-single {
   text-align: center;
 }
+.page-header-single .module {
+  position: relative;
+}
+.page-header-single .module .action {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.page-header-single .single-post-category {
+  text-transform: capitalize;
+}
 .page-header-single .page-post-info {
   margin: 80px 0 50px 0;
 }
@@ -1136,32 +1155,6 @@ footer .logo {
 }
 .page-header-single .page-post-info .single-post-autor-date {
   margin-top: 30px;
-}
-
-.SingleWallpapers .download-module {
-  background-color: #fafafa;
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-.SingleWallpapers .download-module .download-header {
-  text-align: center;
-}
-.SingleWallpapers .download-module .download-module-content {
-  margin-top: 50px;
-}
-.SingleWallpapers .download-module .creative-protection {
-  margin: 10px 0;
-}
-.SingleWallpapers .download-module .download-info {
-  max-width: 350px;
-  margin: 0 auto;
-}
-.SingleWallpapers .download-module .cta-download {
-  text-align: center;
-  margin: 30px 0;
-}
-.SingleWallpapers .download-module .module-img-container {
-  margin-bottom: 30px;
 }
 
 /*# sourceMappingURL=style.css.map */

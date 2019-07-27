@@ -31,7 +31,7 @@ export default class HeroPoem extends React.Component {
                                         <a className='button-link'>Leer</a>
                                     </Link>
                                     <span>|</span>
-                                    <Link href="/cateogorias/[type]" as={`/categorias/${document.type}`}>
+                                    <Link href={`/categorias/${document.type}`}>
                                         <a className='button-link'>
                                             Ver más {document.type}
                                         </a>
