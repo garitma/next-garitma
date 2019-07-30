@@ -19,7 +19,7 @@ export default class SingleRead extends React.Component {
     }
 
     render() {
-        
+
         const { document } = this.props
 
         return (<div className='page-header-single'>
@@ -53,7 +53,7 @@ export default class SingleRead extends React.Component {
             <div className='page-post-body block smash'>
                 <div className='page-post-info'>
                     <div className='page-single-post-type single-post-category'>
-                        <Link href={`/categorias/${document.type}/`}><a>{document.type}</a></Link>
+                        <Link href={`/categorias/${document.type}`}><a>{document.type}</a></Link>
                     </div>
                     <div>
                         <h1 className='headline-single'>{RichText.asText(document.data.title)}</h1>

@@ -33,11 +33,14 @@ export default class Error extends React.Component {
 
     renderDefault() {
         return (
-            <p>
-                {this.props.statusCode
-                    ? `An error ${this.props.statusCode} occurred on server`
-                    : 'An error occurred on client'}
-            </p>
+            <Layout>
+                <h1 className="block title-error">Hubo un problema :(</h1>
+                <p className="block">
+                    {this.props.statusCode
+                        ? `An error ${this.props.statusCode} occurred on server`
+                        : 'An error occurred on client'}
+                </p>
+            </Layout>
         )
     }
 

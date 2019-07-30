@@ -2,6 +2,7 @@ import Layout from '../components/Layout'
 import { Client } from '../api/prismic'
 import SingleRead from '../components/SinglePost/SingleRead'
 import SinglePages from '../components/SinglePost/SinglePages'
+import Error from './_error'
 
 
 export default class Post extends React.Component {
@@ -79,7 +80,7 @@ export default class Post extends React.Component {
         }
 
         if (poems == null && comics == null && downloads == null && games == null && podcasts == null && videos == null && pages == null) {
-            return <div>Error</div>
+            return <Error statusCode="404" />
         }
 
 
