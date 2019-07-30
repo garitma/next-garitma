@@ -3,7 +3,7 @@ import { RichText } from 'prismic-reactjs'
 
 export default class PromotionPlaces extends React.Component {
     render() {
-        const { document } = this.props
+        const { document, cta } = this.props
         return (
             <ul className="PromotionPlace" style={{ background: `${document.data.color}` }}>
                 <li className="coat">
@@ -16,9 +16,9 @@ export default class PromotionPlaces extends React.Component {
                                 <p>{RichText.asText(document.data.excerpt)}</p>
                             </div>
                             <div className="module-cta">
-                                <Link href="/[uid]" as={document.uid}><a className="button-link">Leer</a></Link>
+                                <Link href="/[uid]" as={document.uid}><a className="button-link">{cta}</a></Link>
                                 <span>|</span>
-                                <Link href={`/categorias/${document.type}/`}><a className="button-link">Ver más {document.type}</a></Link>
+                                <Link href={`/categorias/${document.type}`}><a className="button-link">Ver más {document.type}</a></Link>
                             </div>
                         </div>
                     </div>

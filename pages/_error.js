@@ -11,9 +11,10 @@ export default class Error extends React.Component {
     render404() {
         return (
             <Layout>
-                <h1>Oh no!</h1>
-                <h3>We can't seem to find the page you're looking for.</h3>
-                <h3><Link route='/'><a>Back to the homepage</a></Link></h3>
+                <div className="message error coat">
+                    <h1 className="block title-error">Esta página no existe :(</h1>
+                    <p className="block"><Link><a className="button dark">Volver al inicio</a></Link></p>
+                </div>
             </Layout>
         )
     }
@@ -21,8 +22,11 @@ export default class Error extends React.Component {
     render500() {
         return (
             <Layout>
-                <h1>Oh no!</h1>
-                <h3>Something went wrong. Please contact the support.</h3>
+                <div className="message error coat">
+                    <h1 className="block title-error">Hubo un problema :(</h1>
+                    <p className="block">Intenta nuevamente en unos segundos</p>
+                    <p className="block"><Link><a className="button dark">Volver al inicio</a></Link></p>
+                </div>
             </Layout>
         )
     }

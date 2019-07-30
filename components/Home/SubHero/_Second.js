@@ -11,7 +11,7 @@ export default class extends React.Component {
                     <blockquote>{RichText.asText(document.data.title)}</blockquote>
                 </div>
                 <div className='module-cta'>
-                    <Link href={`/categorias/${document.type}/`}><a className='button-link'>Ver más {document.type}</a></Link>
+                    <Link href={`/categorias/${document.type}`}><a className='button-link'>Ver más {document.type}</a></Link>
                 </div>
             </div>
 

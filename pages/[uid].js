@@ -1,6 +1,5 @@
 import Layout from '../components/Layout'
-import { Client, Prismic } from '../api/prismic'
-
+import { Client } from '../api/prismic'
 import SingleRead from '../components/SinglePost/SingleRead'
 import SinglePages from '../components/SinglePost/SinglePages'
 
@@ -9,95 +8,81 @@ export default class Post extends React.Component {
 
     static async getInitialProps({ req, query }) {
 
-        const { uid } = query
-
         try {
-            const poems = await Client(req).query(Prismic.Predicates.at('my.poemas.uid', `${uid}`));
-            const comics = await Client(req).query(Prismic.Predicates.at('my.comics.uid', `${uid}`));
-            const descargas = await Client(req).query(Prismic.Predicates.at('my.descargas.uid', `${uid}`));
-            const games = await Client(req).query(Prismic.Predicates.at('my.juegos.uid', `${uid}`));
-            const podcasts = await Client(req).query(Prismic.Predicates.at('my.podcasts.uid', `${uid}`));
-            const videos = await Client(req).query(Prismic.Predicates.at('my.videos.uid', `${uid}`));
-            const pages = await Client(req).query(Prismic.Predicates.at('my.paginas.uid', `${uid}`));
+            const [poems, comics, downloads, games, podcasts, videos, pages] = await Promise.all([
+                Client(req).getByUID('poemas', query.uid),
+                Client(req).getByUID('comics', query.uid),
+                Client(req).getByUID('descargas', query.uid),
+                Client(req).getByUID('juegos', query.uid),
+                Client(req).getByUID('podcasts', query.uid),
+                Client(req).getByUID('videos', query.uid),
+                Client(req).getByUID('paginas', query.uid)
+            ])
 
-            return { poems, comics, descargas, games, podcasts, videos, pages }
+            return { poems, comics, downloads, games, podcasts, videos, pages }
         } catch (error) {
-            return { error: true }
+            return { poems: null, comics: null, downloads: null, games: null, podcasts: null, videos: null, pages: null, error: true }
         }
     }
 
-    renderPoems() {
-        return this.props.poems.results.map((document, index) =>
-            <SingleRead document={document} key={index} />
-        )
-    }
-
-    renderComics() {
-        return this.props.comics.results.map((document, index) =>
-            <SingleRead document={document} key={index} />
-        )
-    }
-
-    renderWallpapers() {
-        return this.props.descargas.results.map((document, index) =>
-            <SingleRead document={document} key={index} />
-        )
-    }
-
-    renderGames() {
-        return this.props.games.results.map((document, index) =>
-            <SingleRead document={document} key={index} />
-        )
-    }
-
-    renderPodcasts() {
-        return this.props.podcasts.results.map((document, index) =>
-            <SingleRead document={document} key={index} />
-        )
-    }
-
-    renderVideos() {
-        return this.props.videos.results.map((document, index) =>
-            <SingleRead document={document} key={index} />
-        )
-    }
-
-    renderPages() {
-        return this.props.pages.results.map((document, index) =>
-            <SinglePages document={document} key={index} />
-        )
-    }
-
     renderBody() {
+
+        const { poems, comics, downloads, games, podcasts, videos, pages } = this.props
+
         return (
             <Layout>
-                {this.props.poems.results.length > 0 &&
-                    this.renderPoems()
+
+                {poems
+                    ? <SingleRead document={poems} />
+                    : ''}
+
+                {comics
+                    ? <SingleRead document={comics} />
+                    : ''
                 }
-                {this.props.comics.results.length > 0 &&
-                    this.renderComics()
+
+                {downloads
+                    ? <SingleRead document={downloads} />
+                    : ''
                 }
-                {this.props.descargas.results.length > 0 &&
-                    this.renderWallpapers()
+
+                {games
+                    ? <SingleRead document={games} />
+                    : ''
                 }
-                {this.props.games.results.length > 0 &&
-                    this.renderGames()
+
+                {podcasts
+                    ? <SingleRead document={podcasts} />
+                    : ''
                 }
-                {this.props.podcasts.results.length > 0 &&
-                    this.renderPodcasts()
+
+                {videos
+                    ? <SingleRead document={videos} />
+                    : ''
                 }
-                {this.props.videos.results.length > 0 &&
-                    this.renderVideos()
+
+                {pages
+                    ? <SinglePages document={pages} />
+                    : ''
                 }
-                {this.props.pages.results.length > 0 &&
-                    this.renderPages()
-                }
+
             </Layout>
         )
     }
 
     render() {
-        if (this.props.error) return <Error />
-        else return this.renderBody()
+
+        const { poems, comics, downloads, games, podcasts, videos, pages, error } = this.props
+
+        if (error) {
+            return <div>Error</div>
+        }
+
+        if (poems == null && comics == null && downloads == null && games == null && podcasts == null && videos == null && pages == null) {
+            return <div>Error</div>
+        }
+
+
+        return this.renderBody()
     }
 }

@@ -15,14 +15,16 @@ export default class extends React.Component {
 
     static async getInitialProps({ req, query }) {
         try {
-            const poems = await Client(req).query(Prismic.Predicates.at('document.type', 'poemas'), { orderings: '[my.poemas.date desc]', pageSize: 1 });
-            const quotes = await Client(req).query(Prismic.Predicates.at('document.type', 'frases'), { orderings: '[my.frases.date desc]', pageSize: 2 });
-            const games = await Client(req).query(Prismic.Predicates.at('document.type', 'juegos'), { orderings: '[my.juegos.date desc]', pageSize: 1 });
-            const podcasts = await Client(req).query(Prismic.Predicates.at('document.type', 'podcasts'), { orderings: '[my.podcasts.date desc]', pageSize: 1 });
-            const comics = await Client(req).query(Prismic.Predicates.at('document.type', 'comics'), { orderings: '[my.comics.date desc]', pageSize: 1 });
-            const videos = await Client(req).query(Prismic.Predicates.at('document.type', 'videos'), { orderings: '[my.videos.date desc]', pageSize: 2 });
-            const downloads = await Client(req).query(Prismic.Predicates.at('document.type', 'descargas'), { orderings: '[my.descargas.date desc]', pageSize: 1 });
-            const featured = await Client(req).query(Prismic.Predicates.at('document.tags', ['featured']), { orderings: '[my.featured.date desc]', pageSize: 3 });
+            const [poems, quotes, games, podcasts, comics, videos, downloads, featured] = await Promise.all([
+                Client(req).query(Prismic.Predicates.at('document.type', 'poemas'), { orderings: '[my.poemas.date desc]', pageSize: 1 }),
+                Client(req).query(Prismic.Predicates.at('document.type', 'frases'), { orderings: '[my.frases.date desc]', pageSize: 2 }),
+                Client(req).query(Prismic.Predicates.at('document.type', 'juegos'), { orderings: '[my.juegos.date desc]', pageSize: 1 }),
+                Client(req).query(Prismic.Predicates.at('document.type', 'podcasts'), { orderings: '[my.podcasts.date desc]', pageSize: 1 }),
+                Client(req).query(Prismic.Predicates.at('document.type', 'comics'), { orderings: '[my.comics.date desc]', pageSize: 1 }),
+                Client(req).query(Prismic.Predicates.at('document.type', 'videos'), { orderings: '[my.videos.date desc]', pageSize: 2 }),
+                Client(req).query(Prismic.Predicates.at('document.type', 'descargas'), { orderings: '[my.descargas.date desc]', pageSize: 1 }),
+                Client(req).query(Prismic.Predicates.at('document.tags', ['featured']), { orderings: '[my.featured.date desc]', pageSize: 3 })
+            ])
 
             return { poems, quotes, games, podcasts, comics, videos, downloads, featured }
         } catch (error) {
@@ -56,7 +58,7 @@ export default class extends React.Component {
 
     renderPromotionPlaceComic() {
         return this.props.comics.results.map((document, index) =>
-            <PromotionPlace document={document} key={index} />
+            <PromotionPlace document={document} key={index} cta="Leer" />
         )
     }
 
@@ -68,7 +70,7 @@ export default class extends React.Component {
 
     renderPromotionPlaceDownloads() {
         return this.props.downloads.results.map((document, index) =>
-            <PromotionPlace document={document} key={index} />
+            <PromotionPlace document={document} key={index} cta="Descargar" />
         )
     }
 
