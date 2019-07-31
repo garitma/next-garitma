@@ -2,7 +2,6 @@ import React from 'react'
 import Link from 'next/link'
 import Layout from '../components/Layout'
 import Head from 'next/head'
-import GaritmicConfig from '../../garitmic.config.json'
 
 export default class Error extends React.Component {
     static getInitialProps({ res, err }) {
@@ -13,9 +12,6 @@ export default class Error extends React.Component {
     render404() {
         return (
             <Layout>
-                <Head>
-                    <title>Esta página no existe - {GaritmicConfig.siteName}</title>
-                </Head>
                 <div className="message error coat">
                     <h1 className="block title-error pad">Esta página no existe :(</h1>
                     <p className="block"><Link href="/"><a className="button dark">Volver al inicio</a></Link></p>
@@ -27,7 +23,6 @@ export default class Error extends React.Component {
     render500() {
         return (
             <Layout>
-                <ErrorSeo />
                 <div className="message error coat">
                     <h1 className="block title-error pad">Hubo un problema :(</h1>
                     <p className="block"><Link href="/"><a className="button dark">Volver al inicio</a></Link></p>
@@ -39,7 +34,6 @@ export default class Error extends React.Component {
     renderDefault() {
         return (
             <Layout>
-                <ErrorSeo />
                 <div className="message error coat">
                     <h1 className="block title-error pad">Hubo un problema :(</h1>
                 </div>

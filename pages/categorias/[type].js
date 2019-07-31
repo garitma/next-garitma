@@ -6,7 +6,7 @@ import DefaultArchive from '../../components/Archives/DefaultArchive'
 import QuoteArchives from '../../components/Archives/QuoteArchives'
 import Pagination from '../../components/Pagination'
 import ArchiveSeo from '../../components/Seo/ArchiveSeo'
-import Error from 'next/error'
+import Error from '../_error'
 
 
 
