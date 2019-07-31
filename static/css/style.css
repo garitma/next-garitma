@@ -218,7 +218,7 @@ body {
 
 main {
   position: relative;
-  max-width: 1600px;
+  max-width: 2550px;
   margin: 0 auto;
 }
 
@@ -1111,7 +1111,8 @@ footer .logo {
   }
   .hero-module .hero-content .hero-body .hero-detail {
     transform: translateY(-50%);
-    margin-top: 50%;
+    top: 50%;
+    position: absolute;
   }
   .hero-module .hero-content .hero-body .hero-detail .hero-description {
     text-align: center;

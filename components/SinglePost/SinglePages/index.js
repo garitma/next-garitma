@@ -1,12 +1,13 @@
 
 import { RichText } from 'prismic-reactjs'
+import SingleSeo from "../../Seo/SingleSeo"
 
 
 export default class SingleRead extends React.Component {
     render() {
         const { document } = this.props
         return (<div>
-
+            <SingleSeo document={document} />
             <div className='SubHeader'>
                 <div className='coat smash'>
                     <h1 className='content-center SubHeader-title'>{RichText.asText(document.data.title)}</h1>

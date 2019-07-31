@@ -5,6 +5,8 @@ import SubHeader from '../../components/SubHeader'
 import DefaultArchive from '../../components/Archives/DefaultArchive'
 import QuoteArchives from '../../components/Archives/QuoteArchives'
 import Pagination from '../../components/Pagination'
+import ArchiveSeo from '../../components/Seo/ArchiveSeo'
+import Error from 'next/error'
 
 
 
@@ -18,9 +20,14 @@ export default class extends React.Component {
         try {
             const request = req && req.headers ? req : null
             const archive = await Client(request).query(Prismic.Predicates.at('document.type', `${type}`), { orderings: `[my.${type}.date desc]`, pageSize: `${GaritmicConfig.ArchivePageSize}`, page: `${page ? page : [1]}` })
-            return { archive }
+
+            if (archive.status >= 400) {
+                return { statusCode: archive.status }
+            }
+
+            return { archive, statusCode: 200 }
         } catch (error) {
-            return { error: true }
+            return { error: true, archive: null, statusCode: 503 }
         }
     }
 
@@ -45,6 +52,7 @@ export default class extends React.Component {
     renderBody() {
         return (<Layout>
             <SubHeader text={this.props.archive.results[0].type} />
+            <ArchiveSeo document={this.props.archive} />
             <div className="pad archives">
                 <div className="coat ">
                     {this.props.archive.results[0].type != 'frases' &&
@@ -62,7 +70,17 @@ export default class extends React.Component {
     }
 
     render() {
+
+        if (this.props.statusCode !== 200) {
+            return <Error statusCode={statusCode} />
+        }
+
+        if (this.props.archive.results.length == 0) {
+            return <Error statusCode="404" />
+        }
+
         if (this.props.error) return <Error />
+
         else return this.renderBody()
     }
 }

@@ -2,7 +2,7 @@ import Layout from '../components/Layout'
 import { Client } from '../api/prismic'
 import SingleRead from '../components/SinglePost/SingleRead'
 import SinglePages from '../components/SinglePost/SinglePages'
-import Error from './_error'
+import Error from 'next/error'
 
 
 export default class Post extends React.Component {

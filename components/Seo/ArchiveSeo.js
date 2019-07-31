@@ -1,12 +1,15 @@
 import NextSeo from 'next-seo'
+import { RichText } from 'prismic-reactjs'
 import GaritmicConfig from '../../garitmic.config.json'
 
-export default class GeneralSeo extends React.Component {
+export default class ArchiveSeo extends React.Component {
     render() {
+        const { document } = this.props
         return (
             <NextSeo
                 config={{
-                    title: `${GaritmicConfig.siteName}`,
+                    title: `${document.results[0].type}`,
+                    titleTemplate: `%s - ${GaritmicConfig.siteName}`,
                     description: `${GaritmicConfig.siteDescription}`,
                     canonical: `${GaritmicConfig.siteURL}`,
                     openGraph: {

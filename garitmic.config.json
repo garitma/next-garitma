@@ -8,12 +8,10 @@
     "timeZone": "UTC-5",
     "dateFormat": "LL",
     "ArchivePageSize": "12",
-    "Social": [
-        {
-            "instagram": "garitma",
-            "twitter": "garitma",
-            "facebook": "garitma",
-            "facebookappId": "2316614485265162"
-        }
-    ]
+    "social": {
+        "instagram": "garitma",
+        "twitter": "garitma",
+        "facebook": "garitma",
+        "facebookappId": "2316614485265162"
+    }
 }

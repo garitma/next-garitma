@@ -29,7 +29,7 @@ export default class HeroPoem extends React.Component {
                                         <a className='page-hero-poem-cta-post-link button-link'>Leer</a>
                                     </Link>
                                     <span className="page-hero-poem-divisor">|</span>
-                                    <Link href={`/categorias/${document.type}`}>
+                                    <Link href="/categorias/[type]" as={`/categorias/${document.type}`}>
                                         <a className='page-hero-poem-cta-archive-link button-link'>
                                             Ver más {document.type}
                                         </a>
