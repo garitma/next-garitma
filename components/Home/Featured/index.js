@@ -7,7 +7,7 @@ export default class Featured extends React.Component {
     render() {
         const { document } = this.props
         return (
-            <li className="block small-12 medium-4" key={document.id}>
+            <li className="page-featured block small-12 medium-4" key={document.id}>
                 <div className="coat inside-pad">
                     <div className="block module-img-container">
                         <Link href="/[uid]" as={document.uid}><a>

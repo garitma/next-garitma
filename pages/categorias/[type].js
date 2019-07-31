@@ -1,10 +1,11 @@
 import { Client, Prismic } from '../../api/prismic'
-
+import GaritmicConfig from '../../garitmic.config.json'
 import Layout from '../../components/Layout'
 import SubHeader from '../../components/SubHeader'
 import DefaultArchive from '../../components/Archives/DefaultArchive'
 import QuoteArchives from '../../components/Archives/QuoteArchives'
 import Pagination from '../../components/Pagination'
+
 
 
 export default class extends React.Component {
@@ -16,7 +17,7 @@ export default class extends React.Component {
 
         try {
             const request = req && req.headers ? req : null
-            const archive = await Client(request).query(Prismic.Predicates.at('document.type', `${type}`), { orderings: `[my.${type}.date desc]`, pageSize: 12, page: `${page ? page : [1]}` })
+            const archive = await Client(request).query(Prismic.Predicates.at('document.type', `${type}`), { orderings: `[my.${type}.date desc]`, pageSize: `${GaritmicConfig.ArchivePageSize}`, page: `${page ? page : [1]}` })
             return { archive }
         } catch (error) {
             return { error: true }
@@ -54,7 +55,7 @@ export default class extends React.Component {
                     }
                 </div>
             </div>
-            {this.props.archive.total_results_size > [12] &&
+            {this.props.archive.total_results_size > GaritmicConfig.ArchivePageSize &&
                 this.renderPagination()
             }
         </Layout>)

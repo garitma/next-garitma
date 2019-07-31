@@ -1,0 +1,19 @@
+{
+    "siteName": "Garitma",
+    "siteDescription": "Garitma.com es el sitio oficial de Garitma. Encuentra poemas, personajes, frases, videos y más de Garitma.",
+    "siteURL": "https://garitma.com",
+    "apiEndpoint": "https://garitma.cdn.prismic.io/api/v2",
+    "contactEmail": "hola@garitma.com",
+    "lang": "es",
+    "timeZone": "UTC-5",
+    "dateFormat": "LL",
+    "ArchivePageSize": "12",
+    "Social": [
+        {
+            "instagram": "garitma",
+            "twitter": "garitma",
+            "facebook": "garitma",
+            "facebookappId": "2316614485265162"
+        }
+    ]
+}

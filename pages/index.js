@@ -10,6 +10,7 @@ import PromotionPlace from '../components/Home/PromotionPlace'
 import Section from '../components/Home/SectionsContainers/HomeContainer'
 import VideoTrailer from '../components/Home/VideoTrailer'
 import Featured from '../components/Home/Featured'
+import GeneralSeo from '../components/Seo/GeneralSeo'
 
 export default class extends React.Component {
 
@@ -84,6 +85,7 @@ export default class extends React.Component {
     renderBody() {
         return (
             <Layout>
+                <GeneralSeo />
                 {this.renderPoems()}
                 <SubHero>
                     {this.renderSubHeroFirst()}

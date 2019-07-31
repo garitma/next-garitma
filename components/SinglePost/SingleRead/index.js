@@ -2,6 +2,7 @@ import moment from 'moment'
 import Link from 'next/link'
 import { RichText } from 'prismic-reactjs'
 import ModalVideo from 'react-modal-video'
+import GaritmicConfig from '../../../garitmic.config.json'
 
 
 export default class SingleRead extends React.Component {
@@ -64,7 +65,7 @@ export default class SingleRead extends React.Component {
                     </div>
 
                     <div className='page-single-post-meta single-post-autor-date'>
-                        <span>Garitma · {moment(document.date).locale("es").format('LL')}</span>
+                        <span>Garitma · {moment(document.date).locale(`${GaritmicConfig.lang}`).format(`${GaritmicConfig.dateFormat}`)}</span>
                     </div>
 
                 </div>

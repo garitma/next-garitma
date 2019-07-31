@@ -76,7 +76,7 @@ export default class Post extends React.Component {
         const { poems, comics, downloads, games, podcasts, videos, pages, error } = this.props
 
         if (error) {
-            return <div>Error</div>
+            return <Error statusCode={error} />
         }
 
         if (poems == null && comics == null && downloads == null && games == null && podcasts == null && videos == null && pages == null) {

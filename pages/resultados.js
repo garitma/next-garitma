@@ -1,6 +1,5 @@
 import { Client, Prismic } from '../api/prismic'
-import Link from 'next/link'
-
+import GaritmicConfig from '../garitmic.config.json'
 import SearchForm from '../components/Search/SearchForm'
 import Layout from '../components/Layout'
 import SubHeader from '../components/SubHeader'
@@ -16,7 +15,8 @@ export default class extends React.Component {
         const { s } = query
 
         try {
-            const search = await Client(req).query(Prismic.Predicates.fulltext('document', `${s}`), { pageSize: 12, page: `${page ? page : [1]}` });
+
+            const search = await Client(req).query(Prismic.Predicates.fulltext('document', `${s}`), { pageSize: `${GaritmicConfig.ArchivePageSize}`, page: `${page ? page : [1]}` });
 
             return { search, s }
         } catch (error) {
@@ -44,15 +44,14 @@ export default class extends React.Component {
                 <div className="block search-container">
                     <SearchForm />
                 </div>
-
-
                 <ul className="results smush">
                     <div className="coat pad">
                         {this.renderSearchResults()}
                     </div>
                 </ul>
             </div>
-            {this.props.search.total_results_size > [12] &&
+
+            {this.props.search.total_results_size > GaritmicConfig.ArchivePageSize &&
                 this.renderPagination()
             }
         </Layout>

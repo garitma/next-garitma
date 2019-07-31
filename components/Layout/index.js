@@ -3,7 +3,7 @@ import Navbar from '../Navbar'
 import Footer from '../Footer'
 import NProgress from 'nprogress'
 import Router from 'next/router'
-import PrismicConfig from '../../prismic-configuration.json'
+import GaritmicConfig from '../../garitmic.config.json'
 
 
 Router.onRouteChangeStart = (url) => {
@@ -34,7 +34,7 @@ export default class Layout extends React.Component {
                 <script src='/static/js/typekit.js' />
                 <script dangerouslySetInnerHTML={{
                     __html: `
-                  window.prismic = { endpoint: '${PrismicConfig.apiEndpoint}' }
+                  window.prismic = { endpoint: '${GaritmicConfig.apiEndpoint}' }
                  `}} />
                 <script src='//static.cdn.prismic.io/prismic.min.js' />
                 <script type="text/javascript" src="https://static.cdn.prismic.io/prismic.min.js" />
