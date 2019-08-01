@@ -34,7 +34,7 @@ export default class Featured extends React.Component {
                                 </a>
                             </Link>
                             <span>|</span>
-                            <Link href={`/categorias/${document.type}`}>
+                            <Link href="/categorias/[type]" as={`/categorias/${document.type}`}>
                                 <a className="button-link">
                                     Ver más {document.type}
                                 </a>
