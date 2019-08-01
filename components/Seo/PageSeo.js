@@ -12,9 +12,9 @@ export default class SingleSeo extends React.Component {
                     title: `${RichText.asText(document.data.title)}`,
                     titleTemplate: `%s - ${GaritmicConfig.siteName}`,
                     description: `${RichText.asText(document.data.excerpt)}`,
-                    canonical: `${GaritmicConfig.siteURL}`,
+                    canonical: `${GaritmicConfig.siteURL}/${document.uid}`,
                     openGraph: {
-                        url: `${GaritmicConfig.siteURL}`,
+                        url: `${GaritmicConfig.siteURL}/${document.uid}`,
                         title: `${RichText.asText(document.data.title)} - ${GaritmicConfig.siteName}`,
                         description: `${RichText.asText(document.data.excerpt)}`,
                         type: 'article',

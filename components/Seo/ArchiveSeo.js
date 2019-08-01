@@ -11,9 +11,9 @@ export default class ArchiveSeo extends React.Component {
                     title: `${document.results[0].type}`,
                     titleTemplate: `%s - ${GaritmicConfig.siteName}`,
                     description: `${GaritmicConfig.siteDescription}`,
-                    canonical: `${GaritmicConfig.siteURL}`,
+                    canonical: `${GaritmicConfig.siteURL}/${document.uid}`,
                     openGraph: {
-                        url: `${GaritmicConfig.siteURL}`,
+                        url: `${GaritmicConfig.siteURL}/${document.uid}`,
                         title: `${GaritmicConfig.siteName}`,
                         description: `${GaritmicConfig.siteDescription}`,
                         type: 'Website',

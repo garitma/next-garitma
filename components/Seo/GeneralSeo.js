@@ -9,9 +9,9 @@ export default class GeneralSeo extends React.Component {
                     title: `${GaritmicConfig.siteName}`,
                     titleTemplate: `%s`,
                     description: `${GaritmicConfig.siteDescription}`,
-                    canonical: `${GaritmicConfig.siteURL}`,
+                    canonical: `${GaritmicConfig.siteURL}/${document.uid}`,
                     openGraph: {
-                        url: `${GaritmicConfig.siteURL}`,
+                        url: `${GaritmicConfig.siteURL}/${document.uid}`,
                         title: `${GaritmicConfig.siteName}`,
                         description: `${GaritmicConfig.siteDescription}`,
                         type: 'Website',
