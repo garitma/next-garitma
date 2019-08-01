@@ -76,7 +76,7 @@ export default class SingleRead extends React.Component {
                 <div className='page-post-single-content-container smash'>
                     <div className='page-post-single-content entry-content'>
                         {RichText.render(document.data.content)}
-                        <Link href={`/categorias/${document.type}`}><a className="button-link">Ver más {document.type}</a></Link>
+                        <Link href='/categorias/[type]' as={`/categorias/${document.type}`}><a className="button-link">Ver más {document.type}</a></Link>
                         <div data-wio-id={document.id}></div>
                     </div>
                 </div>

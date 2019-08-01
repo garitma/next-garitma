@@ -64,18 +64,10 @@ export default class Navbar extends React.Component {
                     </nav>
 
                 </header>
-
                 <div className={boxClass.join('')}>
                     <div className="menu-overley" onClick={this.toggle.bind(this)} />
                 </div>
-
-
-
             </div>
-
-
-
-
         );
     }
 }
