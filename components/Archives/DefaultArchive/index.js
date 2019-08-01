@@ -8,7 +8,7 @@ export default class DefaultArchive extends React.Component {
             <div className="block small-12 medium-6 large-4">
                 <div className="coat inside-pad">
                     <div className="block">
-                        <Link href={`/${document.uid}`} as={`/${document.uid}`}>
+                        <Link href="/categorias/[type]" as={`/${document.uid}`}>
                             <a>
                                 <img className="responsive-image" src={document.data.featured_img.url} alt={document.data.featured_img.alt} />
                             </a>
@@ -17,7 +17,7 @@ export default class DefaultArchive extends React.Component {
                     <div className="module-box-detail">
                         <div className="module-title">
                             <p>
-                                <Link href={`/${document.uid}`} as={`/${document.uid}`}>
+                                <Link href="/categorias/[type]" as={`/${document.uid}`}>
                                     <a>{RichText.asText(document.data.title)}</a>
                                 </Link>
                             </p>
@@ -28,7 +28,7 @@ export default class DefaultArchive extends React.Component {
                         </div>
 
                         <div className="module-cta">
-                            <Link href={`/${document.uid}`} as={`/${document.uid}`}>
+                            <Link href="/categorias/[type]" as={`/${document.uid}`}>
                                 <a className="button-link"> Ver más</a>
                             </Link>
                         </div>
