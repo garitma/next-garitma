@@ -15,12 +15,12 @@ export default class Navbar extends React.Component {
                         <ul className="nav-list coat">
 
                             <li className="item">
-                                <Link href="/[type]" as="/informacion-legal">
+                                <Link href="/[uid]" as="/informacion-legal">
                                     <a>Terminos de uso</a>
                                 </Link>
                             </li>
                             <li className="item">
-                                <Link href="/[type]" as="/informacion-legal">
+                                <Link href="/[uid]" as="/informacion-legal">
                                     <a>Políticas de privacidad</a>
                                 </Link>
                             </li>
@@ -37,7 +37,7 @@ export default class Navbar extends React.Component {
                         </ul>
                         <ul className="nav-list">
                             <li className="item"><p>
-                                <Link href="/[type]" as="/informacion-de-contacto">
+                                <Link href="/[uid]" as="/informacion-de-contacto">
                                     <a>Información de contacto</a>
                                 </Link>
                             </p></li>
