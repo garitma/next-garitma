@@ -6,11 +6,11 @@ export default class HeroPoem extends React.Component {
     render() {
         const { document } = this.props
         return (
-            <ul className="page-hero-poem">
+            <ul className="page-hero-poem" style={{ background: `${document.data.color}` }}>
                 <li className='page-hero-poem-module hero-module'>
                     <Link href="/[uid]" as={document.uid}>
                         <a className="page-hero-poem-module-image-link">
-                            <div className='page-hero-poem-module-image-container image-coat wallpaper-backgorund' style={{ background: `${document.data.color}` }}>
+                            <div className='page-hero-poem-module-image-container image-coat wallpaper-backgorund'>
                                 <div className='page-hero-poem-module-image-wrapper look hero-look'>
                                     <img className='page-hero-poem-module-image responsive-image' src={document.data.featured_img.square.url} alt={document.data.featured_img.alt} />
                                 </div>

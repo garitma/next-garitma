@@ -7,10 +7,10 @@ import Error from './_error'
 
 export default class Post extends React.Component {
 
-    static async getInitialProps({ req, query }) {
+    static async getInitialProps({ req, query, res }) {
 
         try {
-            const [poems, comics, downloads, games, podcasts, videos, pages] = await Promise.all([
+            let [poems, comics, downloads, games, podcasts, videos, pages] = await Promise.all([
                 Client(req).getByUID('poemas', query.uid),
                 Client(req).getByUID('comics', query.uid),
                 Client(req).getByUID('descargas', query.uid),
@@ -20,9 +20,21 @@ export default class Post extends React.Component {
                 Client(req).getByUID('paginas', query.uid)
             ])
 
-            return { poems, comics, downloads, games, podcasts, videos, pages }
-        } catch (error) {
-            return { poems: null, comics: null, downloads: null, games: null, podcasts: null, videos: null, pages: null, error: true }
+            if (poems == undefined &&
+                comics == undefined &&
+                downloads == undefined &&
+                games == undefined &&
+                podcasts == undefined &&
+                videos == undefined &&
+                pages == undefined) {
+                res.statusCode = 404
+                return { poems: null, comics: null, downloads: null, games: null, podcasts: null, videos: null, pages: null, statusCode: 404 }
+            }
+
+            return { poems, comics, downloads, games, podcasts, videos, pages, statusCode: 200 }
+        } catch (e) {
+            res.statusCode = 503
+            return { poems: null, comics: null, downloads: null, games: null, podcasts: null, videos: null, pages: null, statusCode: 503 }
         }
     }
 
@@ -73,16 +85,11 @@ export default class Post extends React.Component {
 
     render() {
 
-        const { poems, comics, downloads, games, podcasts, videos, pages, error } = this.props
+        const { statusCode } = this.props
 
-        if (error) {
-            return <Error statusCode={error} />
+        if (statusCode !== 200) {
+            return <Error statusCode={statusCode} />
         }
-
-        if (poems == null && comics == null && downloads == null && games == null && podcasts == null && videos == null && pages == null) {
-            return <Error statusCode="404" />
-        }
-
 
         return this.renderBody()
     }

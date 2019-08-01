@@ -9,7 +9,7 @@ import Pagination from '../components/Pagination'
 export default class extends React.Component {
 
 
-    static async getInitialProps({ req, query }) {
+    static async getInitialProps({ req, res, query }) {
 
         const { page } = query
         const { s } = query
@@ -19,8 +19,9 @@ export default class extends React.Component {
             const search = await Client(req).query(Prismic.Predicates.fulltext('document', `${s}`), { pageSize: `${GaritmicConfig.ArchivePageSize}`, page: `${page ? page : [1]}` });
 
             return { search, s }
-        } catch (error) {
-            return { error: true }
+        } catch (e) {
+            res.statusCode = 503
+            return { search: null, statusCode: 503 }
         }
     }
 
@@ -58,7 +59,7 @@ export default class extends React.Component {
     }
 
     render() {
-        if (this.props.error) return <Error />
-        else return this.renderBody()
+
+        return this.renderBody()
     }
 }

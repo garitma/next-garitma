@@ -7,8 +7,8 @@ export default class PromotionPlaces extends React.Component {
         return (
             <ul className="page-promotion-place PromotionPlace" style={{ background: `${document.data.color}` }}>
                 <li className="page-promotion-place-container coat">
-                    <div className="page-promotion-place-content block small-12 medium-8 smush">
-                        <div className="page-promotion-place-content-detail module-box-detail" style={{ background: `${document.data.color}` }}>
+                    <div className="page-promotion-place-content block small-12 medium-8 smush valign">
+                        <div className="page-promotion-place-content-detail module-box-detail valign" style={{ background: `${document.data.color}` }}>
                             <div className="page-promotion-place-title module-title">
                                 <h2><Link href="/[uid]" as={document.uid}><a className="page-promotion-place-link">{RichText.asText(document.data.title)}</a></Link></h2>
                             </div>

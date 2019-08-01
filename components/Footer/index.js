@@ -32,7 +32,7 @@ export default class Navbar extends React.Component {
                             <li className="item"><a href="https://www.facebook.com/garitma" target="_blank"><div className="glyphsSprite facebook" /></a></li>
                         </ul>
                         <ul className="nav-list">
-                            <li className="item"><p><a>Información de contacto</a></p></li>
+                            <li className="item"><p><Link href="/[type]" as="/informacion-de-contacto"><a>Información de contacto</a></Link></p></li>
                         </ul>
                     </div>
                 </div>

@@ -11,12 +11,13 @@ import Section from '../components/Home/SectionsContainers/HomeContainer'
 import VideoTrailer from '../components/Home/VideoTrailer'
 import Featured from '../components/Home/Featured'
 import GeneralSeo from '../components/Seo/GeneralSeo'
+import Error from './_error'
 
 export default class extends React.Component {
 
-    static async getInitialProps({ req, query }) {
+    static async getInitialProps({ req, res, query }) {
         try {
-            const [poems, quotes, games, podcasts, comics, videos, downloads, featured] = await Promise.all([
+            let [poems, quotes, games, podcasts, comics, videos, downloads, featured] = await Promise.all([
                 Client(req).query(Prismic.Predicates.at('document.type', 'poemas'), { orderings: '[my.poemas.date desc]', pageSize: 1 }),
                 Client(req).query(Prismic.Predicates.at('document.type', 'frases'), { orderings: '[my.frases.date desc]', pageSize: 2 }),
                 Client(req).query(Prismic.Predicates.at('document.type', 'juegos'), { orderings: '[my.juegos.date desc]', pageSize: 1 }),
@@ -27,9 +28,10 @@ export default class extends React.Component {
                 Client(req).query(Prismic.Predicates.at('document.tags', ['featured']), { orderings: '[my.featured.date desc]', pageSize: 3 })
             ])
 
-            return { poems, quotes, games, podcasts, comics, videos, downloads, featured }
-        } catch (error) {
-            return { error: true }
+            return { poems, quotes, games, podcasts, comics, videos, downloads, featured, statusCode: 200 }
+        } catch (e) {
+            res.statusCode = 503
+            return { poems: null, quotes: null, games: null, podcasts: null, comics: null, videos: null, downloads: null, featured: null, statusCode: 503 }
         }
     }
 
@@ -59,7 +61,7 @@ export default class extends React.Component {
 
     renderPromotionPlaceComic() {
         return this.props.comics.results.map((document, index) =>
-            <PromotionPlace document={document} key={index} cta="Leer" />
+            <HeroPoem document={document} key={index} cta="Leer" />
         )
     }
 
@@ -71,7 +73,7 @@ export default class extends React.Component {
 
     renderPromotionPlaceDownloads() {
         return this.props.downloads.results.map((document, index) =>
-            <PromotionPlace document={document} key={index} cta="Descargar" />
+            <HeroPoem document={document} key={index} cta="Descargar" />
         )
     }
 
@@ -109,8 +111,13 @@ export default class extends React.Component {
     }
 
     render() {
-        if (this.props.error) return <Error />
-        else return this.renderBody()
+        const { statusCode, } = this.props
+
+        if (statusCode !== 200) {
+            return <Error statusCode={statusCode} />
+        }
+
+        return this.renderBody()
     }
 
 }

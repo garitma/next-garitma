@@ -7,6 +7,7 @@ export default class GeneralSeo extends React.Component {
             <NextSeo
                 config={{
                     title: `${GaritmicConfig.siteName}`,
+                    titleTemplate: `%s`,
                     description: `${GaritmicConfig.siteDescription}`,
                     canonical: `${GaritmicConfig.siteURL}`,
                     openGraph: {

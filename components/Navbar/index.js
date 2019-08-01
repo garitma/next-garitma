@@ -24,7 +24,7 @@ export default class Navbar extends React.Component {
                             <ul id="nav-large" className="nav-list page-nav-menu-large">
                                 <li className="logo item logo-container">
 
-                                    <Link href='/'>
+                                    <Link href='/' as="/">
                                         <a title="Logo">
                                             <div className="glyphsSprite logo" />
                                         </a>

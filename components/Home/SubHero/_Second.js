@@ -6,7 +6,7 @@ export default class extends React.Component {
     render() {
         const { document } = this.props
         return (
-            <div className='module-box-detail'>
+            <div className='module-box-detail valign'>
                 <div className='module-title' >
                     <blockquote>{RichText.asText(document.data.title)}</blockquote>
                 </div>

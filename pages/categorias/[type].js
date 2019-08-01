@@ -12,22 +12,23 @@ import Error from '../_error'
 
 export default class extends React.Component {
 
-    static async getInitialProps({ query, req }) {
+    static async getInitialProps({ query, req, res }) {
 
         const { page } = query
         const { type } = query
 
         try {
             const request = req && req.headers ? req : null
-            const archive = await Client(request).query(Prismic.Predicates.at('document.type', `${type}`), { orderings: `[my.${type}.date desc]`, pageSize: `${GaritmicConfig.ArchivePageSize}`, page: `${page ? page : [1]}` })
+            let archive = await Client(request).query(Prismic.Predicates.at('document.type', `${type}`), { orderings: `[my.${type}.date desc]`, pageSize: `${GaritmicConfig.ArchivePageSize}`, page: `${page ? page : [1]}` })
 
-            if (archive.status >= 400) {
-                return { statusCode: archive.status }
+            if (archive.results.length === 0) {
+                res.statusCode = 404
+                return { archive: null, statusCode: 404 }
             }
 
             return { archive, statusCode: 200 }
-        } catch (error) {
-            return { error: true, archive: null, statusCode: 503 }
+        } catch (e) {
+            return { archive: null, statusCode: 503 }
         }
     }
 
@@ -71,15 +72,11 @@ export default class extends React.Component {
 
     render() {
 
-        if (this.props.statusCode !== 200) {
+        const { statusCode } = this.props
+
+        if (statusCode !== 200) {
             return <Error statusCode={statusCode} />
         }
-
-        if (this.props.archive.results.length == 0) {
-            return <Error statusCode="404" />
-        }
-
-        if (this.props.error) return <Error />
 
         else return this.renderBody()
     }
