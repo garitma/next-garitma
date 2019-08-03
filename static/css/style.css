@@ -83,7 +83,7 @@
 }
 @media only screen and (max-width: 1155px) {
   .hide-small {
-    display: none;
+    display: none !important;
   }
 }
 html {
@@ -1055,6 +1055,14 @@ footer .logo {
   max-width: 440px;
   margin-right: auto;
   margin-left: auto;
+}
+
+.page-search-results {
+  background: #fff;
+  margin-bottom: 30px;
+}
+.page-search-results .search-box-detail {
+  padding: 0 25px;
 }
 
 .page-numbers {

@@ -43,7 +43,9 @@ export default class Layout extends React.Component {
             <Navbar />
 
             <div className='page'>
-                {children}
+                <div className='page-body'>
+                    {children}
+                </div>
             </div>
 
             <Footer />

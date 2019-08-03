@@ -4,8 +4,6 @@ import Layout from '../components/Layout'
 import Head from 'next/head'
 import GaritmicConfig from '../garitmic.config.json'
 
-
-
 export default class Error extends React.Component {
     static getInitialProps({ res, err }) {
         const statusCode = res ? res.statusCode : err ? err.statusCode : null;

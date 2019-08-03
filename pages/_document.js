@@ -3,8 +3,6 @@ import Document, { Head, Main, NextScript } from 'next/document'
 import { GA_TRACKING_ID } from '../static/js/gtag'
 import GaritmicConfig from '../garitmic.config.json'
 
-
-
 export default class extends Document {
 
     render() {

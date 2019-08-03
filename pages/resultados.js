@@ -58,7 +58,7 @@ export default class extends React.Component {
                         <SearchForm />
                     </div>
                     <ul className="results smush">
-                        <div className="coat pad">
+                        <div className="pad">
                             {this.renderSearchResults()}
                         </div>
                     </ul>

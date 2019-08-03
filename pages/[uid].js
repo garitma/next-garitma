@@ -4,7 +4,6 @@ import SingleRead from '../components/SinglePost/SingleRead'
 import SinglePages from '../components/SinglePost/SinglePages'
 import Error from './_error'
 
-
 export default class Post extends React.Component {
 
     static async getInitialProps({ req, query, res }) {

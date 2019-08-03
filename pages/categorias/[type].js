@@ -8,8 +8,6 @@ import Pagination from '../../components/Pagination'
 import ArchiveSeo from '../../components/Seo/ArchiveSeo'
 import Error from '../_error'
 
-
-
 export default class extends React.Component {
 
     static async getInitialProps({ query, req, res }) {
@@ -32,7 +30,7 @@ export default class extends React.Component {
         }
     }
 
-    renderArchives() {
+    renderDefaultArchives() {
 
         const { archive } = this.props
 
@@ -74,7 +72,7 @@ export default class extends React.Component {
                 <div className="pad archives">
                     <div className="coat ">
                         {archive.results[0].type != 'frases' &&
-                            this.renderArchives()
+                            this.renderDefaultArchives()
                         }
                         {archive.results[0].type == 'frases' &&
                             this.renderArchivesQuotes()

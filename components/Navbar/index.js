@@ -19,18 +19,14 @@ export default class Navbar extends React.Component {
             <div>
                 <header className="page-header">
                     <nav id="Top-bar" className="page-nav-container">
-
                         <div className="page-nav-content">
                             <ul id="nav-large" className="nav-list page-nav-menu-large">
                                 <li className="logo item logo-container">
-
                                     <Link href='/' as="/">
                                         <a title="Logo">
                                             <div className="glyphsSprite logo" />
                                         </a>
                                     </Link>
-
-
                                 </li>
                                 <li className="item button-link menu-toggle-button" onClick={this.toggle.bind(this)}>
                                     <div className={boxClass.join('')} >
@@ -38,10 +34,8 @@ export default class Navbar extends React.Component {
                                     </div>
                                 </li>
                             </ul>
-
                             <div className={boxClass.join('')}>
                                 <div className="nav-container">
-
                                     <ul className="page-menu">
                                         <li>
                                             <form role="search" method="get" id="searchform" className="searchform" action="/resultados">
@@ -59,10 +53,7 @@ export default class Navbar extends React.Component {
                                 </div>
                             </div>
                         </div>
-
-
                     </nav>
-
                 </header>
                 <div className={boxClass.join('')}>
                     <div className="menu-overley" onClick={this.toggle.bind(this)} />
