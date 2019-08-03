@@ -1,6 +1,7 @@
 
 import { RichText } from 'prismic-reactjs'
 import Link from 'next/link'
+import GaritmicConfig from '../../../garitmic.config.json'
 
 
 export default class Featured extends React.Component {
@@ -36,7 +37,7 @@ export default class Featured extends React.Component {
                             <span>|</span>
                             <Link href="/categorias/[type]" as={`/categorias/${document.type}`}>
                                 <a className="button-link">
-                                    Ver más {document.type}
+                                    Ver más {GaritmicConfig.types[document.type]}
                                 </a>
                             </Link>
                         </div>

@@ -13,5 +13,17 @@
         "twitter": "garitma",
         "facebook": "garitma",
         "facebookappId": "2316614485265162"
+    },
+    "types": {
+        "podcasts": "Podcasts",
+        "comics": "Cómics",
+        "frases": "Frases",
+        "juegos": "Juegos",
+        "navigation": "Navigation",
+        "paginas": "Páginas",
+        "descargas": "Descargas",
+        "videos": "Videos",
+        "poemas": "Poemas",
+        "cortometrajes": "Cortometrajes"
     }
 }

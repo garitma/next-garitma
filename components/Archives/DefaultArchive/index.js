@@ -31,7 +31,9 @@ export default class DefaultArchive extends React.Component {
                             <Link href="/[uid]" as={`/${document.uid}`}>
                                 <a className="button-link"> Ver más</a>
                             </Link>
+                            <div data-wio-id={document.id}></div>
                         </div>
+
                     </div>
                 </div>
             </div>

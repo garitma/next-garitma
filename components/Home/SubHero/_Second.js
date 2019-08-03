@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { RichText } from 'prismic-reactjs'
+import GaritmicConfig from '../../../garitmic.config.json'
 
 export default class extends React.Component {
 
@@ -11,7 +12,9 @@ export default class extends React.Component {
                     <blockquote>{RichText.asText(document.data.title)}</blockquote>
                 </div>
                 <div className='module-cta'>
-                    <Link href="/categorias/[type]" as={`/categorias/${document.type}`}><a className='button-link'>Ver más {document.type}</a></Link>
+                    <Link href="/categorias/[type]" as={`/categorias/${document.type}`}>
+                        <a className='button-link'>Ver más {GaritmicConfig.types[document.type]}</a>
+                    </Link>
                 </div>
             </div>
 

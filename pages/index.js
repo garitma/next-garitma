@@ -1,6 +1,6 @@
 import Layout from '../components/Layout'
 import { Client, Prismic } from '../api/prismic'
-import HeroPoem from '../components/Home/HeroPoem'
+import HeroBanner from '../components/Home/HeroBanner'
 import SubHero from '../components/Home/SubHero'
 import SubHeroFirst from '../components/Home/SubHero/_First'
 import SubHeroSecond from '../components/Home/SubHero/_Second'
@@ -24,7 +24,7 @@ export default class extends React.Component {
                 Client(req).query(Prismic.Predicates.at('document.type', 'comics'), { orderings: '[my.comics.date desc]', pageSize: 1 }),
                 Client(req).query(Prismic.Predicates.at('document.type', 'videos'), { orderings: '[my.videos.date desc]', pageSize: 2 }),
                 Client(req).query(Prismic.Predicates.at('document.type', 'descargas'), { orderings: '[my.descargas.date desc]', pageSize: 1 }),
-                Client(req).query(Prismic.Predicates.at('document.tags', ['featured']), { orderings: '[my.featured.date desc]', pageSize: 3 })
+                Client(req).query(Prismic.Predicates.at('document.tags', ['featured']), { orderings: '[my.featured.date desc]', pageSize: 3 }),
             ])
 
             return { poems, quotes, games, podcasts, comics, videos, downloads, featured, statusCode: 200 }
@@ -35,51 +35,85 @@ export default class extends React.Component {
     }
 
     renderPoems() {
-        return this.props.poems.results.map((document, index) =>
-            <HeroPoem document={document} key={index} />
+
+        const { poems } = this.props
+
+        return (
+            poems.results.map((document, index) =>
+                <HeroBanner document={document} key={index} />
+            )
         )
     }
 
     renderSubHeroFirst() {
-        return this.props.games.results.map((document, index) =>
-            <SubHeroFirst document={document} key={index} />
+
+        const { games } = this.props
+
+        return (
+            games.results.map((document, index) =>
+                <SubHeroFirst document={document} key={index} />
+            )
         )
     }
 
     renderSubHeroSecond() {
-        return this.props.quotes.results.map((document, index) =>
-            <SubHeroSecond document={document} key={index} />
+
+        const { quotes } = this.props
+
+        return (
+            quotes.results.map((document, index) =>
+                <SubHeroSecond document={document} key={index} />)
         )
     }
 
     renderSubHeroThird() {
-        return this.props.podcasts.results.map((document, index) =>
-            <SubHeroThird document={document} key={index} />
+
+        const { podcasts } = this.props
+
+        return (
+            podcasts.results.map((document, index) =>
+                <SubHeroThird document={document} key={index} />)
         )
     }
 
     renderPromotionPlaceComic() {
-        return this.props.comics.results.map((document, index) =>
-            <HeroPoem document={document} key={index} cta="Leer" />
+
+        const { comics } = this.props
+
+        return (
+            comics.results.map((document, index) =>
+                <HeroBanner document={document} key={index} cta="Leer" />)
         )
     }
 
     renderVideoTrailer() {
-        return this.props.videos.results.map((document, index) =>
-            <VideoTrailer document={document} key={index} />
+
+        const { videos } = this.props
+
+        return (
+            videos.results.map((document, index) =>
+                <VideoTrailer document={document} key={index} />)
         )
     }
 
     renderPromotionPlaceDownloads() {
-        return this.props.downloads.results.map((document, index) =>
-            <HeroPoem document={document} key={index} cta="Descargar" />
+
+        const { downloads } = this.props
+
+        return (
+            downloads.results.map((document, index) =>
+                <HeroBanner document={document} key={index} cta="Descargar" />)
         )
     }
 
 
     renderFeatured() {
-        return this.props.featured.results.map((document, index) =>
-            <Featured document={document} key={index} />
+
+        const { featured } = this.props
+
+        return (
+            featured.results.map((document, index) =>
+                <Featured document={document} key={index} />)
         )
     }
 
@@ -113,10 +147,14 @@ export default class extends React.Component {
         const { statusCode, } = this.props
 
         if (statusCode !== 200) {
-            return <Error statusCode={statusCode} />
+            return (
+                <Error statusCode={statusCode} />
+            )
         }
 
-        return this.renderBody()
+        return (
+            this.renderBody()
+        )
     }
 
 }

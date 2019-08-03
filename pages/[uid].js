@@ -88,9 +88,13 @@ export default class Post extends React.Component {
         const { statusCode } = this.props
 
         if (statusCode !== 200) {
-            return <Error statusCode={statusCode} />
+            return (
+                <Error statusCode={statusCode} />
+            )
         }
 
-        return this.renderBody()
+        return (
+            this.renderBody()
+        )
     }
 }

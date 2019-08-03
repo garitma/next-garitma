@@ -26,48 +26,66 @@ export default class extends React.Component {
                 return { archive: null, statusCode: 404 }
             }
 
-            return { archive, statusCode: 200 }
+            return { archive, type, statusCode: 200 }
         } catch (e) {
             return { archive: null, statusCode: 503 }
         }
     }
 
     renderArchives() {
-        return this.props.archive.results.map((document, index) =>
-            <DefaultArchive document={document} key={index} />
+
+        const { archive } = this.props
+
+        return (
+            archive.results.map((document, index) =>
+                <DefaultArchive document={document} key={index} />
+            )
         )
     }
 
     renderArchivesQuotes() {
-        return this.props.archive.results.map((document, index) =>
-            <QuoteArchives document={document} key={index} />
+
+        const { archive } = this.props
+
+        return (
+            archive.results.map((document, index) =>
+                <QuoteArchives document={document} key={index} />
+            )
         )
     }
 
     renderPagination() {
+
+        const { archive } = this.props
+
         return (
-            <Pagination document={this.props.archive} root={`/categorias/${this.props.archive.results[0].type}/`} string="?" />
+            <Pagination document={archive} root={`/categorias/${this.props.archive.results[0].type}/`} string="?" />
         )
     }
 
     renderBody() {
-        return (<Layout>
-            <SubHeader text={this.props.archive.results[0].type} />
-            <ArchiveSeo document={this.props.archive} />
-            <div className="pad archives">
-                <div className="coat ">
-                    {this.props.archive.results[0].type != 'frases' &&
-                        this.renderArchives()
-                    }
-                    {this.props.archive.results[0].type == 'frases' &&
-                        this.renderArchivesQuotes()
-                    }
+
+        const { archive, type } = this.props
+
+        return (
+            <Layout>
+                <SubHeader text={GaritmicConfig.types[type]} />
+                <ArchiveSeo document={archive} />
+                <div className="pad archives">
+                    <div className="coat ">
+                        {archive.results[0].type != 'frases' &&
+                            this.renderArchives()
+                        }
+                        {archive.results[0].type == 'frases' &&
+                            this.renderArchivesQuotes()
+                        }
+                    </div>
                 </div>
-            </div>
-            {this.props.archive.total_results_size > GaritmicConfig.ArchivePageSize &&
-                this.renderPagination()
-            }
-        </Layout>)
+                {archive.total_results_size > GaritmicConfig.ArchivePageSize &&
+                    this.renderPagination()
+                }
+            </Layout>
+        )
     }
 
     render() {
@@ -75,9 +93,13 @@ export default class extends React.Component {
         const { statusCode } = this.props
 
         if (statusCode !== 200) {
-            return <Error statusCode={statusCode} />
+            return (
+                <Error statusCode={statusCode} />
+            )
         }
 
-        else return this.renderBody()
+        return (
+            this.renderBody()
+        )
     }
 }

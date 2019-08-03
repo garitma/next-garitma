@@ -285,6 +285,7 @@ article, aside, footer, header, nav, main, section, summary, figure, figcaption 
 }
 .coat .block {
   width: 100%;
+  position: relative;
 }
 
 .block.small-1 {
@@ -808,6 +809,12 @@ input, textarea {
   border-radius: 21px;
   background-color: #e8ebfe;
   color: white;
+}
+
+.archives .wio-link {
+  position: absolute;
+  bottom: 50px;
+  right: 30px;
 }
 
 #Top-bar {
