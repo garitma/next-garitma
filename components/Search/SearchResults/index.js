@@ -9,8 +9,10 @@ export default class SearchResults extends React.Component {
             <div className="page-search-results">
                 <div className="page-search-module block">
                     <div className="page-search-wrapper coat">
-                        <div className="search-thumbnail block small-4 medium-2">
-
+                        <div className="search-thumbnail block small-4 medium-2 valign">
+                            {document.type != "frases" && document.type != "paginas" &&
+                                <img className="responsive-image" src={document.data.featured_img.url} />
+                            }
                         </div>
 
                         <div className="block small-8 medium-10 valign">
