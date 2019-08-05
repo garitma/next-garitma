@@ -40,6 +40,7 @@ export default class SingleSeo extends React.Component {
                     twitter: {
                         handle: `@${GaritmicConfig.social.twitter}`,
                         site: `@${GaritmicConfig.social.twitter}`,
+                        creator: `@${GaritmicConfig.social.twitter}`,
                         cardType: 'summary_large_image',
                     },
                 }}

@@ -24,7 +24,7 @@ export default class SingleSeo extends React.Component {
                         },
                         images: [
                             {
-                                url: '/static/images/open_graph_logo.png',
+                                url: `${GaritmicConfig.siteURL}/static/images/open_graph_logo.png`,
                                 width: 1140,
                                 height: 570,
                                 alt: 'Open Graph logo Garitma'
