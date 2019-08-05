@@ -25,12 +25,12 @@ export default class SingleRead extends React.Component {
         const { document } = this.props
 
         return (
-            <div className='page-header-single' itemtype="http://schema.org/CreativeWork">
+            <div className='page-header-single' itemType="http://schema.org/CreativeWork">
                 <SingleSeo document={document} />
                 <div className='page-header-single-module module' style={{ background: `${document.data.color}` }} >
 
                     <div className='page-header-single-image-container module-img smush'>
-                        <img itemprop="image" className='page-header-single-image responsive-image' src={document.data.featured_img.url} alt={document.data.featured_img.alt} />
+                        <img itemProp="image" className='page-header-single-image responsive-image' src={document.data.featured_img.url} alt={document.data.featured_img.alt} />
                     </div>
 
                     <div className="page-header-single-actions">
@@ -55,11 +55,11 @@ export default class SingleRead extends React.Component {
 
                 <div className='page-post-body block smash'>
                     <div className='page-post-info'>
-                        <div itemprop="genre" className='page-single-post-type single-post-category'>
+                        <div itemProp="genre" className='page-single-post-type single-post-category'>
                             <Link href={`/categorias/${document.type}`}><a>{GaritmicConfig.types[document.type]}</a></Link>
                         </div>
                         <div>
-                            <h1 itemprop="name" className='headline-single'>{RichText.asText(document.data.title)}</h1>
+                            <h1 itemProp="name" className='headline-single'>{RichText.asText(document.data.title)}</h1>
                         </div>
 
                         <div className='page-single-post-avatar avatar-container'>
@@ -67,7 +67,7 @@ export default class SingleRead extends React.Component {
                         </div>
 
                         <div className='page-single-post-meta single-post-autor-date'>
-                            <span itemprop="author">Garitma</span> · <span>{moment(document.date).locale(`${GaritmicConfig.lang}`).format(`${GaritmicConfig.dateFormat}`)}</span>
+                            <span itemProp="author">Garitma</span> · <span>{moment(document.date).locale(`${GaritmicConfig.lang}`).format(`${GaritmicConfig.dateFormat}`)}</span>
                         </div>
 
                     </div>
