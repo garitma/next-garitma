@@ -37,7 +37,7 @@ export default class SingleRead extends React.Component {
                         </div>
 
                         <div className='page-single-post-meta single-post-autor-date'>
-                            <span itemProp="author">Garitma</span> · <span>{moment(document.date).locale(`${GaritmicConfig.lang}`).format(`${GaritmicConfig.dateFormat}`)}</span>
+                            <span itemProp="author">Garitma</span> · <span>{moment(document.data.date).locale(`${GaritmicConfig.lang}`).format(`${GaritmicConfig.dateFormat}`)}</span>
                         </div>
                     </div>
                 </div>
