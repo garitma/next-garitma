@@ -1,24 +1,11 @@
 import moment from 'moment'
 import Link from 'next/link'
 import { RichText } from 'prismic-reactjs'
-import ModalVideo from 'react-modal-video'
 import GaritmicConfig from '../../../garitmic.config.json'
 import SingleSeo from "../../Seo/SingleSeo"
-
+import SingleActions from "./SingleActions"
 
 export default class SingleRead extends React.Component {
-
-    constructor() {
-        super()
-        this.state = {
-            isOpen: false
-        }
-        this.openModal = this.openModal.bind(this)
-    }
-
-    openModal() {
-        this.setState({ isOpen: true })
-    }
 
     render() {
 
@@ -28,28 +15,11 @@ export default class SingleRead extends React.Component {
             <div className='page-header-single' itemType="http://schema.org/CreativeWork">
                 <SingleSeo document={document} />
                 <div className='page-header-single-module module' style={{ background: `${document.data.color}` }} >
-
                     <div className='page-header-single-image-container module-img smush'>
                         <img itemProp="image" className='page-header-single-image responsive-image' src={document.data.featured_img.url} alt={document.data.featured_img.alt} />
                     </div>
-
                     <div className="page-header-single-actions">
-                        {document.type == "descargas" &&
-                            <a href={document.data.download.url} target="_blank" download><div className="glyphsSprite download action" /></a>
-                        }
-
-                        {document.type == "juegos" &&
-                            <div>
-                                <a href={document.data.game_link.url} target="_blank"><div className="glyphsSprite play action" /></a>
-                            </div>
-                        }
-
-                        {document.data.youtube_id != undefined &&
-                            <div>
-                                <ModalVideo channel='youtube' isOpen={this.state.isOpen} autoplay='true' videoId={document.data.youtube_id} onClose={() => this.setState({ isOpen: false })} />
-                                <div className="glyphsSprite play action" onClick={this.openModal} />
-                            </div>
-                        }
+                        <SingleActions document={document} />
                     </div>
                 </div>
 
@@ -69,7 +39,6 @@ export default class SingleRead extends React.Component {
                         <div className='page-single-post-meta single-post-autor-date'>
                             <span itemProp="author">Garitma</span> · <span>{moment(document.date).locale(`${GaritmicConfig.lang}`).format(`${GaritmicConfig.dateFormat}`)}</span>
                         </div>
-
                     </div>
                 </div>
 
