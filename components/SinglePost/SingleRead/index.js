@@ -16,7 +16,12 @@ export default class SingleRead extends React.Component {
                 <SingleSeo document={document} />
                 <div className='page-header-single-module module' style={{ background: `${document.data.color}` }} >
                     <div className='page-header-single-image-container module-img smush'>
-                        <img itemProp="image" className='page-header-single-image responsive-image' src={document.data.featured_img.url} alt={document.data.featured_img.alt} />
+                        <picture>
+                            <source media="(min-width: 1280px)" srcSet={`${document.data.featured_img.url}`} />
+                            <source media="(max-width: 1279px)" srcSet={`${document.data.featured_img.url}&w=600`} />
+                            <img itemProp="image" className='page-header-single-image responsive-image' src={document.data.featured_img.url} alt={document.data.featured_img.alt} />
+                        </picture>
+
                     </div>
                     <div className="page-header-single-actions">
                         <SingleActions document={document} />
