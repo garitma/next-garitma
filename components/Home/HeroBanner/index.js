@@ -14,9 +14,9 @@ export default class HeroPoem extends React.Component {
                             <div className='page-hero-banner-module-image-container image-coat wallpaper-backgorund'>
                                 <div className='page-hero-banner-module-image-wrapper look hero-look'>
                                     <picture>
-                                        <source media="(min-width: 1155px)" srcSet={document.data.featured_img.square.url} />
-                                        <source media="(min-width: 767px)" srcSet={document.data.featured_img.url} />
-                                        <img className="responsive-image" src={document.data.featured_img.url} alt={document.data.featured_img.alt} />
+                                        <source media="(min-width: 768px)" srcSet={`${document.data.featured_img.url}&w=600&h=570&fit=crop`} />
+                                        <source media="(max-width: 767px)" srcSet={`${document.data.featured_img.url}&w=767&`} />
+                                        <img className="responsive-image" src={`${document.data.featured_img.url}&w=600&h=570&fit=crop`} alt={document.data.featured_img.square.url} />
                                     </picture>
                                 </div>
                             </div></a></Link>
