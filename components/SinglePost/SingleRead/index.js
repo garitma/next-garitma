@@ -12,7 +12,7 @@ export default class SingleRead extends React.Component {
         const { document } = this.props
 
         return (
-            <div className='page-header-single' itemType="http://schema.org/CreativeWork">
+            <div className='page-header-single' itemScope itemType="http://schema.org/CreativeWork">
                 <SingleSeo document={document} />
                 <div className='page-header-single-module module' style={{ background: `${document.data.color}` }} >
                     <div className='page-header-single-image-container module-img smush'>

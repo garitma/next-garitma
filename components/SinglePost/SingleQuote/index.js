@@ -10,7 +10,7 @@ export default class SingleQuote extends React.Component {
         const { document } = this.props
 
         return (
-            <div className='page-header-single' itemType="http://schema.org/CreativeWork">
+            <div className='page-header-single' itemScope itemType="http://schema.org/CreativeWork">
 
 
                 <div className='block smash'>
