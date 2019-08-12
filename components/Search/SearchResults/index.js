@@ -11,7 +11,7 @@ export default class SearchResults extends React.Component {
                     <div className="page-search-wrapper coat">
                         <div className="search-thumbnail block small-4 medium-2 valign">
                             {document.type != "frases" && document.type != "paginas" &&
-                                <img className="responsive-image" src={document.data.featured_img.url} />
+                                <img className="responsive-image" src={`${document.data.featured_img.url}&w=150&h=150&fit=crop`} />
                             }
                         </div>
 

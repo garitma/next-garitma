@@ -13,11 +13,10 @@ export default class Featured extends React.Component {
                     <div className="block module-img-container" style={{ background: `${document.data.color}` }}>
                         <Link href="/[uid]" as={`/${document.uid}`}><a>
                             <picture>
-                                <source media="(min-width: 768px)" srcSet={`${document.data.featured_img.square.url}&w=390`} />
+                                <source media="(min-width: 768px)" srcSet={`${document.data.featured_img.url}&w=390&h=330&fit=crop`} />
                                 <source media="(max-width: 767px)" srcSet={`${document.data.featured_img.url}&w=600&h=570&fit=crop`} />
                                 <img className="responsive-image" src={`${document.data.featured_img.url}&w=600&h=570&fit=crop`} alt={document.data.featured_img.alt} />
                             </picture>
-
                         </a></Link>
                     </div>
                     <div className="module-box-detail">

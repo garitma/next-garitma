@@ -10,7 +10,11 @@ export default class extends React.Component {
             <div className="coat inside-pad">
                 <div className='block module-img-container'>
                     <Link href="/[uid]" as={`/${document.uid}`}><a>
-                        <img className='responsive-image' src={document.data.featured_img.square.url} alt={document.data.featured_img.alt} />
+                        <picture>
+                            <source media="(min-width: 768px)" srcSet={`${document.data.featured_img.url}&w=390&h=330&fit=crop`} />
+                            <source media="(max-width: 767px)" srcSet={`${document.data.featured_img.url}&w=600&h=570&fit=crop`} />
+                            <img className="responsive-image" src={`${document.data.featured_img.url}&w=600&h=570&fit=crop`} alt={document.data.featured_img.alt} />
+                        </picture>
                     </a></Link>
                 </div>
                 <div className='module-box-detail'>

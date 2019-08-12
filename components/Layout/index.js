@@ -32,11 +32,7 @@ export default class Layout extends React.Component {
                 <meta content='yes' name='apple-mobile-web-app-capable' />
                 <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
                 <script src='/static/js/typekit.js' />
-                <script dangerouslySetInnerHTML={{
-                    __html: `
-                  window.prismic = { endpoint: '${GaritmicConfig.apiEndpoint}' }
-                 `}} />
-                <script type="text/javascript" src="https://static.cdn.prismic.io/prismic.min.js" />
+
             </Head>
 
             <Navbar />
@@ -48,6 +44,12 @@ export default class Layout extends React.Component {
             </div>
 
             <Footer />
+
+            <script dangerouslySetInnerHTML={{
+                __html: `
+                  window.prismic = { endpoint: '${GaritmicConfig.apiEndpoint}' }
+                 `}} />
+            <script type="text/javascript" src="https://static.cdn.prismic.io/prismic.min.js" />
 
 
         </main>
