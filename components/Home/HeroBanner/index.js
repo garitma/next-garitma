@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { RichText } from 'prismic-reactjs'
 import GaritmicConfig from '../../../garitmic.config.json'
+import LazyLoad from 'react-lazyload';
 
 
 export default class HeroPoem extends React.Component {
@@ -13,11 +14,13 @@ export default class HeroPoem extends React.Component {
                         <a className="page-hero-banner-module-image-link">
                             <div className='page-hero-banner-module-image-container image-coat wallpaper-backgorund'>
                                 <div className='page-hero-banner-module-image-wrapper look hero-look'>
-                                    <picture>
-                                        <source media="(min-width: 768px)" srcSet={`${document.data.featured_img.url}&w=600&h=570&fit=crop&crop=faces`} />
-                                        <source media="(max-width: 767px)" srcSet={`${document.data.featured_img.url}&w=767&`} />
-                                        <img className="responsive-image" src={`${document.data.featured_img.url}&w=600&h=570&fit=crop&crop=faces`} alt={document.data.featured_img.alt} />
-                                    </picture>
+                                    <LazyLoad height={150}>
+                                        <picture>
+                                            <source media="(min-width: 768px)" srcSet={`${document.data.featured_img.url}&w=600&h=570&fit=crop&crop=faces`} />
+                                            <source media="(max-width: 767px)" srcSet={`${document.data.featured_img.url}&w=767&`} />
+                                            <img className="responsive-image" src={`${document.data.featured_img.url}&w=600&h=570&fit=crop&crop=faces`} alt={document.data.featured_img.alt} />
+                                        </picture>
+                                    </LazyLoad>
                                 </div>
                             </div></a></Link>
                     <div className='page-hero-banner-hero-content hero-content' style={{ background: `${document.data.color}` }}>
