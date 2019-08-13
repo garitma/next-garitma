@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { RichText } from 'prismic-reactjs'
 import GaritmicConfig from '../../../garitmic.config.json'
 import LazyLoad from 'react-lazyload';
+import Placeholder from '../../Placeholder';
+
 
 export default class VideoTrailer extends React.Component {
     render() {
@@ -11,7 +13,7 @@ export default class VideoTrailer extends React.Component {
                 <div className="coat inside-pad">
                     <div className="block module-img-container">
                         <Link href="/[uid]" as={`/${document.uid}`}><a>
-                            <LazyLoad height={150}>
+                            <LazyLoad placeholder={<Placeholder src={document.data.featured_img.url} height="300" />} once>
                                 <picture>
                                     <source media="(min-width: 1280px)" srcSet={`${document.data.featured_img.url}`} />
                                     <source media="(max-width: 1279px)" srcSet={`${document.data.featured_img.url}&w=600`} />
