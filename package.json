@@ -6,7 +6,7 @@
     "name": "Garitma",
     "email": "hola@garitma.com"
   },
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "moment": "^2.24.0",
     "next": "latest",
