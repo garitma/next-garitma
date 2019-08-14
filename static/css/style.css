@@ -559,7 +559,7 @@ input, textarea {
   display: inline-block;
   vertical-align: middle;
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 1155px) {
   .glyphsSprite {
     background-image: url("/static/images/sprite_glyphs@2.png");
     background-size: 265px 260px;
