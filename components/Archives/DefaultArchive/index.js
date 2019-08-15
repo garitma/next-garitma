@@ -1,5 +1,7 @@
 import { RichText } from 'prismic-reactjs'
 import Link from 'next/link'
+import LazyLoad from 'react-lazyload'
+import Placeholder from '../../Placeholder'
 
 export default class DefaultArchive extends React.Component {
     render() {
@@ -10,11 +12,13 @@ export default class DefaultArchive extends React.Component {
                     <div className="block">
                         <Link href="/[uid]" as={`/${document.uid}`}>
                             <a>
-                                <picture>
-                                    <source media="(min-width: 1280px)" srcSet={`${document.data.featured_img.url}`} />
-                                    <source media="(max-width: 1279px)" srcSet={`${document.data.featured_img.url}&w=600`} />
-                                    <img className="responsive-image" src={`${document.data.featured_img.url}`} alt={document.data.featured_img.alt} />
-                                </picture>
+                                <LazyLoad placeholder={<Placeholder src={document.data.featured_img.url} height="200" />} once>
+                                    <picture>
+                                        <source media="(min-width: 1280px)" srcSet={`${document.data.featured_img.url}`} />
+                                        <source media="(max-width: 1279px)" srcSet={`${document.data.featured_img.url}&w=600`} />
+                                        <img className="responsive-image" src={`${document.data.featured_img.url}`} alt={document.data.featured_img.alt} />
+                                    </picture>
+                                </LazyLoad>
                             </a>
                         </Link>
                     </div>

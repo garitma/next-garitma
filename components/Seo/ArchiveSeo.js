@@ -19,7 +19,7 @@ export default class ArchiveSeo extends React.Component {
                         type: 'Website',
                         images: [
                             {
-                                url: `${GaritmicConfig.siteURL}/static/images/open_graph_logo.png`,
+                                url: `${GaritmicConfig.social.openGrap}`,
                                 width: 1140,
                                 height: 570,
                                 alt: 'Open Graph logo Garitma',

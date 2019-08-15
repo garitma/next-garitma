@@ -12,7 +12,8 @@
         "instagram": "garitma",
         "twitter": "garitma",
         "facebook": "garitma",
-        "facebookappId": "2316614485265162"
+        "facebookappId": "2316614485265162",
+        "openGrap": "https://images.prismic.io/garitma%2F41185919-2f0a-44b8-bc20-cfcd350ae530_open_graph_logo.png?auto=compress,format"
     },
     "types": {
         "podcasts": "Podcasts",

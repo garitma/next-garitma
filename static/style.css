@@ -87,8 +87,10 @@
   }
 }
 html {
-  font-family: "Ryo Gothic PlusN", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: ryo-gothic-plusn, sans-serif;
   line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
@@ -552,7 +554,7 @@ input, textarea {
 }
 
 .glyphsSprite {
-  background-image: url("/static/images/sprite_glyphs.png");
+  background-image: url("https://images.prismic.io/garitma%2F397474c1-0850-4b79-948b-00796cd3c8ba_sprite_glyphs%402.png?auto=compress,format&w=265&h=260");
   background-repeat: no-repeat;
   height: 24px;
   width: 24px;
@@ -561,7 +563,7 @@ input, textarea {
 }
 @media only screen and (max-width: 1155px) {
   .glyphsSprite {
-    background-image: url("/static/images/sprite_glyphs@2.png");
+    background-image: url("https://images.prismic.io/garitma%2F397474c1-0850-4b79-948b-00796cd3c8ba_sprite_glyphs%402.png?auto=compress,format");
     background-size: 265px 260px;
   }
 }
@@ -1028,7 +1030,7 @@ footer .logo {
 }
 
 .SubHeader {
-  background: url("/static/images/rose-wallpaper.jpg");
+  background: url("https://images.prismic.io/garitma%2Fbbbe14fd-f631-4f02-bf4a-55f41a4daf5c_rose-wallpaper.jpg?auto=compress,format");
   background-position: center;
   background-size: cover;
 }
@@ -1156,6 +1158,11 @@ footer .logo {
 
 .page-header-single {
   text-align: center;
+}
+@media only screen and (max-width: 767px) {
+  .page-header-single img {
+    max-height: 30vh;
+  }
 }
 .page-header-single .module {
   position: relative;

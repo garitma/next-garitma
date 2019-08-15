@@ -4,6 +4,8 @@ import { RichText } from 'prismic-reactjs'
 import GaritmicConfig from '../../../garitmic.config.json'
 import SingleSeo from "../../Seo/SingleSeo"
 import SingleActions from "./SingleActions"
+import LazyLoad from 'react-lazyload'
+import Placeholder from '../../Placeholder'
 
 export default class SingleRead extends React.Component {
 
@@ -16,12 +18,13 @@ export default class SingleRead extends React.Component {
                 <SingleSeo document={document} />
                 <div className='page-header-single-module module' style={{ background: `${document.data.color}` }} >
                     <div className='page-header-single-image-container module-img smush'>
-                        <picture>
-                            <source media="(min-width: 1280px)" srcSet={`${document.data.featured_img.url}`} />
-                            <source media="(max-width: 1279px)" srcSet={`${document.data.featured_img.url}&w=600`} />
-                            <img itemProp="image" className='page-header-single-image responsive-image' src={document.data.featured_img.url} alt={document.data.featured_img.alt} />
-                        </picture>
-
+                        <LazyLoad placeholder={<Placeholder src={document.data.featured_img.url} height="570" />} once>
+                            <picture>
+                                <source media="(min-width: 1280px)" srcSet={`${document.data.featured_img.url}`} />
+                                <source media="(max-width: 1279px)" srcSet={`${document.data.featured_img.url}&w=600`} />
+                                <img itemProp="image" className='page-header-single-image responsive-image' src={document.data.featured_img.url} alt={document.data.featured_img.alt} />
+                            </picture>
+                        </LazyLoad>
                     </div>
                     <div className="page-header-single-actions">
                         <SingleActions document={document} />
@@ -31,7 +34,7 @@ export default class SingleRead extends React.Component {
                 <div className='page-post-body block smash'>
                     <div className='page-post-info'>
                         <div itemProp="genre" className='page-single-post-type single-post-category'>
-                            <Link href={`/categorias/${document.type}`}><a>{GaritmicConfig.types[document.type]}</a></Link>
+                            <Link href='/categorias/[type]' as={`/categorias/${document.type}`}><a>{GaritmicConfig.types[document.type]}</a></Link>
                         </div>
                         <div>
                             <h1 itemProp="name" className='headline-single'>{RichText.asText(document.data.title)}</h1>
