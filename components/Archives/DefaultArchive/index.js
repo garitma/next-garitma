@@ -1,7 +1,5 @@
 import { RichText } from 'prismic-reactjs'
 import Link from 'next/link'
-import LazyLoad from 'react-lazyload'
-import Placeholder from '../../Placeholder'
 
 export default class DefaultArchive extends React.Component {
     render() {

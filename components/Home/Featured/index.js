@@ -2,8 +2,6 @@
 import { RichText } from 'prismic-reactjs'
 import Link from 'next/link'
 import GaritmicConfig from '../../../garitmic.config.json'
-import LazyLoad from 'react-lazyload';
-import Placeholder from '../../Placeholder';
 
 
 export default class Featured extends React.Component {

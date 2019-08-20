@@ -1,7 +1,5 @@
 import Link from 'next/link'
 import { RichText } from 'prismic-reactjs'
-import LazyLoad from 'react-lazyload'
-import Placeholder from '../../Placeholder'
 
 
 export default class extends React.Component {

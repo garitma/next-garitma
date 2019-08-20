@@ -4,8 +4,6 @@ import { RichText } from 'prismic-reactjs'
 import GaritmicConfig from '../../../garitmic.config.json'
 import SingleSeo from "../../Seo/SingleSeo"
 import SingleActions from "./SingleActions"
-import LazyLoad from 'react-lazyload'
-import Placeholder from '../../Placeholder'
 
 export default class SingleRead extends React.Component {
 

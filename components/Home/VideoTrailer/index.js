@@ -1,8 +1,6 @@
 import Link from 'next/link'
 import { RichText } from 'prismic-reactjs'
 import GaritmicConfig from '../../../garitmic.config.json'
-import LazyLoad from 'react-lazyload';
-import Placeholder from '../../Placeholder';
 
 
 export default class VideoTrailer extends React.Component {
