@@ -13,13 +13,11 @@ export default class extends React.Component {
                 <div className='coat inside-pad'>
                     <div className='block module-img-container'>
                         <Link href="/[uid]" as={`/${document.uid}`}><a>
-                            <LazyLoad placeholder={<Placeholder src={document.data.featured_img.url} height="300" />} once>
-                                <picture>
-                                    <source media="(min-width: 1280px)" srcSet={`${document.data.featured_img.url}`} />
-                                    <source media="(max-width: 1279px)" srcSet={`${document.data.featured_img.url}&w=600`} />
-                                    <img className="responsive-image" src={`${document.data.featured_img.url}&w=600`} alt={document.data.featured_img.alt} />
-                                </picture>
-                            </LazyLoad>
+                            <picture>
+                                <source media="(min-width: 1280px)" srcSet={`${document.data.featured_img.url}`} />
+                                <source media="(max-width: 1279px)" srcSet={`${document.data.featured_img.url}&w=600`} />
+                                <img className="responsive-image" src={`${document.data.featured_img.url}&w=600`} alt={document.data.featured_img.alt} />
+                            </picture>
                         </a></Link>
                     </div>
                     <div className='module-box-detail'>
