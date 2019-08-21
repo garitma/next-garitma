@@ -9,12 +9,12 @@ export default class ArchiveSeo extends React.Component {
             <NextSeo
                 config={{
                     title: `${GaritmicConfig.types[document.results[0].type]}`,
-                    titleTemplate: `%s - ${GaritmicConfig.siteName}`,
+                    titleTemplate: `%s | ${GaritmicConfig.siteName}`,
                     description: `${GaritmicConfig.siteDescription}`,
                     canonical: `${GaritmicConfig.siteURL}/categorias/${document.type}`,
                     openGraph: {
                         url: `${GaritmicConfig.siteURL}/categorias/${document.type}`,
-                        title: `${GaritmicConfig.siteName}`,
+                        title: `${GaritmicConfig.types[document.results[0].type]} | ${GaritmicConfig.siteName}`,
                         description: `${GaritmicConfig.siteDescription}`,
                         type: 'Website',
                         images: [
