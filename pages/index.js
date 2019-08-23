@@ -1,20 +1,11 @@
 import Layout from '../components/Layout'
 import { Client, Prismic } from '../api/prismic'
-import HeroBanner from '../components/Home/HeroBanner'
-import SubHero from '../components/Home/SubHero'
-import SubHeroFirst from '../components/Home/SubHero/_First'
-import SubHeroSecond from '../components/Home/SubHero/_Second'
-import SubSection from '../components/Home/SectionsContainers/SubHeroContainer'
-import SubHeroThird from '../components/Home/SubHero/_Third'
-import Section from '../components/Home/SectionsContainers/HomeContainer'
-import VideoTrailer from '../components/Home/VideoTrailer'
-import Featured from '../components/Home/Featured'
 import GeneralSeo from '../components/Seo/GeneralSeo'
 import Error from './_error'
 
 export default class extends React.Component {
 
-    static async getInitialProps({ req, res, query }) {
+    static async getInitialProps({ req, res }) {
         try {
             let [poems, quotes, games, podcasts, comics, videos, downloads, featured] = await Promise.all([
                 Client(req).query(Prismic.Predicates.at('document.type', 'poemas'), { orderings: '[my.poemas.date desc]', pageSize: 1 }),
@@ -40,7 +31,7 @@ export default class extends React.Component {
 
         return (
             poems.results.map((document, index) =>
-                <HeroBanner document={document} key={index} />
+                <div key={index} />
             )
         )
     }
@@ -51,7 +42,7 @@ export default class extends React.Component {
 
         return (
             games.results.map((document, index) =>
-                <SubHeroFirst document={document} key={index} />
+                <div key={index} />
             )
         )
     }
@@ -62,7 +53,8 @@ export default class extends React.Component {
 
         return (
             quotes.results.map((document, index) =>
-                <SubHeroSecond document={document} key={index} />)
+                <div key={index} />
+            )
         )
     }
 
@@ -72,7 +64,8 @@ export default class extends React.Component {
 
         return (
             podcasts.results.map((document, index) =>
-                <SubHeroThird document={document} key={index} />)
+                <div key={index} />
+            )
         )
     }
 
@@ -82,7 +75,8 @@ export default class extends React.Component {
 
         return (
             comics.results.map((document, index) =>
-                <HeroBanner document={document} key={index} cta="Leer" />)
+                <div key={index} />
+            )
         )
     }
 
@@ -92,7 +86,8 @@ export default class extends React.Component {
 
         return (
             videos.results.map((document, index) =>
-                <VideoTrailer document={document} key={index} />)
+                <div key={index} />
+            )
         )
     }
 
@@ -102,7 +97,8 @@ export default class extends React.Component {
 
         return (
             downloads.results.map((document, index) =>
-                <HeroBanner document={document} key={index} cta="Descargar" />)
+                <div key={index} />
+            )
         )
     }
 
@@ -113,32 +109,16 @@ export default class extends React.Component {
 
         return (
             featured.results.map((document, index) =>
-                <Featured document={document} key={index} />)
+                <div document={document} key={index} />
+            )
         )
     }
 
     renderBody() {
         return (
-            <Layout>
-                <GeneralSeo />
-                {this.renderPoems()}
-                <SubHero>
-                    {this.renderSubHeroFirst()}
-                    <SubSection>
-                        {this.renderSubHeroSecond()}
-                    </SubSection>
-                    <SubSection>
-                        {this.renderSubHeroThird()}
-                    </SubSection>
-                </SubHero>
-                {this.renderPromotionPlaceComic()}
-                <Section name="VideoTrailer">
-                    {this.renderVideoTrailer()}
-                </Section>
-                {this.renderPromotionPlaceDownloads()}
-                <Section name="Featured">
-                    {this.renderFeatured()}
-                </Section>
+            <Layout seo={<GeneralSeo />}>
+
+
             </Layout>
         )
     }

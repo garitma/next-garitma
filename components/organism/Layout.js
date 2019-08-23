@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import Navbar from '../Navbar'
-import Footer from '../Footer'
+import Navbar from './Navbar'
+import Footer from './Footer'
 import NProgress from 'nprogress'
 import Router from 'next/router'
 import GaritmicConfig from '../../garitmic.config.json'
@@ -15,7 +15,7 @@ Router.onRouteChangeError = () => NProgress.done()
 
 export default class Layout extends React.Component {
     render() {
-        const { children } = this.props
+        const { children, seo } = this.props
         return <main>
 
             <Head>
@@ -63,6 +63,7 @@ export default class Layout extends React.Component {
                  `}} />
             <script type="text/javascript" src="https://static.cdn.prismic.io/prismic.min.js" />
 
+            {seo}
 
         </main>
     }
