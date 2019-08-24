@@ -3,8 +3,8 @@ export default class SubHeader extends React.Component {
         const { text } = this.props
         return (
             <div className='SubHeader'>
-                <div className='coat smash'>
-                    <h1 className='content-center SubHeader-title'>{text}</h1>
+                <div className='halo smash'>
+                    <h1 className='content-center'>{text}</h1>
                 </div>
             </div>
         );

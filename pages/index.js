@@ -118,7 +118,16 @@ export default class extends React.Component {
     renderBody() {
         return (
             <Layout seo={<GeneralSeo />}>
-                {this.renderPoems()}
+                <div className="snow pad">
+                    <div className="smesh">
+                        <div className="halo">
+                            <div className="layer small-12 medium-6">
+                                {this.renderPoems()}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </Layout>
         )
     }

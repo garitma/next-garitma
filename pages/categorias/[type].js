@@ -1,12 +1,11 @@
 import { Client, Prismic } from '../../api/prismic'
 import GaritmicConfig from '../../garitmic.config.json'
-import Layout from '../../components/Layout'
-import SubHeader from '../../components/SubHeader'
-import DefaultArchive from '../../components/Archives/DefaultArchive'
-import QuoteArchives from '../../components/Archives/QuoteArchives'
-import Pagination from '../../components/Pagination'
-import ArchiveSeo from '../../components/Seo/ArchiveSeo'
+import Layout from '../../components/organism/Layout'
+import SubHeader from '../../components/molecules/SubHeader'
+import ArchiveSeo from '../../components/seo/ArchiveSeo'
 import Error from '../_error'
+import Module from '../../components/molecules/Module'
+import Pagination from '../../components/molecules/Pagination'
 
 export default class extends React.Component {
 
@@ -36,7 +35,9 @@ export default class extends React.Component {
 
         return (
             archive.results.map((document, index) =>
-                <DefaultArchive document={document} key={index} />
+                <li className="mod" key={index}>
+                    <Module document={document} linktype="false" />
+                </li>
             )
         )
     }
@@ -47,7 +48,9 @@ export default class extends React.Component {
 
         return (
             archive.results.map((document, index) =>
-                <QuoteArchives document={document} key={index} />
+                <li className="mod" key={index}>
+                    <Module document={document} modquote="true" modtitle="false" linktype="false" linkuid="false" modmedia="false" modcontent="false" />
+                </li>
             )
         )
     }
@@ -66,22 +69,27 @@ export default class extends React.Component {
         const { archive, type } = this.props
 
         return (
-            <Layout>
-                <SubHeader text={GaritmicConfig.types[type]} />
-                <ArchiveSeo document={archive} />
-                <div className="pad archives">
-                    <div className="coat ">
-                        {archive.results[0].type != 'frases' &&
-                            this.renderDefaultArchives()
-                        }
-                        {archive.results[0].type == 'frases' &&
-                            this.renderArchivesQuotes()
-                        }
+            <Layout seo={<ArchiveSeo document={archive} />}>
+                <SubHeader text={GaritmicConfig.types[type].name} />
+
+                <section className="archives pad snow">
+                    <div className="smesh">
+                        <ul className="aureole">
+                            {archive.results[0].type != 'frases' &&
+                                this.renderDefaultArchives()
+                            }
+                            {archive.results[0].type == 'frases' &&
+                                this.renderArchivesQuotes()
+                            }
+                        </ul>
                     </div>
-                </div>
-                {archive.total_results_size > GaritmicConfig.ArchivePageSize &&
-                    this.renderPagination()
-                }
+                </section>
+                <section className="pagination pad">
+                    {archive.total_results_size > GaritmicConfig.ArchivePageSize &&
+                        this.renderPagination()
+                    }
+                </section>
+
             </Layout>
         )
     }

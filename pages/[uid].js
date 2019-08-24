@@ -1,8 +1,5 @@
-import Layout from '../components/Layout'
+import Layout from '../components/organism/Layout'
 import { Client } from '../api/prismic'
-import SingleRead from '../components/SinglePost/SingleRead'
-import SinglePages from '../components/SinglePost/SinglePages'
-import SingleQuote from '../components/SinglePost/SingleQuote'
 import Error from './_error'
 
 export default class Post extends React.Component {

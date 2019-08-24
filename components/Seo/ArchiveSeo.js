@@ -8,7 +8,7 @@ export default class ArchiveSeo extends React.Component {
         return (
             <NextSeo
                 config={{
-                    title: `${GaritmicConfig.types[document.results[0].type]}`,
+                    title: `${GaritmicConfig.types[document.results[0].type].name}`,
                     titleTemplate: `%s | ${GaritmicConfig.siteName}`,
                     description: `${GaritmicConfig.siteDescription}`,
                     canonical: `${GaritmicConfig.siteURL}/categorias/${document.type}`,

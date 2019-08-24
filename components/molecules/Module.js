@@ -8,21 +8,35 @@ import { RichText } from 'prismic-reactjs'
 export default class Module extends React.Component {
     render() {
 
-        const { document } = this.props
+        const { document, linkuid, linktype, modmedia, modtitle, modcontent, modquote } = this.props
 
         return (
             <div className="mod">
-                <ModMedia document={document} />
+                {modmedia != 'false' &&
+                    <ModMedia document={document} />
+                }
                 <div className="mod-detail">
-                    <ModTitle document={document} />
-                    <p className="mod-content">
-                        {RichText.asText(document.data.excerpt)}
-                    </p>
+                    {modtitle != 'false' &&
+                        <ModTitle document={document} />
+                    }
+                    {modquote === "true" &&
+                        <blockquote className="centertxt">{RichText.asText(document.data.title)}.</blockquote>
+                    }
+                    {modcontent != 'false' &&
+                        <p className="mod-content">
+                            {RichText.asText(document.data.excerpt)}
+                        </p>
+                    }
+                    <div className="mod-action">
+                        {linkuid != 'false' &&
+                            <LinkUid document={document} />
+                        }
+                        {linktype != 'false' &&
+                            <LinkType document={document} />
+                        }
+                    </div>
                 </div>
-                <div className="mod-action">
-                    <LinkUid document={document} />
-                    <LinkType document={document} />
-                </div>
+
             </div>
         )
     }
