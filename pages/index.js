@@ -1,7 +1,8 @@
-import Layout from '../components/Layout'
+import Layout from '../components/organism/Layout'
 import { Client, Prismic } from '../api/prismic'
 import GeneralSeo from '../components/Seo/GeneralSeo'
 import Error from './_error'
+import Module from '../components/molecules/Module'
 
 export default class extends React.Component {
 
@@ -31,7 +32,7 @@ export default class extends React.Component {
 
         return (
             poems.results.map((document, index) =>
-                <div key={index} />
+                <Module document={document} />
             )
         )
     }
@@ -117,8 +118,7 @@ export default class extends React.Component {
     renderBody() {
         return (
             <Layout seo={<GeneralSeo />}>
-
-
+                {this.renderPoems()}
             </Layout>
         )
     }

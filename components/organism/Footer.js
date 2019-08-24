@@ -1,19 +1,19 @@
 import Link from 'next/link'
 
-export default class Navbar extends React.Component {
+export default class Footer extends React.Component {
 
     render() {
         return (
-            <footer className="page-footer">
-                <div className="coat smush page-footer-content">
-                    <div className="page-footer-firs-section">
-                        <div className="page-footer-logo block-copyright">
+            <footer id="Footer">
+                <div className="halo smush">
+                    <div className="firs-section">
+                        <div className="logo copyright">
                             <Link href="/" as="/">
                                 <a><div className="glyphsSprite logo" /></a>
                             </Link>
                             <p className="page-footer-legal">© 2019 Garitma. Todos los derechos reservados</p>
                         </div>
-                        <ul className="page-footer-legal-wrapper nav-list coat">
+                        <ul className="page-footer-legal-wrapper nav-list halo">
                             <li className="page-footer-link item">
                                 <Link href="/[uid]" as="/informacion-legal">
                                     <a>Terminos de uso</a>

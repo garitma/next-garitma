@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import Layout from '../components/Layout'
+import Layout from '../components/organism/Layout'
 import Head from 'next/head'
 import GaritmicConfig from '../garitmic.config.json'
 
