@@ -3,26 +3,26 @@ import { Client, Prismic } from '../api/prismic'
 import GeneralSeo from '../components/Seo/GeneralSeo'
 import Error from './_error'
 import Module from '../components/molecules/Module'
+import Subheader from '../components/molecules/SubHeader'
 
 export default class extends React.Component {
 
     static async getInitialProps({ req, res }) {
         try {
-            let [poems, quotes, games, podcasts, comics, videos, downloads, featured] = await Promise.all([
-                Client(req).query(Prismic.Predicates.at('document.type', 'poemas'), { orderings: '[my.poemas.date desc]', pageSize: 1 }),
-                Client(req).query(Prismic.Predicates.at('document.type', 'frases'), { orderings: '[my.frases.date desc]', pageSize: 2 }),
+            let [poems, quotes, games, comics, videos, downloads, featured] = await Promise.all([
+                Client(req).query(Prismic.Predicates.at('document.type', 'poemas'), { orderings: '[my.poemas.date desc]', pageSize: 3 }),
+                Client(req).query(Prismic.Predicates.at('document.type', 'frases'), { orderings: '[my.frases.date desc]', pageSize: 3 }),
                 Client(req).query(Prismic.Predicates.at('document.type', 'juegos'), { orderings: '[my.juegos.date desc]', pageSize: 1 }),
-                Client(req).query(Prismic.Predicates.at('document.type', 'podcasts'), { orderings: '[my.podcasts.date desc]', pageSize: 1 }),
-                Client(req).query(Prismic.Predicates.at('document.type', 'comics'), { orderings: '[my.comics.date desc]', pageSize: 1 }),
-                Client(req).query(Prismic.Predicates.at('document.type', 'videos'), { orderings: '[my.videos.date desc]', pageSize: 2 }),
-                Client(req).query(Prismic.Predicates.at('document.type', 'descargas'), { orderings: '[my.descargas.date desc]', pageSize: 1 }),
+                Client(req).query(Prismic.Predicates.at('document.type', 'comics'), { orderings: '[my.comics.date desc]', pageSize: 3 }),
+                Client(req).query(Prismic.Predicates.at('document.type', 'videos'), { orderings: '[my.videos.date desc]', pageSize: 3 }),
+                Client(req).query(Prismic.Predicates.at('document.type', 'descargas'), { orderings: '[my.descargas.date desc]', pageSize: 3 }),
                 Client(req).query(Prismic.Predicates.at('document.tags', ['featured']), { orderings: '[my.poemas.date desc]', pageSize: 3 }),
             ])
 
-            return { poems, quotes, games, podcasts, comics, videos, downloads, featured, statusCode: 200 }
+            return { poems, quotes, games, comics, videos, downloads, featured, statusCode: 200 }
         } catch (e) {
             res.statusCode = 503
-            return { poems: null, quotes: null, games: null, podcasts: null, comics: null, videos: null, downloads: null, featured: null, statusCode: 503 }
+            return { poems: null, quotes: null, games: null, comics: null, videos: null, downloads: null, featured: null, statusCode: 503 }
         }
     }
 
@@ -32,7 +32,7 @@ export default class extends React.Component {
 
         return (
             poems.results.map((document, index) =>
-                <Module document={document} />
+                <Module document={document} key={index} linktype="false" />
             )
         )
     }
@@ -48,57 +48,46 @@ export default class extends React.Component {
         )
     }
 
-    renderSubHeroSecond() {
+    renderQuotes() {
 
         const { quotes } = this.props
 
         return (
             quotes.results.map((document, index) =>
-                <div key={index} />
+                <Module document={document} key={index} modquote="true" modtitle="false" linktype="false" linkuid="false" modmedia="false" modcontent="false" />
             )
         )
     }
 
-    renderSubHeroThird() {
-
-        const { podcasts } = this.props
-
-        return (
-            podcasts.results.map((document, index) =>
-                <div key={index} />
-            )
-        )
-    }
-
-    renderPromotionPlaceComic() {
+    renderComics() {
 
         const { comics } = this.props
 
         return (
             comics.results.map((document, index) =>
-                <div key={index} />
+                <Module document={document} key={index} linktype="false" />
             )
         )
     }
 
-    renderVideoTrailer() {
+    renderVideos() {
 
         const { videos } = this.props
 
         return (
             videos.results.map((document, index) =>
-                <div key={index} />
+                <Module document={document} key={index} linktype="false" linkuid="false" />
             )
         )
     }
 
-    renderPromotionPlaceDownloads() {
+    renderDownloads() {
 
         const { downloads } = this.props
 
         return (
             downloads.results.map((document, index) =>
-                <div key={index} />
+                <Module document={document} key={index} linktype="false" />
             )
         )
     }
@@ -110,7 +99,7 @@ export default class extends React.Component {
 
         return (
             featured.results.map((document, index) =>
-                <div document={document} key={index} />
+                <Module document={document} key={index} linktype="false" />
             )
         )
     }
@@ -118,15 +107,54 @@ export default class extends React.Component {
     renderBody() {
         return (
             <Layout seo={<GeneralSeo />}>
-                <div className="snow pad">
+                <section className="poems purple pad">
                     <div className="smesh">
-                        <div className="halo">
-                            <div className="layer small-12 medium-6">
-                                {this.renderPoems()}
-                            </div>
+                        <h3 className="centertxt mtn">Poemas</h3>
+                        <div className="aureole">
+                            {this.renderPoems()}
                         </div>
                     </div>
-                </div>
+                </section>
+                <section className="quotes snow pad">
+                    <div className="smesh">
+                        <h3 className="centertxt">Frases</h3>
+                        <div className="aureole">
+                            {this.renderQuotes()}
+                        </div>
+                    </div>
+                </section>
+                <section className="quotes purple pad">
+                    <div className="smesh">
+                        <h3 className="centertxt">Cómics</h3>
+                        <div className="aureole">
+                            {this.renderComics()}
+                        </div>
+                    </div>
+                </section>
+                <section className="quotes snow pad">
+                    <div className="smesh">
+                        <h3 className="centertxt">Descargas</h3>
+                        <div className="aureole">
+                            {this.renderDownloads()}
+                        </div>
+                    </div>
+                </section>
+                <section className="videos purple pad">
+                    <div className="smesh">
+                        <h3 className="centertxt">Videos</h3>
+                        <div className="aureole">
+                            {this.renderVideos()}
+                        </div>
+                    </div>
+                </section>
+                <section className="featured snow pad">
+                    <div className="smesh">
+                        <h3 className="centertxt">Recomendados</h3>
+                        <div className="aureole">
+                            {this.renderFeatured()}
+                        </div>
+                    </div>
+                </section>
 
             </Layout>
         )

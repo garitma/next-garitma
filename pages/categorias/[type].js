@@ -35,9 +35,7 @@ export default class extends React.Component {
 
         return (
             archive.results.map((document, index) =>
-                <li className="mod" key={index}>
-                    <Module document={document} linktype="false" />
-                </li>
+                <Module document={document} linktype="false" key={index} />
             )
         )
     }
@@ -48,9 +46,7 @@ export default class extends React.Component {
 
         return (
             archive.results.map((document, index) =>
-                <li className="mod" key={index}>
-                    <Module document={document} modquote="true" modtitle="false" linktype="false" linkuid="false" modmedia="false" modcontent="false" />
-                </li>
+                <Module document={document} key={index} modquote="true" modtitle="false" linktype="false" linkuid="false" modmedia="false" modcontent="false" />
             )
         )
     }

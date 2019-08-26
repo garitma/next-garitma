@@ -23,7 +23,7 @@
         },
         "comics": {
             "name": "Cómics",
-            "type": "comics",
+            "type": "cómics",
             "cta": "Leer"
         },
         "frases": {
