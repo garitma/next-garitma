@@ -1,10 +1,10 @@
 import { Client, Prismic } from '../api/prismic'
 import GaritmicConfig from '../garitmic.config.json'
-import SearchForm from '../components/Search/SearchForm'
-import Layout from '../components/Layout'
-import SubHeader from '../components/SubHeader'
-import SearchResults from '../components/Search/SearchResults'
-import Pagination from '../components/Pagination'
+import Layout from '../components/organism/Layout'
+import SubHeader from '../components/molecules/SubHeader'
+import Pagination from '../components/molecules/Pagination'
+import SearchForm from '../components/atoms/SearchForm'
+import SearchResults from '../components/molecules/SearchResults'
 
 export default class extends React.Component {
 
@@ -53,20 +53,21 @@ export default class extends React.Component {
         return (
             <Layout>
                 <SubHeader text={`Se encontraron ${search.total_results_size} resultados para ${this.props.s}`} />
-                <div className="pad archives">
-                    <div className="block search-container">
+                <div className="pad snow">
+                    <div className="smosh">
                         <SearchForm />
                     </div>
-                    <ul className="results smush">
+                    <ul className="results smash">
                         <div className="pad">
                             {this.renderSearchResults()}
                         </div>
                     </ul>
                 </div>
-
-                {this.props.search.total_results_size > GaritmicConfig.ArchivePageSize &&
-                    this.renderPagination()
-                }
+                <section className="pagination pad">
+                    {this.props.search.total_results_size > GaritmicConfig.ArchivePageSize &&
+                        this.renderPagination()
+                    }
+                </section>
             </Layout>
         )
     }

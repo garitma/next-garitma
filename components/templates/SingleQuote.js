@@ -1,8 +1,8 @@
 import moment from 'moment'
 import Link from 'next/link'
 import { RichText } from 'prismic-reactjs'
-import GaritmicConfig from '../../../garitmic.config.json'
-import SingleSeo from "../../Seo/SingleSeo"
+import GaritmicConfig from '../../garitmic.config.json'
+import QuoteSeo from '../seo/QuoteSeo'
 
 export default class SingleQuote extends React.Component {
     render() {
@@ -12,21 +12,21 @@ export default class SingleQuote extends React.Component {
         return (
             <div className='page-header-single' itemScope itemType="http://schema.org/CreativeWork">
 
+                <QuoteSeo document={document} />
 
-                <div className='block smash'>
+                <div className='layer smash centertxt message pad valign'>
                     <div className='page-post-info'>
                         <div itemProp="genre" className='page-single-post-type single-post-category'>
-                            <Link href={`/categorias/${document.type}`}><a>{GaritmicConfig.types[document.type]}</a></Link>
+                            <Link href={`/categorias/${document.type}`}><a>{GaritmicConfig.types[document.type].name}</a></Link>
                         </div>
-                        <div>
-                            <h1><blockquote className='headline-single-quote'>{RichText.asText(document.data.title)}</blockquote></h1>
+                        <div className="smosh">
+                            <blockquote className='headline-single-quote'>{RichText.asText(document.data.title)}</blockquote>
                         </div>
-                        <Link href='/categorias/[type]' as={`/categorias/${document.type}`}><a className="button-link">Ver más {GaritmicConfig.types[document.type]}</a></Link>
                         <div data-wio-id={document.id}></div>
                     </div>
                 </div>
 
-            </div>
+            </div >
         )
     }
 }

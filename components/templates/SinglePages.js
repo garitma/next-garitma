@@ -1,6 +1,6 @@
 
 import { RichText } from 'prismic-reactjs'
-import PageSeo from "../../Seo/PageSeo"
+import PageSeo from "../seo/PageSeo"
 
 
 export default class SinglePage extends React.Component {

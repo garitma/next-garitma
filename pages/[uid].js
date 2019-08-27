@@ -2,6 +2,8 @@ import Layout from '../components/organism/Layout'
 import { Client } from '../api/prismic'
 import Error from './_error'
 import SingleRead from '../components/templates/SingleRead'
+import SinglePage from '../components/templates/SinglePages'
+import SingleQuote from '../components/templates/SingleQuote'
 
 export default class Post extends React.Component {
 
@@ -75,7 +77,7 @@ export default class Post extends React.Component {
                 }
 
                 {pages
-                    ? <SinglePages document={pages} />
+                    ? <SinglePage document={pages} />
                     : ''
                 }
 

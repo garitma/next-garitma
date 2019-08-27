@@ -4,7 +4,7 @@ export default class SubHeader extends React.Component {
         return (
             <div className='SubHeader'>
                 <div className='halo smash'>
-                    <h1 className='content-center'>{text}</h1>
+                    <h1 className='content-center centertxt'>{text}</h1>
                 </div>
             </div>
         );

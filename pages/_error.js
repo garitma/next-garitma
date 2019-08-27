@@ -16,20 +16,20 @@ export default class Error extends React.Component {
         return (
             <Layout>
                 <Head>
-                    <title>Oh no :( - {GaritmicConfig.siteName}</title>
+                    <title>Oh no :( | {GaritmicConfig.siteName}</title>
                 </Head>
 
                 {statusCode === 404 ?
-                    <div className="message error coat">
+                    <div className="message error halo centertxt pad valign">
                         <img className="smush" src="https://media.giphy.com/media/4HmjzL6Xm7XSCyzsF3/giphy.gif" height="80" />
-                        <h1 className="block title-error">Esta página no existe :(</h1>
-                        <p className="block"><Link href="/" as="/"><a className="button-link">Volver al inicio</a></Link></p>
+                        <h1 className="layer title-error">Esta página no existe :(</h1>
+                        <p className="layer"><Link href="/" as="/"><a className="button-link">Volver al inicio</a></Link></p>
                     </div>
                     :
-                    <div className="message error coat">
+                    <div className="message error halo centertxt pad valign">
                         <img className="smush" src="https://media.giphy.com/media/4HmjzL6Xm7XSCyzsF3/giphy.gif" height="80" />
-                        <h1 className="block title-error">Hubo un problema :(</h1>
-                        <p className="block">Intenta nuevamente en unos segundos</p>
+                        <h1 className="layer title-error">Hubo un problema :(</h1>
+                        <p className="layer">Intenta nuevamente en unos segundos</p>
                     </div>
                 }
             </Layout>
