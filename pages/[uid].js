@@ -1,6 +1,7 @@
 import Layout from '../components/organism/Layout'
 import { Client } from '../api/prismic'
 import Error from './_error'
+import SingleRead from '../components/templates/SingleRead'
 
 export default class Post extends React.Component {
 
