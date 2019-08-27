@@ -1,9 +1,8 @@
 import Layout from '../components/organism/Layout'
 import { Client, Prismic } from '../api/prismic'
-import GeneralSeo from '../components/Seo/GeneralSeo'
+import GeneralSeo from '../components/seo/GeneralSeo'
 import Error from './_error'
 import Module from '../components/molecules/Module'
-import Subheader from '../components/molecules/SubHeader'
 
 export default class extends React.Component {
 

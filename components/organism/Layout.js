@@ -28,7 +28,7 @@ export default class Layout extends React.Component {
                 <link rel='apple-touch-icon' sizes='120x120' href='https://images.prismic.io/garitma%2Fe357d4fe-1953-43e0-be0e-4f7f95e21fcc_favicon-192.png?auto=compress,format&w=120&h=120' />
                 <link rel='apple-touch-icon' sizes='144x144' href='https://images.prismic.io/garitma%2Fe357d4fe-1953-43e0-be0e-4f7f95e21fcc_favicon-192.png?auto=compress,format&w=144&h=144' />
                 <link rel='apple-touch-icon' sizes='152x152' href='https://images.prismic.io/garitma%2Fe357d4fe-1953-43e0-be0e-4f7f95e21fcc_favicon-192.png?auto=compress,format&w=152&h=152' />
-                <link href='http://localhost:3000/static/style.css' rel='stylesheet' />
+                <link href='https://auradesign.garitma.com/static/style.css' rel='stylesheet' />
                 <meta content='yes' name='apple-mobile-web-app-capable' />
                 <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
                 <script src="//use.typekit.net/acc2awn.js"></script>

@@ -23,9 +23,9 @@ export default class SingleRead extends React.Component {
                     </div>
                 </div>
                 <div className="pad centertxt">
-                    <Link href='/categorias/[type]' as={`/categorias/${document.type.name}`}><a className="h6" itemProp="genre">{GaritmicConfig.types[document.type].name}</a></Link>
+                    <Link href='/categorias/[type]' as={`/categorias/${document.type}`}><a className="h6" itemProp="genre">{GaritmicConfig.types[document.type].name}</a></Link>
                     <div className="smash">
-                        <h1 itemProp="name" className='headline-single'>{RichText.asText(document.data.title)}</h1>
+                        <h1 itemProp="name">{RichText.asText(document.data.title)}</h1>
                     </div>
                     <div className='glyphsSprite logo' />
                     <div className="h6"><span itemProp="author">Garitma</span> · {moment(document.data.date).locale(`${GaritmicConfig.lang}`).format(`${GaritmicConfig.dateFormat}`)}</div>
