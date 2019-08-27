@@ -4,6 +4,7 @@ import { RichText } from 'prismic-reactjs'
 import GaritmicConfig from '../../garitmic.config.json'
 import SingleSeo from "../seo/SingleSeo"
 import SingleAction from "../molecules/SingleActions"
+import LinkType from "../atoms/LinkType"
 
 export default class SingleRead extends React.Component {
 
@@ -12,7 +13,7 @@ export default class SingleRead extends React.Component {
         const { document } = this.props
 
         return (
-            <div className="">
+            <div className="post">
                 <div className="feature" style={{ background: `${document.data.color}` }} itemScope itemType="http://schema.org/CreativeWork">
                     <SingleSeo document={document} />
                     <div className="smush" >
@@ -32,6 +33,10 @@ export default class SingleRead extends React.Component {
                     <div className="content smash pad h4 light">
                         {RichText.render(document.data.content)}
                         <div data-wio-id={document.id}></div>
+
+                    </div>
+                    <div className="h6">
+                        <LinkType document={document} />
                     </div>
                 </div>
             </div>

@@ -9,7 +9,7 @@ export default class LinkType extends React.Component {
         return (
             <Link href="/categorias/[type]" as={`/categorias/${document.type}`}>
                 <a className="button-link">
-                    {GaritmicConfig.types[document.type].type}
+                    Ver más {GaritmicConfig.types[document.type].type}
                 </a>
             </Link>
         )

@@ -53,7 +53,7 @@ export default class extends React.Component {
 
         return (
             quotes.results.map((document, index) =>
-                <Module document={document} key={index} modquote="true" modtitle="false" linktype="false" linkuid="false" modmedia="false" modcontent="false" />
+                <Module document={document} key={index} modquote="true" modtitle="false" linkuid="false" modmedia="false" modcontent="false" />
             )
         )
     }
