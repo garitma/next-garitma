@@ -10,9 +10,9 @@ export default class ArchiveSeo extends React.Component {
                     title: `${GaritmicConfig.types[document.results[0].type].name}`,
                     titleTemplate: `%s | ${GaritmicConfig.siteName}`,
                     description: `${GaritmicConfig.siteDescription}`,
-                    canonical: `${GaritmicConfig.siteURL}/categorias/${document.type}`,
+                    canonical: `${GaritmicConfig.siteURL}/categorias/${document.results[0].type}`,
                     openGraph: {
-                        url: `${GaritmicConfig.siteURL}/categorias/${document.type}`,
+                        url: `${GaritmicConfig.siteURL}/categorias/${document.results[0].type}`,
                         title: `${GaritmicConfig.types[document.results[0].type].name} | ${GaritmicConfig.siteName}`,
                         description: `${GaritmicConfig.siteDescription}`,
                         type: 'Website',
