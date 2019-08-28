@@ -1,6 +1,7 @@
 
 import { RichText } from 'prismic-reactjs'
 import PageSeo from "../seo/PageSeo"
+import SubHeader from "../molecules/SubHeader"
 
 
 export default class SinglePage extends React.Component {
@@ -10,11 +11,7 @@ export default class SinglePage extends React.Component {
 
             <PageSeo document={document} />
 
-            <div className='SubHeader'>
-                <div className='halo smash'>
-                    <h1 className='content-center SubHeader-title'>{RichText.asText(document.data.title)}</h1>
-                </div>
-            </div>
+            <SubHeader text={RichText.asText(document.data.title)} />
 
             <div className='smash'>
                 <div className="pad">
