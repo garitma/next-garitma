@@ -1,5 +1,4 @@
 import NextSeo from 'next-seo'
-import { RichText } from 'prismic-reactjs'
 import GaritmicConfig from '../../garitmic.config.json'
 
 export default class ArchiveSeo extends React.Component {
@@ -14,7 +13,7 @@ export default class ArchiveSeo extends React.Component {
                     canonical: `${GaritmicConfig.siteURL}/categorias/${document.type}`,
                     openGraph: {
                         url: `${GaritmicConfig.siteURL}/categorias/${document.type}`,
-                        title: `${GaritmicConfig.types[document.results[0].type]} | ${GaritmicConfig.siteName}`,
+                        title: `${GaritmicConfig.types[document.results[0].type].name} | ${GaritmicConfig.siteName}`,
                         description: `${GaritmicConfig.siteDescription}`,
                         type: 'Website',
                         images: [
