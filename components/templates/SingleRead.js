@@ -18,7 +18,7 @@ export default class SingleRead extends React.Component {
                     <SingleSeo document={document} />
                     <div className="smush" >
                         <div className="mod-media" >
-                            <img alt={document.data.featured_img.alt} srcSet={`${document.data.featured_img.url}&w=640 640w,${document.data.featured_img.url}&w=750 750w, ${document.data.featured_img.url} 1080w`} src={document.data.featured_img.url} />
+                            <img itemProp="image" alt={document.data.featured_img.alt} srcSet={`${document.data.featured_img.url}&w=640 640w,${document.data.featured_img.url}&w=750 750w, ${document.data.featured_img.url} 1080w`} src={document.data.featured_img.url} />
                             <SingleAction document={document} />
                         </div>
                     </div>

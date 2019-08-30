@@ -8,11 +8,8 @@ export default class SinglePage extends React.Component {
     render() {
         const { document } = this.props
         return (<div>
-
             <PageSeo document={document} />
-
             <SubHeader text={RichText.asText(document.data.title)} />
-
             <div className='smash'>
                 <div className="pad">
                     <h2>{RichText.asText(document.data.subtitle)}</h2>
@@ -22,7 +19,6 @@ export default class SinglePage extends React.Component {
                     </div>
                 </div>
             </div>
-
         </div>
         )
     }

@@ -19,7 +19,7 @@ export default class SingleAction extends React.Component {
         const { document } = this.props
 
         return (
-            <div className="page-header-single-actions-container">
+            <div className="actions">
                 {document.type == "descargas" &&
                     <a href={document.data.download.url} target="_blank" download>
                         <div className="glyphsSprite download action" />

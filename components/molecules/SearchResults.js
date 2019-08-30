@@ -6,13 +6,13 @@ export default class SearchResults extends React.Component {
     render() {
         const { document } = this.props
         return (
-            <div className="page-search-results mod">
-                <div className="page-search-module layer">
-                    <div className="page-search-wrapper halo">
+            <div className="search-item mod">
+                <div className="layer">
+                    <div className="halo">
                         <div className="search-thumbnail layer small-4 medium-2 valign">
                             {document.type != "frases" && document.type != "paginas" &&
                                 <div className="mod-media zoom">
-                                    <img className="responsive-image" src={`${document.data.featured_img.url}&w=150&h=150&fit=crop`} />
+                                    <img src={`${document.data.featured_img.url}&w=150&h=150&fit=crop`} />
                                 </div>
                             }
                         </div>

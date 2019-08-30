@@ -27,7 +27,7 @@ export default class Footer extends React.Component {
 
                         </ul>
                     </div>
-                    <div className="contact-section page-footer-second-section">
+                    <div className="contact-section">
                         <ul className="page-footer-follow nav-list">
                             <li className="item"><a href="https://www.instagram.com/garitma" target="_blank"><div className="glyphsSprite instagram" /></a></li>
                             <li className="item"><a href="https://www.twitter.com/garitma" target="_blank"><div className="glyphsSprite twitter" /></a></li>
@@ -36,7 +36,7 @@ export default class Footer extends React.Component {
                             <li className="item"><a href="https://www.facebook.com/garitma" target="_blank"><div className="glyphsSprite facebook" /></a></li>
 
                         </ul>
-                        <ul className="page-footer-contact nav-list">
+                        <ul className="nav-list">
                             <li className="item fluid centertxt"><p>
                                 <Link href="/[uid]" as="/informacion-de-contacto">
                                     <a>Información de contacto</a>
