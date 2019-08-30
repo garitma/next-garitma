@@ -1,9 +1,6 @@
 {
     "version": 2,
     "name": "Garitma",
-    "alias": [
-        "garitma.com"
-    ],
     "builds": [
         {
             "src": "next.config.js",
