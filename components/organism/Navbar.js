@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import SearchFrom from '../atoms/SearchForm'
 
 export default class Navbar extends React.Component {
 
@@ -17,7 +18,7 @@ export default class Navbar extends React.Component {
         }
         return (
             <header>
-                <nav id="Navbar" className="page-nav-container">
+                <nav id="Navbar" className="navbar">
                     <div className="nav-wrapper">
                         <ul className="nav-list">
                             <li className="logo item">
@@ -37,9 +38,7 @@ export default class Navbar extends React.Component {
                             <div className="sidenav">
                                 <ul className="menu">
                                     <li>
-                                        <form role="search" method="get" id="searchform" className="searchform" action="/resultados">
-                                            <input className="menu-item" id="search" type="search" placeholder="Buscar" name="s" required />
-                                        </form>
+                                        <SearchFrom />
                                     </li>
                                     <li onClick={this.toggle.bind(this)}><Link href='/categorias/[type]' as='/categorias/poemas'><a className="menu-item">Poemas</a></Link></li>
                                     <li onClick={this.toggle.bind(this)}><Link href='/categorias/[type]' as='/categorias/frases'><a className="menu-item">Frases</a></Link></li>
