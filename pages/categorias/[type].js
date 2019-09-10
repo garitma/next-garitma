@@ -66,6 +66,7 @@ export default class extends React.Component {
 
         return (
             <Layout seo={<ArchiveSeo document={archive} />}>
+
                 <SubHeader text={GaritmicConfig.types[type].name} />
 
                 <section className="archives pad snow">
