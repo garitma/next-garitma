@@ -31,7 +31,7 @@ export default class extends React.Component {
 
         return (
             poems.results.map((document, index) =>
-                <Module document={document} key={index} linktype="false" />
+                <Module document={document} key={index} linktype="false" linkuid="false" />
             )
         )
     }
@@ -64,7 +64,7 @@ export default class extends React.Component {
 
         return (
             comics.results.map((document, index) =>
-                <Module document={document} key={index} linktype="false" />
+                <Module document={document} key={index} linktype="false" linkuid="false" />
             )
         )
     }
@@ -86,7 +86,7 @@ export default class extends React.Component {
 
         return (
             downloads.results.map((document, index) =>
-                <Module document={document} key={index} linktype="false" />
+                <Module document={document} key={index} linktype="false" linkuid="false" />
             )
         )
     }
@@ -98,7 +98,7 @@ export default class extends React.Component {
 
         return (
             featured.results.map((document, index) =>
-                <Module document={document} key={index} linktype="false" />
+                <Module document={document} key={index} linktype="false" linkuid="false" />
             )
         )
     }
@@ -106,55 +106,20 @@ export default class extends React.Component {
     renderBody() {
         return (
             <Layout seo={<GeneralSeo />}>
+
                 <section className="poems purple pad">
                     <div className="smesh">
-                        <h3 className="centertxt mtn">Poemas</h3>
+                        <div className="pad hide-small" />
                         <div className="aureole">
                             {this.renderPoems()}
-                        </div>
-                    </div>
-                </section>
-                <section className="quotes snow pad">
-                    <div className="smesh">
-                        <h3 className="centertxt">Frases</h3>
-                        <div className="aureole">
                             {this.renderQuotes()}
-                        </div>
-                    </div>
-                </section>
-                <section className="quotes purple pad">
-                    <div className="smesh">
-                        <h3 className="centertxt">Cómics</h3>
-                        <div className="aureole">
                             {this.renderComics()}
-                        </div>
-                    </div>
-                </section>
-                <section className="quotes snow pad">
-                    <div className="smesh">
-                        <h3 className="centertxt">Descargas</h3>
-                        <div className="aureole">
                             {this.renderDownloads()}
-                        </div>
-                    </div>
-                </section>
-                <section className="videos purple pad">
-                    <div className="smesh">
-                        <h3 className="centertxt">Videos</h3>
-                        <div className="aureole">
                             {this.renderVideos()}
-                        </div>
-                    </div>
-                </section>
-                <section className="featured snow pad">
-                    <div className="smesh">
-                        <h3 className="centertxt">Recomendados</h3>
-                        <div className="aureole">
                             {this.renderFeatured()}
                         </div>
                     </div>
                 </section>
-
             </Layout>
         )
     }

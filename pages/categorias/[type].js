@@ -35,7 +35,7 @@ export default class extends React.Component {
 
         return (
             archive.results.map((document, index) =>
-                <Module document={document} linktype="false" key={index} />
+                <Module document={document} linktype="false" linkuid="false" key={index} />
             )
         )
     }
