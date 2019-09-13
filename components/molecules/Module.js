@@ -22,7 +22,7 @@ export default class Module extends React.Component {
                     {modquote === "true" &&
                         <blockquote className="centertxt">{RichText.asText(document.data.title)}.</blockquote>
                     }
-                    {modcontent != 'false' &&
+                    {modcontent != 'false' && document.data.excerpt != undefined &&
                         <p className="mod-content">
                             {RichText.asText(document.data.excerpt)}
                         </p>
