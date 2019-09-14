@@ -4,7 +4,7 @@ import Layout from '../../components/organism/Layout'
 import SubHeader from '../../components/molecules/SubHeader'
 import ArchiveSeo from '../../components/seo/ArchiveSeo'
 import Error from '../_error'
-import Module from '../../components/molecules/Module'
+import SmartModule from '../../components/organism/SmartModule'
 import Pagination from '../../components/molecules/Pagination'
 
 export default class extends React.Component {
@@ -29,24 +29,13 @@ export default class extends React.Component {
         }
     }
 
-    renderDefaultArchives() {
+    renderArchives() {
 
         const { archive } = this.props
 
         return (
             archive.results.map((document, index) =>
-                <Module document={document} linktype="false" linkuid="false" key={index} />
-            )
-        )
-    }
-
-    renderArchivesQuotes() {
-
-        const { archive } = this.props
-
-        return (
-            archive.results.map((document, index) =>
-                <Module document={document} key={index} modquote="true" modtitle="false" linktype="false" linkuid="false" modmedia="false" modcontent="false" />
+                <SmartModule document={document} key={index} />
             )
         )
     }
@@ -72,12 +61,7 @@ export default class extends React.Component {
                 <section className="archives pad snow">
                     <div className="smesh">
                         <ul className="aureole">
-                            {archive.results[0].type != 'frases' &&
-                                this.renderDefaultArchives()
-                            }
-                            {archive.results[0].type == 'frases' &&
-                                this.renderArchivesQuotes()
-                            }
+                            {this.renderArchives()}
                         </ul>
                     </div>
                 </section>
