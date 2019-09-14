@@ -37,7 +37,7 @@ export default class Navbar extends React.Component {
                         <div className={boxClass.join('')}>
                             <div className="sidenav">
                                 <ul className="menu">
-                                    <li className="menu-item">
+                                    <li className="">
                                         <MenuSearchForm />
                                     </li>
                                     <li onClick={this.toggle.bind(this)}><Link href='/categorias/[type]' as='/categorias/poemas'><a className="menu-item">Poemas</a></Link></li>
