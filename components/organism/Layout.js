@@ -33,8 +33,6 @@ export default class Layout extends React.Component {
                 <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
                 <script src="//use.typekit.net/acc2awn.js"></script>
                 <script dangerouslySetInnerHTML={{ __html: `try{Typekit.load({ async: true });}catch(e){}` }} />
-                <script type="text/javascript" src="https://static.cdn.prismic.io/prismic.min.js" />
-
             </Head>
 
             <Navbar />
