@@ -36,6 +36,16 @@ export default class extends React.Component {
         )
     }
 
+    renderNoResults() {
+        return (
+            <div className="centertxt">
+                <img alt="Buzo llorando" src="https://media.giphy.com/media/BoIoEEO69oO6JqML25/200w_d.gif" />
+                <h2>On No :(</h2>
+                <p>Continúa buscando</p>
+            </div>
+        )
+    }
+
     renderPagination() {
 
         const { search, s } = this.props
@@ -59,9 +69,15 @@ export default class extends React.Component {
                     </div>
                     <ul className="results smash">
                         <div className="pad">
-                            {this.renderSearchResults()}
+                            <div className="aureole one">
+                                {this.renderSearchResults()}
+                            </div>
+                            {search.results_size === 0 &&
+                                this.renderNoResults()
+                            }
                         </div>
                     </ul>
+
                 </div>
                 <section className="pagination pad">
                     {this.props.search.total_results_size > GaritmicConfig.ArchivePageSize &&
