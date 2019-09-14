@@ -16,7 +16,7 @@ export default class Error extends React.Component {
         return (
             <Layout>
                 <Head>
-                    <title>Oh no :( | {GaritmicConfig.siteName}</title>
+                    <title>Página no encontrada | {GaritmicConfig.siteName}</title>
                 </Head>
 
                 {statusCode === 404 ?
