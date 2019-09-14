@@ -36,7 +36,7 @@ export default class extends React.Component {
                 <section className="poems purple pad">
                     <div className="smesh">
                         <div className="pad hide-small" />
-                        <div className="aureole">
+                        <div className="aureole field">
                             {this.renderNews()}
                         </div>
                     </div>
