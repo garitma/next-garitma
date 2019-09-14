@@ -11,14 +11,14 @@ export default class SearchResults extends React.Component {
                     <div className="halo">
                         <div className="search-thumbnail layer small-4 medium-2 valign">
                             {document.type != "frases" && document.type != "paginas" &&
-                                <div className="mod-media zoom">
+                                <div className="mod-media left zoom">
                                     <img src={`${document.data.featured_img.url}&w=150&h=150&fit=crop`} />
                                 </div>
                             }
                         </div>
 
                         <div className="layer small-8 medium-10 valign">
-                            <div className="inside-pad">
+                            <div className="wall-pad">
                                 <Link href="/[uid]" as={document.uid}>
                                     <h2 className="h5"><a>{RichText.asText(document.data.title)}</a></h2>
                                 </Link>
