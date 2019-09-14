@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import SearchFrom from '../atoms/SearchForm'
+import MenuSearchForm from '../atoms/MenuSearchForm'
 
 export default class Navbar extends React.Component {
 
@@ -37,8 +37,8 @@ export default class Navbar extends React.Component {
                         <div className={boxClass.join('')}>
                             <div className="sidenav">
                                 <ul className="menu">
-                                    <li>
-                                        <SearchFrom />
+                                    <li className="menu-item">
+                                        <MenuSearchForm />
                                     </li>
                                     <li onClick={this.toggle.bind(this)}><Link href='/categorias/[type]' as='/categorias/poemas'><a className="menu-item">Poemas</a></Link></li>
                                     <li onClick={this.toggle.bind(this)}><Link href='/categorias/[type]' as='/categorias/frases'><a className="menu-item">Frases</a></Link></li>
