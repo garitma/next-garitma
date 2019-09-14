@@ -44,50 +44,54 @@ export default class Post extends React.Component {
 
         const { poems, comics, downloads, games, podcasts, videos, pages, quotes } = this.props
 
-        return (
-            <Layout>
+        if (poems != undefined) {
+            return (
+                <SingleRead document={poems} />
+            )
+        }
 
-                {poems
-                    ? <SingleRead document={poems} />
-                    : ''}
+        if (comics != undefined) {
+            return (
+                <SingleRead document={comics} />
+            )
+        }
 
-                {comics
-                    ? <SingleRead document={comics} />
-                    : ''
-                }
+        if (downloads != undefined) {
+            return (
+                <SingleRead document={downloads} />
+            )
+        }
 
-                {downloads
-                    ? <SingleRead document={downloads} />
-                    : ''
-                }
+        if (games != undefined) {
+            return (
+                <SingleRead document={games} />
+            )
+        }
 
-                {games
-                    ? <SingleRead document={games} />
-                    : ''
-                }
+        if (podcasts != undefined) {
+            return (
+                <SingleRead document={podcasts} />
+            )
+        }
 
-                {podcasts
-                    ? <SingleRead document={podcasts} />
-                    : ''
-                }
+        if (videos != undefined) {
+            return (
+                <SingleRead document={videos} />
+            )
+        }
 
-                {videos
-                    ? <SingleRead document={videos} />
-                    : ''
-                }
+        if (pages != undefined) {
+            return (
+                <SinglePage document={pages} />
+            )
+        }
 
-                {pages
-                    ? <SinglePage document={pages} />
-                    : ''
-                }
+        if (quotes != undefined) {
+            return (
+                <SingleQuote document={pages} />
+            )
+        }
 
-                {quotes
-                    ? <SingleQuote document={quotes} />
-                    : ''
-                }
-
-            </Layout>
-        )
     }
 
     render() {
@@ -101,7 +105,9 @@ export default class Post extends React.Component {
         }
 
         return (
-            this.renderBody()
+            <Layout>
+                {this.renderBody()}
+            </Layout>
         )
     }
 }
