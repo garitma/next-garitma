@@ -9,6 +9,7 @@ export default class SmartModule extends React.Component {
             return (
                 <div className="smartmodule mod valign">
                     <Module document={document} modquote="true" modtitle="false" modmedia="false" modtitle="false" linkuid="false" linktype="false" />
+                    <div data-wio-id={document.id} />
                 </div>
             )
         }
@@ -16,6 +17,7 @@ export default class SmartModule extends React.Component {
         return (
             <div className="smartmodule mod">
                 <Module document={document} linkuid="false" linktype="false" />
+                <div data-wio-id={document.id} />
             </div>
         )
     }
