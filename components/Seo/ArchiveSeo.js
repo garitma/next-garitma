@@ -9,7 +9,7 @@ export default class ArchiveSeo extends React.Component {
                 config={{
                     title: `${GaritmicConfig.types[document.results[0].type].name}`,
                     titleTemplate: `%s | ${GaritmicConfig.siteName}`,
-                    description: `${GaritmicConfig.siteDescription}`,
+                    description: `Encuentra más de ${document.total_results_size} ${GaritmicConfig.types[document.results[0].type].type} de amor, desamor y cotidianos creado por Garitma.`,
                     canonical: `${GaritmicConfig.siteURL}/categorias/${document.results[0].type}`,
                     openGraph: {
                         url: `${GaritmicConfig.siteURL}/categorias/${document.results[0].type}`,
