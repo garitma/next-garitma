@@ -14,7 +14,7 @@ export default class ArchiveSeo extends React.Component {
                     openGraph: {
                         url: `${GaritmicConfig.siteURL}/categorias/${document.results[0].type}`,
                         title: `${GaritmicConfig.siteName}`,
-                        description: `${GaritmicConfig.siteDescription}`,
+                        description: `Encuentra más de ${document.total_results_size} ${GaritmicConfig.types[document.results[0].type].type} de amor, desamor y cotidianos creado por Garitma.`,
                         type: 'Website',
                         images: [
                             {
