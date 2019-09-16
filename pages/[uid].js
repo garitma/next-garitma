@@ -88,7 +88,7 @@ export default class Post extends React.Component {
 
         if (quotes != undefined) {
             return (
-                <SingleQuote document={pages} />
+                <SingleQuote document={quotes} />
             )
         }
 
