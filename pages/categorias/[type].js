@@ -36,18 +36,23 @@ export default class extends React.Component {
         }
     }
 
-    openPost = (event, post) => {
+    openPost = (event, post, slug) => {
         event.preventDefault()
         this.setState({
             openPost: post
-        })
+        });
+        window.history.pushState("", "", slug)
     }
 
     closePost = (event) => {
+
+        const { type } = this.props
+
         event.preventDefault()
         this.setState({
             openPost: null
         })
+        window.history.pushState("", "", `/categorias/${type}`)
     }
 
     renderArchives() {
