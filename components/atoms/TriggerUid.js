@@ -7,7 +7,7 @@ export default class TriggerUid extends React.Component {
         const { document, onClickPost } = this.props
 
         return (
-            <a href={`/${document.uid}`} className="button-link" onClick={(event) => onClickPost(event, document)}>
+            <a href={`/${document.uid}`} className="button-link" onClick={(event) => onClickPost(event, document, `/${document.uid}`)}>
                 {GaritmicConfig.types[document.type].cta}
             </a>
         )

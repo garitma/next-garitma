@@ -25,11 +25,12 @@ export default class Home extends React.Component {
         }
     }
 
-    openPost = (event, post) => {
+    openPost = (event, post, slug) => {
         event.preventDefault()
         this.setState({
             openPost: post
-        })
+        });
+        window.history.pushState("", "", slug)
     }
 
     closePost = (event) => {
@@ -37,6 +38,7 @@ export default class Home extends React.Component {
         this.setState({
             openPost: null
         })
+        window.history.pushState("", "", "/")
     }
 
     renderNews() {
