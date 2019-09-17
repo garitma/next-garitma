@@ -20,13 +20,13 @@ export default class SingleAction extends React.Component {
 
         return (
             <div className="actions">
-                {document.type == "descargas" &&
+                {document.data.download &&
                     <a href={document.data.download.url} target="_blank" download>
                         <div className="glyphsSprite download action" />
                     </a>
                 }
 
-                {document.type == "juegos" &&
+                {document.data.game_link &&
                     <div>
                         <a href={document.data.game_link.url} target="_blank">
                             <div className="glyphsSprite play action" />
@@ -34,7 +34,7 @@ export default class SingleAction extends React.Component {
                     </div>
                 }
 
-                {document.data.youtube_id != undefined &&
+                {document.data.youtube_id &&
                     <div>
                         <ModalVideo channel='youtube' isOpen={this.state.isOpen} autoplay='true' videoId={document.data.youtube_id} onClose={() => this.setState({ isOpen: false })} />
                         <div className="glyphsSprite play action" onClick={this.openModal} />
