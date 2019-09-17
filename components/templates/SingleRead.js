@@ -10,7 +10,7 @@ export default class SingleRead extends React.Component {
 
     render() {
 
-        const { document } = this.props
+        const { document, archive, onClose } = this.props
 
         return (
             <div className="post">
@@ -24,7 +24,11 @@ export default class SingleRead extends React.Component {
                     </div>
                 </div>
                 <div className="pad centertxt">
-                    <Link href='/categorias/[type]' as={`/categorias/${document.type}`}><a className="h6" itemProp="genre">{GaritmicConfig.types[document.type].name}</a></Link>
+                    {archive ?
+                        <a className="h6" href={`/categorias/${document.type}`} onClick={onClose}>{GaritmicConfig.types[document.type].name}</a>
+                        :
+                        <Link href='/categorias/[type]' as={`/categorias/${document.type}`}><a className="h6" itemProp="genre">{GaritmicConfig.types[document.type].name}</a></Link>
+                    }
                     <div className="smash">
                         <h1 itemProp="name">{RichText.asText(document.data.title)}</h1>
                     </div>
@@ -35,7 +39,11 @@ export default class SingleRead extends React.Component {
                         <div data-wio-id={document.id}></div>
                     </div>
                     <div className="h6">
-                        <LinkType document={document} />
+                        {archive ?
+                            <a className="button-link" href={`/categorias/${document.type}`} onClick={onClose}>Ver más</a>
+                            :
+                            <LinkType document={document} />
+                        }
                     </div>
                 </div>
             </div>

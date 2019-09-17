@@ -4,11 +4,11 @@ import SingleRead from "./SingleRead"
 export default class SingleModal extends React.Component {
     render() {
 
-        const { document, onClose } = this.props
+        const { document, archive, onClose } = this.props
 
         return (
             <ModalRead document={document} onClose={onClose}>
-                <SingleRead document={document} />
+                <SingleRead document={document} onClose={onClose} archive={archive} />
             </ModalRead>
         )
     }

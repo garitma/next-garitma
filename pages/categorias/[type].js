@@ -87,7 +87,7 @@ export default class extends React.Component {
                 <SubHeader text={GaritmicConfig.types[type].name} />
 
                 {openPost && <div>
-                    <SingleModal document={openPost} onClose={this.closePost} />
+                    <SingleModal document={openPost} onClose={this.closePost} archive="true" />
                 </div>}
 
                 <section className="archives pad snow">
