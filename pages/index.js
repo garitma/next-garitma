@@ -3,8 +3,15 @@ import { Client, Prismic } from '../api/prismic'
 import GeneralSeo from '../components/seo/GeneralSeo'
 import Error from './_error'
 import SmartModule from '../components/organism/SmartModule'
+import SingleModal from '../components/templates/SingleModal'
 
-export default class extends React.Component {
+
+export default class Home extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.state = { openPost: null }
+    }
 
     static async getInitialProps({ req, res }) {
         try {
@@ -18,20 +25,41 @@ export default class extends React.Component {
         }
     }
 
+    openPost = (event, post) => {
+        event.preventDefault()
+        this.setState({
+            openPost: post
+        })
+    }
+
+    closePost = (event) => {
+        event.preventDefault()
+        this.setState({
+            openPost: null
+        })
+    }
+
     renderNews() {
 
         const { post } = this.props
 
         return (
             post.results.map((document, index) =>
-                <SmartModule document={document} key={index} />
+                <SmartModule document={document} key={index} onClickPost={this.openPost} />
             )
         )
     }
 
     renderBody() {
+
+        const { openPost } = this.state
+
         return (
             <Layout seo={<GeneralSeo />}>
+
+                {openPost && <div>
+                    <SingleModal document={openPost} onClose={this.closePost} />
+                </div>}
 
                 <section className="poems purple pad">
                     <div className="smesh">

@@ -6,8 +6,15 @@ import ArchiveSeo from '../../components/seo/ArchiveSeo'
 import Error from '../_error'
 import SmartModule from '../../components/organism/SmartModule'
 import Pagination from '../../components/molecules/Pagination'
+import SingleModal from '../../components/templates/SingleModal'
+
 
 export default class extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.state = { openPost: null }
+    }
 
     static async getInitialProps({ query, req, res }) {
 
@@ -29,13 +36,27 @@ export default class extends React.Component {
         }
     }
 
+    openPost = (event, post) => {
+        event.preventDefault()
+        this.setState({
+            openPost: post
+        })
+    }
+
+    closePost = (event) => {
+        event.preventDefault()
+        this.setState({
+            openPost: null
+        })
+    }
+
     renderArchives() {
 
         const { archive } = this.props
 
         return (
             archive.results.map((document, index) =>
-                <SmartModule document={document} key={index} />
+                <SmartModule document={document} key={index} onClickPost={this.openPost} />
             )
         )
     }
@@ -52,11 +73,17 @@ export default class extends React.Component {
     renderBody() {
 
         const { archive, type } = this.props
+        const { openPost } = this.state
+
 
         return (
             <Layout seo={<ArchiveSeo document={archive} />}>
 
                 <SubHeader text={GaritmicConfig.types[type].name} />
+
+                {openPost && <div>
+                    <SingleModal document={openPost} onClose={this.closePost} />
+                </div>}
 
                 <section className="archives pad snow">
                     <div className="smesh">

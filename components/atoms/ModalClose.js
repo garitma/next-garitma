@@ -1,0 +1,28 @@
+import Link from 'next/link'
+
+export default class ModalClose extends React.Component {
+    render() {
+        const { document, onClose } = this.props
+
+        return (
+            <div className="navbar pin">
+                <div className="nav-wrapper">
+                    <ul className="nav-list">
+                        <li className="item"></li>
+                        <li className="item">
+                            {onClose ?
+                                <a onClick={onClose}><div className="glyphsSprite close point" /></a>
+                                :
+                                <Link>
+                                    <a className="close"><div className="glyphsSprite close point" /></a>
+                                </Link>
+                            }
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+        )
+    }
+}

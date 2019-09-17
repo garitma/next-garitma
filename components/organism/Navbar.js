@@ -30,7 +30,7 @@ export default class Navbar extends React.Component {
                             </li>
                             <li className="item button-link menu-toggle-button" onClick={this.toggle.bind(this)}>
                                 <div className={boxClass.join('')} >
-                                    <i className="glyphsSprite menu" />
+                                    <i className="glyphsSprite menu point" />
                                 </div>
                             </li>
                         </ul>

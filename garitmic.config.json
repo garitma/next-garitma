@@ -34,7 +34,7 @@
         "juegos": {
             "name": "Juegos",
             "type": "juegos",
-            "cta": "jugar"
+            "cta": "Jugar"
         },
         "descargas": {
             "name": "Descargas",
@@ -44,7 +44,7 @@
         "videos": {
             "name": "Videos",
             "type": "videos",
-            "cta": "ver"
+            "cta": "Ver"
         },
         "poemas": {
             "name": "Poemas",

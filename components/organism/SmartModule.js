@@ -3,7 +3,7 @@ import Module from '../molecules/Module'
 export default class SmartModule extends React.Component {
 
     render() {
-        const { document } = this.props
+        const { document, onClickPost, linktype } = this.props
 
         if (document.type === 'frases') {
             return (
@@ -16,7 +16,7 @@ export default class SmartModule extends React.Component {
 
         return (
             <div className="smartmodule mod">
-                <Module document={document} linkuid="false" linktype="false" />
+                <Module document={document} modcontent="true" triggermedia="true" triggertitle="true" onClickPost={onClickPost} />
                 <div data-wio-id={document.id} />
             </div>
         )
