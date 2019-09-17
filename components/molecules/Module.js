@@ -15,36 +15,36 @@ export default class Module extends React.Component {
 
         return (
             <div className="mod">
-                {triggermedia === 'true' &&
+                {triggermedia &&
                     <TriggerMedia document={document} onClickPost={onClickPost} />
                 }
-                {modmedia === 'true' &&
+                {modmedia &&
                     <ModMedia document={document} />
                 }
                 <div className="mod-detail">
-                    {triggertitle === 'true' &&
+                    {triggertitle &&
                         <TriggerTitle document={document} onClickPost={onClickPost} />
                     }
-                    {modtitle === 'true' &&
+                    {modtitle &&
                         <ModTitle document={document} />
                     }
-                    {modquote === "true" &&
+                    {modquote &&
                         <blockquote className="centertxt">{RichText.asText(document.data.title)}.</blockquote>
                     }
-                    {modcontent === 'true' && document.data.excerpt != undefined &&
+                    {modcontent && document.data.excerpt != undefined &&
                         <p className="mod-content">
                             {RichText.asText(document.data.excerpt)}
                         </p>
                     }
                     <div className="mod-action">
-                        {triggeruid === "true" &&
+                        {triggeruid &&
                             <TriggerUid document={document} onClickPost={onClickPost} />
                         }
 
-                        {linkuid === 'true' &&
+                        {linkuid &&
                             <LinkUid document={document} />
                         }
-                        {linktype === 'true' &&
+                        {linktype &&
                             <LinkType document={document} />
                         }
                     </div>

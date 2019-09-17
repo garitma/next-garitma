@@ -3,7 +3,7 @@ import Module from '../molecules/Module'
 export default class SmartModule extends React.Component {
 
     render() {
-        const { document, onClickPost, linktype } = this.props
+        const { document, onClickPost } = this.props
 
         if (document.type === 'frases') {
             return (

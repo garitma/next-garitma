@@ -33,7 +33,6 @@ export default class SingleRead extends React.Component {
                     <div className="content smash pad h4 light">
                         {RichText.render(document.data.content)}
                         <div data-wio-id={document.id}></div>
-
                     </div>
                     <div className="h6">
                         <LinkType document={document} />
