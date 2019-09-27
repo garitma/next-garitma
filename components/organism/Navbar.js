@@ -23,7 +23,7 @@ export default class Navbar extends React.Component {
                         <ul className="nav-list">
                             <li className="logo item">
                                 <Link href='/' as="/">
-                                    <a>
+                                    <a aria-label="Logo">
                                         <div className="glyphsSprite logo" />
                                     </a>
                                 </Link>
