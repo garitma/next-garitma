@@ -23,13 +23,13 @@ export default class Navbar extends React.Component {
                         <ul className="nav-list">
                             <li className="logo item">
                                 <Link href='/' as="/">
-                                    <a aria-label="Logo">
+                                    <a aria-label="Logo Garitma">
                                         <div className="glyphsSprite logo" />
                                     </a>
                                 </Link>
                             </li>
                             <li className="item button-link menu-toggle-button" onClick={this.toggle.bind(this)}>
-                                <div className={boxClass.join('')} >
+                                <div className={boxClass.join('menu-container ')} >
                                     <i className="glyphsSprite menu point" />
                                 </div>
                             </li>

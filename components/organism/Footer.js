@@ -9,18 +9,18 @@ export default class Footer extends React.Component {
                     <div className="firs-section">
                         <div className="logo copyright">
                             <Link href="/" as="/">
-                                <a aria-label="Logo"><div className="glyphsSprite logo" /></a>
+                                <a aria-label="Logo Garitma"><div className="glyphsSprite logo" /></a>
                             </Link>
                             <p className="page-footer-legal">© 2019 Garitma. Todos los derechos reservados</p>
                         </div>
                         <ul className="page-footer-legal-wrapper nav-list halo">
                             <li className="page-footer-link item">
-                                <Link href="/[uid]" as="/informacion-legal">
+                                <Link href="/informacion-legal" as="/informacion-legal">
                                     <a>Terminos de uso</a>
                                 </Link>
                             </li>
                             <li className="page-footer-link item">
-                                <Link href="/[uid]" as="/informacion-legal">
+                                <Link href="/informacion-legal" as="/informacion-legal">
                                     <a>Políticas de privacidad</a>
                                 </Link>
                             </li>
@@ -37,7 +37,7 @@ export default class Footer extends React.Component {
                         </ul>
                         <ul className="nav-list">
                             <li className="item fluid centertxt"><p>
-                                <Link href="/[uid]" as="/informacion-de-contacto">
+                                <Link href="/informacion-de-contacto" as="/informacion-de-contacto">
                                     <a>Información de contacto</a>
                                 </Link>
                             </p></li>
