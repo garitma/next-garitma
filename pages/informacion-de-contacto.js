@@ -2,6 +2,7 @@ import { Client, Prismic } from '../api/prismic'
 import Layout from '../components/organism/Layout'
 import Error from './_error'
 import SinglePage from '../components/templates/SinglePages'
+import PageSeo from '../components/seo/PageSeo'
 import ContactForm from '../components/molecules/ContactForm'
 
 
@@ -27,7 +28,7 @@ export default class extends React.Component {
         const { page } = this.props
 
         return (
-            <Layout>
+            <Layout seo={<PageSeo document={page.results[0]} />}>
                 <SinglePage document={page.results[0]} />
                 <ContactForm />
             </Layout>

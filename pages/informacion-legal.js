@@ -1,6 +1,7 @@
 import { Client, Prismic } from '../api/prismic'
 import Layout from '../components/organism/Layout'
 import Error from './_error'
+import PageSeo from '../components/seo/PageSeo'
 import SinglePage from '../components/templates/SinglePages'
 
 
@@ -25,7 +26,7 @@ export default class extends React.Component {
         const { page } = this.props
 
         return (
-            <Layout>
+            <Layout seo={<PageSeo document={page.results[0]} />}>
                 <SinglePage document={page.results[0]} />
             </Layout>
         )
