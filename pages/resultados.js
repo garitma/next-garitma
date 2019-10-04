@@ -5,6 +5,7 @@ import SubHeader from '../components/molecules/SubHeader'
 import Pagination from '../components/molecules/Pagination'
 import SearchForm from '../components/atoms/SearchForm'
 import SearchResults from '../components/molecules/SearchResults'
+import ResultsSeo from '../components/seo/ResultsSeo'
 
 export default class extends React.Component {
 
@@ -58,10 +59,10 @@ export default class extends React.Component {
 
     renderBody() {
 
-        const { search } = this.props
+        const { search, s } = this.props
 
         return (
-            <Layout>
+            <Layout seo={<ResultsSeo s={s} />}>
                 <SubHeader text={`Se encontraron ${search.total_results_size} resultados para ${this.props.s}`} />
                 <div className="pad snow">
                     <div className="smosh">

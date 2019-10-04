@@ -4,7 +4,9 @@ import Link from 'next/link'
 
 export default class SearchResults extends React.Component {
     render() {
+
         const { document } = this.props
+
         return (
             <div className="search-item mod">
                 <div className="layer">
@@ -12,7 +14,12 @@ export default class SearchResults extends React.Component {
                         <div className="search-thumbnail layer small-4 medium-2 valign">
                             {document.type != "frases" && document.type != "paginas" &&
                                 <div className="mod-media left zoom">
-                                    <img src={`${document.data.featured_img.url}&w=150&h=150&fit=crop`} />
+                                    <Link href="/[uid]" as={document.uid}>
+                                        <a>
+                                            <img src={`${document.data.featured_img.url}&w=150&h=150&fit=crop`} alt={document.data.featured_img.alt} />
+                                        </a>
+                                    </Link>
+
                                 </div>
                             }
                         </div>
