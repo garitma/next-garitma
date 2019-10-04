@@ -11,7 +11,8 @@ export default class ResultsSeo extends React.Component {
                     title: `Resultados para ${s}`,
                     titleTemplate: `%s | ${GaritmicConfig.siteName}`,
                     description: `${GaritmicConfig.siteDescription}`,
-                    canonical: `${GaritmicConfig.siteURL}`,
+                    canonical: `${GaritmicConfig.siteURL}/resultados`,
+                    noindex: true,
                     openGraph: {
                         url: `${GaritmicConfig.siteURL}`,
                         title: `Resultados para ${s} | ${GaritmicConfig.siteName}`,

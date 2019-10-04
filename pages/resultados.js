@@ -68,7 +68,7 @@ export default class extends React.Component {
                     <div className="smosh">
                         <SearchForm />
                     </div>
-                    <ul className="results smash">
+                    <div className="results smash">
                         <div className="pad">
                             <div className="aureole one">
                                 {this.renderSearchResults()}
@@ -77,7 +77,7 @@ export default class extends React.Component {
                                 this.renderNoResults()
                             }
                         </div>
-                    </ul>
+                    </div>
 
                 </div>
                 <section className="pagination pad">
