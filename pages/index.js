@@ -4,7 +4,7 @@ import GeneralSeo from '../components/seo/GeneralSeo'
 import Error from './_error'
 import SmartModule from '../components/organism/SmartModule'
 import SingleModal from '../components/templates/SingleModal'
-import Carousel from 'react-multi-carousel';
+import CarouselSingle from '../components/molecules/CarouselSingle';
 
 
 
@@ -18,12 +18,20 @@ export default class Home extends React.Component {
     static async getInitialProps({ req, res }) {
         try {
 
-            const post = await Client(req).query('', { orderings: '[document.first_publication_date desc]', pageSize: 12 });
+            let [poems, quotes, comics, videos, downloads, featured] = await Promise.all([
+                Client(req).query(Prismic.Predicates.at('document.type', 'poemas'), { orderings: '[my.poemas.date desc]', pageSize: 6 }),
+                Client(req).query(Prismic.Predicates.at('document.type', 'frases'), { orderings: '[my.frases.date desc]', pageSize: 6 }),
+                Client(req).query(Prismic.Predicates.at('document.type', 'comics'), { orderings: '[my.comics.date desc]', pageSize: 6 }),
+                Client(req).query(Prismic.Predicates.at('document.type', 'videos'), { orderings: '[my.videos.date desc]', pageSize: 6 }),
+                Client(req).query(Prismic.Predicates.at('document.type', 'descargas'), { orderings: '[my.descargas.date desc]', pageSize: 6 }),
+                Client(req).query(Prismic.Predicates.at('document.tags', ['featured']), { orderings: '[my.poemas.date desc]', pageSize: 6 }),
+            ])
 
-            return { post, statusCode: 200 }
+            return { poems, quotes, comics, videos, downloads, featured, statusCode: 200 }
+
         } catch (e) {
             res.statusCode = 503
-            return { post: null, statusCode: 503 }
+            return { poems: null, quotes: null, comics: null, videos: null, downloads: null, featured: null, statusCode: 503 }
         }
     }
 
@@ -45,35 +53,72 @@ export default class Home extends React.Component {
 
     renderNews() {
 
-        const { post } = this.props
+        const { poems } = this.props
 
         return (
-            post.results.map((document, index) =>
+            poems.results.map((document, index) =>
+                <SmartModule document={document} key={index} onClickPost={this.openPost} />
+            )
+        )
+    }
+
+
+    renderQuotes() {
+
+        const { quotes } = this.props
+
+        return (
+            quotes.results.map((document, index) =>
+                <SmartModule document={document} key={index} onClickPost={this.openPost} />
+            )
+        )
+    }
+
+    renderComics() {
+
+        const { comics } = this.props
+
+        return (
+            comics.results.map((document, index) =>
+                <SmartModule document={document} key={index} onClickPost={this.openPost} />
+            )
+        )
+    }
+
+    renderVideos() {
+
+        const { videos } = this.props
+
+        return (
+            videos.results.map((document, index) =>
+                <SmartModule document={document} key={index} onClickPost={this.openPost} />
+            )
+        )
+    }
+
+    renderDownloads() {
+
+        const { downloads } = this.props
+
+        return (
+            downloads.results.map((document, index) =>
+                <SmartModule document={document} key={index} onClickPost={this.openPost} />
+            )
+        )
+    }
+
+    renderFeatured() {
+
+        const { featured } = this.props
+
+        return (
+            featured.results.map((document, index) =>
                 <SmartModule document={document} key={index} onClickPost={this.openPost} />
             )
         )
     }
 
     renderBody() {
-
-        const responsive = {
-            superLargeDesktop: {
-                breakpoint: { max: 4000, min: 3000 },
-                items: 5,
-            },
-            desktop: {
-                breakpoint: { max: 3000, min: 1024 },
-                items: 3,
-            },
-            tablet: {
-                breakpoint: { max: 1024, min: 464 },
-                items: 2,
-            },
-            mobile: {
-                breakpoint: { max: 464, min: 0 },
-                items: 1,
-            },
-        };
 
         const { openPost } = this.state
 
@@ -84,17 +129,90 @@ export default class Home extends React.Component {
                     <SingleModal document={openPost} onClose={this.closePost} />
                 </div>}
 
-                <section className="poems purple pad">
-                    <Carousel
-                        responsive={responsive}
-                        ssr={true}
-                        arrows={false}
-                        centerMode={true}
-                    >
+                <section className="poems purple">
+                    <div className="halo">
+                        <div className="layer">
+                            <div className="wall-pad centertxt">
+                                <h2 className="h1">Poemas</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <CarouselSingle>
                         {this.renderNews()}
-                    </Carousel>
+                    </CarouselSingle>
                 </section>
-            </Layout>
+
+
+
+                <section className="poems purple">
+                    <div className="halo">
+                        <div className="layer">
+                            <div className="wall-pad centertxt">
+                                <h2 className="h1">Cómics</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <CarouselSingle>
+                        {this.renderComics()}
+                    </CarouselSingle>
+                </section>
+
+                <section className="poems purple">
+                    <div className="halo">
+                        <div className="layer">
+                            <div className="wall-pad centertxt">
+                                <h2 className="h1">Frases</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <CarouselSingle>
+                        {this.renderQuotes()}
+                    </CarouselSingle>
+                </section>
+
+                <section className="poems purple">
+                    <div className="halo">
+                        <div className="layer">
+                            <div className="wall-pad centertxt">
+                                <h2 className="h1">Videos</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <CarouselSingle>
+                        {this.renderVideos()}
+                    </CarouselSingle>
+                </section>
+
+                <section className="poems purple">
+                    <div className="halo">
+                        <div className="layer">
+                            <div className="wall-pad centertxt">
+                                <h2 className="h1">Fondos de pantalla</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <CarouselSingle>
+                        {this.renderDownloads()}
+                    </CarouselSingle>
+                </section>
+
+                <section className="poems purple">
+                    <div className="halo">
+                        <div className="layer">
+                            <div className="wall-pad centertxt">
+                                <h2 className="h1">Recomendados</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <CarouselSingle>
+                        {this.renderFeatured()}
+                    </CarouselSingle>
+                </section>
+
+                <div className="pad purple" />
+
+
+            </Layout >
         )
     }
 
