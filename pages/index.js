@@ -4,6 +4,8 @@ import GeneralSeo from '../components/seo/GeneralSeo'
 import Error from './_error'
 import SmartModule from '../components/organism/SmartModule'
 import SingleModal from '../components/templates/SingleModal'
+import Carousel from 'react-multi-carousel';
+
 
 
 export default class Home extends React.Component {
@@ -54,6 +56,25 @@ export default class Home extends React.Component {
 
     renderBody() {
 
+        const responsive = {
+            superLargeDesktop: {
+                breakpoint: { max: 4000, min: 3000 },
+                items: 5,
+            },
+            desktop: {
+                breakpoint: { max: 3000, min: 1024 },
+                items: 3,
+            },
+            tablet: {
+                breakpoint: { max: 1024, min: 464 },
+                items: 2,
+            },
+            mobile: {
+                breakpoint: { max: 464, min: 0 },
+                items: 1,
+            },
+        };
+
         const { openPost } = this.state
 
         return (
@@ -64,12 +85,14 @@ export default class Home extends React.Component {
                 </div>}
 
                 <section className="poems purple pad">
-                    <div className="smesh">
-                        <div className="pad hide-small" />
-                        <div className="aureole field">
-                            {this.renderNews()}
-                        </div>
-                    </div>
+                    <Carousel
+                        responsive={responsive}
+                        ssr={true}
+                        arrows={false}
+                        centerMode={true}
+                    >
+                        {this.renderNews()}
+                    </Carousel>
                 </section>
             </Layout>
         )

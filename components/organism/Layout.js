@@ -5,7 +5,6 @@ import NProgress from 'nprogress'
 import Router from 'next/router'
 import GaritmicConfig from '../../garitmic.config.json'
 
-
 Router.onRouteChangeStart = (url) => {
     NProgress.start()
 }
@@ -18,6 +17,8 @@ export default class Layout extends React.Component {
         const { children, seo } = this.props
         return <main>
 
+            {seo}
+
             <Head>
                 <link rel='shortcut icon' sizes='16x16 24x24 32x32 48x48 64x64' href='/static/favicon.ico' />
                 <link rel='icon' type='image/x-icon' href='/static/favicon.ico' />
@@ -28,12 +29,14 @@ export default class Layout extends React.Component {
                 <link rel='apple-touch-icon' sizes='120x120' href='https://images.prismic.io/garitma%2Fe357d4fe-1953-43e0-be0e-4f7f95e21fcc_favicon-192.png?auto=compress,format&w=120&h=120' />
                 <link rel='apple-touch-icon' sizes='144x144' href='https://images.prismic.io/garitma%2Fe357d4fe-1953-43e0-be0e-4f7f95e21fcc_favicon-192.png?auto=compress,format&w=144&h=144' />
                 <link rel='apple-touch-icon' sizes='152x152' href='https://images.prismic.io/garitma%2Fe357d4fe-1953-43e0-be0e-4f7f95e21fcc_favicon-192.png?auto=compress,format&w=152&h=152' />
-                <link href='https://auradesignsystem.com/static/style.css' rel='stylesheet' />
+                <link href='http://localhost:3001/static/style.css' rel='stylesheet' />
+                <link href='static/lib/styles.css' rel='stylesheet' />
                 <meta content='yes' name='apple-mobile-web-app-capable' />
                 <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
                 <script src="//use.typekit.net/acc2awn.js"></script>
                 <script dangerouslySetInnerHTML={{ __html: `try{Typekit.load({ async: true });}catch(e){}` }} />
             </Head>
+
 
             <Navbar />
 
@@ -49,9 +52,8 @@ export default class Layout extends React.Component {
                 __html: `
                   window.prismic = { endpoint: '${GaritmicConfig.apiEndpoint}' }
                  `}} />
-            <script type="text/javascript" src="https://static.cdn.prismic.io/prismic.min.js" />
 
-            {seo}
+            <script type="text/javascript" src="https://static.cdn.prismic.io/prismic.min.js" />
 
         </main>
     }
