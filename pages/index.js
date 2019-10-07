@@ -57,7 +57,11 @@ export default class Home extends React.Component {
 
         return (
             poems.results.map((document, index) =>
-                <SmartModule document={document} key={index} onClickPost={this.openPost} />
+                <SmartModule
+                    document={document}
+                    key={index}
+                    onClickPost={this.openPost}
+                />
             )
         )
     }
@@ -69,7 +73,11 @@ export default class Home extends React.Component {
 
         return (
             quotes.results.map((document, index) =>
-                <SmartModule document={document} key={index} onClickPost={this.openPost} />
+                <SmartModule
+                    document={document}
+                    key={index}
+                    onClickPost={this.openPost}
+                />
             )
         )
     }
@@ -80,7 +88,11 @@ export default class Home extends React.Component {
 
         return (
             comics.results.map((document, index) =>
-                <SmartModule document={document} key={index} onClickPost={this.openPost} />
+                <SmartModule
+                    document={document}
+                    key={index}
+                    onClickPost={this.openPost}
+                />
             )
         )
     }
@@ -91,7 +103,11 @@ export default class Home extends React.Component {
 
         return (
             videos.results.map((document, index) =>
-                <SmartModule document={document} key={index} onClickPost={this.openPost} />
+                <SmartModule
+                    document={document}
+                    key={index}
+                    onClickPost={this.openPost}
+                />
             )
         )
     }
@@ -102,7 +118,11 @@ export default class Home extends React.Component {
 
         return (
             downloads.results.map((document, index) =>
-                <SmartModule document={document} key={index} onClickPost={this.openPost} />
+                <SmartModule
+                    document={document}
+                    key={index}
+                    onClickPost={this.openPost}
+                />
             )
         )
     }
@@ -113,7 +133,11 @@ export default class Home extends React.Component {
 
         return (
             featured.results.map((document, index) =>
-                <SmartModule document={document} key={index} onClickPost={this.openPost} />
+                <SmartModule
+                    document={document}
+                    key={index}
+                    onClickPost={this.openPost}
+                />
             )
         )
     }
