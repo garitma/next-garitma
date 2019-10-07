@@ -30,8 +30,14 @@ export default class Layout extends React.Component {
                 <link rel='apple-touch-icon' sizes='144x144' href='https://images.prismic.io/garitma%2Fe357d4fe-1953-43e0-be0e-4f7f95e21fcc_favicon-192.png?auto=compress,format&w=144&h=144' />
                 <link rel='apple-touch-icon' sizes='152x152' href='https://images.prismic.io/garitma%2Fe357d4fe-1953-43e0-be0e-4f7f95e21fcc_favicon-192.png?auto=compress,format&w=152&h=152' />
                 <link href='https://auradesignsystem.com/static/style.css' rel='stylesheet' />
+                <link rel="manifest" href="static/manifest.json" />
                 <meta content='yes' name='apple-mobile-web-app-capable' />
                 <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
+                <meta name="theme-color" content="#e8ebfe" />
+                <meta name="apple-mobile-web-app-title" content="Garitma" />
+                <meta name="apple-mobile-web-app-capable" content="no" />
+                <meta name="apple-mobile-web-app-status-bar-style" content="transparent" />
+                <link rel="shortcut icon" href="https://images.prismic.io/garitma%2F7bcfd3a3-4da2-4b73-9402-612e7b20ce1c_favicon-pwa.png?auto=compress,format" />
                 <script src="//use.typekit.net/acc2awn.js"></script>
                 <script dangerouslySetInnerHTML={{ __html: `try{Typekit.load({ async: true });}catch(e){}` }} />
             </Head>
