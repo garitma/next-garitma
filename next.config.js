@@ -1,13 +1,5 @@
 const withOffline = require('next-offline');
 
-const sitemap = require('nextjs-sitemap-generator');
-
-sitemap({
-    baseUrl: 'http://localhost:3000',
-    pagesDirectory: __dirname + "/pages",
-    targetDirectory: 'static/'
-});
-
 const nextConfig = {
     target: 'serverless',
     transformManifest: manifest => ['/'].concat(manifest),
