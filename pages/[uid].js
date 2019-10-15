@@ -9,15 +9,17 @@ export default class Post extends React.Component {
 
     static async getInitialProps({ req, query, res }) {
 
+        const { uid } = query
+
         try {
             let [poems, comics, downloads, games, podcasts, videos, quotes] = await Promise.all([
-                Client(req).getByUID('poemas', query.uid),
-                Client(req).getByUID('comics', query.uid),
-                Client(req).getByUID('descargas', query.uid),
-                Client(req).getByUID('juegos', query.uid),
-                Client(req).getByUID('podcasts', query.uid),
-                Client(req).getByUID('videos', query.uid),
-                Client(req).getByUID('frases', query.uid)
+                Client(req).getByUID('poemas', `${uid}`),
+                Client(req).getByUID('comics', `${uid}`),
+                Client(req).getByUID('descargas', `${uid}`),
+                Client(req).getByUID('juegos', `${uid}`),
+                Client(req).getByUID('podcasts', `${uid}`),
+                Client(req).getByUID('videos', `${uid}`),
+                Client(req).getByUID('frases', `${uid}`)
             ])
 
             if (poems == undefined &&

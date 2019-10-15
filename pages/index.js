@@ -1,10 +1,10 @@
-import Layout from '../components/organism/Layout'
-import { Client, Prismic } from '../api/prismic'
-import GeneralSeo from '../components/seo/GeneralSeo'
-import Error from './_error'
-import SmartModule from '../components/organism/SmartModule'
-import SingleModal from '../components/templates/SingleModal'
 import CarouselSingle from '../components/molecules/CarouselSingle';
+import Error from './_error';
+import GeneralSeo from '../components/seo/GeneralSeo';
+import Layout from '../components/organism/Layout';
+import SingleModal from '../components/templates/SingleModal';
+import SmartModule from '../components/organism/SmartModule';
+import { Client, Prismic } from '../api/prismic';
 
 
 
