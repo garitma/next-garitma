@@ -36,7 +36,6 @@ export default class CarouselSingle extends React.Component {
                 partialVisbile={true}
                 draggable={true}
                 swipeable={true}
-                removeArrowOnDeviceType={["tablet", "mobile"]}
             >
                 {children}
             </Carousel>
