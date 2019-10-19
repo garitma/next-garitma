@@ -9,11 +9,17 @@ const nextConfig = {
         runtimeCaching: [
             {
                 urlPattern: /^https?:\/\/garitma.cdn.prismic.io\/api\/.*/,
-                handler: 'StaleWhileRevalidate',
+                handler: 'NetworkFirst',
             },
             {
                 urlPattern: /^https?:\/\/images.prismic.io\/garitma\/.*/,
                 handler: 'CacheFirst',
+                options: {
+                    cacheName: 'Imagx',
+                    expiration: {
+                        maxAgeSeconds: 7 * 24 * 60 * 60, // 7 days
+                    },
+                },
             },
             {
                 urlPattern: /^https:\/\/use.typekit.net\/(.*)/,
