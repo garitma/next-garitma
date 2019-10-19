@@ -8,19 +8,26 @@ const nextConfig = {
         swDest: 'static/service-worker.js',
         runtimeCaching: [
             {
-                urlPattern: /^https?.*/,
-                handler: 'NetworkFirst',
+                urlPattern: /^https?:\/\/garitma.cdn.prismic.io\/api\/.*/,
+                handler: 'StaleWhileRevalidate',
+            },
+            {
+                urlPattern: /^https?:\/\/images.prismic.io\/garitma\/.*/,
+                handler: 'StaleWhileRevalidate',
+            },
+            {
+                urlPattern: /^https:\/\/use.typekit.net\/(.*)/,
+                handler: 'CacheFirst',
                 options: {
-                    cacheName: 'https-calls',
-                    networkTimeoutSeconds: 15,
+                    cacheName: 'TypekitFont',
                     expiration: {
-                        maxEntries: 150,
-                        maxAgeSeconds: 1 * 24 * 60 * 60, // 7 days
-                    },
-                    cacheableResponse: {
-                        statuses: [0, 200],
+                        maxAgeSeconds: 30 * 24 * 60 * 60, // 1 month
                     },
                 },
+            },
+            {
+                urlPattern: /^https?.*/,
+                handler: 'networkFirst',
             },
         ],
     },
