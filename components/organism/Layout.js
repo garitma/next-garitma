@@ -20,18 +20,18 @@ export default class Layout extends React.Component {
             {seo}
 
             <Head>
-                <link rel='shortcut icon' sizes='16x16 24x24 32x32 48x48 64x64' href='/static/favicon.ico' />
-                <link rel='icon' type='image/x-icon' href='/static/favicon.ico' />
-                <link rel='apple-touch-icon' sizes='57x57' href='https://images.prismic.io/garitma%2F7bcfd3a3-4da2-4b73-9402-612e7b20ce1c_favicon-pwa.png?auto=compress,format&w=57&h=57' />
-                <link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://images.prismic.io/garitma%2F7bcfd3a3-4da2-4b73-9402-612e7b20ce1c_favicon-pwa.png?auto=compress,format&w=57&h=57' />
-                <link rel='apple-touch-icon' sizes='72x72' href='https://images.prismic.io/garitma%2F7bcfd3a3-4da2-4b73-9402-612e7b20ce1c_favicon-pwa.png?auto=compress,format&w=72&h=72' />
-                <link rel='apple-touch-icon' sizes='114x114' href='https://images.prismic.io/garitma%2F7bcfd3a3-4da2-4b73-9402-612e7b20ce1c_favicon-pwa.png?auto=compress,format&w=114&h=114' />
-                <link rel='apple-touch-icon' sizes='120x120' href='https://images.prismic.io/garitma%2F7bcfd3a3-4da2-4b73-9402-612e7b20ce1c_favicon-pwa.png?auto=compress,format&w=120&h=120' />
-                <link rel='apple-touch-icon' sizes='144x144' href='https://images.prismic.io/garitma%2F7bcfd3a3-4da2-4b73-9402-612e7b20ce1c_favicon-pwa.png?auto=compress,format&w=144&h=144' />
-                <link rel='apple-touch-icon' sizes='152x152' href='https://images.prismic.io/garitma%2F7bcfd3a3-4da2-4b73-9402-612e7b20ce1c_favicon-pwa.png?auto=compress,format&w=152&h=152' />
-                <link rel="shortcut icon" href="https://images.prismic.io/garitma%2F7bcfd3a3-4da2-4b73-9402-612e7b20ce1c_favicon-pwa.png?auto=compress,format&w=512&h=512" />
+                <link rel='shortcut icon' sizes='16x16 24x24 32x32 48x48 64x64' href='/favicon.ico' />
+                <link rel='icon' type='image/x-icon' href='/favicon.ico' />
+                <link rel='apple-touch-icon' sizes='57x57' href={`${GaritmicConfig.favIcon}&w=57&h=57`} />
+                <link rel='apple-touch-icon-precomposed' sizes='57x57' href={`${GaritmicConfig.favIcon}&w=57&h=57`} />
+                <link rel='apple-touch-icon' sizes='72x72' href={`${GaritmicConfig.favIcon}&w=72&h=72`} />
+                <link rel='apple-touch-icon' sizes='114x114' href={`${GaritmicConfig.favIcon}&w=114&h=114`} />
+                <link rel='apple-touch-icon' sizes='120x120' href={`${GaritmicConfig.favIcon}&w=120h=120`} />
+                <link rel='apple-touch-icon' sizes='144x144' href={`${GaritmicConfig.favIcon}&w=144&h=144`} />
+                <link rel='apple-touch-icon' sizes='152x152' href={`${GaritmicConfig.favIcon}&w=152&h=152`} />
+                <link rel="shortcut icon" href={`${GaritmicConfig.favIcon}&w=512&h=512`} />
                 <link href='https://auradesignsystem.com/static/style.css' rel='stylesheet' />
-                <link rel="manifest" href="static/manifest.json" />
+                <link rel="manifest" href="/manifest.json" />
                 <meta content='yes' name='apple-mobile-web-app-capable' />
                 <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
                 <meta name="theme-color" content="#e8ebfe" />

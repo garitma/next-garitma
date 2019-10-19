@@ -11,7 +11,7 @@ import TriggerTitle from "../atoms/TriggerTitle"
 export default class Module extends React.Component {
     render() {
 
-        const { document, linkuid, linktype, modmedia, modtitle, modcontent, modquote, onClickPost, triggermedia, triggeruid, triggertitle } = this.props
+        const { document, linkuid, linktype, modmedia, modtitle, modcontent, modquote, onClickPost, triggermedia, triggeruid, triggertitle, children } = this.props
 
         return (
             <div className="mod">
@@ -36,6 +36,9 @@ export default class Module extends React.Component {
                             {RichText.asText(document.data.excerpt)}
                         </p>
                     }
+
+                    {children}
+
                     <div className="mod-action">
                         {triggeruid &&
                             <TriggerUid document={document} onClickPost={onClickPost} />

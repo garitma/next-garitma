@@ -7,7 +7,7 @@ import SubHeader from "../molecules/SubHeader"
 export default class SinglePage extends React.Component {
     render() {
         const { document } = this.props
-        return (<div>
+        return (<>
             <PageSeo document={document} />
             <SubHeader text={RichText.asText(document.data.title)} />
             <div className='smash'>
@@ -19,7 +19,7 @@ export default class SinglePage extends React.Component {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
         )
     }
 }

@@ -19,7 +19,7 @@ export default class SingleAction extends React.Component {
         const { document } = this.props
 
         return (
-            <div className="actions">
+            <>
                 {document.data.download &&
                     <a href={document.data.download.url} target="_blank" download>
                         <div className="glyphsSprite download action" />
@@ -40,7 +40,7 @@ export default class SingleAction extends React.Component {
                         <div className="glyphsSprite play action" onClick={this.openModal} />
                     </div>
                 }
-            </div>
+            </>
         )
     }
 }

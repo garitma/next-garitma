@@ -7,18 +7,20 @@ export default class SmartModule extends React.Component {
 
         if (document.type === 'frases') {
             return (
-                <div className="smartmodule mod valign">
-                    <Module document={document} modquote="true" />
-                    <div data-wio-id={document.id} />
-                </div>
+                <>
+                    <Module document={document} modquote="true" >
+                        <div data-wio-id={document.id} />
+                    </Module>
+                </>
             )
         }
 
         return (
-            <div className="smartmodule mod">
-                <Module document={document} modcontent="true" triggermedia="true" triggertitle="true" onClickPost={onClickPost} />
-                <div data-wio-id={document.id} />
-            </div>
+            <>
+                <Module document={document} modcontent="true" triggermedia="true" triggertitle="true" onClickPost={onClickPost}>
+                    <div data-wio-id={document.id} />
+                </Module>
+            </>
         )
     }
 }

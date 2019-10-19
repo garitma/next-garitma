@@ -4,7 +4,7 @@ export default class Pagination extends React.Component {
     render() {
         const { document, root, string } = this.props
         return (
-            <div className="">
+            <>
                 <div className="smosh">
                     <div className="">
                         <ul className="nav-list">
@@ -55,7 +55,7 @@ export default class Pagination extends React.Component {
                         </ul>
                     </div>
                 </div>
-            </div>
+            </>
         )
     }
 }

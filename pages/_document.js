@@ -1,6 +1,6 @@
 import React from 'react'
 import Document, { Head, Main, NextScript } from 'next/document'
-import { GA_TRACKING_ID } from '../static/gtag'
+import { GA_TRACKING_ID } from '../public/gtag'
 import GaritmicConfig from '../garitmic.config.json'
 
 export default class extends Document {
