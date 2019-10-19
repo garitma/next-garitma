@@ -13,7 +13,7 @@ const nextConfig = {
             },
             {
                 urlPattern: /^https?:\/\/images.prismic.io\/garitma\/.*/,
-                handler: 'StaleWhileRevalidate',
+                handler: 'CacheFirst',
             },
             {
                 urlPattern: /^https:\/\/use.typekit.net\/(.*)/,
@@ -27,7 +27,7 @@ const nextConfig = {
             },
             {
                 urlPattern: /^https?.*/,
-                handler: 'networkFirst',
+                handler: 'NetworkFirst',
             },
         ],
     },
