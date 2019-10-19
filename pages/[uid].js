@@ -3,9 +3,9 @@ import { Client } from '../api/prismic'
 import Error from './_error'
 import SingleRead from '../components/templates/SingleRead'
 import SingleQuote from '../components/templates/SingleQuote'
-export const config = { amp: 'hybrid' };
 
 export default class Post extends React.Component {
+
 
     static async getInitialProps({ req, query, res }) {
 
