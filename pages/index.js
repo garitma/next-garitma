@@ -1,11 +1,9 @@
-import CarouselSingle from '../components/molecules/CarouselSingle'
 import Error from './_error'
 import GeneralSeo from '../components/seo/GeneralSeo'
 import Layout from '../components/organism/Layout'
 import SingleModal from '../components/templates/SingleModal'
 import SmartModule from '../components/organism/SmartModule'
 import { Client, Prismic } from '../api/prismic'
-import { RichText } from 'prismic-reactjs'
 import SliceCarousel from '../components/organism/SliceCarousel'
 
 
@@ -66,18 +64,21 @@ export default class Home extends React.Component {
         )
     }
 
-    renderCarousel(document, headline, color) {
+    renderCarouselSlice(slice) {
+
         return (
-            <SliceCarousel>
-                {this.renderModule(document)}
-            </SliceCarousel>
+            slice.data.carousel.map((slice, index) =>
+                <SliceCarousel slice={slice} key={index}>
+                    {this.renderModule(this.props[slice.post_type])}
+                </SliceCarousel>
+            )
         )
     }
 
 
     renderBody() {
 
-        const { poems, quotes, comics, videos, downloads, featured, home } = this.props
+        const { home } = this.props
         const { openPost } = this.state
 
         return (
@@ -87,8 +88,7 @@ export default class Home extends React.Component {
                     <SingleModal document={openPost} onClose={this.closePost} />
                 </div>}
 
-                {this.renderCarousel(poems, `${RichText.asText(home.data.title)}`)}
-
+                {this.renderCarouselSlice(home)}
 
             </Layout >
         )

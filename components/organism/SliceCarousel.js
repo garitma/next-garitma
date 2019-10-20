@@ -9,12 +9,12 @@ export default class SliceCarousel extends React.Component {
         const { slice, children } = this.props
 
         return (
-            <section>
+            <section className={slice.color_class}>
                 <div className="halo">
                     <div className="layer">
                         <div className="wall-pad centertxt">
-                            <h2 className="h1">
-
+                            <h2 className="h3">
+                                {RichText.asText(slice.headline)}
                             </h2>
                         </div>
                     </div>

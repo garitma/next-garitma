@@ -22,6 +22,16 @@ const nextConfig = {
                 },
             },
             {
+                urlPattern: /^https?:\/\/media.giphy.com\/media\/.*/,
+                handler: 'CacheFirst',
+                options: {
+                    cacheName: 'Giphy',
+                    expiration: {
+                        maxAgeSeconds: 7 * 24 * 60 * 60, // 7 days
+                    },
+                },
+            },
+            {
                 urlPattern: /^https:\/\/use.typekit.net\/(.*)/,
                 handler: 'CacheFirst',
                 options: {
