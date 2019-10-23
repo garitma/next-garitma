@@ -13,7 +13,7 @@ export default class SingleRead extends React.Component {
         const { document, archive, onClose } = this.props
 
         return (
-            <div className="post">
+            <article className="post">
                 <div className="feature" style={{ background: `${document.data.color}` }} itemScope itemType="http://schema.org/CreativeWork">
                     <SingleSeo document={document} />
                     <div className="smush" >
@@ -46,7 +46,7 @@ export default class SingleRead extends React.Component {
                         }
                     </div>
                 </div>
-            </div>
+            </article>
         )
     }
 }
