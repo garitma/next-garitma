@@ -2,7 +2,7 @@
 
 App de arte y entretenimiento con CMS Prismic.io y Next JS.
 
-![Captura de la APP](./.readme-static/screenshot.jpg)
+![Captura de la APP](./.readme-static/screenshot.png)
 
 ## ¿Cómo funciona?
 
