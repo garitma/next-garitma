@@ -8,7 +8,7 @@ export default class SmartModule extends React.Component {
         if (document.type === 'frases') {
             return (
                 <>
-                    <Module document={document} modquote="true" >
+                    <Module document={document} modquote="true" classModifier="valign vfluid mod">
                         <div data-wio-id={document.id} />
                     </Module>
                 </>

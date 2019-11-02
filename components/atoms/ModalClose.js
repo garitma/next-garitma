@@ -11,7 +11,7 @@ export default class ModalClose extends React.Component {
                         <li className="item"></li>
                         <li className="item">
                             {onClose ?
-                                <a onClick={onClose}><div className="glyphsSprite close point" /></a>
+                                <a onClick={onClose}><div className="glyphsSprite close point pin" /></a>
                                 :
                                 <Link>
                                     <a className="close"><div className="glyphsSprite close point" /></a>

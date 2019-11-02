@@ -92,7 +92,7 @@ export default class extends React.Component {
 
                 <section className="archives pad snow">
                     <div className="smesh">
-                        <div className="aureole field">
+                        <div className="aureole field feature-first">
                             {this.renderArchives()}
                         </div>
                     </div>

@@ -3,6 +3,7 @@ import GeneralSeo from '../components/seo/GeneralSeo'
 import Layout from '../components/organism/Layout'
 import SingleModal from '../components/templates/SingleModal'
 import SmartModule from '../components/organism/SmartModule'
+import ModuleCTA from '../components/molecules/ModuleCTA'
 import { Client, Prismic } from '../api/prismic'
 import SliceCarousel from '../components/organism/SliceCarousel'
 
@@ -70,6 +71,9 @@ export default class Home extends React.Component {
             slice.data.carousel.map((slice, index) =>
                 <SliceCarousel slice={slice} key={index}>
                     {this.renderModule(this.props[slice.post_type])}
+                    {slice.view_more &&
+                        <ModuleCTA document={slice.view_more} />
+                    }
                 </SliceCarousel>
             )
         )

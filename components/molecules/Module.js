@@ -11,7 +11,7 @@ import TriggerTitle from "../atoms/TriggerTitle"
 export default class Module extends React.Component {
     render() {
 
-        const { document, linkuid, linktype, modmedia, modtitle, modcontent, modquote, onClickPost, triggermedia, triggeruid, triggertitle, children } = this.props
+        const { document, linkuid, linktype, modmedia, modtitle, modcontent, modquote, onClickPost, triggermedia, triggeruid, triggertitle, children, classModifier } = this.props
 
         return (
             <div className="mod">
@@ -21,7 +21,7 @@ export default class Module extends React.Component {
                 {modmedia &&
                     <ModMedia document={document} />
                 }
-                <div className="mod-detail">
+                <div className={`mod-detail ${classModifier}`}>
                     {triggertitle &&
                         <TriggerTitle document={document} onClickPost={onClickPost} />
                     }
