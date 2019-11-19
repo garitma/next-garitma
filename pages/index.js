@@ -53,6 +53,10 @@ export default class Home extends React.Component {
         window.history.pushState("", "", "/")
     }
 
+    componentDidMount() {
+        window.addEventListener("popstate", this.openPost);
+    }
+
     renderModule(document) {
         return (
             document.results.map((document, index) =>

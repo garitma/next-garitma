@@ -55,6 +55,10 @@ export default class extends React.Component {
         window.history.pushState("", "", `/categorias/${type}`)
     }
 
+    componentDidMount() {
+        window.addEventListener("popstate", this.openPost);
+    }
+
     renderArchives() {
 
         const { archive } = this.props
