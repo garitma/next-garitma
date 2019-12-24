@@ -94,7 +94,7 @@ export default class extends React.Component {
                     <SingleModal document={openPost} onClose={this.closePost} archive="true" />
                 </div>}
 
-                <section className="archives pad snow">
+                <section className="archives pad purple">
                     <div className="smesh">
                         <div className="aureole field feature-first">
                             {this.renderArchives()}

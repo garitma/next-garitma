@@ -8,7 +8,7 @@ export default class ModMedia extends React.Component {
         return (
             <a href={`/${document.uid}`} onClick={(event) => onClickPost(event, document, `/${document.uid}`)}>
                 <div className="mod-media zoom">
-                    <img alt={document.data.featured_img.alt} srcSet={`${document.data.featured_img.url}&w=640 640w,${document.data.featured_img.url}&w=750 750w, ${document.data.featured_img.url} 1080w`} src={document.data.featured_img.url} />
+                    <img alt={document.data.featured_img.alt} srcSet={`${document.data.featured_img.url}&w=640&dpr=1 640w,${document.data.featured_img.url}&w=750&dpr=1 750w, ${document.data.featured_img.url}&w=1080&dpr=1 1080w`} src={document.data.featured_img.url} />
                 </div>
             </a>
         )

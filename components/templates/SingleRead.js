@@ -14,7 +14,7 @@ export default class SingleRead extends React.Component {
 
         return (
             <article className="post">
-                <div className="feature" style={{ background: `${document.data.color}` }} itemScope itemType="http://schema.org/CreativeWork">
+                <div className="feature" itemScope itemType="http://schema.org/CreativeWork" style={{ backgroundColor: `${document.data.color}` }}>
                     <SingleSeo document={document} />
                     <div className="smush" >
                         <div className="mod-media" >
@@ -46,6 +46,13 @@ export default class SingleRead extends React.Component {
                         }
                     </div>
                 </div>
+                {document.type == 'videos' &&
+                    <style jsx>{`
+                        .feature {
+                            background-color: rgb(0, 0, 0);
+                        }
+                  `}</style>
+                }
             </article>
         )
     }
