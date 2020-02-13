@@ -33,7 +33,7 @@ export default class SingleRead extends React.Component {
                         <h1 itemProp="name">{RichText.asText(document.data.title)}</h1>
                     </div>
                     <div className='glyphsSprite logo' />
-                    <div className="h6"><span itemProp="author">Garitma</span> · {moment(document.data.date).locale(`${GaritmicConfig.lang}`).format(`${GaritmicConfig.dateFormat}`)}</div>
+                    <div className="h6"><span itemProp="author">Garitma</span> · <time>{moment(document.data.date).locale(`${GaritmicConfig.lang}`).format(`${GaritmicConfig.dateFormat}`)}</time></div>
                     <div className="content smash pad h4 light">
                         {RichText.render(document.data.content)}
                         <div data-wio-id={document.id}></div>

@@ -8,7 +8,7 @@ export default class SmartModule extends React.Component {
         if (document.type === 'frases') {
             return (
                 <>
-                    <Module document={document} modquote="true" classModifier="valign vfluid mod">
+                    <Module document={document} modtype moddate modquote="true" classModifier="valign vfluid mod centertxt">
                         <div data-wio-id={document.id} />
                     </Module>
                 </>
@@ -17,7 +17,7 @@ export default class SmartModule extends React.Component {
 
         return (
             <>
-                <Module document={document} modcontent="true" triggermedia="true" triggertitle="true" onClickPost={onClickPost}>
+                <Module document={document} moddate modtype modcontent triggermedia triggertitle onClickPost={onClickPost}>
                     <div data-wio-id={document.id} />
                 </Module>
             </>

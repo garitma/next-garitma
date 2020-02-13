@@ -3,7 +3,7 @@ import GeneralSeo from '../components/seo/GeneralSeo'
 import Layout from '../components/organism/Layout'
 import SingleModal from '../components/templates/SingleModal'
 import SmartModule from '../components/organism/SmartModule'
-import ModuleCTA from '../components/molecules/ModuleCTA'
+import SubHeader from '../components/molecules/SubHeader'
 import { Client, Prismic } from '../api/prismic'
 import SliceCarousel from '../components/organism/SliceCarousel'
 
@@ -20,12 +20,12 @@ export default class Home extends React.Component {
         try {
 
             let [poems, quotes, comics, videos, downloads, featured, home] = await Promise.all([
-                Client(req).query(Prismic.Predicates.at('document.type', 'poemas'), { orderings: '[my.poemas.date desc]', pageSize: 6 }),
-                Client(req).query(Prismic.Predicates.at('document.type', 'frases'), { orderings: '[my.frases.date desc]', pageSize: 6 }),
-                Client(req).query(Prismic.Predicates.at('document.type', 'comics'), { orderings: '[my.comics.date desc]', pageSize: 6 }),
-                Client(req).query(Prismic.Predicates.at('document.type', 'videos'), { orderings: '[my.videos.date desc]', pageSize: 6 }),
-                Client(req).query(Prismic.Predicates.at('document.type', 'descargas'), { orderings: '[my.descargas.date desc]', pageSize: 6 }),
-                Client(req).query(Prismic.Predicates.at('document.tags', ['featured']), { orderings: '[my.poemas.date desc]', pageSize: 6 }),
+                Client(req).query(Prismic.Predicates.at('document.type', 'poemas'), { orderings: '[my.poemas.date desc]', pageSize: 1 }),
+                Client(req).query(Prismic.Predicates.at('document.type', 'frases'), { orderings: '[my.frases.date desc]', pageSize: 1 }),
+                Client(req).query(Prismic.Predicates.at('document.type', 'comics'), { orderings: '[my.comics.date desc]', pageSize: 1 }),
+                Client(req).query(Prismic.Predicates.at('document.type', 'videos'), { orderings: '[my.videos.date desc]', pageSize: 1 }),
+                Client(req).query(Prismic.Predicates.at('document.type', 'descargas'), { orderings: '[my.descargas.date desc]', pageSize: 1 }),
+                Client(req).query(Prismic.Predicates.at('document.tags', ['featured']), { orderings: '[my.poemas.date desc]', pageSize: 1 }),
                 Client(req).getSingle('homepage')
             ])
 
@@ -75,9 +75,6 @@ export default class Home extends React.Component {
             slice.data.carousel.map((slice, index) =>
                 <SliceCarousel slice={slice} key={index}>
                     {this.renderModule(this.props[slice.post_type])}
-                    {slice.view_more &&
-                        <ModuleCTA document={slice.view_more} />
-                    }
                 </SliceCarousel>
             )
         )
@@ -95,6 +92,8 @@ export default class Home extends React.Component {
                 {openPost && <div>
                     <SingleModal document={openPost} onClose={this.closePost} />
                 </div>}
+
+                <SubHeader text="Garitma" />
 
                 {this.renderCarouselSlice(home)}
 
