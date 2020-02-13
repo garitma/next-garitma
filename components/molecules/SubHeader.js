@@ -7,7 +7,7 @@ export default class SubHeader extends React.Component {
             <div className='SubHeader'>
                 <div className='halo smash'>
                     <h1 className='content-center light centertxt mb0'>{text}</h1>
-                    <ul className="nav-list flowx">
+                    <ul className="nav-list flowx wall-pad">
                         {text != 'Poemas' &&
                             <li ><Link href='/categorias/[type]' as='/categorias/poemas'><a className="menu-item">Poemas</a></Link></li>
                         }
