@@ -1,6 +1,6 @@
 import NextSeo from 'next-seo'
 import GaritmicConfig from '../../garitmic.config.json'
-import { RichText } from 'prismic-reactjs'
+import { RichText } from './node_modules/prismic-reactjs'
 
 
 export default class SingleSeo extends React.Component {

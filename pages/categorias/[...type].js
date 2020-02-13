@@ -95,12 +95,13 @@ export default class extends React.Component {
                 </div>}
 
                 <section className="archives pad purple">
-                    <div className="smesh">
-                        <div className="aureole field feature-first">
+                    <div className="smash">
+                        <div className="aureole one">
                             {this.renderArchives()}
                         </div>
                     </div>
                 </section>
+
                 <section className="pagination pad">
                     {archive.total_results_size > GaritmicConfig.ArchivePageSize &&
                         this.renderPagination()
