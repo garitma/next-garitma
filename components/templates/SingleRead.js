@@ -63,7 +63,11 @@ export default class SingleRead extends React.Component {
                     <style jsx>{`
                         .bxqrcA {
                             background-color: ${document.data.color};
-                            border: 0
+                            border: 0;
+                            display: block
+                        }
+                        .igagJy h4 {
+                            margin: 0 0 13px 0
                         }
                         .dLjWml {
                             background-color: #212121
