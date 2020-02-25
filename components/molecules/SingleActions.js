@@ -1,4 +1,7 @@
 import ModalVideo from 'react-modal-video'
+import Player from 'react-soundcloud-player'
+import { RichText } from 'prismic-reactjs'
+
 
 export default class SingleAction extends React.Component {
 
@@ -40,6 +43,13 @@ export default class SingleAction extends React.Component {
                         <div className="glyphsSprite play action" onClick={this.openModal} />
                     </div>
                 }
+                {document.data.audio_id && 
+                    <Player
+                        client_id="c5a171200f3a0a73a523bba14a1e0a29"
+                        audio_id={document.data.audio_id}
+                        title={RichText.asText(document.data.title)}
+                    />
+                }       
             </>
         )
     }

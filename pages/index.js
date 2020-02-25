@@ -7,8 +7,6 @@ import SubHeader from '../components/molecules/SubHeader'
 import { Client, Prismic } from '../api/prismic'
 import SliceCarousel from '../components/organism/SliceCarousel'
 
-
-
 export default class Home extends React.Component {
 
     constructor(props) {

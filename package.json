@@ -18,7 +18,8 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-modal-video": "^1.2.1",
-    "react-multi-carousel": "^2.5.0"
+    "react-multi-carousel": "^2.5.0",
+    "react-soundcloud-player": "^1.1.1"
   },
   "scripts": {
     "dev": "next",

@@ -18,10 +18,12 @@ export default class SingleRead extends React.Component {
                     <SingleSeo document={document} />
                     <div className="smush" >
                         <div className="mod-media" >
-                        <img alt={document.data.featured_img.alt} srcSet={`${document.data.featured_img.url}&w=640&h=320&dpr=1&fit=crop 640w,${document.data.featured_img.url}&w=750&h=375&dpr=1&fit=crop 750w, ${document.data.featured_img.url}&w=1080&h=540&dpr=1&fit=crop 1080w`} src={`${document.data.featured_img.url}&w=1140&h=570&dpr=1&fit=crop`} />
+                            <img alt={document.data.featured_img.alt} srcSet={`${document.data.featured_img.url}&w=640&h=320&dpr=1&fit=crop 640w,${document.data.featured_img.url}&w=750&h=375&dpr=1&fit=crop 750w, ${document.data.featured_img.url}&w=1080&h=540&dpr=1&fit=crop 1080w`} src={`${document.data.featured_img.url}&w=1140&h=570&dpr=1&fit=crop`} />
                             <SingleAction document={document} />
                         </div>
+                        
                     </div>
+                    
                 </div>
                 <div className="pad centertxt">
                     {archive ?
@@ -30,7 +32,10 @@ export default class SingleRead extends React.Component {
                         <Link href='/categorias/[type]' as={`/categorias/${document.type}`}><a className="h6" itemProp="genre">{GaritmicConfig.types[document.type].name}</a></Link>
                     }
                     <div className="smash">
-                        <h1 itemProp="name">{RichText.asText(document.data.title)}</h1>
+                        {document.type != 'podcasts' &&
+                            <h1 itemProp="name">{RichText.asText(document.data.title)}</h1>
+                        }
+                        
                     </div>
                     <div className='glyphsSprite logo' />
                     <div className="h6"><span itemProp="author">Garitma</span> · <time>{moment(document.data.date).locale(`${GaritmicConfig.lang}`).format(`${GaritmicConfig.dateFormat}`)}</time></div>
@@ -50,6 +55,18 @@ export default class SingleRead extends React.Component {
                     <style jsx>{`
                         .feature {
                             background-color: rgb(0, 0, 0);
+                        }
+                      
+                  `}</style>
+                }
+                {document.type == 'podcasts' &&
+                    <style jsx>{`
+                        .bxqrcA {
+                            background-color: ${document.data.color};
+                            border: 0
+                        }
+                        .dLjWml {
+                            background-color: #212121
                         }
                   `}</style>
                 }

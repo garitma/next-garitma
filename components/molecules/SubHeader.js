@@ -26,9 +26,9 @@ export default class SubHeader extends React.Component {
                         {text != 'Podcasts' && 
                         <li ><Link href='/categorias/[type]' as='/categorias/podcasts'><a className="menu-item">Podcasts</a></Link></li>
                         }
-                        {text != 'Juegos' && 
+                        {/* {text != 'Juegos' && 
                         <li ><Link href='/categorias/[type]' as='/categorias/juegos'><a className="menu-item">Juegos</a></Link></li>
-                        }   
+                        }    */}
                     </ul>
                 </div>
             </div>
