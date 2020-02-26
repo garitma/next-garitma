@@ -17,21 +17,21 @@ export default class Home extends React.Component {
     static async getInitialProps({ req, res }) {
         try {
 
-            let [poems, quotes, comics, videos, downloads, featured, home] = await Promise.all([
+            let [poems, quotes, comics, videos, downloads, podcasts, home] = await Promise.all([
                 Client(req).query(Prismic.Predicates.at('document.type', 'poemas'), { orderings: '[my.poemas.date desc]', pageSize: 1 }),
                 Client(req).query(Prismic.Predicates.at('document.type', 'frases'), { orderings: '[my.frases.date desc]', pageSize: 1 }),
                 Client(req).query(Prismic.Predicates.at('document.type', 'comics'), { orderings: '[my.comics.date desc]', pageSize: 1 }),
                 Client(req).query(Prismic.Predicates.at('document.type', 'videos'), { orderings: '[my.videos.date desc]', pageSize: 1 }),
                 Client(req).query(Prismic.Predicates.at('document.type', 'descargas'), { orderings: '[my.descargas.date desc]', pageSize: 1 }),
-                Client(req).query(Prismic.Predicates.at('document.tags', ['featured']), { orderings: '[my.poemas.date desc]', pageSize: 1 }),
+                Client(req).query(Prismic.Predicates.at('document.type', 'podcasts'), { orderings: '[my.descargas.date desc]', pageSize: 1 }),
                 Client(req).getSingle('homepage')
             ])
 
-            return { poems, quotes, comics, videos, downloads, featured, home, statusCode: 200 }
+            return { poems, quotes, comics, videos, downloads, podcasts, home, statusCode: 200 }
 
         } catch (e) {
             res.statusCode = 503
-            return { poems: null, quotes: null, comics: null, videos: null, downloads: null, featured: null, home: null, statusCode: 503 }
+            return { poems: null, quotes: null, comics: null, videos: null, downloads: null, podcasts: null, home: null, statusCode: 503 }
         }
     }
 
