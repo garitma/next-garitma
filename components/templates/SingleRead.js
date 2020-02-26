@@ -6,6 +6,7 @@ import SingleSeo from "../seo/SingleSeo"
 import SingleAction from "../molecules/SingleActions"
 import SubhHader from "../molecules/SubHeader"
 import AuthorBox from "../molecules/AuthorBox"
+import Player from 'react-soundcloud-player'
 
 export default class SingleRead extends React.Component {
 
@@ -41,11 +42,19 @@ export default class SingleRead extends React.Component {
                         </div>
                         <time itemProp="datePublished">{moment(document.data.date).locale(`${GaritmicConfig.lang}`).format(`${GaritmicConfig.dateFormat}`)}</time>
                         <h1 itemProp="name"> {RichText.asText(document.data.title)}</h1>
+                         
                         <p itemProp="abstract" className="h5 light">{RichText.asText(document.data.excerpt)}</p>
                     </div>
                 </section>
                 <section className="feature">
                     <div className="block-img smush">
+                        {document.data.audio_id && 
+                            <Player
+                                client_id="c5a171200f3a0a73a523bba14a1e0a29"
+                                audio_id={document.data.audio_id}
+                                title={`${RichText.asText(document.data.title)}`}
+                            />
+                        }
                         <img itemProp="image" alt={document.data.featured_img.alt} srcSet={`${document.data.featured_img.url}&w=640 640w,${document.data.featured_img.url}&w=750 750w, ${document.data.featured_img.url} 1080w`} src={document.data.featured_img.url} />
                         <SingleAction document={document} />
                     </div>
@@ -60,7 +69,9 @@ export default class SingleRead extends React.Component {
                     <AuthorBox />
                 </section>
                 <div className="pad" />
-                <SubhHader plaintxt="Ver más"/>
+                <section className="relatedpost"> 
+                    <SubhHader plaintxt="Ver más"/>
+                </section>
             </article>
 
                 {document.type == 'videos' &&
@@ -77,7 +88,7 @@ export default class SingleRead extends React.Component {
 
                 {document.data.color &&
                     <style jsx>{`
-                        .feature, .bxqrcA, .post {
+                        .feature, .post {
                             background-color: ${document.data.color};
                         }
                     `}</style>
