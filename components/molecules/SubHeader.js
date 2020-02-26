@@ -2,11 +2,16 @@ import Link from 'next/link'
 
 export default class SubHeader extends React.Component {
     render() {
-        const { text } = this.props
+        const { text, plaintxt } = this.props
         return (
             <div className='SubHeader'>
                 <div className='halo smash'>
-                    <h1 className='content-center light centertxt mb0'>{text}</h1>
+                    {text &&
+                        <h1 className='content-center light centertxt mb0'>{text}</h1>
+                    }
+                    {plaintxt &&
+                        <h3  className='content-center light centertxt mb0'>{plaintxt}</h3>
+                    }
                     <ul className="nav-list flowx wall-pad">
                         {text != 'Poemas' &&
                             <li ><Link href='/categorias/[type]' as='/categorias/poemas'><a className="menu-item">Poemas</a></Link></li>

@@ -4,7 +4,8 @@ import { RichText } from 'prismic-reactjs'
 import GaritmicConfig from '../../garitmic.config.json'
 import SingleSeo from "../seo/SingleSeo"
 import SingleAction from "../molecules/SingleActions"
-import LinkType from "../atoms/LinkType"
+import SubhHader from "../molecules/SubHeader"
+import AuthorBox from "../molecules/AuthorBox"
 
 export default class SingleRead extends React.Component {
 
@@ -13,55 +14,62 @@ export default class SingleRead extends React.Component {
         const { document, archive, onClose } = this.props
 
         return (
+            <>
+            <SingleSeo document={document} />
+
             <article className="post" itemScope itemType="http://schema.org/CreativeWork">
-                <SingleSeo document={document} />
-                <div className="feature" >
-                    <div className="smush" >
-                        <div className="mod-media" >
-                            <img alt={document.data.featured_img.alt} srcSet={`${document.data.featured_img.url}&w=640&h=320&dpr=1&fit=crop 640w,${document.data.featured_img.url}&w=750&h=375&dpr=1&fit=crop 750w, ${document.data.featured_img.url}&w=1080&h=540&dpr=1&fit=crop 1080w`} src={`${document.data.featured_img.url}&w=1140&h=570&dpr=1&fit=crop`} />
-                            <SingleAction document={document} />
-                        </div>
-                    </div>
-                </div>
-                <div className="pad centertxt">
-                    {archive ?
-                        <a itemProp="genre" href={`/categorias/${document.type}`} onClick={onClose}>
-                            <div class="halo">
-                                <span class="purple wall-pad container">{GaritmicConfig.types[document.type].name}</span>
-                            </div>
-                        </a>
-                        :
-                        <Link href='/categorias/[type]' as={`/categorias/${document.type}`}>
-                            <a itemProp="genre">
+
+            <div className="pad hide-small" />
+                <section className="sumary smash">
+                    <div className="pad">
+                        <div className="halo">
+                            {archive ?
+                            <a itemProp="genre" href={`/categorias/${document.type}`} onClick={onClose}>
                                 <div class="halo">
                                     <span class="purple wall-pad container">{GaritmicConfig.types[document.type].name}</span>
                                 </div>
                             </a>
-                        </Link>
-                    }
-                    <div className="smash">
-                            <h1 itemProp="name">{RichText.asText(document.data.title)}</h1>
+                            :
+                            <Link href='/categorias/[type]' as={`/categorias/${document.type}`}>
+                                <a itemProp="genre">
+                                    <div class="halo">
+                                        <span class="purple wall-pad container">{GaritmicConfig.types[document.type].name}</span>
+                                    </div>
+                                </a>
+                            </Link>
+                            }
+                        </div>
+                        <time itemProp="datePublished">{moment(document.data.date).locale(`${GaritmicConfig.lang}`).format(`${GaritmicConfig.dateFormat}`)}</time>
+                        <h1 itemProp="name"> {RichText.asText(document.data.title)}</h1>
+                        <p itemProp="abstract" className="h5 light">{RichText.asText(document.data.excerpt)}</p>
                     </div>
-                    <div className='glyphsSprite logo' />
-                    <div className="h6"><span itemProp="author">Garitma</span> · <time>{moment(document.data.date).locale(`${GaritmicConfig.lang}`).format(`${GaritmicConfig.dateFormat}`)}</time></div>
-                    <div className="content smash pad h4 light">                       
+                </section>
+                <section className="feature">
+                    <div className="block-img smush">
+                        <img itemProp="image" alt={document.data.featured_img.alt} srcSet={`${document.data.featured_img.url}&w=640 640w,${document.data.featured_img.url}&w=750 750w, ${document.data.featured_img.url} 1080w`} src={document.data.featured_img.url} />
+                        <SingleAction document={document} />
+                    </div>
+                </section>
+                <section className="content smash">
+                    <div itemProp="articleBody" className="pad h4 light centertxt">
                         {RichText.render(document.data.content)}
                         <div data-wio-id={document.id}></div>
                     </div>
-                    <div className="h6">
-                        {archive ?
-                            <a className="button-link" href={`/categorias/${document.type}`} onClick={onClose}>Ver más</a>
-                            :
-                            <LinkType document={document} />
-                        }
-                    </div>
-                </div>
-
+                </section>
+                <section className="wall-pad">
+                    <AuthorBox />
+                </section>
+                <div className="pad" />
+                <SubhHader plaintxt="Ver más"/>
+            </article>
 
                 {document.type == 'videos' &&
                     <style jsx>{`
-                        .feature {
+                        .feature, .post {
                             background-color: rgb(0, 0, 0);
+                        }
+                        body {
+                            color: #fff
                         }
                       
                   `}</style>
@@ -69,12 +77,12 @@ export default class SingleRead extends React.Component {
 
                 {document.data.color &&
                     <style jsx>{`
-                        .feature, .bxqrcA {
+                        .feature, .bxqrcA, .post {
                             background-color: ${document.data.color};
                         }
-                  `}</style>
+                    `}</style>
                 }
-            </article>
+            </>
         )
     }
 }
