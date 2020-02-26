@@ -76,13 +76,9 @@ export default class SingleRead extends React.Component {
 
                 {document.type == 'videos' &&
                     <style jsx>{`
-                        .feature, .post {
+                        .feature {
                             background-color: rgb(0, 0, 0);
                         }
-                        body {
-                            color: #fff
-                        }
-                      
                   `}</style>
                 }
 
