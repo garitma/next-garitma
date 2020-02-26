@@ -13,9 +13,9 @@ export default class SingleRead extends React.Component {
         const { document, archive, onClose } = this.props
 
         return (
-            <article className="post">
-                <div className="feature" itemScope itemType="http://schema.org/CreativeWork">
-                    <SingleSeo document={document} />
+            <article className="post" itemScope itemType="http://schema.org/CreativeWork">
+                <SingleSeo document={document} />
+                <div className="feature" >
                     <div className="smush" >
                         <div className="mod-media" >
                             <img alt={document.data.featured_img.alt} srcSet={`${document.data.featured_img.url}&w=640&h=320&dpr=1&fit=crop 640w,${document.data.featured_img.url}&w=750&h=375&dpr=1&fit=crop 750w, ${document.data.featured_img.url}&w=1080&h=540&dpr=1&fit=crop 1080w`} src={`${document.data.featured_img.url}&w=1140&h=570&dpr=1&fit=crop`} />
@@ -25,9 +25,19 @@ export default class SingleRead extends React.Component {
                 </div>
                 <div className="pad centertxt">
                     {archive ?
-                        <a className="h6" href={`/categorias/${document.type}`} onClick={onClose}>{GaritmicConfig.types[document.type].name}</a>
+                        <a itemProp="genre" href={`/categorias/${document.type}`} onClick={onClose}>
+                            <div class="halo">
+                                <span class="purple wall-pad container">{GaritmicConfig.types[document.type].name}</span>
+                            </div>
+                        </a>
                         :
-                        <Link href='/categorias/[type]' as={`/categorias/${document.type}`}><a className="h6" itemProp="genre">{GaritmicConfig.types[document.type].name}</a></Link>
+                        <Link href='/categorias/[type]' as={`/categorias/${document.type}`}>
+                            <a itemProp="genre">
+                                <div class="halo">
+                                    <span class="purple wall-pad container">{GaritmicConfig.types[document.type].name}</span>
+                                </div>
+                            </a>
+                        </Link>
                     }
                     <div className="smash">
                         {document.type != 'podcasts' &&
