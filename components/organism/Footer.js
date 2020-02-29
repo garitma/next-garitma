@@ -1,4 +1,7 @@
 import Link from 'next/link'
+import moment from 'moment'
+import GaritmicConfig from '../../garitmic.config.json'
+
 
 export default class Footer extends React.Component {
 
@@ -11,7 +14,7 @@ export default class Footer extends React.Component {
                             <Link href="/" as="/">
                                 <a aria-label="Logo Garitma"><div className="glyphsSprite logo" /></a>
                             </Link>
-                            <p className="page-footer-legal">© 2019 Garitma. Todos los derechos reservados</p>
+                            <p className="page-footer-legal">© {moment().locale(`${GaritmicConfig.lang}`).format('YYYY')} Garitma. Todos los derechos reservados</p>
                         </div>
                         <ul className="page-footer-legal-wrapper nav-list halo">
                             <li className="page-footer-link item">
