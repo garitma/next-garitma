@@ -1,6 +1,4 @@
-import moment from 'moment'
 import Link from 'next/link'
-import LinkType from "../atoms/LinkType"
 import { RichText } from 'prismic-reactjs'
 import GaritmicConfig from '../../garitmic.config.json'
 import QuoteSeo from '../seo/QuoteSeo'

@@ -87,9 +87,9 @@ export default class Home extends React.Component {
         return (
             <Layout seo={<GeneralSeo />}>
 
-                {openPost && <div>
+                {openPost && 
                     <SingleModal document={openPost} onClose={this.closePost} />
-                </div>}
+                }
 
                 <SubHeader text="Garitma" />
 

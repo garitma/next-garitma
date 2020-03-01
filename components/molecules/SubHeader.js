@@ -36,7 +36,14 @@ export default class SubHeader extends React.Component {
                         }    */}
                     </ul>
                 </div>
-            </div>
+                {plaintxt &&
+                    <style jsx>{`
+                        .SubHeader {
+                          background: transparent  
+                        }
+                    `}</style>
+                }
+            </div> 
         );
     }
 
