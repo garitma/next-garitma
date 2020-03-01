@@ -30,7 +30,7 @@ export default class Layout extends React.Component {
                 <link rel='apple-touch-icon' sizes='144x144' href={`${GaritmicConfig.favIcon}&w=144&h=144`} />
                 <link rel='apple-touch-icon' sizes='152x152' href={`${GaritmicConfig.favIcon}&w=152&h=152`} />
                 <link rel="shortcut icon" href={`${GaritmicConfig.favIcon}&w=512&h=512`} />
-                <link href='https://auradesignsystem.com/static/style.css' rel='stylesheet' />
+                <link href='http://localhost:3001/static/style.css' rel='stylesheet' />
                 <link rel="manifest" href="/manifest.json" />
                 <meta content='yes' name='apple-mobile-web-app-capable' />
                 <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />

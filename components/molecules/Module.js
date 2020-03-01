@@ -22,8 +22,8 @@ export default class Module extends React.Component {
                     {modtype &&
                         <Link href='/categorias/[type]' as={`/categorias/${document.type}`}>
                             <a>
-                            <div class="halo">
-                                <span class="purple wall-pad">{GaritmicConfig.types[document.type].name}</span>
+                            <div className="halo">
+                                <span className="purple wall-pad">{GaritmicConfig.types[document.type].name}</span>
                             </div>
                             </a>
                         </Link>

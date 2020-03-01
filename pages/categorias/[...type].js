@@ -90,9 +90,16 @@ export default class extends React.Component {
 
                 <SubHeader text={GaritmicConfig.types[type].name} />
 
-                {openPost && <div>
-                    <SingleModal document={openPost} onClose={this.closePost} archive="true" />
-                </div>}
+                {openPost && 
+                    <>
+                        <SingleModal document={openPost} onClose={this.closePost} archive="true" />
+                        <style jsx global>{`
+                                body {
+                                    overflow-y: hidden;
+                                }
+                            `}</style>
+                    </>
+                }
 
                 <section className="archives pad purple">
                     <div className="smash">

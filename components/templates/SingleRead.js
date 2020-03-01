@@ -20,21 +20,21 @@ export default class SingleRead extends React.Component {
 
             <article className="post" itemScope itemType="http://schema.org/CreativeWork">
 
-            <div className="pad hide-small" />
+            <div className="pad" />
                 <section className="sumary smash">
                     <div className="pad">
                         <div className="halo">
                             {archive ?
                             <a itemProp="genre" href={`/categorias/${document.type}`} onClick={onClose}>
-                                <div class="halo">
-                                    <span class="purple wall-pad container">{GaritmicConfig.types[document.type].name}</span>
+                                <div className="halo">
+                                    <span className="purple wall-pad container">{GaritmicConfig.types[document.type].name}</span>
                                 </div>
                             </a>
                             :
                             <Link href='/categorias/[type]' as={`/categorias/${document.type}`}>
                                 <a itemProp="genre">
-                                    <div class="halo">
-                                        <span class="purple wall-pad container">{GaritmicConfig.types[document.type].name}</span>
+                                    <div className="halo">
+                                        <span className="purple wall-pad container">{GaritmicConfig.types[document.type].name}</span>
                                     </div>
                                 </a>
                             </Link>
