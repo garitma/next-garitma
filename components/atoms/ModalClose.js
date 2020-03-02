@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default class ModalClose extends React.Component {
     render() {
-        const { document, onClose } = this.props
+        const { onClose } = this.props
 
 
         return (
@@ -27,12 +27,8 @@ export default class ModalClose extends React.Component {
                 <ul className="nav-list">
                     <li className="item"></li>
                     <li className="item">
-                        {onClose ?
+                        {onClose &&
                             <a onClick={onClose}><div className="glyphsSprite close point pin" /></a>
-                            :
-                            <Link>
-                                <a className="close"><div className="glyphsSprite close point" /></a>
-                            </Link>
                         }
                     </li>
                 </ul>

@@ -70,7 +70,7 @@ export default class SingleRead extends React.Component {
                 </section>
                 <div className="pad" />
                 <section className="relatedpost"> 
-                    <SubhHader plaintxt="Ver más"/>
+                    <SubhHader plaintxt="Ver más" onClick={onClose}/>
                 </section>
             </article>
 
