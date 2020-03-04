@@ -9,28 +9,28 @@ export default class SubHeader extends React.Component {
                     {text &&
                         <h1 className='content-center light centertxt mb0'>{text}</h1>
                     }
-                    {plaintxt && 
-                        <h3  className='content-center light centertxt mb0'>{plaintxt}</h3>
-                    }
+       
+                        <h3  className='content-center light centertxt mb0'>{plaintxt}</h3> 
+  
                     
                     <ul className="nav-list flowx wall-pad">
                         {text != 'Poemas' &&
-                            <li ><Link href='/categorias/[type]' as='/categorias/poemas'><a onClick={onClose} className="menu-item">Poemas</a></Link></li>
+                            <li onClick={onClose}><Link href='/categorias/[type]' as='/categorias/poemas'><a className="menu-item">Poemas</a></Link></li>
                         }
-                        {text != 'Frases' && 
-                            <li ><Link href='/categorias/[type]' as='/categorias/frases'><a onClick={onClose} className="menu-item">Frases</a></Link></li>
+                        {text != 'Frases' &&
+                            <li onClick={onClose}><Link href='/categorias/[type]' as='/categorias/frases'><a className="menu-item">Frases</a></Link></li>
                         }
-                        {text != 'Cómics' && 
-                        <li ><Link href='/categorias/[type]' as='/categorias/comics'><a onClick={onClose} className="menu-item">Cómics</a></Link></li>
+                        {text != 'Cómics' &&
+                        <li onClick={onClose}><Link href='/categorias/[type]' as='/categorias/comics'><a className="menu-item">Cómics</a></Link></li>
                         }
                         {text != 'Videos' && 
-                        <li ><Link href='/categorias/[type]' as='/categorias/videos'><a onClick={onClose} className="menu-item">Videos</a></Link></li>
+                        <li onClick={onClose}><Link href='/categorias/[type]' as='/categorias/videos'><a className="menu-item">Videos</a></Link></li>
                         }
-                        {text != 'Descargas' && 
-                        <li ><Link href='/categorias/[type]' as='/categorias/descargas'><a onClick={onClose} className="menu-item">Descargas</a></Link></li>
+                        {text != 'Descargas' &&
+                        <li onClick={onClose}><Link href='/categorias/[type]' as='/categorias/descargas'><a className="menu-item">Descargas</a></Link></li>
                         }
-                        {text != 'Podcasts' && 
-                        <li ><Link href='/categorias/[type]' as='/categorias/podcasts'><a onClick={onClose} className="menu-item">Podcasts</a></Link></li>
+                        {text != 'Podcasts' &&
+                        <li onClick={onClose}><Link href='/categorias/[type]' as='/categorias/podcasts'><a className="menu-item">Podcasts</a></Link></li>
                         }
                     </ul>
                     

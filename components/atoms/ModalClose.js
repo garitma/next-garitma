@@ -6,7 +6,6 @@ export default class ModalClose extends React.Component {
 
 
         return (
-            <>
             <div className="navbar">
                 <div className="nav-wrapper">
                     <ul className="nav-list">
@@ -18,23 +17,13 @@ export default class ModalClose extends React.Component {
                                 </Link>
                         </li>
                         <li className="item">
+                            {onClose &&
+                                <a onClick={onClose}><div className="glyphsSprite close point pin" /></a>
+                            }
                         </li>
                     </ul>
                 </div>
             </div>
-            <div className="navbar pin">
-            <div className="nav-wrapper">
-                <ul className="nav-list">
-                    <li className="item"></li>
-                    <li className="item">
-                        {onClose &&
-                            <a onClick={onClose}><div className="glyphsSprite close point pin" /></a>
-                        }
-                    </li>
-                </ul>
-            </div>
-        </div>
-        </>
         )
     }
 }
