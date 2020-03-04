@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Client } from '../api/prismic'
 
 export default class navigation extends React.Component {
 

@@ -4,7 +4,7 @@ import { RichText } from 'prismic-reactjs'
 import GaritmicConfig from '../../garitmic.config.json'
 import SingleSeo from "../seo/SingleSeo"
 import SingleAction from "../molecules/SingleActions"
-import SubhHader from "../molecules/SubHeader"
+import SubhHeader from "../molecules/SubHeader"
 import AuthorBox from "../molecules/AuthorBox"
 import Player from 'react-soundcloud-player'
 
@@ -25,7 +25,7 @@ export default class SingleRead extends React.Component {
                     <div className="pad">
                         <div className="halo">
                             {archive ?
-                            <a itemProp="genre" href={`/categorias/${document.type}`} onClick={onClose}>
+                            <a itemProp="genre" onClick={onClose}>
                                 <div className="halo">
                                     <span className="purple wall-pad container">{GaritmicConfig.types[document.type].name}</span>
                                 </div>
@@ -55,7 +55,10 @@ export default class SingleRead extends React.Component {
                                 title={`${RichText.asText(document.data.title)}`}
                             />
                         }
-                        <img itemProp="image" alt={document.data.featured_img.alt} srcSet={`${document.data.featured_img.url}&w=640&h=320&dpr=1&fit=crop 640w,${document.data.featured_img.url}&w=750&h=375&dpr=1&fit=crop 750w, ${document.data.featured_img.url}&w=1080&h=540&dpr=1&fit=crop 1080w`} src={`${document.data.featured_img.url}&w=1140&h=570&dpr=1&fit=crop`} />
+                        {document.type != 'videos' &&
+                            <img itemProp="image" alt={document.data.featured_img.alt} srcSet={`${document.data.featured_img.url}&w=640&h=320&dpr=1&fit=crop 640w,${document.data.featured_img.url}&w=750&h=375&dpr=1&fit=crop 750w, ${document.data.featured_img.url}&w=1080&h=540&dpr=1&fit=crop 1080w`} src={`${document.data.featured_img.url}&w=1140&h=570&dpr=1&fit=crop`} />
+                        }
+                        
                         <SingleAction document={document} />
                     </div>
                 </section>
@@ -69,18 +72,17 @@ export default class SingleRead extends React.Component {
                     <AuthorBox />
                 </section>
                 <div className="pad" />
-                <section className="relatedpost"> 
-                    <SubhHader plaintxt="Ver más" onClick={onClose}/>
+                <section className="relatedpost white">
+                        <SubhHeader plaintxt="Ver más" onClose={onClose} archive/>
                 </section>
             </article>
 
-                {document.data.color &&
-                    <style jsx>{`
-                        .feature, .post {
-                            background-color: ${document.data.color};
-                        }
-                    `}</style>
+            <style jsx>{`
+                .feature, .post {
+                    background-color: ${document.data.color || '#fafafa'};
                 }
+            `}</style>
+                
             </>
         )
     }

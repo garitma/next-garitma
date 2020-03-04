@@ -92,7 +92,7 @@ export default class extends React.Component {
 
                 {openPost && 
                     <>
-                        <SingleModal document={openPost} onClose={this.closePost} archive="true" />
+                        <SingleModal document={openPost} onClose={this.closePost} archive />
                         <style jsx global>{`
                                 body {
                                     overflow-y: hidden;

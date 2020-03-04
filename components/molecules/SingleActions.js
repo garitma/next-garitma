@@ -1,14 +1,5 @@
-import ModalVideo from 'react-modal-video'
 
 export default class SingleAction extends React.Component {
-
-    constructor() {
-        super()
-        this.state = {
-            isOpen: false
-        }
-        this.openModal = this.openModal.bind(this)
-    }
 
     openModal() {
         this.setState({ isOpen: true })
@@ -35,9 +26,13 @@ export default class SingleAction extends React.Component {
                 }
 
                 {document.data.youtube_id &&
-                    <div>
-                        <ModalVideo channel='youtube' isOpen={this.state.isOpen} autoplay='true' videoId={document.data.youtube_id} onClose={() => this.setState({ isOpen: false })} />
-                        <div className="glyphsSprite play action" onClick={this.openModal} />
+                    <div className="videoWrapper">
+                        <iframe width="1140" height="570" 
+                            src={`https://www.youtube.com/embed/${document.data.youtube_id}`} 
+                            frameBorder="0" 
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                            allowFullScreen>
+                        </iframe>
                     </div>
                 }     
             </>
