@@ -9,10 +9,9 @@ export default class SubHeader extends React.Component {
                     {text &&
                         <h1 className='content-center light centertxt mb0'>{text}</h1>
                     }
-       
+                    {plaintxt &&
                         <h3  className='content-center light centertxt mb0'>{plaintxt}</h3> 
-  
-                    
+                    }
                     <ul className="nav-list flowx wall-pad">
                         {text != 'Poemas' &&
                             <li onClick={onClose}><Link href='/categorias/[type]' as='/categorias/poemas'><a className="menu-item">Poemas</a></Link></li>
