@@ -2,7 +2,6 @@ import Layout from '../components/organism/Layout'
 import { Client } from '../api/prismic'
 import Error from './_error'
 import SingleRead from '../components/templates/SingleRead'
-import SingleQuote from '../components/templates/SingleQuote'
 
 export default class Post extends React.Component {
 
@@ -12,37 +11,34 @@ export default class Post extends React.Component {
         const { uid } = query
 
         try {
-            let [poems, comics, downloads, games, podcasts, videos, quotes] = await Promise.all([
+            let [poems, comics, downloads, games, podcasts, videos] = await Promise.all([
                 Client(req).getByUID('poemas', `${uid}`),
                 Client(req).getByUID('comics', `${uid}`),
                 Client(req).getByUID('descargas', `${uid}`),
                 Client(req).getByUID('juegos', `${uid}`),
                 Client(req).getByUID('podcasts', `${uid}`),
-                Client(req).getByUID('videos', `${uid}`),
-                Client(req).getByUID('frases', `${uid}`)
-            ])
+                Client(req).getByUID('videos', `${uid}`)            ])
 
             if (poems == undefined &&
                 comics == undefined &&
                 downloads == undefined &&
                 games == undefined &&
                 podcasts == undefined &&
-                videos == undefined &&
-                quotes == undefined) {
+                videos == undefined) {
                 res.statusCode = 404
-                return { poems: null, comics: null, downloads: null, games: null, podcasts: null, videos: null, quotes: null, statusCode: 404 }
+                return { poems: null, comics: null, downloads: null, games: null, podcasts: null, videos: null, statusCode: 404 }
             }
 
-            return { poems, comics, downloads, games, podcasts, videos, quotes, statusCode: 200 }
+            return { poems, comics, downloads, games, podcasts, videos, statusCode: 200 }
         } catch (e) {
             req.statusCode = 503
-            return { poems: null, comics: null, downloads: null, games: null, podcasts: null, videos: null, quotes: null, statusCode: 503 }
+            return { poems: null, comics: null, downloads: null, games: null, podcasts: null, videos: null, statusCode: 503 }
         }
     }
 
     renderBody() {
 
-        const { poems, comics, downloads, games, podcasts, videos, quotes } = this.props
+        const { poems, comics, downloads, games, podcasts, videos } = this.props
 
         if (poems != undefined) {
             return (
@@ -77,12 +73,6 @@ export default class Post extends React.Component {
         if (videos != undefined) {
             return (
                 <SingleRead document={videos} />
-            )
-        }
-
-        if (quotes != undefined) {
-            return (
-                <SingleQuote document={quotes} />
             )
         }
 

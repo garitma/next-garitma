@@ -1,47 +1,32 @@
-import NextSeo from 'next-seo'
 import GaritmicConfig from '../../garitmic.config.json'
 import { RichText } from 'prismic-reactjs'
+import Head from 'next/head'
 
 
-export default class SingleSeo extends React.Component {
+
+export default class PageSeo extends React.Component {
     render() {
         const { document } = this.props
         return (
-            <NextSeo
-                config={{
-                    title: `${RichText.asText(document.data.title)}`,
-                    titleTemplate: `%s | ${GaritmicConfig.siteName}`,
-                    description: `${RichText.asText(document.data.excerpt)}`,
-                    canonical: `${GaritmicConfig.siteURL}/${document.uid}`,
-                    openGraph: {
-                        url: `${GaritmicConfig.siteURL}/${document.uid}`,
-                        title: `${RichText.asText(document.data.title)} | ${GaritmicConfig.siteName}`,
-                        description: `${RichText.asText(document.data.excerpt)}`,
-                        type: 'article',
-                        article: {
-                            publishedTime: `${document.first_publication_date}`,
-                            modifiedTime: `${document.last_publication_date}`,
-                        },
-                        images: [
-                            {
-                                url: `${GaritmicConfig.social.openGrap}`,
-                                width: 1140,
-                                height: 570,
-                                alt: 'Open Graph logo Garitma'
-                            },
-                        ],
-                        site_name: `${GaritmicConfig.siteName}`,
-                    },
-                    facebook: {
-                        appId: `${GaritmicConfig.social.facebookappId}`
-                    },
-                    twitter: {
-                        handle: `@${GaritmicConfig.social.twitter}`,
-                        site: `@${GaritmicConfig.social.twitter}`,
-                        cardType: 'summary_large_image',
-                    },
-                }}
-            />
+            <Head>
+                <title>{RichText.asText(document.data.title)} | {GaritmicConfig.siteName}</title>
+                <meta name="robots" content="index,follow" />
+                <meta name="googlebot" content="index,follow"/>
+                <meta name="description" content={RichText.asText(document.data.excerpt)} />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:site" content={`@${GaritmicConfig.social.twitter}`} />
+                <meta name="twitter:creator" content={`@${GaritmicConfig.social.twitter}`} />
+                <meta property="fb:app_id" content={GaritmicConfig.social.facebookappId}  />
+                <meta property="og:url" content={GaritmicConfig.siteURL} />
+                <meta property="og:type" content="website" />
+                <meta property="og:title" content={`${RichText.asText(document.data.title)} | ${GaritmicConfig.siteName}`} />
+                <meta property="og:description" content={RichText.asText(document.data.excerpt)} />
+                <meta property="og:image" content={GaritmicConfig.social.openGrap} />
+                <meta property="og:image:alt" content="Open Graph logo Garitma" />
+                <meta property="og:image:width" content="1140" />
+                <meta property="og:image:height" content="570" />
+                <link rel="canonical" href={`${GaritmicConfig.siteURL}/${document.uid}`} />
+            </Head>
         )
     }
 }

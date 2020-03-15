@@ -4,6 +4,7 @@ import Footer from './Footer'
 import NProgress from 'nprogress'
 import Router from 'next/router'
 import GaritmicConfig from '../../garitmic.config.json'
+import { StaticKitProvider } from '@statickit/react';
 
 Router.onRouteChangeStart = (url) => {
     NProgress.start()
@@ -45,11 +46,13 @@ export default class Layout extends React.Component {
 
             <Navbar />
 
-            <div className='page'>
-                <div className='page-body'>
-                    {children}
+            <StaticKitProvider site={GaritmicConfig.StatickitID}>
+                <div className='page'>
+                    <div className='page-body'>
+                        {children}
+                    </div>
                 </div>
-            </div>
+            </StaticKitProvider>
 
             <Footer />
 

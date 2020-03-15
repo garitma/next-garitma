@@ -1,23 +1,22 @@
 {
   "name": "next-garitmic",
   "version": "1.0.0",
-  "description": "Art blog web",
+  "description": "Art blog",
   "author": {
     "name": "Garitma",
     "email": "hola@garitma.com"
   },
   "license": "MIT",
   "dependencies": {
-    "@statickit/react": "^1.0.0-beta.7",
+    "@statickit/functions": "github:unstacked/statickit-functions#72b51934-48ce-4bc7-8a89-8caee48b56c7",
+    "@statickit/react": "^2.1.0",
     "moment": "^2.24.0",
-    "next": "^9.2.0",
-    "next-seo": "^1.11.1",
+    "next": "^9.3.0",
     "nprogress": "^0.2.0",
-    "prismic-javascript": "^2.1.5",
-    "prismic-reactjs": "^0.3.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-modal-video": "^1.2.1",
+    "prismic-javascript": "^2.2.0",
+    "prismic-reactjs": "^0.3.2",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
     "react-multi-carousel": "^2.5.0",
     "react-soundcloud-player": "^1.1.1"
   },
