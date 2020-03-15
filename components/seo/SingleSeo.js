@@ -17,7 +17,7 @@ export default class SingleSeo extends React.Component {
                 <meta name="twitter:site" content={`@${GaritmicConfig.social.twitter}`} />
                 <meta name="twitter:creator" content={`@${GaritmicConfig.social.twitter}`} />
                 <meta property="fb:app_id" content={GaritmicConfig.social.facebookappId}  />
-                <meta property="og:url" content={GaritmicConfig.siteURL} />
+                <meta property="og:url" content={`${GaritmicConfig.siteURL}/${document.uid}`} />
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content={`${RichText.asText(document.data.title)} | ${GaritmicConfig.siteName}`} />
                 <meta property="og:description" content={RichText.asText(document.data.excerpt)} />
