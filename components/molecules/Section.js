@@ -1,7 +1,7 @@
 import { RichText } from 'prismic-reactjs'
 
 
-export default class SliceCarousel extends React.Component {
+export default class Section extends React.Component {
 
     render() {
 

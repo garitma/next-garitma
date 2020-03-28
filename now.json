@@ -8,5 +8,10 @@
             "src": "next.config.js",
             "use": "@now/next"
         }
-    ]
+    ],
+    "build": {
+        "env": {
+            "ACCESS_TOKEN": "@access-token"
+        }
+    }
 }

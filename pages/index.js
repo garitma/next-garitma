@@ -5,7 +5,7 @@ import SingleModal from '../components/templates/SingleModal'
 import SmartModule from '../components/organism/SmartModule'
 import SubHeader from '../components/molecules/SubHeader'
 import { Client, Prismic } from '../api/prismic'
-import SliceCarousel from '../components/organism/SliceCarousel'
+import Section from '../components/molecules/Section'
 
 export default class Home extends React.Component {
 
@@ -71,9 +71,9 @@ export default class Home extends React.Component {
 
         return (
             slice.data.carousel.map((slice, index) =>
-                <SliceCarousel slice={slice} key={index}>
+                <Section slice={slice} key={index}>
                     {this.renderModule(this.props[slice.post_type])}
-                </SliceCarousel>
+                </Section>
             )
         )
     }

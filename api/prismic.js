@@ -6,7 +6,7 @@ let frontClient
 export const Client = (req = null) => {
     if (!req && frontClient) return frontClient
     else {
-        const options = Object.assign({}, req ? { req } : {}, GaritmicConfig.accessToken ? { accessToken: GaritmicConfig.accessToken } : {})
+        const options = Object.assign({}, req ? { req } : {}, { accessToken: `${process.env.ACCESS_TOKEN}` })
         return PrismicLib.client(GaritmicConfig.apiEndpoint, options)
     }
 }

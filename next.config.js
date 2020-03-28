@@ -1,3 +1,6 @@
 module.exports = {
-    target: 'serverless'
+    target: 'serverless',
+    env: {
+        ACCESS_TOKEN: process.env.ACCESS_TOKEN
+    }
 }
