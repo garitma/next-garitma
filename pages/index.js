@@ -5,7 +5,7 @@ import SingleModal from '../components/templates/SingleModal'
 import SmartModule from '../components/organism/SmartModule'
 import SubHeader from '../components/molecules/SubHeader'
 import { Client, Prismic } from '../api/prismic'
-import Section from '../components/molecules/Section'
+import Wrap from '../components/atoms/Wrap'
 
 export default class Home extends React.Component {
 
@@ -71,9 +71,9 @@ export default class Home extends React.Component {
 
         return (
             slice.data.carousel.map((slice, index) =>
-                <Section slice={slice} key={index}>
+                <Wrap classSection={slice.color_class} classDiv="smash" key={index}>
                     {this.renderModule(this.props[slice.post_type])}
-                </Section>
+                </Wrap>
             )
         )
     }
@@ -99,6 +99,11 @@ export default class Home extends React.Component {
                 }
 
                 <SubHeader text="Garitma" />
+
+                <Wrap classSection="teal-green" classDiv="smash centertxt">
+                    <strong>Ven conmigo a mi imaginación</strong>
+                    <p>Este es un blog de arte y entretenimiento donde las cosas están mejor hechas que perfectas. Lo haces, te equivocas, mejoras y te perfeccionas.</p>
+                </Wrap>
 
                 {this.renderCarouselSlice(home)}
 
