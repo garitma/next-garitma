@@ -36,7 +36,7 @@ export default class Module extends React.Component {
                         <time>{moment(document.data.date).locale(`${GaritmicConfig.lang}`).format(`${GaritmicConfig.dateFormat}`)}</time>
                     }
                     {modquote &&
-                        <blockquote className="centertxt">{RichText.asText(document.data.title)}.</blockquote>
+                        <blockquote className="centertxt">{RichText.asText(document.data.title)}{!document.data.question && '.'}</blockquote>
                     }
                     {modcontent && document.data.excerpt != undefined &&
                         <p className="mod-content">
