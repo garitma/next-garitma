@@ -6,7 +6,6 @@ import ArchiveSeo from '../../components/seo/ArchiveSeo'
 import Error from '../_error'
 import SmartModule from '../../components/organism/SmartModule'
 import Pagination from '../../components/molecules/Pagination'
-import SingleModal from '../../components/templates/SingleModal'
 
 
 export default class extends React.Component {
@@ -36,36 +35,13 @@ export default class extends React.Component {
         }
     }
 
-    openPost = (event, post, slug) => {
-        event.preventDefault()
-        this.setState({
-            openPost: post
-        });
-        window.history.pushState("", "", slug)
-    }
-
-    closePost = (event) => {
-
-        const { type } = this.props
-
-        event.preventDefault()
-        this.setState({
-            openPost: null
-        })
-        window.history.pushState("", "", `/categorias/${type}`)
-    }
-
-    componentDidMount() {
-        window.addEventListener("popstate", this.openPost);
-    }
-
     renderArchives() {
 
         const { archive } = this.props
 
         return (
             archive.results.map((document, index) =>
-                <SmartModule document={document} key={index} onClickPost={this.openPost} />
+                <SmartModule document={document} key={index} />
             )
         )
     }
@@ -82,24 +58,11 @@ export default class extends React.Component {
     renderBody() {
 
         const { archive, type } = this.props
-        const { openPost } = this.state
-
 
         return (
             <Layout seo={<ArchiveSeo document={archive} />}>
 
                 <SubHeader text={GaritmicConfig.types[type].name} />
-
-                {openPost && 
-                    <>
-                        <SingleModal document={openPost} onClose={this.closePost} archive />
-                        <style jsx global>{`
-                                body {
-                                    overflow-y: hidden;
-                                }
-                            `}</style>
-                    </>
-                }
 
                 <section className="archives pad purple">
                     <div className="smash">

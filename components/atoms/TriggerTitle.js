@@ -7,9 +7,11 @@ export default class TriggerTitle extends React.Component {
         const { document, onClickPost } = this.props
 
         return (
-            <a href={`/${document.uid}`} className="mod-title" onClick={(event) => onClickPost(event, document, `/${document.uid}`)}>
+            <Link href="/[uid]" as={`/${document.uid}`}  >
+            <a className="mod-title valign" onClick={(event) => onClickPost(event, document, `/${document.uid}`)}>
                 {RichText.asText(document.data.title)}
             </a>
+            </Link>
         )
     }
 }

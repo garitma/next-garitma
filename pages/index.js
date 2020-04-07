@@ -1,7 +1,6 @@
 import Error from './_error'
 import GeneralSeo from '../components/seo/GeneralSeo'
 import Layout from '../components/organism/Layout'
-import SingleModal from '../components/templates/SingleModal'
 import SmartModule from '../components/organism/SmartModule'
 import SubHeader from '../components/molecules/SubHeader'
 import { Client, Prismic } from '../api/prismic'
@@ -35,25 +34,6 @@ export default class Home extends React.Component {
         }
     }
 
-    openPost = (event, post, slug) => {
-        event.preventDefault()
-        this.setState({
-            openPost: post
-        });
-        window.history.pushState("", "", slug)
-    }
-
-    closePost = (event) => {
-        event.preventDefault()
-        this.setState({
-            openPost: null
-        })
-        window.history.pushState("", "", "/")
-    }
-
-    componentDidMount() {
-        window.addEventListener("popstate", this.openPost);
-    }
 
     renderModule(document) {
         return (
@@ -82,21 +62,9 @@ export default class Home extends React.Component {
     renderBody() {
 
         const { home } = this.props
-        const { openPost } = this.state
 
         return (
             <Layout seo={<GeneralSeo />}>
-
-                {openPost && 
-                    <>
-                        <SingleModal document={openPost} onClose={this.closePost} />
-                        <style jsx global>{`
-                            body {
-                                overflow-y: hidden;
-                            }
-                        `}</style>
-                    </>
-                }
 
                 <SubHeader text="Garitma" />
 

@@ -10,26 +10,30 @@ import GaritmicConfig from '../../garitmic.config.json'
 export default class Module extends React.Component {
     render() {
 
-        const { document, modcontent, modquote, moddate, modtype, onClickPost, triggermedia, triggeruid, triggertitle, children, classModifier } = this.props
+        const { document, modcontent, modquote, moddate, modtype, triggermedia, triggertitle, children, classModifier } = this.props
 
         return (
             <div className="mod">
                 {triggermedia &&
-                    <TriggerMedia document={document} onClickPost={onClickPost} />
+                    <TriggerMedia document={document}/>
                 }
        
                 <div className={`mod-detail ${classModifier}`}>
                     {modtype &&
-                        <Link href='/categorias/[type]' as={`/categorias/${document.type}`}>
-                            <a>
-                            <div className="halo">
-                                <span className="purple wall-pad">{GaritmicConfig.types[document.type].name}</span>
-                            </div>
-                            </a>
-                        </Link>
+                    <div className="halo">
+                        <div className="content-left">
+                            <Link href='/categorias/[type]' as={`/categorias/${document.type}`}>
+                                <a className="halo">
+                                    <span className="valign">
+                                        <span className="purple wall-pad">{GaritmicConfig.types[document.type].name}</span>
+                                    </span>
+                                </a>
+                            </Link>
+                        </div>
+                    </div>
                     }  
                     {triggertitle &&
-                        <TriggerTitle document={document} onClickPost={onClickPost} />
+                        <TriggerTitle document={document} />
                     }
 
                     {moddate &&
