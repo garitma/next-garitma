@@ -1,17 +1,17 @@
 {
-    "version": 2,
-    "github": {
-        "enabled": true
-    },
-    "builds": [
-        {
-            "src": "next.config.js",
-            "use": "@now/next"
-        }
-    ],
-    "build": {
-        "env": {
-            "ACCESS_TOKEN": "@access-token"
-        }
+  "version": 2,
+  "github": {
+    "enabled": true
+  },
+  "builds": [
+    {
+      "src": "next.config.js",
+      "use": "@now/next"
     }
+  ],
+  "build": {
+    "env": {
+      "ACCESS_TOKEN": "@access-token"
+    }
+  }
 }

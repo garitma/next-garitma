@@ -1,18 +1,14 @@
-
-
-import ModalClose from "../atoms/ModalClose"
+import ModalClose from "../atoms/ModalClose";
 
 export default class ModalRead extends React.Component {
+  render() {
+    const { document, onClose, children } = this.props;
 
-    render() {
-
-        const { document, onClose, children } = this.props
-
-        return (
-            <div className="modal-read">
-                <ModalClose document={document} onClose={onClose} />
-                {children}
-            </div>
-        )
-    }
+    return (
+      <div className="modal-read">
+        <ModalClose document={document} onClose={onClose} />
+        {children}
+      </div>
+    );
+  }
 }

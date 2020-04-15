@@ -1,8 +1,8 @@
 {
-    "forms": {
-      "contactForm": {
-        "name": "Contact Form",
-        "actions": [{ "type": "email", "to": "hola@garitma.com" }]
-      }
+  "forms": {
+    "contactForm": {
+      "name": "Contact Form",
+      "actions": [{ "type": "email", "to": "hola@garitma.com" }]
     }
   }
+}
