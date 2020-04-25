@@ -31,7 +31,7 @@ export default class SingleSeo extends React.Component {
         />
         <meta
           property="og:url"
-          content={`${GaritmicConfig.siteURL}/${document.uid}`}
+          content={`${GaritmicConfig.siteURL}/${document.type}/${document.uid}`}
         />
         <meta property="og:type" content="website" />
         <meta
@@ -56,7 +56,7 @@ export default class SingleSeo extends React.Component {
         <meta property="og:image:height" content="570" />
         <link
           rel="canonical"
-          href={`${GaritmicConfig.siteURL}/${document.uid}`}
+          href={`${GaritmicConfig.siteURL}/${document.type}/${document.uid}`}
         />
       </Head>
     );

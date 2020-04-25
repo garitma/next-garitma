@@ -9,6 +9,15 @@
       "use": "@now/next"
     }
   ],
+  "routes": [
+    {
+      "src": "/categorias/(.*)",
+      "status": 301,
+      "headers": {
+        "Location": "/$1"
+      }
+    }
+  ],
   "build": {
     "env": {
       "ACCESS_TOKEN": "@access-token"

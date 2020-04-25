@@ -4,7 +4,7 @@ import { RichText } from "prismic-reactjs";
 import GaritmicConfig from "../../garitmic.config.json";
 import SingleSeo from "../seo/SingleSeo";
 import SingleAction from "../molecules/SingleActions";
-import SubhHeader from "../molecules/SubHeader";
+import SubFooter from "../molecules/SubFooter";
 import AuthorBox from "../molecules/AuthorBox";
 import Player from "react-soundcloud-player";
 
@@ -15,12 +15,12 @@ export default class SingleRead extends React.Component {
     return (
       <>
         <SingleSeo document={document} />
-
         <article
           className="post"
           itemScope
           itemType="http://schema.org/CreativeWork"
         >
+          <div className="pad hide-small" />
           <div className="pad-air" />
           <section className="sumary smash">
             <div className="pad">
@@ -34,10 +34,7 @@ export default class SingleRead extends React.Component {
                     </div>
                   </a>
                 ) : (
-                  <Link
-                    href="/categorias/[type]"
-                    as={`/categorias/${document.type}`}
-                  >
+                  <Link href="/[type]" as={`/${document.type}`}>
                     <a itemProp="genre">
                       <div className="halo">
                         <span className="purple wall-pad container">
@@ -92,7 +89,7 @@ export default class SingleRead extends React.Component {
           </section>
           <div className="pad" />
           <section className="relatedpost white">
-            <SubhHeader plaintxt="Ver más" onClose={onClose} archive />
+            <SubFooter />
           </section>
         </article>
 

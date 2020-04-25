@@ -22,7 +22,7 @@ export default class navigation extends React.Component {
 
     return nav.results.data.menu.map((nav, index) => (
       <li key={index}>
-        <Link href="/categorias/[type]" as="/categorias/poemas">
+        <Link href="/[type]" as="/poemas">
           <a className="menu-item">Poemas</a>
         </Link>
       </li>

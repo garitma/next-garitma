@@ -19,9 +19,7 @@ export default class Pagination extends React.Component {
                 )}
                 {document.prev_page != null && document.page == 2 && (
                   <Link
-                    href={`/categorias/[type]${string}page=${
-                      Number(document.page) - 1
-                    }`}
+                    href={`/[type]${string}page=${Number(document.page) - 1}`}
                     as={`${root}`}
                   >
                     <a aria-label="Página anterior" className="button-link">
@@ -32,9 +30,7 @@ export default class Pagination extends React.Component {
 
                 {document.prev_page != null && document.page > 2 && (
                   <Link
-                    href={`/categorias/[type]${string}page=${
-                      Number(document.page) - 1
-                    }`}
+                    href={`/[type]${string}page=${Number(document.page) - 1}`}
                     as={`${root}${string}page=${Number(document.page) - 1}`}
                   >
                     <a aria-label="Página anterior" className="button-link">
@@ -77,9 +73,7 @@ export default class Pagination extends React.Component {
 
                 {document.next_page != null && (
                   <Link
-                    href={`/categorias/[type]${string}page=${
-                      Number(document.page) + 1
-                    }`}
+                    href={`/[type]${string}page=${Number(document.page) + 1}`}
                     as={`${root}${string}page=${Number(document.page) + 1} `}
                   >
                     <a aria-label="Página siguiente" className="button-link">

@@ -33,7 +33,7 @@ export default class ArchiveSeo extends React.Component {
         />
         <meta
           property="og:url"
-          content={`${GaritmicConfig.siteURL}/categorias/${document.results[0].type}`}
+          content={`${GaritmicConfig.siteURL}/${document.results[0].type}`}
         />
         <meta property="og:type" content="website" />
         <meta
@@ -54,7 +54,7 @@ export default class ArchiveSeo extends React.Component {
         <meta property="og:image:height" content="570" />
         <link
           rel="canonical"
-          href={`${GaritmicConfig.siteURL}/categorias/${document.results[0].type}`}
+          href={`${GaritmicConfig.siteURL}/${document.results[0].type}`}
         />
       </Head>
     );

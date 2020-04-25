@@ -5,7 +5,7 @@ export default class ModMedia extends React.Component {
     const { document } = this.props;
 
     return (
-      <Link href="/[uid]" as={`/${document.uid}`}>
+      <Link href="/[type]/[uid]" as={`/${document.type}/${document.uid}`}>
         <a>
           <div className="mod-media zoom">
             <img
