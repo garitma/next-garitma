@@ -1,9 +1,10 @@
 import Head from "next/head";
 import GaritmicConfig from "../../garitmic.config.json";
+import { RichText } from "prismic-reactjs";
 
 export default class ArchiveSeo extends React.Component {
   render() {
-    const { document } = this.props;
+    const { document, excerpt } = this.props;
     return (
       <Head>
         <title>
@@ -12,12 +13,7 @@ export default class ArchiveSeo extends React.Component {
         </title>
         <meta name="robots" content="index,follow" />
         <meta name="googlebot" content="index,follow" />
-        <meta
-          name="description"
-          content={`Encuentra más de ${document.total_results_size} ${
-            GaritmicConfig.types[document.results[0].type].type
-          } de amor, desamor y cotidianos creado por Garitma.`}
-        />
+        <meta name="description" content={RichText.asText(excerpt)} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:site"
@@ -42,12 +38,7 @@ export default class ArchiveSeo extends React.Component {
             GaritmicConfig.siteName
           }`}
         />
-        <meta
-          property="og:description"
-          content={`Encuentra más de ${document.total_results_size} ${
-            GaritmicConfig.types[document.results[0].type].type
-          } de amor, desamor y cotidianos creado por Garitma.`}
-        />
+        <meta property="og:description" content={RichText.asText(excerpt)} />
         <meta property="og:image" content={GaritmicConfig.social.openGrap} />
         <meta property="og:image:alt" content="Open Graph logo Garitma" />
         <meta property="og:image:width" content="1140" />

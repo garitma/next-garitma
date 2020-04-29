@@ -56,7 +56,9 @@ export default class extends React.Component {
   renderBody() {
     const { archive, type, category } = this.props;
     return (
-      <Layout seo={<ArchiveSeo document={archive} />}>
+      <Layout
+        seo={<ArchiveSeo document={archive} excerpt={category.data.excerpt} />}
+      >
         <SubHeader text={GaritmicConfig.types[type].name} />
         <Wrap classSection="teal-green" classDiv="smash centertxt">
           <p>{RichText.asText(category.data.excerpt)}</p>
