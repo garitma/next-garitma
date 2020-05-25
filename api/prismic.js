@@ -18,10 +18,7 @@ export const linkResolver = (doc) => {
   if (doc.type === "paginas") return "/" + doc.uid;
   else if (doc.type === "poemas") return "/" + doc.uid;
   else if (doc.type === "comics") return "/" + doc.uid;
-  else if (doc.type === "videos") return "/" + doc.uid;
   else if (doc.type === "descargas") return "/" + doc.uid;
-  else if (doc.type === "frases") return "/" + doc.uid;
   else if (doc.type === "juegos") return "/" + doc.uid;
-  else if (doc.type === "podcasts") return "/" + doc.uid;
   else return "/";
 };

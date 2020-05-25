@@ -9,16 +9,15 @@
   "license": "MIT",
   "dependencies": {
     "@statickit/functions": "github:unstacked/statickit-functions#72b51934-48ce-4bc7-8a89-8caee48b56c7",
-    "@statickit/react": "^2.1.0",
-    "moment": "^2.24.0",
-    "next": "^9.3.0",
+    "@statickit/react": "^2.1.1",
+    "moment": "^2.26.0",
+    "next": "^9.4.2",
     "nprogress": "^0.2.0",
-    "prismic-javascript": "^2.2.0",
+    "prismic-javascript": "^2.7.1",
     "prismic-reactjs": "^0.3.2",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
-    "react-multi-carousel": "^2.5.0",
-    "react-soundcloud-player": "^1.1.1"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-multi-carousel": "^2.5.5"
   },
   "scripts": {
     "dev": "next",

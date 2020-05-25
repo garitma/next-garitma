@@ -29,18 +29,8 @@ export default class SubHeader extends React.Component {
               </Link>
             </li>
             <li>
-              <Link href="/[type]" as="/videos">
-                <a className="menu-item">Videos</a>
-              </Link>
-            </li>
-            <li>
               <Link href="/[type]" as="/descargas">
                 <a className="menu-item">Descargas</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/[type]" as="/podcasts">
-                <a className="menu-item">Podcasts</a>
               </Link>
             </li>
           </ul>

@@ -66,10 +66,9 @@ export default class Layout extends React.Component {
             href={`${GaritmicConfig.favIcon}&w=512&h=512`}
           />
           <link
-            href="https://auradesignsystem.com/static/style.css"
+            href="http://localhost:3001/static/style.css"
             rel="stylesheet"
           />
-          <link rel="manifest" href="/manifest.json" />
           <meta content="yes" name="apple-mobile-web-app-capable" />
           <meta
             name="apple-mobile-web-app-status-bar-style"
