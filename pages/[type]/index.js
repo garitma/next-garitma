@@ -65,7 +65,7 @@ export default class extends React.Component {
         </Wrap>
 
         <section
-          className="archives pad"
+          className={`archives pad ${category.data.color_class || ""}`}
           style={{ backgroundColor: category.data.color || "" }}
         >
           <div className="smash">

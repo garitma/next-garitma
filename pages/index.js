@@ -115,12 +115,12 @@ export default class Home extends React.Component {
             <div className="one">
               <div className="wall-pad centertxt vfluid valign">
                 <p className="mb0 ban-title light h1">
-                  De perder el miedo a mostrar lo se hace
+                  De perder el miedo a mostrar lo que se hace
                 </p>
                 <p className="h6 light">
                   Siendo consiente que existen un chibión de personas que lo
                   pueden hacer mejor que yo. Del error que hace parte de
-                  nosotros como hu- manos. Vengo de las piedras que hacen parte
+                  nosotros como humanos. Vengo de las piedras que hacen parte
                   del camino que te enseñan a levantarte y continuar el camino.
                 </p>
               </div>
@@ -141,8 +141,7 @@ export default class Home extends React.Component {
                 </p>
                 <p className="h6 light">
                   Todos los errores que he tenido. De todas las caídas y heridas
-                  que me ha de- jado el camino y el aprendizaje que me han
-                  dejado.
+                  que me ha dejado el camino y el aprendizaje que me han dejado.
                 </p>
               </div>
             </div>
