@@ -31,6 +31,7 @@ Post.getInitialProps = async ({ query, res, req }) => {
 
     return { post, statusCode: 200 };
   } catch (e) {
+    console.log(e);
     res.statusCode = 503;
     return { post: null, statusCode: 503 };
   }
