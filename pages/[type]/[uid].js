@@ -21,6 +21,8 @@ Post.getInitialProps = async ({ query, res, req }) => {
 
     const post = await Client(req).getByUID(`${type}`, `${uid}`);
 
+    console.log(post);
+
     if (post === undefined) {
       return { post: null, statusCode: 404 };
     }
@@ -31,9 +33,8 @@ Post.getInitialProps = async ({ query, res, req }) => {
 
     return { post, statusCode: 200 };
   } catch (e) {
-    console.log(e);
-    res.statusCode = 503;
-    return { post: null, statusCode: 503 };
+    res.statusCode = 404;
+    return { post: null, statusCode: 404 };
   }
 };
 
