@@ -25,6 +25,10 @@ Post.getInitialProps = async ({ query, res, req }) => {
       return { post: null, statusCode: 404 };
     }
 
+    if (type != "poemas" && type != "comics" && type != "descargas") {
+      return { post: null, statusCode: 404 };
+    }
+
     return { post, statusCode: 200 };
   } catch (e) {
     res.statusCode = 503;
