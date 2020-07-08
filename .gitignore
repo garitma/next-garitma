@@ -126,3 +126,4 @@ package-lock.json
 # Next.js static build files
 out/
 .now
+.vercel

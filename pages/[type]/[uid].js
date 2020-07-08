@@ -15,26 +15,24 @@ const Post = (props) => {
 };
 
 Post.getInitialProps = async ({ query, res, req }) => {
+  const uid = [query.uid];
+  const type = [query.type];
+
+  if (type != "poemas" && type != "comics" && type != "descargas") {
+    return { post: null, statusCode: 404 };
+  }
+
   try {
-    let uid = [query.uid];
-    let type = [query.type];
-
     const post = await Client(req).getByUID(`${type}`, `${uid}`);
-
-    console.log(post);
 
     if (post === undefined) {
       return { post: null, statusCode: 404 };
     }
 
-    if (type != "poemas" && type != "comics" && type != "descargas") {
-      return { post: null, statusCode: 404 };
-    }
-
     return { post, statusCode: 200 };
   } catch (e) {
-    res.statusCode = 404;
-    return { post: null, statusCode: 404 };
+    res.statusCode = 503;
+    return { post: null, statusCode: 503 };
   }
 };
 
