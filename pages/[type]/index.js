@@ -14,6 +14,10 @@ export default class extends React.Component {
     const { page } = query;
     const { type } = query;
 
+    if (type != "poemas" && type != "comics" && type != "descargas") {
+      return { post: null, statusCode: 404 };
+    }
+
     try {
       const request = req && req.headers ? req : null;
       let [archive, category] = await Promise.all([
