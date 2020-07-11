@@ -14,7 +14,7 @@ export default class extends React.Component {
     const { page } = query;
     const { type } = query;
 
-    if (type != "poemas" && type != "comics" && type != "descargas") {
+    if (type != "poemas" && type != "comics" && type != "descargas" && type != "frases") {
       return { post: null, statusCode: 404 };
     }
 
