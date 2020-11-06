@@ -8,22 +8,19 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@statickit/functions": "github:unstacked/statickit-functions#72b51934-48ce-4bc7-8a89-8caee48b56c7",
-    "@statickit/react": "^2.1.1",
-    "moment": "^2.26.0",
-    "next": "^9.4.2",
+    "aura-design-system": "^1.0.22",
+    "moment": "^2.29.1",
+    "next": "^10.0.1",
     "nprogress": "^0.2.0",
     "prismic-javascript": "^2.7.1",
     "prismic-reactjs": "^0.3.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-multi-carousel": "^2.5.5"
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
   },
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start",
-    "now-build": "next build"
+    "start": "next start"
   },
   "repository": {
     "type": "git",

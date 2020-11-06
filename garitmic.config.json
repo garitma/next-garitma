@@ -2,57 +2,20 @@
   "siteName": "Garitma",
   "siteDescription": "Garitma.com es el sitio oficial de Garitma. Encuentra poemas, personajes, frases, videos y más de Garitma.",
   "siteURL": "https://garitma.com",
+  "layoutUid": "garitma",
   "apiEndpoint": "https://garitma.cdn.prismic.io/api/v2",
-  "accessToken": "process.env.ACCESS_TOKEN",
+  "apiGraphqlEndpoint": "https://garitma.prismic.io/graphql",
   "favIcon": "https://images.prismic.io/garitma%2F7bcfd3a3-4da2-4b73-9402-612e7b20ce1c_favicon-pwa.png?auto=compress,format",
   "contactEmail": "hola@garitma.com",
   "lang": "es",
   "timeZone": "UTC-5",
   "dateFormat": "LL",
   "ArchivePageSize": "8",
-  "StatickitID": "751642217168",
   "social": {
     "instagram": "garitma",
     "twitter": "garitma",
     "facebook": "garitma",
     "facebookappId": "2316614485265162",
     "openGrap": "https://images.prismic.io/garitma%2F41185919-2f0a-44b8-bc20-cfcd350ae530_open_graph_logo.png?auto=compress,format"
-  },
-  "types": {
-    "podcasts": {
-      "name": "Podcasts",
-      "type": "podcasts",
-      "cta": "Escuchar"
-    },
-    "comics": {
-      "name": "Cómics",
-      "type": "cómics",
-      "cta": "Leer"
-    },
-    "frases": {
-      "name": "Frases",
-      "type": "frases",
-      "cta": "Leer"
-    },
-    "juegos": {
-      "name": "Juegos",
-      "type": "juegos",
-      "cta": "Jugar"
-    },
-    "descargas": {
-      "name": "Descargas",
-      "type": "descargas",
-      "cta": "Descargar"
-    },
-    "videos": {
-      "name": "Videos",
-      "type": "videos",
-      "cta": "Ver"
-    },
-    "poemas": {
-      "name": "Poemas",
-      "type": "poemas",
-      "cta": "Leer"
-    }
   }
 }

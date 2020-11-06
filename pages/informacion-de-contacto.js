@@ -1,8 +1,8 @@
-import { Client, Prismic } from "../api/prismic";
+import { Client, Prismic } from "../services/prismic";
 import Layout from "../components/organism/Layout";
 import Error from "./_error";
 import SinglePage from "../components/templates/SinglePages";
-import PageSeo from "../components/seo/PageSeo";
+import PageSeo from "../lib/seo/PageSeo";
 import ContactForm from "../components/molecules/ContactForm";
 
 export default class extends React.Component {

@@ -1,9 +1,12 @@
-import App from "next/app";
 import Router from "next/router";
-import "react-multi-carousel/lib/styles.css";
+import "aura-design-system/core/style.css";
 
-import * as gtag from "../public/gtag";
+import * as gtag from "public/gtag";
 
 Router.events.on("routeChangeComplete", (url) => gtag.pageview(url));
 
-export default App;
+function MyApp({ Component, pageProps }) {
+  return <Component {...pageProps} />;
+}
+
+export default MyApp;
