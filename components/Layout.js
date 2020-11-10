@@ -18,7 +18,7 @@ Router.events.on("routeChangeError", () => {
 });
 
 const Layout = ({ children, preview, data, text }) => (
-  <main className={data?.dark_mode ? "dark-mode" : "light-mode"}>
+  <main>
     <div className="page">
       <Navbar preview={preview} data={data} text={text} />
       <div className="page-body">{children}</div>

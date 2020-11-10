@@ -120,7 +120,5 @@ export async function getLayout(previewData) {
     }
   );
 
-  console.log(data);
-
   return data.layout;
 }
