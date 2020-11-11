@@ -1,7 +1,7 @@
 import { Section } from "aura-design-system";
 import Link from "next/link";
 
-const Pagination = ({ archives }) => (
+const Pagination = ({ archives, archiveType = "archivos" }) => (
   <>
     {archives.total_results_size > archives.results_per_page && (
       <Section color="snow" container="smosh">
@@ -10,12 +10,14 @@ const Pagination = ({ archives }) => (
             <li className="items">
               <Link
                 href={
-                  archives.page === 2 ? "/archivos" : "/archivos/pagina/[page]"
+                  archives.page === 2
+                    ? `/${archiveType}`
+                    : `/${archiveType}/pagina/[page]`
                 }
                 as={
                   archives.page === 2
-                    ? "/archivos"
-                    : `/archivos/pagina/${archives.page - 1}`
+                    ? `/${archiveType}`
+                    : `/${archiveType}/pagina/${archives.page - 1}`
                 }
               >
                 <a aria-label="No hay página anterior" className="button-link">
@@ -38,8 +40,8 @@ const Pagination = ({ archives }) => (
           {archives.next_page ? (
             <li className="items">
               <Link
-                href={`/archivos/pagina/[page]`}
-                as={`/archivos/pagina/${archives.page + 1}`}
+                href={`/${archiveType}/pagina/[page]`}
+                as={`/${archiveType}/pagina/${archives.page + 1}`}
               >
                 <a aria-label="Página siguiente" className="button-link">
                   <div className="glyphsSprite arrowRight"></div>

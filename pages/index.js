@@ -1,5 +1,6 @@
 import { Button, Section, Grid } from "aura-design-system";
 import Image from "next/image";
+import Link from "next/link";
 import { getLayout } from "@services/prismic-graphql";
 import Layout from "@components/Layout";
 
@@ -30,58 +31,82 @@ const Home = ({ preview, layout }) => (
     </Section>
 
     <Grid col="two" className="gap0">
-      <Section color="blue" passDiv>
-        <div className="halo halign smosh">
-          <Image
-            src="https://images.prismic.io/garitma/f5924bfe-a81d-4070-a24d-0a9dc0d2a2ee_poemas+garitma.png?auto=compress,format"
-            height={300}
-            width={300}
-          />
-        </div>
-        <div className="centertxt">
-          <h3 className="h1 mb0">Poemas</h3>
-          <p>Las increibles aventuras de Chan, Coco, Garritas y Puntitas.</p>
-        </div>
-      </Section>
-      <Section color="orange" passDiv>
-        <div className="halo halign smosh">
-          <Image
-            src="https://images.prismic.io/garitma/e8dad3ca-4445-49b2-ba85-fc8792c7c1d4_comics+garitma.png?auto=compress,format"
-            width={292}
-            height={224}
-          />
-        </div>
-        <div className="centertxt">
-          <h3 className="h1 mb0">Cómics</h3>
-          <p>Las increibles aventuras de Chan, Coco, Garritas y Puntitas.</p>
-        </div>
-      </Section>
-      <Section passDiv>
-        <div className="halo halign smosh">
-          <Image
-            src="https://images.prismic.io/garitma/6198f5a0-b2ed-45c0-9069-2e05b95a4dec_frases+garitma.png?auto=compress,format"
-            width={461}
-            height={263}
-          />
-        </div>
-        <div className="centertxt">
-          <h3 className="h1 mb0">Frases</h3>
-          <p>Las increibles aventuras de Chan, Coco, Garritas y Puntitas.</p>
-        </div>
-      </Section>
-      <Section color="yellow" passDiv>
-        <div className="halo halign smosh">
-          <Image
-            src="https://images.prismic.io/garitma/b7472665-8b42-45c4-b2ec-9beaafef2585_fondos+de+pantalla+garitma.png?auto=compress,format"
-            width={692}
-            height={320}
-          />
-        </div>
-        <div className="centertxt">
-          <h3 className="h1 mb0">Descargas</h3>
-          <p>Las increibles aventuras de Chan, Coco, Garritas y Puntitas.</p>
-        </div>
-      </Section>
+      <Link href="/">
+        <a className="blue">
+          <Section passDiv>
+            <div className="halo halign smosh zoom">
+              <Image
+                src="https://images.prismic.io/garitma/f5924bfe-a81d-4070-a24d-0a9dc0d2a2ee_poemas+garitma.png?auto=compress,format"
+                height={300}
+                width={300}
+              />
+            </div>
+            <div className="centertxt">
+              <h3 className="h1 mb0">Poemas</h3>
+              <p>
+                Las increibles aventuras de Chan, Coco, Garritas y Puntitas.
+              </p>
+            </div>
+          </Section>
+        </a>
+      </Link>
+      <Link href="/">
+        <a className="orange">
+          <Section passDiv>
+            <div className="halo halign smosh zoom">
+              <Image
+                src="https://images.prismic.io/garitma/e8dad3ca-4445-49b2-ba85-fc8792c7c1d4_comics+garitma.png?auto=compress,format"
+                width={292}
+                height={224}
+              />
+            </div>
+            <div className="centertxt">
+              <h3 className="h1 mb0">Cómics</h3>
+              <p>
+                Las increibles aventuras de Chan, Coco, Garritas y Puntitas.
+              </p>
+            </div>
+          </Section>
+        </a>
+      </Link>
+      <Link href="/">
+        <a>
+          <Section passDiv>
+            <div className="halo halign smosh zoom">
+              <Image
+                src="https://images.prismic.io/garitma/6198f5a0-b2ed-45c0-9069-2e05b95a4dec_frases+garitma.png?auto=compress,format"
+                width={461}
+                height={263}
+              />
+            </div>
+            <div className="centertxt">
+              <h3 className="h1 mb0">Frases</h3>
+              <p>
+                Las increibles aventuras de Chan, Coco, Garritas y Puntitas.
+              </p>
+            </div>
+          </Section>
+        </a>
+      </Link>
+      <Link href="/">
+        <a className="yellow">
+          <Section passDiv>
+            <div className="halo halign smosh zoom">
+              <Image
+                src="https://images.prismic.io/garitma/b7472665-8b42-45c4-b2ec-9beaafef2585_fondos+de+pantalla+garitma.png?auto=compress,format"
+                width={692}
+                height={320}
+              />
+            </div>
+            <div className="centertxt">
+              <h3 className="h1 mb0">Descargas</h3>
+              <p>
+                Las increibles aventuras de Chan, Coco, Garritas y Puntitas.
+              </p>
+            </div>
+          </Section>
+        </a>
+      </Link>
     </Grid>
     <Section
       style={{
