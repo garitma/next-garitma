@@ -122,3 +122,20 @@ export async function getLayout(previewData) {
 
   return data.layout;
 }
+
+export async function getAllPoemsWithSlug() {
+  const data = await fetchAPI(`
+    {
+      allPoemass {
+        edges {
+          node {
+            _meta {
+              uid
+            }
+          }
+        }
+      }
+    }
+  `);
+  return data?.allPoemass?.edges;
+}

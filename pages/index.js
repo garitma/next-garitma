@@ -17,8 +17,7 @@ const Home = ({ preview, layout }) => (
     >
       <h2 className="mb0">Ven conmigo a mi imaginación</h2>
       <p className="smash">
-        Este es un blog de arte y entretenimiento donde las cosas están mejor
-        hechas que perfectas. Lo haces, te equivocas, mejoras y te perfeccionas.
+        Te doy la bienvenida a mi blog de arte donde cuento y dibujo historias.
       </p>
       <div className="aura" />
       <div className="halo halign">
@@ -31,7 +30,7 @@ const Home = ({ preview, layout }) => (
     </Section>
 
     <Grid col="two" className="gap0">
-      <Link href="/">
+      <Link href="/poemas">
         <a className="blue">
           <Section passDiv>
             <div className="halo halign smosh zoom">
@@ -43,14 +42,12 @@ const Home = ({ preview, layout }) => (
             </div>
             <div className="centertxt">
               <h3 className="h1 mb0">Poemas</h3>
-              <p>
-                Las increibles aventuras de Chan, Coco, Garritas y Puntitas.
-              </p>
+              <p>Poemas cortos de amor, desamor e historias cotidianas.</p>
             </div>
           </Section>
         </a>
       </Link>
-      <Link href="/">
+      <Link href="/comics">
         <a className="orange">
           <Section passDiv>
             <div className="halo halign smosh zoom">
@@ -69,7 +66,7 @@ const Home = ({ preview, layout }) => (
           </Section>
         </a>
       </Link>
-      <Link href="/">
+      <Link href="/frases">
         <a>
           <Section passDiv>
             <div className="halo halign smosh zoom">
@@ -81,14 +78,12 @@ const Home = ({ preview, layout }) => (
             </div>
             <div className="centertxt">
               <h3 className="h1 mb0">Frases</h3>
-              <p>
-                Las increibles aventuras de Chan, Coco, Garritas y Puntitas.
-              </p>
+              <p>Frases para decirle a alguien.</p>
             </div>
           </Section>
         </a>
       </Link>
-      <Link href="/">
+      <Link href="descargas">
         <a className="yellow">
           <Section passDiv>
             <div className="halo halign smosh zoom">
@@ -100,9 +95,7 @@ const Home = ({ preview, layout }) => (
             </div>
             <div className="centertxt">
               <h3 className="h1 mb0">Descargas</h3>
-              <p>
-                Las increibles aventuras de Chan, Coco, Garritas y Puntitas.
-              </p>
+              <p>Fondos de pantalla originales artísticos para tu celular.</p>
             </div>
           </Section>
         </a>
