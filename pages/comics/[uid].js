@@ -1,7 +1,9 @@
+import Error from "next/error";
+import { useRouter } from "next/router";
+
 import Layout from "@components/Layout";
 import { getLayout, getComicsAndMoreComics } from "@services/prismic-graphql";
 import { queryRepeatableDocuments } from "@services/prismic-rest";
-
 import ArticleIntro from "@components/ArticleIntro";
 import AuthorBox from "@components/AuthorBox";
 import ArticleMoreNews from "@components/ArticleMoreNews";
@@ -10,18 +12,30 @@ import ArticleContentGalery from "@components/ArticleContentGalery";
 import SingleSeo from "@seo/SingleSeo";
 
 const singlePoem = ({ layout, comics, moreComics }) => {
+  const router = useRouter();
+
+  if (!router.isFallback && !comics?._meta?.uid) {
+    return <Error statusCode={404} />;
+  }
+
   return (
-    <Layout data={layout} text="Cómics">
-      <SingleSeo document={comics} type="comics" />
-      <div style={{ backgroundColor: comics.color }}>
-        <ArticleIntro news={comics} />
-        <ArticleContentGalery news={comics} />
-        <AuthorBox />
-        <ArticleMoreNews title="Poemas reciente">
-          <ArticleRelatedPost news={moreComics} pathname="/comics/[uid]" />
-        </ArticleMoreNews>
-      </div>
-    </Layout>
+    <>
+      {router.isFallback ? (
+        <Layout data={layout} text="Cargando..." />
+      ) : (
+        <Layout data={layout} text="Cómics">
+          <SingleSeo document={comics} type="comics" />
+          <div style={{ backgroundColor: comics?.color }}>
+            <ArticleIntro news={comics} />
+            <ArticleContentGalery news={comics} />
+            <AuthorBox />
+            <ArticleMoreNews title="Poemas reciente">
+              <ArticleRelatedPost news={moreComics} pathname="/comics/[uid]" />
+            </ArticleMoreNews>
+          </div>
+        </Layout>
+      )}
+    </>
   );
 };
 

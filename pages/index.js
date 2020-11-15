@@ -118,7 +118,9 @@ const Home = ({ preview, layout }) => (
         Si necesitas una solución personalizada, una asesoría o simplemente
         quieres decir: Hola 👋 .
       </p>
-      <Button label="Contactar" />
+      <Link href="/contacto">
+        <Button label="Contactar" link />
+      </Link>
       <div className="pad" />
       <div className="pad" />
     </Section>

@@ -4,7 +4,6 @@ import Layout from "@components/Layout";
 import PageTemplate from "@components/PageTemplate";
 
 const LegalInfo = ({ page, preview, layout }) => {
-  console.log(page);
   return (
     <Layout text="Información Legal" data={layout}>
       <PageSeo document={page} />
