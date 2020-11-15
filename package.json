@@ -8,6 +8,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@sendgrid/mail": "^7.4.0",
     "aura-design-system": "^1.0.22",
     "moment": "^2.29.1",
     "next": "^10.0.1",

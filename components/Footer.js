@@ -15,30 +15,10 @@ const MyFooter = ({ data }) => {
           <p className="centertxt-small">{data?.copy_right[0].text}</p>
           <ul className="nav-list">
             {data?.footer_menu.map((item, index) => {
-              let footerLink =
-                (item.footer_link_menu_pathname && {
-                  pathname: item.footer_link_menu_pathname,
-                  query: { uid: item.footer_menu_link_item?._meta?.uid },
-                }) ||
-                (item.footer_menu_link_item?.__typename === "_ExternalLink" &&
-                  item.footer_menu_link_item?.url) ||
-                `/${item.header_menu_link_item?._meta?.uid}` ||
-                "/";
-
-              let footerLinkRel =
-                item.footer_menu_link_item?.__typename === "_ExternalLink"
-                  ? "noopener"
-                  : "";
-
               return (
                 <li key={index} className="item">
-                  <Link href={footerLink}>
-                    <a
-                      target={item.footer_menu_link_item?.target}
-                      rel={footerLinkRel}
-                    >
-                      {item.footer_link_menu_text[0].text}
-                    </a>
+                  <Link href={`/${item.footer_menu_link_item._meta.uid}`}>
+                    <a>{item.footer_link_menu_text[0].text}</a>
                   </Link>
                 </li>
               );
@@ -61,6 +41,13 @@ const MyFooter = ({ data }) => {
                 </li>
               );
             })}
+          </ul>
+          <ul className="nav-list halign">
+            <li className="item">
+              <Link href="/contacto">
+                <a>Información de contacto</a>
+              </Link>
+            </li>
           </ul>
         </div>
       </Grid>

@@ -236,3 +236,113 @@ export async function getComicsAndMoreComics(uid, previewData) {
 
   return data;
 }
+
+export async function getPage(uid, previewData) {
+  const data = await fetchAPI(
+    `
+    query pageByUid($uid: String!, $lang: String!) {
+      page(uid: $uid, lang: $lang) {
+        title
+        excerpt
+        _meta {
+          uid
+        }
+        body {
+          __typename
+          ... on PageBodyImage_gallery {
+            primary {
+              column_gallery_title
+              column_gallery_color_class
+            }
+            label
+            fields {
+              column_gallery_image
+              column_gallery_image_title
+              column_gallery_description
+              column_gallery_link_item {
+                __typename
+                ... on _ExternalLink {
+                  url
+                  target
+                }
+                ... on _Document {
+                  _meta {
+                    uid
+                  }
+                }
+              }
+            }
+          }
+          ... on PageBodyIntro {
+            primary {
+              intro_title
+              intro_description
+              intro_color_class
+            }
+          }
+          ... on PageBodyBanner_note {
+            primary {
+              banner_note_color_class
+              banner_note_title
+              banner_note_description
+              banner_note_caption
+              banner_note_image
+              banner_note_first_button_text
+              banner_note_first_button_pathname
+              banner_note_first_button_item {
+                __typename
+                ... on _ExternalLink {
+                  url
+                  target
+                }
+                ... on _Document {
+                  _meta {
+                    uid
+                  }
+                }
+              }
+            }
+          }
+          ...on PageBodyText {
+            primary{
+              content
+            }
+          }
+          ... on PageBodySlide {
+            primary {
+              slide_color_class
+              slide_direction
+              slide_title
+              slide_subtitle
+              slide_description
+              slide_first_button_text
+              slide_first_button_pathname
+              slide_first_button_item {
+                __typename
+                ... on _ExternalLink {
+                  url
+                  target
+                }
+                ... on _Document {
+                  _meta {
+                    uid
+                  }
+                }
+              }
+              slide_image
+            }
+          }
+        }
+      }
+    }    
+  `,
+    {
+      previewData,
+      variables: {
+        lang: API_LOCALE,
+        uid,
+      },
+    }
+  );
+  return data.page;
+}
