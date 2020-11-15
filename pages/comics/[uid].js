@@ -12,7 +12,7 @@ import SingleSeo from "@seo/SingleSeo";
 const singlePoem = ({ layout, comics, moreComics }) => {
   return (
     <Layout data={layout} text="Cómics">
-      <SingleSeo document={comics} />
+      <SingleSeo document={comics} type="comics" />
       <div style={{ backgroundColor: comics.color }}>
         <ArticleIntro news={comics} />
         <ArticleContentGalery news={comics} />

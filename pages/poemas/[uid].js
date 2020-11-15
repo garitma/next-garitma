@@ -14,7 +14,7 @@ const singlePoem = ({ layout, poems, morePoems }) => {
   console.log(poems);
   return (
     <Layout data={layout} text="Poemas">
-      <SingleSeo document={poems} />
+      <SingleSeo document={poems} type="poemas" />
       <div style={{ backgroundColor: poems.color }}>
         <ArticleIntro news={poems} />
         <ArticleFeatureImg news={poems} />
