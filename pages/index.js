@@ -27,6 +27,7 @@ const Home = ({ preview, layout }) => (
           src="https://images.prismic.io/garitma/5cb162e5-78fd-42ca-a221-dec5bd36900f_serie-lealtad.jpg?auto=compress,format"
           width={1920 / 2}
           height={800 / 2}
+          alt="Historias de Garitma"
         />
       </div>
     </Section>
@@ -40,6 +41,7 @@ const Home = ({ preview, layout }) => (
                 src="https://images.prismic.io/garitma/f5924bfe-a81d-4070-a24d-0a9dc0d2a2ee_poemas+garitma.png?auto=compress,format"
                 height={300}
                 width={300}
+                alt="Poemas cortos de amor, desamor e historias cotidianas"
               />
             </div>
             <div className="centertxt">
@@ -57,6 +59,7 @@ const Home = ({ preview, layout }) => (
                 src="https://images.prismic.io/garitma/e8dad3ca-4445-49b2-ba85-fc8792c7c1d4_comics+garitma.png?auto=compress,format"
                 width={292}
                 height={224}
+                alt="Las increibles aventuras de Chan, Coco, Garritas y Puntitas"
               />
             </div>
             <div className="centertxt">
@@ -76,6 +79,7 @@ const Home = ({ preview, layout }) => (
                 src="https://images.prismic.io/garitma/6198f5a0-b2ed-45c0-9069-2e05b95a4dec_frases+garitma.png?auto=compress,format"
                 width={461}
                 height={263}
+                alt="Frases para decirle a alguien"
               />
             </div>
             <div className="centertxt">
@@ -93,6 +97,7 @@ const Home = ({ preview, layout }) => (
                 src="https://images.prismic.io/garitma/b7472665-8b42-45c4-b2ec-9beaafef2585_fondos+de+pantalla+garitma.png?auto=compress,format"
                 width={692}
                 height={320}
+                alt="Fondos de pantalla originales artísticos para tu celular"
               />
             </div>
             <div className="centertxt">
