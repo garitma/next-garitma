@@ -139,3 +139,100 @@ export async function getAllPoemsWithSlug() {
   `);
   return data?.allPoemass?.edges;
 }
+
+export async function getPoemsAndMorePoems(uid, previewData) {
+  const data = await fetchAPI(
+    `
+  query poemByUid($uid: String!, $lang: String!) {
+    poemas(uid: $uid, lang: $lang) {
+      title
+      date
+      excerpt
+      featured_img
+      color
+      content
+      _meta {
+        uid
+        tags
+      }
+    }
+    morePoems: allPoemass(sortBy: date_DESC, first: 3) {
+      edges {
+        node {
+          title
+          date
+          featured_img
+          _meta {
+            uid
+            tags
+          }
+        }
+      }
+    }
+  }
+  `,
+    {
+      previewData,
+      variables: {
+        lang: API_LOCALE,
+        uid,
+      },
+    }
+  );
+
+  data.morePoems = data.morePoems.edges
+    .filter(({ node }) => node._meta.uid !== uid)
+    .slice(0, 2);
+
+  return data;
+}
+
+export async function getComicsAndMoreComics(uid, previewData) {
+  const data = await fetchAPI(
+    `
+  query comicsByUid($uid: String!, $lang: String!) {
+    comics(uid: $uid, lang: $lang) {
+      title
+      date
+      excerpt
+      featured_img
+      color
+      content
+      gallery {
+        gallery_image
+      }
+      _meta {
+        uid
+        tags
+      }
+    }
+    moreComics: allComicss(sortBy: date_DESC, first: 3) {
+      edges {
+        node {
+          title
+          date
+          featured_img
+          _meta {
+            uid
+            tags
+          }
+        }
+      }
+    }
+  }
+  `,
+    {
+      previewData,
+      variables: {
+        lang: API_LOCALE,
+        uid,
+      },
+    }
+  );
+
+  data.moreComics = data.moreComics.edges
+    .filter(({ node }) => node._meta.uid !== uid)
+    .slice(0, 2);
+
+  return data;
+}
