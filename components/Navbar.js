@@ -20,10 +20,10 @@ const MyNavbar = ({ text, data }) => {
         text={text}
         style={{ backgroundImage: `url(${data?.subheader_cover?.url})` }}
       >
-        <Menu container="smosh">
+        <Menu container="flowx wall-pad">
           {data?.header_menu.map((item, index) => {
             return (
-              <li key={index} className="item">
+              <li key={index}>
                 <Link
                   href={
                     (item.header_link_menu_pathname && {
