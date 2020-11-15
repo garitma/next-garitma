@@ -3,9 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { getLayout } from "@services/prismic-graphql";
 import Layout from "@components/Layout";
+import GeneralSeo from "@seo/GeneralSeo";
 
 const Home = ({ preview, layout }) => (
   <Layout data={layout} preview={preview} text="Garitma">
+    <GeneralSeo />
     <Section
       style={{
         backgroundImage:

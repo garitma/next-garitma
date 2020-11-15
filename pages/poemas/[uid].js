@@ -1,7 +1,8 @@
-import Layout from "@components/Layout";
 import { getLayout, getPoemsAndMorePoems } from "@services/prismic-graphql";
 import { queryRepeatableDocuments } from "@services/prismic-rest";
+import SingleSeo from "@seo/SingleSeo";
 
+import Layout from "@components/Layout";
 import ArticleIntro from "@components/ArticleIntro";
 import ArticleFeatureImg from "@components/ArticleFeatureImg";
 import ArticleContentRender from "@components/ArticleContentRender";
@@ -10,15 +11,17 @@ import ArticleMoreNews from "@components/ArticleMoreNews";
 import ArticleRelatedPost from "@components/ArticleRelatedPost";
 
 const singlePoem = ({ layout, poems, morePoems }) => {
+  console.log(poems);
   return (
     <Layout data={layout} text="Poemas">
+      <SingleSeo document={poems} />
       <div style={{ backgroundColor: poems.color }}>
         <ArticleIntro news={poems} />
         <ArticleFeatureImg news={poems} />
         <ArticleContentRender news={poems} />
         <AuthorBox />
         <ArticleMoreNews title="Poemas reciente">
-          <ArticleRelatedPost news={morePoems} />
+          <ArticleRelatedPost news={morePoems} pathname="/poemas/[uid]" />
         </ArticleMoreNews>
       </div>
     </Layout>

@@ -8,6 +8,7 @@ const ArticleFeatureImg = ({ news }) => (
       src={news.featured_img.url}
       width={1140}
       height={570}
+      loading="eager"
     />
   </section>
 );

@@ -1,6 +1,6 @@
 import Collection from "@components/Collection";
 
-const ArticleRelatedPost = ({ news }) => (
+const ArticleRelatedPost = ({ news, pathname }) => (
   <section className="pad">
     <div className="smash">
       <div className="aureole one">
@@ -12,6 +12,7 @@ const ArticleRelatedPost = ({ news }) => (
             featured_img={node.featured_img}
             date={node.date}
             slug={node._meta.uid}
+            pathname={pathname}
           />
         ))}
       </div>

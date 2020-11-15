@@ -14,6 +14,7 @@ const ArticleContentRender = ({ news }) => {
           height={item.gallery_image.dimensions.height}
           width={item.gallery_image.dimensions.width}
           key={index}
+          loading="eager"
         />
       ))}
     </Section>

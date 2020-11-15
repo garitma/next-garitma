@@ -6,10 +6,15 @@ import moment from "moment";
 
 import GLOBAL from "garitmic.config.json";
 
-const Collection = ({ title, featured_img, date, slug }) => (
+const Collection = ({ title, featured_img, date, pathname, slug }) => (
   <div className="halo mod">
     <div className="layer small-4">
-      <Link href="/poemas/[uid]" as={`/poemas/${slug}`}>
+      <Link
+        href={{
+          pathname: pathname,
+          query: { uid: slug },
+        }}
+      >
         <a aria-label={featured_img.alt}>
           <div className="mod zoom halo">
             <Image
@@ -24,7 +29,12 @@ const Collection = ({ title, featured_img, date, slug }) => (
     </div>
     <div className="layer small-8">
       <div className="aura halo">
-        <Link href="/poemas/[uid]" as={`/poemas/${slug}`}>
+        <Link
+          href={{
+            pathname: pathname,
+            query: { uid: slug },
+          }}
+        >
           <a className="h6 layer">{RichText.asText(title)}</a>
         </Link>
         <time className="layer">

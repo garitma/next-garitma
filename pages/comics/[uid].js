@@ -3,22 +3,22 @@ import { getLayout, getComicsAndMoreComics } from "@services/prismic-graphql";
 import { queryRepeatableDocuments } from "@services/prismic-rest";
 
 import ArticleIntro from "@components/ArticleIntro";
-import ArticleFeatureImg from "@components/ArticleFeatureImg";
-import ArticleContentRender from "@components/ArticleContentRender";
 import AuthorBox from "@components/AuthorBox";
 import ArticleMoreNews from "@components/ArticleMoreNews";
 import ArticleRelatedPost from "@components/ArticleRelatedPost";
 import ArticleContentGalery from "@components/ArticleContentGalery";
+import SingleSeo from "@seo/SingleSeo";
 
 const singlePoem = ({ layout, comics, moreComics }) => {
   return (
     <Layout data={layout} text="Cómics">
+      <SingleSeo document={comics} />
       <div style={{ backgroundColor: comics.color }}>
         <ArticleIntro news={comics} />
         <ArticleContentGalery news={comics} />
         <AuthorBox />
         <ArticleMoreNews title="Poemas reciente">
-          <ArticleRelatedPost news={moreComics} />
+          <ArticleRelatedPost news={moreComics} pathname="/comics/[uid]" />
         </ArticleMoreNews>
       </div>
     </Layout>

@@ -2,9 +2,10 @@ import { Section, Grid } from "aura-design-system";
 import { useRouter } from "next/router";
 import { RichText } from "prismic-reactjs";
 
-import Layout from "@components/Layout";
 import { getLayout } from "@services/prismic-graphql";
 import { getArchives } from "@services/prismic-rest";
+import ArchiveSeo from "@seo/ArchiveSeo";
+import Layout from "@components/Layout";
 import Pagination from "@components/Pagination";
 import DownloadModule from "@components/DownloadModule";
 
@@ -13,6 +14,11 @@ const Archive = ({ preview, layout, archives }) => {
 
   return (
     <Layout data={layout} text="Descargas">
+      <ArchiveSeo
+        document={archives}
+        title="Descargas"
+        excerpt="Fondos de pantalla originales artísticos para tu celular."
+      />
       <Section color="yellow" container="smash" className="centertxt">
         <p className="h6">
           Fondos de pantalla originales artísticos para tu celular.
