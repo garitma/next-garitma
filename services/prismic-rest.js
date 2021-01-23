@@ -28,7 +28,7 @@ export async function getArchives(previewData = {}, page = 1, type = "poemas") {
       Prismic.Predicates.at("document.type", type),
       {
         pageSize: GLOBAL.ArchivePageSize,
-        orderings: `[my.poemas.date desc]`,
+        orderings: `[my.${type}.date desc]`,
         page,
       },
       ref ? { ref } : null
