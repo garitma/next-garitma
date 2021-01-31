@@ -43,33 +43,13 @@ export async function getLayout(previewData) {
     `	
     query getLayout($uid: String!, $lang: String!) {
       layout(uid: $uid, lang: $lang) {
-        dark_mode
-        copy_right
         logo
-        header_menu {
-          header_link_menu_text
-          header_link_menu_pathname
-          header_menu_link_item {
-            __typename
-            ... on _ExternalLink {
-              url
-              target
-            }
-            ... on _Document {
-              _meta {
-                uid
-              }
-            }
-          }
-        }
         secundary_logo
+        third_logo
         subheader_cover
-        footer_logo
-        footer_secondary_logo
-        footer_menu {
-          footer_link_menu_text
-          footer_link_menu_pathname
-          footer_menu_link_item {
+        copy_right
+        footer_links {
+          link {
             __typename
             ... on _ExternalLink {
               url
@@ -81,21 +61,10 @@ export async function getLayout(previewData) {
               }
             }
           }
+          label
         }
-        footer_follow_menu {
-          footer_follow_icon
-          footer_follow_link {
-            __typename
-            ... on _ExternalLink {
-              url
-              target
-            }
-          }
-        }
-        footer_secundary_menu {
-          footer_secundary_link_menu_text
-          footer_secundary_link_menu_pathname
-          footer_secundary_link_menu_item {
+        footer_links_rs {
+          link {
             __typename
             ... on _ExternalLink {
               url
@@ -107,6 +76,22 @@ export async function getLayout(previewData) {
               }
             }
           }
+          icon
+        }
+        footer_links_secondary {
+          link {
+            __typename
+            ... on _ExternalLink {
+              url
+              target
+            }
+            ... on _Document {
+              _meta {
+                uid
+              }
+            }
+          }
+          label
         }
       }
     }    
