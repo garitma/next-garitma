@@ -20,9 +20,9 @@ Router.events.on("routeChangeError", () => {
 const Layout = ({ children, preview, data, text }) => (
   <main>
     <div className="page">
-      <Navbar preview={preview} data={data} text={text} />
+      <Navbar preview={preview} document={data} text={text} />
       <div className="page-body">{children}</div>
-      <Footer data={data} />
+      <Footer document={data} />
     </div>
   </main>
 );

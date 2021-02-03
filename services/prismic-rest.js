@@ -1,4 +1,4 @@
-import Prismic from "prismic-javascript";
+import Prismic from "@prismicio/client";
 import GLOBAL from "garitmic.config.json";
 import { API_URL_KIT, API_TOKEN } from "lib/constants";
 

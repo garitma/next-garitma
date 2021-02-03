@@ -1,47 +1,51 @@
 import Link from "next/link";
 import { Footer, Grid, Icon } from "aura-design-system";
+import { RichText } from "prismic-reactjs";
 
-const MyFooter = ({ data }) => {
+const MyFooter = ({ document }) => {
   return (
     <Footer>
       <Grid col="two">
         <div className="one smosh">
           <div className="centertxt-small">
-            <Icon className={data?.footer_logo} />
-            <div className="">
-              <Icon className={data?.footer_secondary_logo} />
+            <div className="nav-list">
+              <div className="item logo">
+                <Icon className={document?.secundary_logo} />
+              </div>
             </div>
           </div>
-          <p className="centertxt-small">{data?.copy_right[0].text}</p>
-          <ul className="nav-list">
-            {data?.footer_menu.map((item, index) => {
-              return (
+          <p className="centertxt-small">
+            {RichText.asText(document?.copy_right)}
+          </p>
+          {document?.footer_links && (
+            <ul className="nav-list">
+              {document?.footer_links.map((item, index) => (
                 <li key={index} className="item">
-                  <Link href={`/${item.footer_menu_link_item._meta.uid}`}>
-                    <a>{item.footer_link_menu_text[0].text}</a>
+                  <Link href="/informacion-legal">
+                    <a>{RichText?.asText(item?.label || [])}</a>
                   </Link>
                 </li>
-              );
-            })}
-          </ul>
+              ))}
+            </ul>
+          )}
         </div>
         <div className="two smosh">
-          <ul className="nav-list halign">
-            {data?.footer_follow_menu.map((item, index) => {
-              return (
+          {document?.footer_links_rs && (
+            <ul className="nav-list halign">
+              {document?.footer_links_rs.map((item, index) => (
                 <li className="item" key={index}>
                   <a
-                    href={item?.footer_follow_link.url}
+                    href={item?.link?.url}
                     target="_blank"
                     rel="noopener"
-                    aria-label={`Open ${item?.footer_follow_icon}`}
+                    aria-label={`Abrir ${item?.icon}`}
                   >
-                    <Icon sprite={item?.footer_follow_icon} />
+                    <Icon sprite={item?.icon} />
                   </a>
                 </li>
-              );
-            })}
-          </ul>
+              ))}
+            </ul>
+          )}
           <ul className="nav-list halign">
             <li className="item">
               <Link href="/contacto">
