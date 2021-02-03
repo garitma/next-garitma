@@ -1,4 +1,4 @@
-import Prismic from "prismic-javascript";
+import Prismic from "@prismicio/client";
 import GLOBAL from "garitmic.config.json";
 import { API_URL_KIT, API_TOKEN } from "lib/constants";
 
@@ -28,7 +28,7 @@ export async function getArchives(previewData = {}, page = 1, type = "poemas") {
       Prismic.Predicates.at("document.type", type),
       {
         pageSize: GLOBAL.ArchivePageSize,
-        orderings: `[my.poemas.date desc]`,
+        orderings: `[my.${type}.date desc]`,
         page,
       },
       ref ? { ref } : null

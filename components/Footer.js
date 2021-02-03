@@ -13,10 +13,6 @@ const MyFooter = ({ document }) => {
                 <Icon className={document?.secundary_logo} />
               </div>
             </div>
-            <span className="aura" />
-            <div>
-              <Icon className={document?.third_logo} />
-            </div>
           </div>
           <p className="centertxt-small">
             {RichText.asText(document?.copy_right)}
@@ -25,9 +21,9 @@ const MyFooter = ({ document }) => {
             <ul className="nav-list">
               {document?.footer_links.map((item, index) => (
                 <li key={index} className="item">
-                  <a href={item.link.url} target="_blank" rel="noopener">
-                    {RichText.asText(item.label)}
-                  </a>
+                  <Link href="/informacion-legal">
+                    <a>{RichText?.asText(item?.label || [])}</a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -39,7 +35,7 @@ const MyFooter = ({ document }) => {
               {document?.footer_links_rs.map((item, index) => (
                 <li className="item" key={index}>
                   <a
-                    href={item?.link.url}
+                    href={item?.link?.url}
                     target="_blank"
                     rel="noopener"
                     aria-label={`Abrir ${item?.icon}`}
@@ -50,6 +46,13 @@ const MyFooter = ({ document }) => {
               ))}
             </ul>
           )}
+          <ul className="nav-list halign">
+            <li className="item">
+              <Link href="/contacto">
+                <a>Información de contacto</a>
+              </Link>
+            </li>
+          </ul>
         </div>
       </Grid>
     </Footer>

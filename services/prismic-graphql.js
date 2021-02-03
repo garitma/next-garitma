@@ -1,4 +1,4 @@
-import Prismic from "prismic-javascript";
+import Prismic from "@prismicio/client";
 import {
   API_URL_KIT,
   API_TOKEN,

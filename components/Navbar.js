@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { Navbar, Header, Menu, Icon, Button } from "aura-design-system";
 
-const MyNavbar = ({ text, data }) => {
+import GLOBAL from "garitmic.config.json";
+
+const MyNavbar = ({ text, document }) => {
+  const date = new Date();
   return (
     <>
       <Navbar>
@@ -9,7 +12,7 @@ const MyNavbar = ({ text, data }) => {
           <li className="item logo">
             <Link href="/">
               <a aria-label="Logo">
-                <Icon className={data?.logo} />
+                <Icon className={`p ${document?.logo}`} />
               </a>
             </Link>
           </li>
@@ -17,44 +20,38 @@ const MyNavbar = ({ text, data }) => {
         </ul>
       </Navbar>
       <Header
+        style={{ backgroundImage: `url(${document?.subheader_cover?.url})` }}
         text={text}
-        style={{ backgroundImage: `url(${data?.subheader_cover?.url})` }}
       >
         <Menu container="smosh">
-          {data?.header_menu.map((item, index) => {
-            return (
-              <li key={index} className="item">
-                <Link
-                  href={
-                    (item.header_link_menu_pathname && {
-                      pathname: item.header_link_menu_pathname,
-                      query: { uid: item.header_menu_link_item?._meta?.uid },
-                    }) ||
-                    (item.header_menu_link_item?.__typename ===
-                      "_ExternalLink" &&
-                      item.header_menu_link_item?.url) ||
-                    `/${item.header_menu_link_item?._meta?.uid}` ||
-                    "/"
-                  }
-                  passHref
-                >
-                  <Button
-                    mode="menu"
-                    target={item.header_menu_link_item?.target}
-                    rel={
-                      item.header_menu_link_item?.__typename === "_ExternalLink"
-                        ? "noopener"
-                        : ""
-                    }
-                    label
-                    link
-                  >
-                    {item.header_link_menu_text}
-                  </Button>
-                </Link>
-              </li>
-            );
-          })}
+          <li className="item">
+            <Link href="/poemas" passHref>
+              <Button mode="menu" label link>
+                Poemas
+              </Button>
+            </Link>
+          </li>
+          <li className="item">
+            <Link href="/comics" passHref>
+              <Button mode="menu" label link>
+                Cómics
+              </Button>
+            </Link>
+          </li>
+          <li className="item">
+            <Link href="/frases" passHref>
+              <Button mode="menu" label link>
+                Frases
+              </Button>
+            </Link>
+          </li>
+          <li className="item">
+            <Link href="/descargas" passHref>
+              <Button mode="menu" label link>
+                Descargas
+              </Button>
+            </Link>
+          </li>
         </Menu>
       </Header>
     </>
