@@ -15,7 +15,7 @@ const MyFooter = ({ document }) => {
             </div>
           </div>
           <p className="centertxt-small">
-            {RichText.asText(document?.copy_right)}
+            {RichText.asText(document?.copy_right || [])}
           </p>
           {document?.footer_links && (
             <ul className="nav-list">
