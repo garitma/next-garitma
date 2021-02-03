@@ -7,6 +7,7 @@ import ArchiveSeo from "@seo/ArchiveSeo";
 import Layout from "@components/Layout";
 import Pagination from "@components/Pagination";
 import SmartModule from "@components/SmartModule";
+import SupportBanner from "@components/SupportBanner";
 
 const Archive = ({ preview, layout, archives }) => {
   const router = useRouter();
@@ -30,6 +31,7 @@ const Archive = ({ preview, layout, archives }) => {
           ))}
         </Grid>
         <Pagination archives={archives} archiveType="poemas" />
+        <SupportBanner />
       </Section>
     </Layout>
   );

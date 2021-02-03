@@ -10,6 +10,7 @@ import ArticleMoreNews from "@components/ArticleMoreNews";
 import ArticleRelatedPost from "@components/ArticleRelatedPost";
 import ArticleContentGalery from "@components/ArticleContentGalery";
 import SingleSeo from "@seo/SingleSeo";
+import SupportBanner from "@components/SupportBanner";
 
 const singlePoem = ({ layout, comics, moreComics }) => {
   const router = useRouter();
@@ -28,6 +29,7 @@ const singlePoem = ({ layout, comics, moreComics }) => {
           <div style={{ backgroundColor: comics?.color }}>
             <ArticleIntro news={comics} />
             <ArticleContentGalery news={comics} />
+            <SupportBanner />
             <AuthorBox />
             <ArticleMoreNews title="Poemas reciente">
               <ArticleRelatedPost news={moreComics} pathname="/comics/[uid]" />

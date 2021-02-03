@@ -6,6 +6,7 @@ import ArchiveSeo from "@seo/ArchiveSeo";
 import Layout from "@components/Layout";
 import Pagination from "@components/Pagination";
 import SmartModule from "@components/SmartModule";
+import SupportBanner from "@components/SupportBanner";
 
 const Archive = ({ preview, layout, archives }) => {
   return (
@@ -27,6 +28,7 @@ const Archive = ({ preview, layout, archives }) => {
           ))}
         </Grid>
         <Pagination archives={archives} archiveType="comics" />
+        <SupportBanner />
       </Section>
     </Layout>
   );
