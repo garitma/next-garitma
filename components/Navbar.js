@@ -23,36 +23,38 @@ const MyNavbar = ({ text, document }) => {
         style={{ backgroundImage: `url(${document?.subheader_cover?.url})` }}
         text={text}
       >
-        <Menu container="smosh">
-          <li className="item">
-            <Link href="/poemas" passHref>
-              <Button mode="menu" label link>
-                Poemas
-              </Button>
-            </Link>
-          </li>
-          <li className="item">
-            <Link href="/comics" passHref>
-              <Button mode="menu" label link>
-                Cómics
-              </Button>
-            </Link>
-          </li>
-          <li className="item">
-            <Link href="/frases" passHref>
-              <Button mode="menu" label link>
-                Frases
-              </Button>
-            </Link>
-          </li>
-          <li className="item">
-            <Link href="/descargas" passHref>
-              <Button mode="menu" label link>
-                Descargas
-              </Button>
-            </Link>
-          </li>
-        </Menu>
+        <div className="fluid smosh">
+          <ul className="nav-list fluid flowx">
+            <li className="item p0">
+              <Link href="/poemas" passHref>
+                <Button mode="menu" label link>
+                  Poemas
+                </Button>
+              </Link>
+            </li>
+            <li className="item p0">
+              <Link href="/comics" passHref>
+                <Button mode="menu" label link>
+                  Cómics
+                </Button>
+              </Link>
+            </li>
+            <li className="item p0">
+              <Link href="/frases" passHref>
+                <Button mode="menu" label link>
+                  Frases
+                </Button>
+              </Link>
+            </li>
+            <li className="item p0">
+              <Link href="/descargas" passHref>
+                <Button mode="menu" label link>
+                  Descargas
+                </Button>
+              </Link>
+            </li>
+          </ul>
+        </div>
       </Header>
     </>
   );
