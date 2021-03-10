@@ -1,4 +1,5 @@
-import { Section, Button } from "aura-design-system";
+import Section from "aura-design-system/core/section";
+import Button from "aura-design-system/core/button";
 import { RichText } from "prismic-reactjs";
 import Image from "next/image";
 import Link from "next/link";
