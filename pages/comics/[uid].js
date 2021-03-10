@@ -2,7 +2,7 @@ import Error from "next/error";
 import { useRouter } from "next/router";
 
 import Layout from "@components/Layout";
-import { getLayout, getComicsAndMoreComics } from "@services/prismic-graphql";
+import { getComicsAndMoreComics } from "@services/prismic-graphql";
 import { queryRepeatableDocuments } from "@services/prismic-rest";
 import ArticleIntro from "@components/ArticleIntro";
 import AuthorBox from "@components/AuthorBox";
@@ -10,9 +10,8 @@ import ArticleMoreNews from "@components/ArticleMoreNews";
 import ArticleRelatedPost from "@components/ArticleRelatedPost";
 import ArticleContentGalery from "@components/ArticleContentGalery";
 import SingleSeo from "@seo/SingleSeo";
-import SupportBanner from "@components/SupportBanner";
 
-const singlePoem = ({ layout, comics, moreComics }) => {
+const singlePoem = ({ comics, moreComics }) => {
   const router = useRouter();
 
   if (!router.isFallback && !comics?._meta?.uid) {
@@ -22,14 +21,14 @@ const singlePoem = ({ layout, comics, moreComics }) => {
   return (
     <>
       {router.isFallback ? (
-        <Layout data={layout} text="Cargando..." />
+        <Layout text="Cargando..." />
       ) : (
-        <Layout data={layout} text="Cómics">
+        <Layout text="Cómics">
           <SingleSeo document={comics} type="comics" />
           <div style={{ backgroundColor: comics?.color }}>
             <ArticleIntro news={comics} />
             <ArticleContentGalery news={comics} />
-            <SupportBanner />
+
             <AuthorBox />
             <ArticleMoreNews title="Poemas reciente">
               <ArticleRelatedPost news={moreComics} pathname="/comics/[uid]" />
@@ -46,13 +45,12 @@ export const getStaticProps = async ({
   preview = false,
   previewData,
 }) => {
-  const layout = await getLayout(previewData);
   const data = await getComicsAndMoreComics(params.uid, previewData);
 
   return {
     props: {
       preview,
-      layout,
+
       comics: data?.comics ?? null,
       moreComics: data?.moreComics ?? [],
     },

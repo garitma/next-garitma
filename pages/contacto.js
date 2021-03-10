@@ -1,5 +1,4 @@
-import { Section } from "aura-design-system";
-import { getLayout } from "@services/prismic-graphql";
+import Section from "aura-design-system/core/section";
 import Head from "next/head";
 
 import GLOBAL from "garitmic.config.json";
@@ -8,7 +7,7 @@ import Layout from "@components/Layout";
 import ContactForm from "@components/ContactForm";
 
 const Contact = ({ preview, layout }) => (
-  <Layout data={layout} preview={preview} text="Información de contacto">
+  <Layout preview={preview} text="Información de contacto">
     <Head>
       <title>Información de contacto | {GLOBAL.siteName}</title>
       <meta name="robots" content="index,follow" />
@@ -39,7 +38,7 @@ const Contact = ({ preview, layout }) => (
       <meta property="og:image:height" content="570" />
       <link rel="canonical" href={`${GLOBAL.siteURL}/contacto`} />
     </Head>
-    <Section container="smash" color="purple">
+    <Section container="smash" color="teal-green">
       <p>
         Las soluciones personalizadas de Garitma son creadas con el fin de
         apoyar a las marcas y empresas a generar contenido y productos de valor
@@ -54,12 +53,5 @@ const Contact = ({ preview, layout }) => (
     </Section>
   </Layout>
 );
-
-export const getStaticProps = async ({ preview = false, previewData }) => {
-  const layout = await getLayout(previewData);
-  return {
-    props: { preview, layout },
-  };
-};
 
 export default Contact;

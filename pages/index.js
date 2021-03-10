@@ -1,12 +1,14 @@
-import { Button, Section, Grid } from "aura-design-system";
+import Button from "aura-design-system/core/button";
+import Section from "aura-design-system/core/section";
+import Grid from "aura-design-system/core/grid";
+
 import Image from "next/image";
 import Link from "next/link";
-import { getLayout } from "@services/prismic-graphql";
 import Layout from "@components/Layout";
 import GeneralSeo from "@seo/GeneralSeo";
 
 const Home = ({ preview, layout }) => (
-  <Layout data={layout} preview={preview} text="Garitma">
+  <Layout preview={preview} text="Garitma">
     <GeneralSeo />
     <Section
       style={{
@@ -131,12 +133,5 @@ const Home = ({ preview, layout }) => (
     </Section>
   </Layout>
 );
-
-export const getStaticProps = async ({ preview = false, previewData }) => {
-  const layout = await getLayout(previewData);
-  return {
-    props: { preview, layout },
-  };
-};
 
 export default Home;

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Section, Grid } from "aura-design-system";
+import Section from "aura-design-system/core/section";
+import Grid from "aura-design-system/core/grid";
 
 const PageBodyIntro = ({ data, ...props }) => {
   return (

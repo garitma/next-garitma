@@ -1,17 +1,16 @@
-import { Section, Grid } from "aura-design-system";
+import Section from "aura-design-system/core/section";
+import Grid from "aura-design-system/core/grid";
 import Error from "next/error";
 import { useRouter } from "next/router";
 import { RichText } from "prismic-reactjs";
 
-import { getLayout } from "@services/prismic-graphql";
 import { getArchives } from "@services/prismic-rest";
 import ArchiveSeo from "@seo/ArchiveSeo";
 import Layout from "@components/Layout";
 import Pagination from "@components/Pagination";
 import DownloadModule from "@components/DownloadModule";
-import SupportBanner from "@components/SupportBanner";
 
-const Archive = ({ preview, layout, archives }) => {
+const Archive = ({ preview, archives }) => {
   const router = useRouter();
 
   if (
@@ -22,7 +21,7 @@ const Archive = ({ preview, layout, archives }) => {
   }
 
   return (
-    <Layout data={layout} text="Descargas">
+    <Layout text="Descargas">
       <ArchiveSeo
         document={archives}
         title={`Descargas página ${archives.page}`}
@@ -33,14 +32,13 @@ const Archive = ({ preview, layout, archives }) => {
           Fondos de pantalla originales artísticos para tu celular.
         </p>
       </Section>
-      <Section color="snow">
+      <Section color="accents-1">
         <Grid>
           {archives?.results.map((item, index) => (
             <DownloadModule item={item} key={index} />
           ))}
         </Grid>
         <Pagination archives={archives} archiveType="descargas" />
-        <SupportBanner />
       </Section>
     </Layout>
   );
@@ -51,11 +49,10 @@ export const getStaticProps = async ({
   preview = false,
   previewData,
 }) => {
-  const layout = await getLayout(previewData);
   const archives = await getArchives(previewData, params.page, "descargas");
 
   return {
-    props: { preview, layout, archives },
+    props: { preview, archives },
   };
 };
 

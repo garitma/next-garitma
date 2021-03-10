@@ -1,12 +1,17 @@
 import React, { useState } from "react";
-import { Button, Input } from "aura-design-system";
+import Button from "aura-design-system/core/button";
+import Input from "aura-design-system/core/input";
 
 import { sendContactForm } from "services/contact";
-import { useForm, useFormReset, useFormIsValid } from "aura-design-system";
+import {
+  useForm,
+  useFormReset,
+  useFormIsValid,
+} from "aura-design-system/core/utils/useForm";
 import { contactFormSchema } from "lib/validation-schema";
 
 function Contact() {
-  const data = useForm({
+  const { email, message } = useForm({
     email: "",
     message: "",
   });
@@ -15,15 +20,15 @@ function Contact() {
     submited: false,
     info: { error: false, msg: null },
   });
-  const isValid = useFormIsValid(data, contactFormSchema);
+  const isValid = useFormIsValid({ email, message }, contactFormSchema);
 
   const handleOnSubmit = async (event) => {
     event.preventDefault();
     setStatus((prevStatus) => ({ ...prevStatus, wait: true }));
 
     const res = await sendContactForm({
-      email: data.email.input.value,
-      message: data.message.input.value,
+      email: email.value,
+      message: message.value,
     });
 
     const text = await res.text();
@@ -50,26 +55,31 @@ function Contact() {
     <div className="smosh pad">
       <form onSubmit={handleOnSubmit}>
         <Input
-          id="email"
           type="email"
-          placeholder="Correo electrónico"
-          dialog={data.email.error && data.email.touch && data.email.error}
-          {...data.email.input}
+          placeholder="tu@correo.com"
+          isHelping={email.error && email.touch ? true : false}
+          isLabelable={true}
+          helpMode="info"
+          helpText={email.error}
+          autoComplete="email"
+          onChange={email.onChange}
+          value={email.value}
         />
         <div className="inputer">
           <textarea
             id="message"
             placeholder="Mensaje"
-            {...data.message.input}
+            onChange={message.onChange}
+            value={message.value}
           />
-          {data.message.error && data.message.touch && data.message.error}
+          {message.error && message.touch && message.error}
         </div>
         <Button
           mode="fill"
           type="submit"
           disabled={!isValid}
           label={!status.wait ? "Enviar" : "Enviando..."}
-          fluid
+          isFluid
         />
       </form>
 

@@ -1,11 +1,11 @@
-import { getLayout, getPage } from "@services/prismic-graphql";
+import { getPage } from "@services/prismic-graphql";
 import PageSeo from "@seo/PageSeo";
 import Layout from "@components/Layout";
 import PageTemplate from "@components/PageTemplate";
 
 const LegalInfo = ({ page, preview, layout }) => {
   return (
-    <Layout text="Información Legal" data={layout}>
+    <Layout text="Información Legal">
       <PageSeo document={page} />
       <PageTemplate page={page} />
     </Layout>
@@ -13,11 +13,10 @@ const LegalInfo = ({ page, preview, layout }) => {
 };
 
 export const getStaticProps = async ({ preview = false, previewData }) => {
-  const layout = await getLayout(previewData);
   const page = await getPage("informacion-legal", previewData);
 
   return {
-    props: { page, preview, layout },
+    props: { page, preview },
   };
 };
 

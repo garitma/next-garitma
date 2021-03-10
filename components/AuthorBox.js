@@ -1,4 +1,4 @@
-import { Section } from "aura-design-system";
+import Section from "aura-design-system/core/section";
 import Image from "next/image";
 
 const AuthorBox = ({ avatar, name, description }) => (

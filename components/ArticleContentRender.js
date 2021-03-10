@@ -1,4 +1,4 @@
-import { Section } from "aura-design-system";
+import Section from "aura-design-system/core/section";
 import { RichText } from "prismic-reactjs";
 
 const ArticleContentRender = ({ news }) => {

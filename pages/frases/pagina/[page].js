@@ -1,16 +1,15 @@
-import { Section, Grid } from "aura-design-system";
+import Section from "aura-design-system/core/section";
+import Grid from "aura-design-system/core/grid";
 import Error from "next/error";
 import { useRouter } from "next/router";
 
-import { getLayout } from "@services/prismic-graphql";
 import { getArchives } from "@services/prismic-rest";
 import ArchiveSeo from "@seo/ArchiveSeo";
 import Layout from "@components/Layout";
 import Pagination from "@components/Pagination";
 import QuoteModule from "@components/QuoteModule";
-import SupportBanner from "@components/SupportBanner";
 
-const Archive = ({ preview, layout, archives }) => {
+const Archive = ({ preview, archives }) => {
   const router = useRouter();
 
   if (
@@ -21,7 +20,7 @@ const Archive = ({ preview, layout, archives }) => {
   }
 
   return (
-    <Layout data={layout} text="Frases">
+    <Layout text="Frases">
       <ArchiveSeo
         document={archives}
         title={`Frases página ${archives.page}`}
@@ -30,14 +29,13 @@ const Archive = ({ preview, layout, archives }) => {
       <Section container="smash" className="centertxt">
         <p className="h6">Frases para decirle a alguien.</p>
       </Section>
-      <Section color="snow">
+      <Section color="accents-1">
         <Grid>
           {archives?.results.map((item, index) => (
             <QuoteModule item={item} key={index} />
           ))}
         </Grid>
         <Pagination archives={archives} archiveType="frases" />
-        <SupportBanner />
       </Section>
     </Layout>
   );
@@ -52,7 +50,7 @@ export const getStaticProps = async ({
   const archives = await getArchives(previewData, params.page, "frases");
 
   return {
-    props: { preview, layout, archives },
+    props: { preview, archives },
   };
 };
 

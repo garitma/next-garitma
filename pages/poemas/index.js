@@ -1,19 +1,19 @@
-import { Section, Grid } from "aura-design-system";
+import Section from "aura-design-system/core/section";
+import Grid from "aura-design-system/core/grid";
+
 import { useRouter } from "next/router";
 
-import { getLayout } from "@services/prismic-graphql";
 import { getArchives } from "@services/prismic-rest";
 import ArchiveSeo from "@seo/ArchiveSeo";
 import Layout from "@components/Layout";
 import Pagination from "@components/Pagination";
 import SmartModule from "@components/SmartModule";
-import SupportBanner from "@components/SupportBanner";
 
-const Archive = ({ preview, layout, archives }) => {
+const Archive = ({ preview, archives }) => {
   const router = useRouter();
 
   return (
-    <Layout data={layout} text="Poemas">
+    <Layout text="Poemas">
       <ArchiveSeo
         document={archives}
         title="Poemas"
@@ -24,14 +24,13 @@ const Archive = ({ preview, layout, archives }) => {
           Poemas cortos de amor, desamor e historias cotidianas.
         </p>
       </Section>
-      <Section color="snow">
+      <Section color="accents-1">
         <Grid>
           {archives.results.map((item, index) => (
             <SmartModule item={item} key={index} />
           ))}
         </Grid>
         <Pagination archives={archives} archiveType="poemas" />
-        <SupportBanner />
       </Section>
     </Layout>
   );
@@ -42,11 +41,10 @@ export const getStaticProps = async ({
   preview = false,
   previewData,
 }) => {
-  const layout = await getLayout(previewData);
   const archives = await getArchives(previewData, 1, "poemas");
 
   return {
-    props: { preview, layout, archives },
+    props: { preview, archives },
   };
 };
 

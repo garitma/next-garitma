@@ -1,10 +1,10 @@
-import { Section } from "aura-design-system";
+import Section from "aura-design-system/core/section";
 import Link from "next/link";
 
 const Pagination = ({ archives, archiveType = "archivos" }) => (
   <>
     {archives.total_results_size > archives.results_per_page && (
-      <Section color="snow" container="smosh">
+      <Section color="accents-1" container="smosh">
         <ul className="nav-list">
           {archives.prev_page ? (
             <li className="items">
