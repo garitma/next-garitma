@@ -46,7 +46,6 @@ export const getStaticProps = async ({
   preview = false,
   previewData,
 }) => {
-  const layout = await getLayout(previewData);
   const archives = await getArchives(previewData, params.page, "frases");
 
   return {

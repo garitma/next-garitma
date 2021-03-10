@@ -2,7 +2,6 @@ import Section from "aura-design-system/core/section";
 import Grid from "aura-design-system/core/grid";
 import { useRouter } from "next/router";
 
-import { getLayout } from "@services/prismic-graphql";
 import { getArchives } from "@services/prismic-rest";
 import ArchiveSeo from "@seo/ArchiveSeo";
 import Layout from "@components/Layout";
