@@ -1,4 +1,4 @@
-import { API_ENDPOINT_KEY, SEND_ENDPOINT_KEY } from "lib/constants";
+import { API_ENDPOINT_KEY, SEND_ENDPOINT_KEY } from "@utils/constants";
 
 const API_URL = `/${API_ENDPOINT_KEY}/${SEND_ENDPOINT_KEY}`;
 

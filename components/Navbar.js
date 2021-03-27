@@ -22,7 +22,11 @@ const MyNavbar = ({ text }) => {
                 </a>
               </Link>
             </li>
-            <li className="mod"></li>
+            <li className="mod">
+              {/* <a className="button-link">
+                <div className="glyphsSprite search" />
+              </a> */}
+            </li>
           </ul>
         </div>
         <div>

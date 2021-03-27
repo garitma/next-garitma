@@ -4,8 +4,7 @@ import Error from "next/error";
 import { useRouter } from "next/router";
 import { RichText } from "prismic-reactjs";
 
-import { getArchives } from "@services/prismic-rest";
-import ArchiveSeo from "@seo/ArchiveSeo";
+import { getArchives } from "@utils/prismic-rest";
 import Layout from "@components/Layout";
 import Pagination from "@components/Pagination";
 import DownloadModule from "@components/DownloadModule";
@@ -21,12 +20,13 @@ const Archive = ({ preview, archives }) => {
   }
 
   return (
-    <Layout text="Descargas">
-      <ArchiveSeo
-        document={archives}
-        title={`Descargas página ${archives.page}`}
-        excerpt="Fondos de pantalla originales artísticos para tu celular."
-      />
+    <Layout
+      text="Descargas"
+      meta={archives}
+      path="poemas"
+      excerpt="Fondos de pantalla originales artísticos para tu celular."
+      isArchive
+    >
       <Section color="yellow" container="smash" className="centertxt">
         <p className="h6">
           Fondos de pantalla originales artísticos para tu celular.

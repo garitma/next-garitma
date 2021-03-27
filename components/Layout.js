@@ -4,6 +4,7 @@ import NProgress from "nprogress";
 
 import Navbar from "@components/Navbar";
 import Footer from "@components/Footer";
+import { formatMeta, formatMetaArchives } from "@utils/formatMeta";
 
 Router.events.on("routeChangeStart", () => {
   NProgress.start();
@@ -17,8 +18,20 @@ Router.events.on("routeChangeError", () => {
   NProgress.done();
 });
 
-const Layout = ({ children, preview, data, text }) => (
+const Layout = ({
+  children,
+  preview,
+  data,
+  text,
+  meta,
+  path,
+  excerpt,
+  isArchive,
+}) => (
   <main>
+    {isArchive
+      ? formatMetaArchives(meta, path, text, excerpt)
+      : formatMeta(meta)}
     <div className="page">
       <Navbar preview={preview} document={data} text={text} />
       <div className="page-body">{children}</div>

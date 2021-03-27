@@ -1,10 +1,8 @@
+import { useRouter } from "next/router";
 import Section from "aura-design-system/core/section";
 import Grid from "aura-design-system/core/grid";
 
-import { useRouter } from "next/router";
-
-import { getArchives } from "@services/prismic-rest";
-import ArchiveSeo from "@seo/ArchiveSeo";
+import { getArchives } from "@utils/prismic-rest";
 import Layout from "@components/Layout";
 import Pagination from "@components/Pagination";
 import SmartModule from "@components/SmartModule";
@@ -12,13 +10,21 @@ import SmartModule from "@components/SmartModule";
 const Archive = ({ preview, archives }) => {
   const router = useRouter();
 
+  if (
+    (!router.isFallback && archives.page > archives.total_pages) ||
+    !archives
+  ) {
+    return <Error statusCode="404" />;
+  }
+
   return (
-    <Layout text="Poemas">
-      <ArchiveSeo
-        document={archives}
-        title="Poemas"
-        excerpt="Poemas cortos de amor, desamor e historias cotidianas. Cortos y bonitos cualquier momento."
-      />
+    <Layout
+      text="Poemas"
+      meta={archives}
+      path="poemas"
+      excerpt="Poemas cortos de amor, desamor e historias cotidianas."
+      isArchive
+    >
       <Section color="blue" container="smash" className="centertxt">
         <p className="h6">
           Poemas cortos de amor, desamor e historias cotidianas.

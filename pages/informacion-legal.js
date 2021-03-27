@@ -1,13 +1,20 @@
-import { getPage } from "@services/prismic-graphql";
-import PageSeo from "@seo/PageSeo";
+import { RichText } from "prismic-reactjs";
+import Section from "aura-design-system/core/section";
+
+import { getPage } from "@utils/prismic-graphql";
 import Layout from "@components/Layout";
-import PageTemplate from "@components/PageTemplate";
 
 const LegalInfo = ({ page, preview, layout }) => {
   return (
     <Layout text="Información Legal">
-      <PageSeo document={page} />
-      <PageTemplate page={page} />
+      {page?.body?.map((item, index) => {
+        switch (item?.__typename) {
+          case "PageBodyText":
+            return <Section>{RichText.render(item.primary.content)}</Section>;
+          default:
+            return;
+        }
+      })}
     </Layout>
   );
 };

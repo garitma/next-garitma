@@ -3,8 +3,7 @@ import Grid from "aura-design-system/core/grid";
 import Error from "next/error";
 import { useRouter } from "next/router";
 
-import { getArchives } from "@services/prismic-rest";
-import ArchiveSeo from "@seo/ArchiveSeo";
+import { getArchives } from "@utils/prismic-rest";
 import Layout from "@components/Layout";
 import Pagination from "@components/Pagination";
 import SmartModule from "@components/SmartModule";
@@ -20,12 +19,13 @@ const Archive = ({ preview, archives }) => {
   }
 
   return (
-    <Layout text="Poemas">
-      <ArchiveSeo
-        document={archives}
-        title={`Poemas página ${archives.page}`}
-        excerpt="Poemas cortos de amor, desamor e historias cotidianas. Cortos y bonitos cualquier momento."
-      />
+    <Layout
+      text="Poemas"
+      meta={archives}
+      path="poemas"
+      excerpt="Poemas cortos de amor, desamor e historias cotidianas."
+      isArchive
+    >
       <Section color="blue" container="smash" className="centertxt">
         <p className="h6">
           Poemas cortos de amor, desamor e historias cotidianas.

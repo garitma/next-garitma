@@ -5,11 +5,9 @@ import Grid from "aura-design-system/core/grid";
 import Image from "next/image";
 import Link from "next/link";
 import Layout from "@components/Layout";
-import GeneralSeo from "@seo/GeneralSeo";
 
-const Home = ({ preview, layout }) => (
+const Home = ({ preview }) => (
   <Layout preview={preview} text="Garitma">
-    <GeneralSeo />
     <Section
       style={{
         backgroundImage:

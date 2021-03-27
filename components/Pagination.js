@@ -28,7 +28,7 @@ const Pagination = ({ archives, archiveType = "archivos" }) => (
           ) : (
             <li className="items">
               <a aria-label="No hay página anterior" className="button-link">
-                <div className="glyphsSprite arrowLeft disable"></div>
+                <div className="glyphsSprite arrowLeft disabled"></div>
               </a>
             </li>
           )}
@@ -51,7 +51,7 @@ const Pagination = ({ archives, archiveType = "archivos" }) => (
           ) : (
             <li className="items">
               <a aria-label="No hay página anterior" className="button-link">
-                <div className="glyphsSprite arrowRight disable"></div>
+                <div className="glyphsSprite arrowRight disabled"></div>
               </a>
             </li>
           )}

@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import Button from "aura-design-system/core/button";
 import Input from "aura-design-system/core/input";
 
-import { sendContactForm } from "services/contact";
+import { sendContactForm } from "@utils/contact";
 import {
   useForm,
   useFormReset,
   useFormIsValid,
 } from "aura-design-system/core/utils/useForm";
-import { contactFormSchema } from "lib/validation-schema";
+import { contactFormSchema } from "@utils/validation-schema";
 
 function Contact() {
   const { email, message } = useForm({
@@ -56,7 +56,7 @@ function Contact() {
       <form onSubmit={handleOnSubmit}>
         <Input
           type="email"
-          placeholder="tu@correo.com"
+          placeholder="Correo electrónico"
           isHelping={email.error && email.touch ? true : false}
           isLabelable={true}
           helpMode="info"

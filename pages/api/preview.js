@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { PrismicClient } from "@services/prismic-graphql";
+import { PrismicClient } from "@utils/prismic-graphql";
 
 function linkResolver(doc) {
   if (doc.type === "noticias") {

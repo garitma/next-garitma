@@ -1,20 +1,20 @@
 import Section from "aura-design-system/core/section";
 import Grid from "aura-design-system/core/grid";
 
-import { getArchives } from "@services/prismic-rest";
-import ArchiveSeo from "@seo/ArchiveSeo";
+import { getArchives } from "@utils/prismic-rest";
 import Layout from "@components/Layout";
 import Pagination from "@components/Pagination";
 import SmartModule from "@components/SmartModule";
 
 const Archive = ({ preview, archives }) => {
   return (
-    <Layout text="Cómics">
-      <ArchiveSeo
-        document={archives}
-        title="Cómics"
-        excerpt="Las increibles aventuras de Coco, Chan, Garritas y puntitas. Cómics para leer en cualquier momento."
-      />
+    <Layout
+      text="Cómics"
+      meta={archives}
+      path="poemas"
+      excerpt="Las increibles aventuras de Coco, Chan, Garritas y puntitas."
+      isArchive
+    >
       <Section color="orange" container="smash" className="centertxt">
         <p className="h6">
           Las increibles aventuras de Coco, Chan, Garritas y puntitas.

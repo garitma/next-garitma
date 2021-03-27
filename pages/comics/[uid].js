@@ -2,19 +2,18 @@ import Error from "next/error";
 import { useRouter } from "next/router";
 
 import Layout from "@components/Layout";
-import { getComicsAndMoreComics } from "@services/prismic-graphql";
-import { queryRepeatableDocuments } from "@services/prismic-rest";
+import { getComic, getSimilarComics } from "@utils/prismic-graphql";
+import { queryRepeatableDocuments } from "@utils/prismic-rest";
 import ArticleIntro from "@components/ArticleIntro";
 import AuthorBox from "@components/AuthorBox";
 import ArticleMoreNews from "@components/ArticleMoreNews";
 import ArticleRelatedPost from "@components/ArticleRelatedPost";
 import ArticleContentGalery from "@components/ArticleContentGalery";
-import SingleSeo from "@seo/SingleSeo";
 
-const singlePoem = ({ comics, moreComics }) => {
+const singlePoem = ({ comic, moreComics }) => {
   const router = useRouter();
 
-  if (!router.isFallback && !comics?._meta?.uid) {
+  if (!router.isFallback && !comic?._meta?.uid) {
     return <Error statusCode={404} />;
   }
 
@@ -23,16 +22,22 @@ const singlePoem = ({ comics, moreComics }) => {
       {router.isFallback ? (
         <Layout text="Cargando..." />
       ) : (
-        <Layout text="Cómics">
-          <SingleSeo document={comics} type="comics" />
-          <div style={{ backgroundColor: comics?.color }}>
-            <ArticleIntro news={comics} />
-            <ArticleContentGalery news={comics} />
+        <Layout text="Cómics" meta={comic}>
+          <div style={{ backgroundColor: comic?.color }}>
+            <ArticleIntro news={comic} />
+            <ArticleContentGalery news={comic} />
 
             <AuthorBox />
-            <ArticleMoreNews title="Poemas reciente">
-              <ArticleRelatedPost news={moreComics} pathname="/comics/[uid]" />
-            </ArticleMoreNews>
+            {moreComics.length > 0 ? (
+              <ArticleMoreNews title="Cómics similares">
+                <ArticleRelatedPost
+                  news={moreComics}
+                  pathname="/poemas/[uid]"
+                />
+              </ArticleMoreNews>
+            ) : (
+              <div className="pad" />
+            )}
           </div>
         </Layout>
       )}
@@ -45,14 +50,17 @@ export const getStaticProps = async ({
   preview = false,
   previewData,
 }) => {
-  const data = await getComicsAndMoreComics(params.uid, previewData);
+  const comic = await getComic(params.uid, previewData);
+  const moreComics = await getSimilarComics(
+    comic?.comics?._meta?.id,
+    previewData
+  );
 
   return {
     props: {
       preview,
-
-      comics: data?.comics ?? null,
-      moreComics: data?.moreComics ?? [],
+      comic: comic?.comics ?? null,
+      moreComics: moreComics?.allComicss?.edges ?? [],
     },
   };
 };
