@@ -1,8 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { RichText } from "prismic-reactjs";
-import moment from "moment";
+import { RichText, Date } from "prismic-reactjs";
 
 import GLOBAL from "garitmic.config.json";
 
@@ -39,9 +38,9 @@ const Collection = ({ title, featured_img, date, pathname, slug }) => (
         </Link>
         <time className="layer">
           <small>
-            {moment(date)
-              .locale(`${GLOBAL.lang}`)
-              .format(`${GLOBAL.dateFormat}`)}
+            {Intl.DateTimeFormat(GLOBAL.lang, GLOBAL.dateFormatS).format(
+              Date(date)
+            )}
           </small>
         </time>
       </div>

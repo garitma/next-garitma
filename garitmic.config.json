@@ -9,7 +9,12 @@
   "contactEmail": "hola@garitma.com",
   "lang": "es-co",
   "timeZone": "UTC-5",
-  "dateFormat": "LL",
+  "dateFormat": "D MMM YYYY",
+  "dateFormatS": {
+    "year": "numeric",
+    "month": "long",
+    "day": "2-digit"
+  },
   "ArchivePageSize": "9",
   "social": {
     "instagram": "garitma",
