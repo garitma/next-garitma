@@ -1,10 +1,10 @@
 import Collection from "@components/Collection";
 
-const ArticleRelatedPost = ({ document, pathname }) => (
+const ArticleRelatedPost = ({ doc, pathname }) => (
   <section className="pad">
     <div className="smash">
       <div className="aureole one">
-        {document.map(({ node }) => (
+        {doc.map(({ node }) => (
           <Collection
             key={node._meta.uid}
             tags={node._meta.tags}

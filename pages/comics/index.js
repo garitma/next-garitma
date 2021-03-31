@@ -23,7 +23,7 @@ const Archive = ({ preview, archives }) => {
       <Section color="accents-1">
         <Grid>
           {archives.results.map((item, index) => (
-            <ModuleSmart document={item} key={index} />
+            <ModuleSmart doc={item} key={index} />
           ))}
         </Grid>
         <Pagination archives={archives} archiveType="comics" />

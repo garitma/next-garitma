@@ -24,7 +24,7 @@ const Archive = ({ preview, archives }) => {
       <Section color="accents-1">
         <Grid>
           {archives.results.map((item, index) => (
-            <ModuleQuote document={item} key={index} />
+            <ModuleQuote doc={item} key={index} />
           ))}
         </Grid>
         <Pagination archives={archives} archiveType="frases" />

@@ -24,16 +24,13 @@ const singlePoem = ({ comic, moreComics }) => {
       ) : (
         <Layout text="Cómics" meta={comic}>
           <div style={{ backgroundColor: comic?.color }}>
-            <ArticleIntro document={comic} />
-            <ArticleContentGalery document={comic} />
+            <ArticleIntro doc={comic} />
+            <ArticleContentGalery doc={comic} />
 
             <AuthorBox />
             {moreComics.length > 0 ? (
               <ArticleMoreNews title="Cómics similares">
-                <ArticleRelatedPost
-                  document={moreComics}
-                  pathname="/poemas/[uid]"
-                />
+                <ArticleRelatedPost doc={moreComics} pathname="/poemas/[uid]" />
               </ArticleMoreNews>
             ) : (
               <div className="pad" />
@@ -66,11 +63,9 @@ export const getStaticProps = async ({
 };
 
 export async function getStaticPaths() {
-  const documents = await queryRepeatableDocuments(
-    (doc) => doc.type === "comics"
-  );
+  const docs = await queryRepeatableDocuments((doc) => doc.type === "comics");
   return {
-    paths: documents.map((doc) => `/comics/${doc.uid}`),
+    paths: docs.map((doc) => `/comics/${doc.uid}`),
     fallback: true,
   };
 }

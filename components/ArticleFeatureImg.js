@@ -1,11 +1,11 @@
 import Image from "next/image";
 
-const ArticleFeatureImg = ({ document }) => (
+const ArticleFeatureImg = ({ doc }) => (
   <section className="smush">
     <Image
       itemProp="image"
-      alt={document.featured_img.alt}
-      src={document.featured_img.url}
+      alt={doc.featured_img.alt}
+      src={doc.featured_img.url}
       width={1140}
       height={570}
       loading="eager"

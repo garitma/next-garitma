@@ -3,19 +3,19 @@ import { RichText, Date } from "prismic-reactjs";
 
 import GLOBAL from "garitmic.config.json";
 
-const SingleIntro = ({ document }) => (
+const SingleIntro = ({ doc }) => (
   <Section container="smash">
     <div className="halo">
-      <span className="theme wall-pad">{document._meta.tags}</span>
+      <span className="theme wall-pad">{doc._meta.tags}</span>
     </div>
     <time itemProp="datePublished">
       {Intl.DateTimeFormat(GLOBAL.lang, GLOBAL.dateFormatS).format(
-        Date(document.date)
+        Date(doc.date)
       )}
     </time>
-    <h1 itemProp="name"> {RichText.asText(document.title)}</h1>
+    <h1 itemProp="name"> {RichText.asText(doc.title)}</h1>
     <p itemProp="abstract" className="h5 light">
-      {RichText.asText(document.excerpt)}
+      {RichText.asText(doc.excerpt)}
     </p>
   </Section>
 );

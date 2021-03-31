@@ -35,7 +35,7 @@ const Archive = ({ preview, archives }) => {
       <Section color="accents-1">
         <Grid>
           {archives?.results.map((item, index) => (
-            <ModuleDownload document={item} key={index} />
+            <ModuleDownload doc={item} key={index} />
           ))}
         </Grid>
         <Pagination archives={archives} archiveType="descargas" />

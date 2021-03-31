@@ -24,7 +24,7 @@ const singleDownload = ({ download, moreDownloads }) => {
       ) : (
         <Layout text="Cómics" meta={download}>
           <div style={{ backgroundColor: download?.color }}>
-            <ArticleIntro document={download} />
+            <ArticleIntro doc={download} />
 
             <div className="smosh">
               <div className="centertxt">
@@ -55,7 +55,7 @@ const singleDownload = ({ download, moreDownloads }) => {
 
             {moreDownloads.length > 0 ? (
               <ArticleMoreNews title="Fondos de pantalla similares">
-                <ArticleRelatedDownloads document={moreDownloads} />
+                <ArticleRelatedDownloads doc={moreDownloads} />
               </ArticleMoreNews>
             ) : (
               <div className="pad" />
@@ -88,11 +88,11 @@ export const getStaticProps = async ({
 };
 
 export async function getStaticPaths() {
-  const documents = await queryRepeatableDocuments(
+  const docs = await queryRepeatableDocuments(
     (doc) => doc.type === "descargas"
   );
   return {
-    paths: documents.map((doc) => `/descargas/${doc.uid}`),
+    paths: docs.map((doc) => `/descargas/${doc.uid}`),
     fallback: true,
   };
 }

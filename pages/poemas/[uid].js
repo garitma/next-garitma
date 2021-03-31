@@ -25,17 +25,14 @@ const singlePoem = ({ poem, morePoems }) => {
       ) : (
         <Layout text="Poemas" meta={poem}>
           <div style={{ backgroundColor: poem?.color }}>
-            <ArticleIntro document={poem} />
-            <ArticleFeatureImg document={poem} />
-            <ArticleContentRender document={poem} />
+            <ArticleIntro doc={poem} />
+            <ArticleFeatureImg doc={poem} />
+            <ArticleContentRender doc={poem} />
 
             <AuthorBox />
             {morePoems.length > 0 ? (
               <ArticleMoreNews title="Poemas similares">
-                <ArticleRelatedPost
-                  document={morePoems}
-                  pathname="/poemas/[uid]"
-                />
+                <ArticleRelatedPost doc={morePoems} pathname="/poemas/[uid]" />
               </ArticleMoreNews>
             ) : (
               <div className="pad" />
@@ -65,11 +62,9 @@ export const getStaticProps = async ({
 };
 
 export async function getStaticPaths() {
-  const documents = await queryRepeatableDocuments(
-    (doc) => doc.type === "poemas"
-  );
+  const docs = await queryRepeatableDocuments((doc) => doc.type === "poemas");
   return {
-    paths: documents.map((doc) => `/poemas/${doc.uid}`),
+    paths: docs.map((doc) => `/poemas/${doc.uid}`),
     fallback: true,
   };
 }

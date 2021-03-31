@@ -33,9 +33,9 @@ const Layout = ({
       ? formatMetaArchives(meta, path, text, excerpt)
       : formatMeta(meta)}
     <div className="page">
-      <Header preview={preview} document={data} text={text} />
+      <Header preview={preview} doc={data} text={text} />
       <div className="page-body">{children}</div>
-      <Footer document={data} />
+      <Footer doc={data} />
     </div>
   </main>
 );

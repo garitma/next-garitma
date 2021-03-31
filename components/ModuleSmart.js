@@ -2,15 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { RichText } from "prismic-reactjs";
 
-const ModuleSmart = ({ document }) => {
+const ModuleSmart = ({ doc }) => {
   return (
     <div className="mod">
       <div className="mod zoom">
-        <Link href={`/${document.type}/${document.uid}`}>
+        <Link href={`/${doc.type}/${doc.uid}`}>
           <a>
             <Image
-              src={document.data.featured_img.url}
-              alt={document.data.featured_img.alt}
+              src={doc.data.featured_img.url}
+              alt={doc.data.featured_img.alt}
               width={1140}
               height={570}
               loading="eager"
@@ -19,10 +19,8 @@ const ModuleSmart = ({ document }) => {
         </Link>
       </div>
       <div className="aura centertxt">
-        <span className="mod-title">
-          {RichText.asText(document.data.title)}
-        </span>
-        <p className="truncate">{RichText.asText(document.data.excerpt)}</p>
+        <span className="mod-title">{RichText.asText(doc.data.title)}</span>
+        <p className="truncate">{RichText.asText(doc.data.excerpt)}</p>
       </div>
     </div>
   );
