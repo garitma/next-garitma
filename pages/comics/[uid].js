@@ -24,14 +24,14 @@ const singlePoem = ({ comic, moreComics }) => {
       ) : (
         <Layout text="Cómics" meta={comic}>
           <div style={{ backgroundColor: comic?.color }}>
-            <ArticleIntro news={comic} />
-            <ArticleContentGalery news={comic} />
+            <ArticleIntro document={comic} />
+            <ArticleContentGalery document={comic} />
 
             <AuthorBox />
             {moreComics.length > 0 ? (
               <ArticleMoreNews title="Cómics similares">
                 <ArticleRelatedPost
-                  news={moreComics}
+                  document={moreComics}
                   pathname="/poemas/[uid]"
                 />
               </ArticleMoreNews>

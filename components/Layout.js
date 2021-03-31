@@ -2,7 +2,7 @@ import React from "react";
 import Router from "next/router";
 import NProgress from "nprogress";
 
-import Navbar from "@components/Navbar";
+import Header from "@components/Header";
 import Footer from "@components/Footer";
 import { formatMeta, formatMetaArchives } from "@utils/formatMeta";
 
@@ -33,7 +33,7 @@ const Layout = ({
       ? formatMetaArchives(meta, path, text, excerpt)
       : formatMeta(meta)}
     <div className="page">
-      <Navbar preview={preview} document={data} text={text} />
+      <Header preview={preview} document={data} text={text} />
       <div className="page-body">{children}</div>
       <Footer document={data} />
     </div>

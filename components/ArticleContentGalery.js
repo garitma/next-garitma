@@ -1,14 +1,14 @@
 import Section from "aura-design-system/core/section";
 import Image from "next/image";
 
-const ArticleContentRender = ({ news }) => {
+const ArticleContentRender = ({ document }) => {
   return (
     <Section
       className="content h4 light"
       container="smash"
       itemProp="articleBody"
     >
-      {news.gallery.map((item, index) => (
+      {document.gallery.map((item, index) => (
         <Image
           src={item.gallery_image.url}
           height={item.gallery_image.dimensions.height}

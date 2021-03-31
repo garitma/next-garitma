@@ -25,14 +25,17 @@ const singlePoem = ({ poem, morePoems }) => {
       ) : (
         <Layout text="Poemas" meta={poem}>
           <div style={{ backgroundColor: poem?.color }}>
-            <ArticleIntro news={poem} />
-            <ArticleFeatureImg news={poem} />
-            <ArticleContentRender news={poem} />
+            <ArticleIntro document={poem} />
+            <ArticleFeatureImg document={poem} />
+            <ArticleContentRender document={poem} />
 
             <AuthorBox />
             {morePoems.length > 0 ? (
               <ArticleMoreNews title="Poemas similares">
-                <ArticleRelatedPost news={morePoems} pathname="/poemas/[uid]" />
+                <ArticleRelatedPost
+                  document={morePoems}
+                  pathname="/poemas/[uid]"
+                />
               </ArticleMoreNews>
             ) : (
               <div className="pad" />

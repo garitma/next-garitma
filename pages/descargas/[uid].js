@@ -24,7 +24,7 @@ const singleDownload = ({ download, moreDownloads }) => {
       ) : (
         <Layout text="Cómics" meta={download}>
           <div style={{ backgroundColor: download?.color }}>
-            <ArticleIntro news={download} />
+            <ArticleIntro document={download} />
 
             <div className="smosh">
               <div className="centertxt">
@@ -55,10 +55,7 @@ const singleDownload = ({ download, moreDownloads }) => {
 
             {moreDownloads.length > 0 ? (
               <ArticleMoreNews title="Fondos de pantalla similares">
-                <ArticleRelatedDownloads
-                  news={moreDownloads}
-                  pathname="/descargas/[uid]"
-                />
+                <ArticleRelatedDownloads document={moreDownloads} />
               </ArticleMoreNews>
             ) : (
               <div className="pad" />

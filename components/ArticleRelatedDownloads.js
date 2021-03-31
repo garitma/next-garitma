@@ -2,11 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { RichText } from "prismic-reactjs";
 
-const ArticleRelatedPost = ({ news, pathname }) => (
+const ArticleRelatedPost = ({ document, pathname }) => (
   <section className="pad">
     <div className="smash">
       <div className="aureole  two">
-        {news.map(({ node }) => (
+        {document.map(({ node }) => (
           <div className="mod">
             <div className="mod zoom">
               <Link href={`/descargas/${node?._meta.uid}`}>
