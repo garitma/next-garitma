@@ -61,13 +61,6 @@ const MyFooter = () => {
                 </a>
               </li>
             </ul>
-            <ul className="nav-list">
-              <li className="item">
-                <Link href="/contacto">
-                  <a>Información de contacto</a>
-                </Link>
-              </li>
-            </ul>
           </div>
         </Grid>
       </Section>

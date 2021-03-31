@@ -5,7 +5,7 @@ import Grid from "aura-design-system/core/grid";
 import { getArchives } from "@utils/prismic-rest";
 import Layout from "@components/Layout";
 import Pagination from "@components/Pagination";
-import SmartModule from "@components/SmartModule";
+import ModuleSmart from "@components/ModuleSmart";
 
 const Archive = ({ preview, archives }) => {
   const router = useRouter();
@@ -33,7 +33,7 @@ const Archive = ({ preview, archives }) => {
       <Section color="accents-1">
         <Grid>
           {archives.results.map((item, index) => (
-            <SmartModule item={item} key={index} />
+            <ModuleSmart document={item} key={index} />
           ))}
         </Grid>
         <Pagination archives={archives} archiveType="poemas" />

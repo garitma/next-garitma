@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { getArchives } from "@utils/prismic-rest";
 import Layout from "@components/Layout";
 import Pagination from "@components/Pagination";
-import QuoteModule from "@components/QuoteModule";
+import ModuleQuote from "@components/ModuleQuote";
 
 const Archive = ({ preview, archives }) => {
   const router = useRouter();
@@ -32,7 +32,7 @@ const Archive = ({ preview, archives }) => {
       <Section color="accents-1">
         <Grid>
           {archives?.results.map((item, index) => (
-            <QuoteModule item={item} key={index} />
+            <ModuleQuote document={item} key={index} />
           ))}
         </Grid>
         <Pagination archives={archives} archiveType="frases" />

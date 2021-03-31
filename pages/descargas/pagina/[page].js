@@ -7,7 +7,7 @@ import { RichText } from "prismic-reactjs";
 import { getArchives } from "@utils/prismic-rest";
 import Layout from "@components/Layout";
 import Pagination from "@components/Pagination";
-import DownloadModule from "@components/DownloadModule";
+import ModuleDownload from "@components/ModuleDownload";
 
 const Archive = ({ preview, archives }) => {
   const router = useRouter();
@@ -35,7 +35,7 @@ const Archive = ({ preview, archives }) => {
       <Section color="accents-1">
         <Grid>
           {archives?.results.map((item, index) => (
-            <DownloadModule item={item} key={index} />
+            <ModuleDownload document={item} key={index} />
           ))}
         </Grid>
         <Pagination archives={archives} archiveType="descargas" />
