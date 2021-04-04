@@ -2,7 +2,7 @@ import GLOBAL from "garitmic.config.json";
 import Head from "next/head";
 import { RichText } from "prismic-reactjs";
 
-export const formatMeta = (doc) => {
+export const formatMeta = (doc, path) => {
   return (
     <Head>
       <title>
@@ -11,7 +11,7 @@ export const formatMeta = (doc) => {
       </title>
       <link
         rel="canonical"
-        href={`${GLOBAL.siteURL}${
+        href={`${GLOBAL.siteURL}${path ? `/${path}` : ""}${
           doc?._meta?.uid ? `/${doc?._meta?.uid}` : ""
         }`}
       />
@@ -26,7 +26,7 @@ export const formatMeta = (doc) => {
       <meta name="twitter:creator" content={`@${GLOBAL.social.twitter}`} />
       <meta
         property="og:url"
-        content={`${GLOBAL.siteURL}${
+        content={`${GLOBAL.siteURL}${path ? `/${path}` : ""}${
           doc?._meta?.uid ? `/${doc?._meta?.uid}` : ""
         }`}
       />

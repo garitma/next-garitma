@@ -6,8 +6,8 @@ const ArticleRelatedPost = ({ doc, pathname }) => (
   <section className="pad">
     <div className="smash">
       <div className="aureole  two">
-        {doc.map(({ node }) => (
-          <div className="mod">
+        {doc.map(({ node }, index) => (
+          <div className="mod" key={index}>
             <div className="mod zoom">
               <Link href={`/descargas/${node?._meta.uid}`}>
                 <a>

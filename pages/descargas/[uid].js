@@ -22,7 +22,7 @@ const singleDownload = ({ download, moreDownloads }) => {
       {router.isFallback ? (
         <Layout text="Cargando..." />
       ) : (
-        <Layout text="Cómics" meta={download}>
+        <Layout text="Descargas" meta={download} path="descargas">
           <div style={{ backgroundColor: download?.color }}>
             <ArticleIntro doc={download} />
 

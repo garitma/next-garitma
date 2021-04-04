@@ -22,7 +22,7 @@ const singlePoem = ({ comic, moreComics }) => {
       {router.isFallback ? (
         <Layout text="Cargando..." />
       ) : (
-        <Layout text="Cómics" meta={comic}>
+        <Layout text="Cómics" meta={comic} path="comics">
           <div style={{ backgroundColor: comic?.color }}>
             <ArticleIntro doc={comic} />
             <ArticleContentGalery doc={comic} />

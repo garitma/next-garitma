@@ -31,7 +31,7 @@ const Layout = ({
   <main>
     {isArchive
       ? formatMetaArchives(meta, path, text, excerpt)
-      : formatMeta(meta)}
+      : formatMeta(meta, path)}
     <div className="page">
       <Header preview={preview} doc={data} text={text} />
       <div className="page-body">{children}</div>
