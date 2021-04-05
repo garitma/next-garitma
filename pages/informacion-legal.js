@@ -1,5 +1,5 @@
 import { RichText } from "prismic-reactjs";
-import Section from "aura-design-system/core/section";
+import Section from "aura-design/section";
 
 import { getPage } from "@utils/prismic-graphql";
 import Layout from "@components/Layout";

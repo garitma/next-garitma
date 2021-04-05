@@ -1,5 +1,5 @@
-import Button from "aura-design-system/core/button";
-import Section from "aura-design-system/core/section";
+import Button from "aura-design/button";
+import Section from "aura-design/section";
 import Image from "next/image";
 import Link from "next/link";
 

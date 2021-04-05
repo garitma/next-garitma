@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Icon from "aura-design-system/core/atoms/icon";
-import Section from "aura-design-system/core/section";
-import Grid from "aura-design-system/core/grid";
+import Icon from "aura-design/atoms/icon";
+import Section from "aura-design/section";
+import Grid from "aura-design/grid";
 
 const MyFooter = () => {
   return (

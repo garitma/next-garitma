@@ -1,4 +1,4 @@
-import Section from "aura-design-system/core/section";
+import Section from "aura-design/section";
 
 const ArticleMoreNews = ({ children, title }) => (
   <Section container="smash">

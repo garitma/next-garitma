@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import Button from "aura-design-system/core/button";
-import Input from "aura-design-system/core/input";
+import Button from "aura-design/button";
+import Input from "aura-design/input";
 
 import { sendContactForm } from "@utils/contact";
 import {
   useForm,
   useFormReset,
   useFormIsValid,
-} from "aura-design-system/core/utils/useForm";
+} from "aura-design/utils/useForm";
 import { contactFormSchema } from "@utils/validation-schema";
 
 function Contact() {

@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
-import Section from "aura-design-system/core/section";
-import Grid from "aura-design-system/core/grid";
+import Section from "aura-design/section";
+import Grid from "aura-design/grid";
 
 import { getArchives } from "@utils/prismic-rest";
 import Layout from "@components/Layout";

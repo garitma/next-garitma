@@ -1,5 +1,5 @@
-import Section from "aura-design-system/core/section";
-import Grid from "aura-design-system/core/grid";
+import Section from "aura-design/section";
+import Grid from "aura-design/grid";
 import Error from "next/error";
 import { useRouter } from "next/router";
 import { RichText } from "prismic-reactjs";

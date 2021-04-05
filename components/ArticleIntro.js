@@ -1,4 +1,4 @@
-import Section from "aura-design-system/core/section";
+import Section from "aura-design/section";
 import { RichText, Date } from "prismic-reactjs";
 
 import GLOBAL from "garitmic.config.json";

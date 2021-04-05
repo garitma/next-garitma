@@ -1,4 +1,4 @@
-import Section from "aura-design-system/core/section";
+import Section from "aura-design/section";
 import Link from "next/link";
 
 const Pagination = ({ archives, archiveType = "archivos" }) => (

@@ -1,4 +1,4 @@
-import Grid from "aura-design-system/core/grid";
+import Grid from "aura-design/grid";
 
 import Layout from "@components/Layout";
 import HeroBanner from "@components/HeroBanner";

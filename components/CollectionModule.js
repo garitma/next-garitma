@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import Section from "aura-design-system/core/section";
+import Section from "aura-design/section";
 
 const CollectionModule = ({
   href,
