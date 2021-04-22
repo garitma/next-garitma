@@ -8,6 +8,7 @@ import ArticleIntro from "@components/ArticleIntro";
 import ArticleFeatureImg from "@components/ArticleFeatureImg";
 import ArticleContentRender from "@components/ArticleContentRender";
 import AuthorBox from "@components/AuthorBox";
+import ArticleComment from "@components/ArticleComment";
 import ArticleMoreNews from "@components/ArticleMoreNews";
 import ArticleRelatedPost from "@components/ArticleRelatedPost";
 
@@ -28,8 +29,13 @@ const singlePoem = ({ poem, morePoems }) => {
             <ArticleIntro doc={poem} />
             <ArticleFeatureImg doc={poem} />
             <ArticleContentRender doc={poem} />
-
             <AuthorBox />
+            <ArticleComment
+              title={poem.title}
+              uid={poem._meta.uid}
+              id={poem._meta.id}
+              path="poemas"
+            />
             {morePoems.length > 0 ? (
               <ArticleMoreNews title="Poemas similares">
                 <ArticleRelatedPost doc={morePoems} pathname="/poemas/[uid]" />
