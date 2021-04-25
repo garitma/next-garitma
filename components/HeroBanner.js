@@ -7,8 +7,8 @@ const HeroBanner = () => {
   return (
     <Section
       style={{
-        backgroundImage:
-          "url(https://images.prismic.io/garitma/e0fbb4a9-7395-4818-a79f-8642abe6b173_Patron-aura-design.png?auto=compress,format)",
+        background:
+          "url(https://images.prismic.io/garitma/e0fbb4a9-7395-4818-a79f-8642abe6b173_Patron-aura-design.png)",
         backgroundSize: "contain",
       }}
       color="purple"
