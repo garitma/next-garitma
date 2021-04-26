@@ -7,6 +7,7 @@ import { getDownload, getSimilarDownload } from "@utils/prismic-graphql";
 import { queryRepeatableDocuments } from "@utils/prismic-rest";
 import ArticleIntro from "@components/ArticleIntro";
 import AuthorBox from "@components/AuthorBox";
+import ArticleComment from "@components/ArticleComment";
 import ArticleMoreNews from "@components/ArticleMoreNews";
 import ArticleRelatedDownloads from "@components/ArticleRelatedDownloads";
 
@@ -52,7 +53,12 @@ const singleDownload = ({ download, moreDownloads }) => {
               </div>
             </div>
             <AuthorBox />
-
+            <ArticleComment
+              title={download?.title}
+              uid={download?._meta?.uid}
+              id={download?._meta?.id}
+              path="descargas"
+            />
             {moreDownloads.length > 0 ? (
               <ArticleMoreNews title="Fondos de pantalla similares">
                 <ArticleRelatedDownloads doc={moreDownloads} />

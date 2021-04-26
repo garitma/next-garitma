@@ -6,6 +6,7 @@ import { getComic, getSimilarComics } from "@utils/prismic-graphql";
 import { queryRepeatableDocuments } from "@utils/prismic-rest";
 import ArticleIntro from "@components/ArticleIntro";
 import AuthorBox from "@components/AuthorBox";
+import ArticleComment from "@components/ArticleComment";
 import ArticleMoreNews from "@components/ArticleMoreNews";
 import ArticleRelatedPost from "@components/ArticleRelatedPost";
 import ArticleContentGalery from "@components/ArticleContentGalery";
@@ -26,8 +27,13 @@ const singlePoem = ({ comic, moreComics }) => {
           <div style={{ backgroundColor: comic?.color }}>
             <ArticleIntro doc={comic} />
             <ArticleContentGalery doc={comic} />
-
             <AuthorBox />
+            <ArticleComment
+              title={comic?.title}
+              uid={comic?._meta?.uid}
+              id={comic?._meta?.id}
+              path="comics"
+            />
             {moreComics.length > 0 ? (
               <ArticleMoreNews title="Cómics similares">
                 <ArticleRelatedPost doc={moreComics} pathname="/poemas/[uid]" />

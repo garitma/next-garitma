@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from "react";
+import { useRef } from "react";
 import Section from "aura-design/section";
 import { ReactCusdis } from "react-cusdis";
 

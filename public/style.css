@@ -1,0 +1,30 @@
+.comment-main.svelte-xmjd0o {
+  font-size: 17px;
+}
+.cusdis-reply-info.cusdis-field.svelte-1b9bqil {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 0.5em;
+}
+
+textarea.svelte-1b9bqil.svelte-1b9bqil,
+input.svelte-1b9bqil.svelte-1b9bqil {
+  width: 100% !important;
+  border: 2px solid #ddd !important;
+  padding: 1em !important;
+  font-size: 1em !important;
+  border-radius: 0.4em !important;
+  outline: none !important;
+  font-family: inherit !important;
+  box-sizing: border-box !important;
+}
+
+.comment-main.svelte-xmjd0o textarea::placeholder,
+.comment-main.svelte-xmjd0o input::placeholder {
+  color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.submit-btn.svelte-1b9bqil.svelte-1b9bqil {
+  padding: 1em 1.2em;
+  font-size: 1em;
+}
