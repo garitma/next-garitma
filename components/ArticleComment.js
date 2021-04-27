@@ -8,8 +8,10 @@ const ArticleComment = ({ title, id, uid, path }) => {
   const cudis = useRef(null);
 
   useEffect(() => {
-    cudis.current.innerHTML = "";
-    window.renderCusdis(cudis.current);
+    if (loaded) {
+      cudis.current.innerHTML = "";
+      window.renderCusdis(cudis.current);
+    }
   }, [id, loaded]);
 
   if (error) {
