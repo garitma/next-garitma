@@ -16,7 +16,6 @@
     "nprogress": "^0.2.0",
     "prismic-reactjs": "^0.3.2",
     "react": "^17.0.1",
-    "react-cusdis": "^1.0.1",
     "react-dom": "^17.0.1"
   },
   "scripts": {
