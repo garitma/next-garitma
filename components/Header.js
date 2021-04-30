@@ -3,7 +3,6 @@ import Link from "next/link";
 import GLOBAL from "garitmic.config.json";
 
 const MyNavbar = ({ text }) => {
-  const date = new Date();
   return (
     <>
       <header
@@ -17,14 +16,14 @@ const MyNavbar = ({ text }) => {
           <ul className="nav-list">
             <li className="item logo-circle">
               <Link href="/">
-                <a>
-                  <div className="glyphsSprite logo" />
+                <a aria-label="Logo Garitma">
+                  <div className="icon logo" />
                 </a>
               </Link>
             </li>
             <li className="mod">
               {/* <a className="button-link">
-                <div className="glyphsSprite search" />
+                <div className="icon search" />
               </a> */}
             </li>
           </ul>

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import Section from "aura-design/section";
-import { useScript } from "@utils/useScript";
+import { useScript } from "aura-design/script";
 
 const ArticleComment = ({ title, id, uid, path }) => {
   const { loaded, error } = useScript("https://cusdis.com/js/cusdis.es.js");

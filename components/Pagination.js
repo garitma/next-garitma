@@ -21,14 +21,14 @@ const Pagination = ({ archives, archiveType = "archivos" }) => (
                 }
               >
                 <a aria-label="No hay página anterior" className="button-link">
-                  <div className="glyphsSprite arrowLeft"></div>
+                  <div className="icon arrowLeft"></div>
                 </a>
               </Link>
             </li>
           ) : (
             <li className="items">
               <a aria-label="No hay página anterior" className="button-link">
-                <div className="glyphsSprite arrowLeft disabled"></div>
+                <div className="icon arrowLeft disabled"></div>
               </a>
             </li>
           )}
@@ -44,14 +44,14 @@ const Pagination = ({ archives, archiveType = "archivos" }) => (
                 as={`/${archiveType}/pagina/${archives.page + 1}`}
               >
                 <a aria-label="Página siguiente" className="button-link">
-                  <div className="glyphsSprite arrowRight"></div>
+                  <div className="icon arrowRight"></div>
                 </a>
               </Link>
             </li>
           ) : (
             <li className="items">
               <a aria-label="No hay página anterior" className="button-link">
-                <div className="glyphsSprite arrowRight disabled"></div>
+                <div className="icon arrowRight disabled"></div>
               </a>
             </li>
           )}
