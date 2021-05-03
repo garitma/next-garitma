@@ -14,9 +14,6 @@ const SingleIntro = ({ doc }) => (
       )}
     </time>
     <h1 itemProp="name"> {RichText.asText(doc.title)}</h1>
-    <p itemProp="abstract" className="h5 light">
-      {RichText.asText(doc.excerpt)}
-    </p>
   </Section>
 );
 

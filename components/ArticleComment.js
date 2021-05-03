@@ -11,6 +11,12 @@ const ArticleComment = ({ title, id, uid, path }) => {
     if (loaded) {
       cudis.current.innerHTML = "";
       window.renderCusdis(cudis.current);
+
+      const allInputs = cudis.current.querySelectorAll("input, textarea");
+      allInputs.forEach((input) => {
+        input.classList.add("naked");
+        input.classList.add("accents-1");
+      });
     }
   }, [id, loaded]);
 

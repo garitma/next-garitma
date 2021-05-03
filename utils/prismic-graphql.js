@@ -4,7 +4,6 @@ import {
   API_TOKEN,
   GRAPHQL_API_URL,
   API_LOCALE,
-  LAYOUT_UID,
 } from "@utils/constants";
 
 import { gql } from "graphql-request";
@@ -38,25 +37,6 @@ async function fetchAPI(query, { previewData, variables } = {}) {
     throw new Error("Failed to fetch API");
   }
   return json.data;
-}
-
-export async function getAllPoemsWithSlug() {
-  const data = await fetchAPI(
-    gql`
-      {
-        allPoemass {
-          edges {
-            node {
-              _meta {
-                uid
-              }
-            }
-          }
-        }
-      }
-    `
-  );
-  return data?.allPoemass?.edges;
 }
 
 export async function getPoem(uid, previewData) {
