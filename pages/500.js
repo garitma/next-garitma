@@ -13,11 +13,6 @@ const MyError = () => {
         <div className="one valign">
           <div className="smosh">
             <h1 className="centertxt">500 ha ocurrido un problema</h1>
-            <div className="aureole one">
-              <Link href="/">
-                <Button mode="link">Volver al inicio</Button>
-              </Link>
-            </div>
           </div>
         </div>
         <div className="valign centertxt mod-media">
