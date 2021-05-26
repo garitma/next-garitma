@@ -4,7 +4,7 @@ import NProgress from "nprogress";
 
 import Header from "@components/Header";
 import Footer from "@components/Footer";
-import { formatMeta, formatMetaArchives } from "@utils/formatMeta";
+import { formatMeta, formatMetaArchives } from "@utils/format-meta";
 
 Router.events.on("routeChangeStart", () => {
   NProgress.start();
