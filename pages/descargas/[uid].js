@@ -1,15 +1,12 @@
-import Error from "next/error";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
+import Error from "pages/_error";
 import Layout from "@components/Layout";
 import { getDownload, getSimilarDownload } from "@utils/prismic-graphql";
 import { queryRepeatableDocuments } from "@utils/prismic-rest";
 import ArticleIntro from "@components/ArticleIntro";
 import AuthorBox from "@components/AuthorBox";
-import ArticleComment from "@components/ArticleComment";
-import ArticleMoreNews from "@components/ArticleMoreNews";
-import ArticleRelatedDownloads from "@components/ArticleRelatedDownloads";
 
 const singleDownload = ({ download, moreDownloads }) => {
   const router = useRouter();
@@ -53,19 +50,7 @@ const singleDownload = ({ download, moreDownloads }) => {
               </div>
             </div>
             <AuthorBox />
-            <ArticleComment
-              title={download?.title}
-              uid={download?._meta?.uid}
-              id={download?._meta?.id}
-              path="descargas"
-            />
-            {moreDownloads.length > 0 ? (
-              <ArticleMoreNews title="Fondos de pantalla similares">
-                <ArticleRelatedDownloads doc={moreDownloads} />
-              </ArticleMoreNews>
-            ) : (
-              <div className="pad" />
-            )}
+            <div className="pad" />
           </div>
         </Layout>
       )}
@@ -79,16 +64,11 @@ export const getStaticProps = async ({
   previewData,
 }) => {
   const download = await getDownload(params.uid, previewData);
-  const moreDownloads = await getSimilarDownload(
-    download?.descargas?._meta?.id,
-    previewData
-  );
 
   return {
     props: {
       preview,
       download: download?.descargas ?? null,
-      moreDownloads: moreDownloads?.allDescargass?.edges ?? [],
     },
   };
 };

@@ -1,16 +1,13 @@
-import Error from "next/error";
 import { useRouter } from "next/router";
 
-import { getPoem, getSimilarPoems } from "@utils/prismic-graphql";
+import Error from "pages/_error";
+import { getPoem } from "@utils/prismic-graphql";
 import { queryRepeatableDocuments } from "@utils/prismic-rest";
 import Layout from "@components/Layout";
 import ArticleIntro from "@components/ArticleIntro";
 import ArticleFeatureImg from "@components/ArticleFeatureImg";
 import ArticleContentRender from "@components/ArticleContentRender";
 import AuthorBox from "@components/AuthorBox";
-import ArticleComment from "@components/ArticleComment";
-import ArticleMoreNews from "@components/ArticleMoreNews";
-import ArticleRelatedPost from "@components/ArticleRelatedPost";
 
 const singlePoem = ({ poem, morePoems }) => {
   const router = useRouter();
@@ -30,19 +27,7 @@ const singlePoem = ({ poem, morePoems }) => {
             <ArticleFeatureImg doc={poem} />
             <ArticleContentRender doc={poem} />
             <AuthorBox />
-            <ArticleComment
-              title={poem.title}
-              uid={poem._meta.uid}
-              id={poem._meta.id}
-              path="poemas"
-            />
-            {morePoems.length > 0 ? (
-              <ArticleMoreNews title="Poemas similares">
-                <ArticleRelatedPost doc={morePoems} pathname="/poemas/[uid]" />
-              </ArticleMoreNews>
-            ) : (
-              <div className="pad" />
-            )}
+            <div className="pad" />
           </div>
         </Layout>
       )}
@@ -56,13 +41,11 @@ export const getStaticProps = async ({
   previewData,
 }) => {
   const poem = await getPoem(params.uid, previewData);
-  const morePoems = await getSimilarPoems(poem?.poemas?._meta?.id, previewData);
 
   return {
     props: {
       preview,
       poem: poem?.poemas ?? null,
-      morePoems: morePoems?.allPoemass?.edges ?? [],
     },
   };
 };

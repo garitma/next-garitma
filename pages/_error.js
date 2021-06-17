@@ -3,7 +3,7 @@ import Button from "aura-design/button";
 import Head from "next/head";
 import Link from "next/link";
 
-const MyError = ({ statusCode }) => {
+function Error({ statusCode }) {
   return (
     <Section container="smush">
       <Head>
@@ -12,18 +12,19 @@ const MyError = ({ statusCode }) => {
       <div className="aureole two valign" style={{ minHeight: "85vh" }}>
         <div className="one valign">
           <div className="smosh">
-            <h1 className="centertxt">
-              {statusCode === 404
-                ? " 404 página no encontrada"
-                : `${statusCode} ha ocurrido un problema`}
-            </h1>
-            {statusCode === 404 && (
-              <div className="aureole one">
-                <Link href="/">
-                  <Button mode="link">Volver al inicio</Button>
-                </Link>
-              </div>
+            {statusCode === 404 ? (
+              <h1 className="centertxt">404 página no encontrada</h1>
+            ) : (
+              <h1 className="centertxt">
+                {statusCode} ha ocurrido un problema
+              </h1>
             )}
+
+            <div className="aureole one">
+              <Link href="/">
+                <Button mode="link">Volver al inicio</Button>
+              </Link>
+            </div>
           </div>
         </div>
         <div className="valign centertxt mod-media">
@@ -36,6 +37,11 @@ const MyError = ({ statusCode }) => {
       </div>
     </Section>
   );
+}
+
+Error.getInitialProps = ({ res, err }) => {
+  const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
+  return { statusCode };
 };
 
-export default MyError;
+export default Error;

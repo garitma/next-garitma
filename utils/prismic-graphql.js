@@ -228,6 +228,10 @@ export async function getSimilarDownload(id, previewData) {
 }
 
 export async function getSimilarPoems(id, previewData) {
+  if (!poem?.poemas?._meta?.id) {
+    return undefined;
+  }
+
   const data = await fetchAPI(
     gql`
       query similarPoems($id: String!) {

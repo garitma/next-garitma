@@ -1,14 +1,11 @@
-import Error from "next/error";
 import { useRouter } from "next/router";
 
+import Error from "pages/_error";
 import Layout from "@components/Layout";
 import { getComic, getSimilarComics } from "@utils/prismic-graphql";
 import { queryRepeatableDocuments } from "@utils/prismic-rest";
 import ArticleIntro from "@components/ArticleIntro";
 import AuthorBox from "@components/AuthorBox";
-import ArticleComment from "@components/ArticleComment";
-import ArticleMoreNews from "@components/ArticleMoreNews";
-import ArticleRelatedPost from "@components/ArticleRelatedPost";
 import ArticleContentGalery from "@components/ArticleContentGalery";
 
 const singlePoem = ({ comic, moreComics }) => {
@@ -28,19 +25,7 @@ const singlePoem = ({ comic, moreComics }) => {
             <ArticleIntro doc={comic} />
             <ArticleContentGalery doc={comic} />
             <AuthorBox />
-            <ArticleComment
-              title={comic?.title}
-              uid={comic?._meta?.uid}
-              id={comic?._meta?.id}
-              path="comics"
-            />
-            {moreComics.length > 0 ? (
-              <ArticleMoreNews title="Cómics similares">
-                <ArticleRelatedPost doc={moreComics} pathname="/poemas/[uid]" />
-              </ArticleMoreNews>
-            ) : (
-              <div className="pad" />
-            )}
+            <div className="pad" />
           </div>
         </Layout>
       )}
@@ -54,16 +39,11 @@ export const getStaticProps = async ({
   previewData,
 }) => {
   const comic = await getComic(params.uid, previewData);
-  const moreComics = await getSimilarComics(
-    comic?.comics?._meta?.id,
-    previewData
-  );
 
   return {
     props: {
       preview,
       comic: comic?.comics ?? null,
-      moreComics: moreComics?.allComicss?.edges ?? [],
     },
   };
 };
