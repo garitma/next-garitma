@@ -12,8 +12,8 @@ const Home = ({ preview }) => (
         href="/poemas"
         color="blue"
         src="https://images.prismic.io/garitma/f5924bfe-a81d-4070-a24d-0a9dc0d2a2ee_poemas+garitma.png?auto=compress,format"
-        height={300}
-        width={300}
+        width={402}
+        height={381}
         alt="Poemas cortos de amor, desamor e historias cotidianas"
         title="Poemas"
         description="Poemas cortos de amor, desamor e historias cotidianas"

@@ -9,8 +9,8 @@ const Meta = ({ title, excerpt, slug, image }) => {
       <meta name="googlebot" content="index,follow" />
       <title>{title ? `${title} | ${SITE_NAME}` : SITE_NAME}</title>
       <meta property="og:title" content={title} />
-      <link rel="canonical" href={`${SITE_URL}${slug}`} />
-      <meta property="og:url" content={`${SITE_URL}${slug}`} />
+      <link rel="canonical" href={`${SITE_URL}${slug ? slug : ""}`} />
+      <meta property="og:url" content={`${SITE_URL}${slug ? slug : ""}`} />
       <meta name="description" content={excerpt || SITE_DESCRIPTIO} />
       <meta property="og:description" content={excerpt || SITE_DESCRIPTIO} />
       <meta name="twitter:card" content="summary_large_image" />
