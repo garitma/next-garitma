@@ -27,6 +27,7 @@ const singlePoem = ({ comic }) => {
             title: RichText.asText(comic?.title),
             excerpt: RichText.asText(comic?.excerpt),
             slug: router?.asPath,
+            image: poem?.featured_img?.url,
           }}
         >
           <div style={{ backgroundColor: comic?.color }}>

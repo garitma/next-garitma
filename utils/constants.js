@@ -16,6 +16,8 @@ export const SOCIAL = {
   openGrap:
     "https://images.prismic.io/garitma%2F41185919-2f0a-44b8-bc20-cfcd350ae530_open_graph_logo.png?auto=compress,format",
 };
+export const SITE_DESCRIPTIO =
+  "Ven conmigo a mi imaginación. Te doy la bienvenida a mi blog de arte donde cuento y dibujo historias.";
 export const API_URL_KIT = "https://garitma.cdn.prismic.io/api/v2";
 export const GRAPHQL_API_URL = "https://garitma.prismic.io/graphql";
 export const API_TOKEN = process.env.ACCESS_TOKEN;

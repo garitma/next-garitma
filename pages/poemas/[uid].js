@@ -28,6 +28,7 @@ const singlePoem = ({ poem }) => {
             title: RichText.asText(poem?.title),
             excerpt: RichText.asText(poem?.excerpt),
             slug: router?.asPath,
+            image: poem?.featured_img?.url,
           }}
         >
           <div style={{ backgroundColor: poem?.color }}>

@@ -27,11 +27,11 @@ const singleDownload = ({ download }) => {
             title: RichText.asText(download?.title),
             excerpt: RichText.asText(download?.excerpt),
             slug: router?.asPath,
+            image: poem?.featured_img?.url,
           }}
         >
           <div style={{ backgroundColor: download?.color }}>
             <ArticleIntro doc={download} />
-
             <div className="smosh">
               <div className="centertxt">
                 <a
