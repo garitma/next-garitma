@@ -27,7 +27,7 @@ const singleDownload = ({ download }) => {
             title: RichText.asText(download?.title),
             excerpt: RichText.asText(download?.excerpt),
             slug: router?.asPath,
-            image: poem?.featured_img?.url,
+            image: download?.featured_img?.url,
           }}
         >
           <div style={{ backgroundColor: download?.color }}>

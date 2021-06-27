@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import { SITE_URL, SITE_NAME, SOCIAL } from "@utils/constants";
+import { SITE_URL, SITE_NAME, SOCIAL, SITE_DESCRIPTIO } from "@utils/constants";
 
 const Meta = ({ title, excerpt, slug, image }) => {
   return (
@@ -11,8 +11,8 @@ const Meta = ({ title, excerpt, slug, image }) => {
       <meta property="og:title" content={title} />
       <link rel="canonical" href={`${SITE_URL}${slug}`} />
       <meta property="og:url" content={`${SITE_URL}${slug}`} />
-      <meta name="description" content={excerpt} />
-      <meta property="og:description" content={excerpt} />
+      <meta name="description" content={excerpt || SITE_DESCRIPTIO} />
+      <meta property="og:description" content={excerpt || SITE_DESCRIPTIO} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content={SITE_URL} />
       <meta name="twitter:creator" content={`@${SOCIAL.twitter}`} />
