@@ -1,8 +1,8 @@
 import Router from "next/router";
 import "aura-design/style.css";
-import "../public/style.css";
 
-import * as gtag from "public/gtag";
+import "../public/style.css";
+import * as gtag from "@utils/gtag";
 
 Router.events.on("routeChangeComplete", (url) => gtag.pageview(url));
 

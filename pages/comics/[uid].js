@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { RichText } from "prismic-reactjs";
 
 import Error from "pages/_error";
 import Layout from "@components/Layout";
@@ -8,7 +9,7 @@ import ArticleIntro from "@components/ArticleIntro";
 import AuthorBox from "@components/AuthorBox";
 import ArticleContentGalery from "@components/ArticleContentGalery";
 
-const singlePoem = ({ comic, moreComics }) => {
+const singlePoem = ({ comic }) => {
   const router = useRouter();
 
   if (!router.isFallback && !comic?._meta?.uid) {
@@ -20,7 +21,14 @@ const singlePoem = ({ comic, moreComics }) => {
       {router.isFallback ? (
         <Layout text="Cargando..." />
       ) : (
-        <Layout text="Cómics" meta={comic} path="comics">
+        <Layout
+          text="Cómics"
+          seo={{
+            title: RichText.asText(comic?.title),
+            excerpt: RichText.asText(comic?.excerpt),
+            slug: router?.asPath,
+          }}
+        >
           <div style={{ backgroundColor: comic?.color }}>
             <ArticleIntro doc={comic} />
             <ArticleContentGalery doc={comic} />

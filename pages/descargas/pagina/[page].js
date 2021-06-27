@@ -22,10 +22,11 @@ const Archive = ({ preview, archives }) => {
   return (
     <Layout
       text="Descargas"
-      meta={archives}
-      path="poemas"
-      excerpt="Fondos de pantalla originales artísticos para tu celular."
-      isArchive
+      seo={{
+        title: `Descargas página ${archives.page}`,
+        excerpt: "Fondos de pantalla originales artísticos para tu celular.",
+        slug: router.asPath,
+      }}
     >
       <Section color="yellow" container="smash" className="centertxt">
         <p className="h6">

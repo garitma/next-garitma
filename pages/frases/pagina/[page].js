@@ -21,10 +21,11 @@ const Archive = ({ preview, archives }) => {
   return (
     <Layout
       text="Frases"
-      meta={archives}
-      path="poemas"
-      excerpt="Frases para decirle a alguien."
-      isArchive
+      seo={{
+        title: `Frases página ${archives?.page}`,
+        excerpt: "Frases para decirle a alguien.",
+        slug: router?.asPath,
+      }}
     >
       <Section container="smash" className="centertxt">
         <p className="h6">Frases para decirle a alguien.</p>

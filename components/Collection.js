@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { RichText, Date } from "prismic-reactjs";
 
-import GLOBAL from "garitmic.config.json";
+import { API_LOCALE, DATE_FORMAT } from "@utils/constants";
 
 const Collection = ({ title, featured_img, date, pathname, slug }) => (
   <div className="halo mod">
@@ -38,9 +38,7 @@ const Collection = ({ title, featured_img, date, pathname, slug }) => (
         </Link>
         <time className="layer">
           <small>
-            {Intl.DateTimeFormat(GLOBAL.lang, GLOBAL.dateFormatS).format(
-              Date(date)
-            )}
+            {Intl.DateTimeFormat(API_LOCALE, DATE_FORMAT).format(Date(date))}
           </small>
         </time>
       </div>

@@ -1,7 +1,6 @@
 import Section from "aura-design/section";
 import { RichText, Date } from "prismic-reactjs";
-
-import GLOBAL from "garitmic.config.json";
+import { API_LOCALE, DATE_FORMAT } from "@utils/constants";
 
 const SingleIntro = ({ doc }) => (
   <Section container="smash">
@@ -9,11 +8,9 @@ const SingleIntro = ({ doc }) => (
       <span className="theme wall-pad">{doc._meta.tags}</span>
     </div>
     <time itemProp="datePublished">
-      {Intl.DateTimeFormat(GLOBAL.lang, GLOBAL.dateFormatS).format(
-        Date(doc.date)
-      )}
+      {Intl.DateTimeFormat(API_LOCALE, DATE_FORMAT).format(Date(doc.date))}
     </time>
-    <h1 itemProp="name"> {RichText.asText(doc.title)}</h1>
+    <h1 itemProp="name">{RichText.asText(doc.title)}</h1>
   </Section>
 );
 

@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { RichText } from "prismic-reactjs";
 
 import Error from "pages/_error";
 import { getPoem } from "@utils/prismic-graphql";
@@ -9,7 +10,7 @@ import ArticleFeatureImg from "@components/ArticleFeatureImg";
 import ArticleContentRender from "@components/ArticleContentRender";
 import AuthorBox from "@components/AuthorBox";
 
-const singlePoem = ({ poem, morePoems }) => {
+const singlePoem = ({ poem }) => {
   const router = useRouter();
 
   if (!router.isFallback && !poem?._meta?.uid) {
@@ -21,7 +22,14 @@ const singlePoem = ({ poem, morePoems }) => {
       {router.isFallback ? (
         <Layout text="Cargando..." />
       ) : (
-        <Layout text="Poemas" meta={poem} path="poemas">
+        <Layout
+          text="Poemas"
+          seo={{
+            title: RichText.asText(poem?.title),
+            excerpt: RichText.asText(poem?.excerpt),
+            slug: router?.asPath,
+          }}
+        >
           <div style={{ backgroundColor: poem?.color }}>
             <ArticleIntro doc={poem} />
             <ArticleFeatureImg doc={poem} />

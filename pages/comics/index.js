@@ -1,5 +1,6 @@
 import Section from "aura-design/section";
 import Grid from "aura-design/grid";
+import { useRouter } from "next/router";
 
 import { getArchives } from "@utils/prismic-rest";
 import Layout from "@components/Layout";
@@ -7,13 +8,23 @@ import Pagination from "@components/Pagination";
 import ModuleSmart from "@components/ModuleSmart";
 
 const Archive = ({ preview, archives }) => {
+  const router = useRouter();
+
+  if (
+    (!router.isFallback && archives.page > archives.total_pages) ||
+    !archives
+  ) {
+    return <Error statusCode="404" />;
+  }
+
   return (
     <Layout
       text="Cómics"
-      meta={archives}
-      path="poemas"
-      excerpt="Las increibles aventuras de Coco, Chan, Garritas y puntitas."
-      isArchive
+      seo={{
+        title: `Cómics página ${archives.page}`,
+        excerpt: "Las increibles aventuras de Coco, Chan, Garritas y puntitas.",
+        slug: router.asPath,
+      }}
     >
       <Section color="orange" container="smash" className="centertxt">
         <p className="h6">

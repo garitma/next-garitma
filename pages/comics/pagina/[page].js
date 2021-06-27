@@ -21,10 +21,11 @@ const Archive = ({ preview, archives }) => {
   return (
     <Layout
       text="Cómics"
-      meta={archives}
-      path="poemas"
-      excerpt="Las increibles aventuras de Coco, Chan, Garritas y puntitas."
-      isArchive
+      seo={{
+        title: `Cómics página ${archives.page}`,
+        excerpt: "Las increibles aventuras de Coco, Chan, Garritas y puntitas.",
+        slug: router.asPath,
+      }}
     >
       <Section color="orange" container="smash" className="centertxt">
         <p className="h6">

@@ -1,14 +1,15 @@
 import { useRouter } from "next/router";
 import Image from "next/image";
+import { RichText } from "prismic-reactjs";
 
 import Error from "pages/_error";
 import Layout from "@components/Layout";
-import { getDownload, getSimilarDownload } from "@utils/prismic-graphql";
+import { getDownload } from "@utils/prismic-graphql";
 import { queryRepeatableDocuments } from "@utils/prismic-rest";
 import ArticleIntro from "@components/ArticleIntro";
 import AuthorBox from "@components/AuthorBox";
 
-const singleDownload = ({ download, moreDownloads }) => {
+const singleDownload = ({ download }) => {
   const router = useRouter();
 
   if (!router.isFallback && !download?._meta?.uid) {
@@ -20,7 +21,14 @@ const singleDownload = ({ download, moreDownloads }) => {
       {router.isFallback ? (
         <Layout text="Cargando..." />
       ) : (
-        <Layout text="Descargas" meta={download} path="descargas">
+        <Layout
+          text="Descargas"
+          seo={{
+            title: RichText.asText(download?.title),
+            excerpt: RichText.asText(download?.excerpt),
+            slug: router?.asPath,
+          }}
+        >
           <div style={{ backgroundColor: download?.color }}>
             <ArticleIntro doc={download} />
 

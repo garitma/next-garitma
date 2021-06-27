@@ -1,6 +1,5 @@
 import Link from "next/link";
-
-import GLOBAL from "garitmic.config.json";
+import Image from "next/image";
 
 const MyNavbar = ({ text }) => {
   return (
@@ -14,10 +13,16 @@ const MyNavbar = ({ text }) => {
       >
         <div className="smush aura">
           <ul className="nav-list">
-            <li className="item logo-circle">
+            <li className="logo-circle">
               <Link href="/">
-                <a aria-label="Logo Garitma">
-                  <div className="icon logo" />
+                <a className="halo">
+                  <Image
+                    src="https://images.prismic.io/garitma/281392c3-2020-4925-b71e-1d28db63a5bf_garitma-logo.png?auto=compress,format&w=96"
+                    width={48}
+                    height={48}
+                    priority={true}
+                    alt="Logo Garitma"
+                  />
                 </a>
               </Link>
             </li>

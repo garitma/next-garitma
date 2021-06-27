@@ -20,10 +20,11 @@ const Archive = ({ preview, archives }) => {
   return (
     <Layout
       text="Poemas"
-      meta={archives}
-      path="poemas"
-      excerpt="Poemas cortos de amor, desamor e historias cotidianas."
-      isArchive
+      seo={{
+        title: `Poemas página ${archives.page}`,
+        excerpt: "Poemas cortos de amor, desamor e historias cotidianas.",
+        slug: router.asPath,
+      }}
     >
       <Section color="blue" container="smash" className="centertxt">
         <p className="h6">
