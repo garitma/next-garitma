@@ -20,7 +20,7 @@ const Meta = ({ title, excerpt, slug, image }) => {
       <meta property="og:image" content={image || SOCIAL.openGrap} />
       <meta
         property="og:image:alt"
-        content={excerpt || "Open grap de Garitma"}
+        content={excerpt || `Open grap de ${SITE_NAME}`}
       />
       <meta property="og:image:width" content="1140" />
       <meta property="og:image:height" content="570" />
