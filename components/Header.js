@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-const MyNavbar = ({ text }) => {
+const Header = ({ text }) => {
   return (
     <>
       <header
@@ -65,4 +65,4 @@ const MyNavbar = ({ text }) => {
   );
 };
 
-export default MyNavbar;
+export default Header;
