@@ -1,6 +1,18 @@
 import Link from "next/link";
 import Image from "next/image";
 import Section from "aura-design/section";
+import {AuraColors} from "aura-design/dist/types/global"
+
+type Props = {
+  href: string,
+  src: string,
+  alt: string,
+  title: string,
+  description: string,
+  color?: AuraColors,
+  height: number,
+  width: number
+}
 
 const CollectionModule = ({
   href,
@@ -11,7 +23,7 @@ const CollectionModule = ({
   color,
   height,
   width,
-}) => {
+}: Props) => {
   return (
     <Link href={href}>
       <a className={color}>

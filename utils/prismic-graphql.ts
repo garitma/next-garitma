@@ -12,7 +12,7 @@ export const PrismicClient = Prismic.client(API_URL_KIT, {
   accessToken: API_TOKEN,
 });
 
-async function fetchAPI(query, { previewData, variables } = {}) {
+async function fetchAPI(query, { previewData, variables }: any = {}) {
   const prismicAPI = await PrismicClient.getApi();
   const res = await fetch(
     `${GRAPHQL_API_URL}?query=${query}&variables=${JSON.stringify(variables)}`,
@@ -39,7 +39,7 @@ async function fetchAPI(query, { previewData, variables } = {}) {
   return json.data;
 }
 
-export async function getPoem(uid, previewData) {
+export async function getPoem(uid: string, previewData: string) {
   const data = await fetchAPI(
     gql`
       query poemByUid($uid: String!, $lang: String!) {
@@ -127,7 +127,7 @@ export async function getAllDownloadsWithSlug() {
   return data?.allDescargass?.edges;
 }
 
-export async function getQuote(uid, previewData) {
+export async function getQuote(uid: string, previewData: string) {
   const data = await fetchAPI(
     gql`
       query quotesByUid($uid: String!, $lang: String!) {

@@ -4,7 +4,7 @@ import NProgress from "nprogress";
 
 import Header from "@components/Header";
 import Footer from "@components/Footer";
-import Meta from "@components/Meta";
+import Meta, {Seo} from "@components/Meta";
 
 Router.events.on("routeChangeStart", () => {
   NProgress.start();
@@ -18,14 +18,21 @@ Router.events.on("routeChangeError", () => {
   NProgress.done();
 });
 
-const Layout = ({ children, preview, data, text, seo }) => {
+type Props = {
+  text?: string,
+  children?: React.ReactNode
+  seo?: Seo
+};
+
+
+const Layout = ({ children, text, seo }: Props) => {
   return (
     <main>
       <div className="page">
         <Meta {...seo} />
-        <Header preview={preview} doc={data} text={text} />
+        <Header text={text} />
         <div className="page-body">{children}</div>
-        <Footer doc={data} />
+        <Footer />
       </div>
     </main>
   );

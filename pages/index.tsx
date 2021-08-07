@@ -4,10 +4,10 @@ import Layout from "@components/Layout";
 import HeroBanner from "@components/HeroBanner";
 import CollectionModule from "@components/CollectionModule";
 
-const Home = ({ preview }) => (
-  <Layout preview={preview} text="Garitma">
+const Home = () => (
+  <Layout text="Garitma">
     <HeroBanner />
-    <Grid col="two" className="gap0">
+    <Grid col="two" className="gap0" >
       <CollectionModule
         href="/poemas"
         color="blue"

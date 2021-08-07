@@ -18,8 +18,8 @@ const createClientOptions = (req = null, prismicAccessToken = null) => {
   };
 };
 
-export async function getArchives(previewData = {}, page = 1, type = "poemas") {
-  const { ref } = previewData;
+export async function getArchives(previewData = {}, page = 1, type: string) {
+  const { ref} : any  = previewData;
   const client = Client();
 
   const data =
@@ -30,25 +30,8 @@ export async function getArchives(previewData = {}, page = 1, type = "poemas") {
         orderings: `[my.${type}.date desc]`,
         page,
       },
-      ref ? { ref } : null
+      ref ? ref : null
     )) || {};
 
   return data;
 }
-
-async function fetchDocs(page = 1, routes = []) {
-  const response = await Client().query("", { pageSize: 100, lang: "*", page });
-  const allRoutes = routes.concat(response.results);
-  if (response.results_size + routes.length < response.total_results_size) {
-    return fetchDocs(page + 1, allRoutes);
-  }
-  return [...new Set(allRoutes)];
-}
-
-/** Fetches all Prismic documents and filters them (eg. by document type).
- *  In production, you would probably query documents by type instead of filtering them.
- **/
-export const queryRepeatableDocuments = async (filter) => {
-  const allRoutes = await fetchDocs();
-  return allRoutes.filter(filter);
-};

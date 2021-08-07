@@ -1,16 +1,17 @@
 import { RichText } from "prismic-reactjs";
 import Section from "aura-design/section";
+import { GetStaticProps } from 'next'
 
 import { getPage } from "@utils/prismic-graphql";
 import Layout from "@components/Layout";
 
-const LegalInfo = ({ page, preview, layout }) => {
+const LegalInfo = ({ page }) => {
   return (
     <Layout text="Información Legal">
       {page?.body?.map((item, index) => {
         switch (item?.__typename) {
           case "PageBodyText":
-            return <Section>{RichText.render(item.primary.content)}</Section>;
+            return <Section key={index}>{RichText.render(item.primary.content)}</Section>;
           default:
             return;
         }
@@ -19,11 +20,11 @@ const LegalInfo = ({ page, preview, layout }) => {
   );
 };
 
-export const getStaticProps = async ({ preview = false, previewData }) => {
+export const getStaticProps: GetStaticProps = async ({ previewData }) => {
   const page = await getPage("informacion-legal", previewData);
 
   return {
-    props: { page, preview },
+    props: { page },
   };
 };
 

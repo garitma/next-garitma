@@ -27,9 +27,7 @@ const Header = ({ text }) => {
               </Link>
             </li>
             <li className="mod">
-              {/* <a className="button-link">
-                <div className="icon search" />
-              </a> */}
+      
             </li>
           </ul>
         </div>

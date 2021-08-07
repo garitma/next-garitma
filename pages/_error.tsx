@@ -3,7 +3,11 @@ import Button from "aura-design/button";
 import Head from "next/head";
 import Link from "next/link";
 
-function Error({ statusCode }) {
+type Props = {
+  statusCode: string
+}
+
+function Error({ statusCode }: Props) {
   return (
     <Section container="smush">
       <Head>
@@ -12,7 +16,7 @@ function Error({ statusCode }) {
       <div className="aureole two valign" style={{ minHeight: "85vh" }}>
         <div className="one valign">
           <div className="smosh">
-            {statusCode === 404 ? (
+            {statusCode == "404" ? (
               <h1 className="centertxt">404 página no encontrada</h1>
             ) : (
               <h1 className="centertxt">

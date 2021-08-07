@@ -1,8 +1,15 @@
 import Head from "next/head";
-
 import { SITE_URL, SITE_NAME, SOCIAL, SITE_DESCRIPTIO } from "@utils/constants";
 
-const Meta = ({ title, excerpt, slug, image }) => {
+export type Seo = {
+  title?: string,
+  excerpt?: string,
+  children?: React.ReactNode
+  slug?: string,
+  image?: string
+}
+
+const Meta = ({ title, excerpt, slug, image }: Seo) => {
   return (
     <Head>
       <meta name="robots" content="index,follow" />

@@ -1,5 +1,4 @@
 import { FAV_ICON } from "@utils/constants";
-import { GA_TRACKING_ID } from "@utils/gtag";
 
 const HeadContent = () => {
   return (
@@ -56,20 +55,6 @@ const HeadContent = () => {
       <meta
         name="apple-mobile-web-app-status-bar-style"
         content="black-translucent"
-      />
-      <script
-        async
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-      />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_TRACKING_ID}');
-          `,
-        }}
       />
     </>
   );

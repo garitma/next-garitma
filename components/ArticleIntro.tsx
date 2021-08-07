@@ -8,7 +8,11 @@ const SingleIntro = ({ doc }) => (
       <span className="theme wall-pad">{doc._meta.tags}</span>
     </div>
     <time itemProp="datePublished">
-      {Intl.DateTimeFormat(API_LOCALE, DATE_FORMAT).format(Date(doc.date))}
+      {Intl.DateTimeFormat(API_LOCALE, {
+        year: "numeric",
+        month: "long",
+        day: "2-digit",
+      }).format(Date(doc.date))}
     </time>
     <h1 itemProp="name">{RichText.asText(doc.title)}</h1>
   </Section>

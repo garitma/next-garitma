@@ -38,7 +38,11 @@ const Collection = ({ title, featured_img, date, pathname, slug }) => (
         </Link>
         <time className="layer">
           <small>
-            {Intl.DateTimeFormat(API_LOCALE, DATE_FORMAT).format(Date(date))}
+            {Intl.DateTimeFormat(API_LOCALE, {
+              year: "numeric",
+              month: "long",
+              day: "2-digit",
+            }).format(Date(date))}
           </small>
         </time>
       </div>

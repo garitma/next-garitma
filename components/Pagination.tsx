@@ -1,10 +1,15 @@
 import Section from "aura-design/section";
 import Link from "next/link";
 
-const Pagination = ({ archives, archiveType = "archivos" }) => (
+type Props = {
+  archives: any;
+  archiveType: string;
+};
+
+const Pagination = ({ archives, archiveType }: Props) => (
   <>
     {archives.total_results_size > archives.results_per_page && (
-      <Section color="accents-1" container="smosh">
+      <Section container="smosh">
         <ul className="nav-list">
           {archives.prev_page ? (
             <li className="items">

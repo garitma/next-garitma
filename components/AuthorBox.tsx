@@ -1,7 +1,13 @@
 import Section from "aura-design/section";
 import Image from "next/image";
 
-const AuthorBox = ({ avatar, name, description }) => (
+type Props = {
+  avatar?: string,
+  name?: string,
+  description?: string,
+};
+
+const AuthorBox = ({ avatar, name, description }: Props) => (
   <Section space="wall-pad">
     <div className="pad mod">
       <div className="halo">
