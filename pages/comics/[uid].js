@@ -3,8 +3,7 @@ import { RichText } from "prismic-reactjs";
 
 import Error from "pages/_error";
 import Layout from "@components/Layout";
-import { getComic, getSimilarComics } from "@utils/prismic-graphql";
-import { queryRepeatableDocuments } from "@utils/prismic-rest";
+import { getComic, getAllComicsWithSlug } from "@utils/prismic-graphql";
 import ArticleIntro from "@components/ArticleIntro";
 import AuthorBox from "@components/AuthorBox";
 import ArticleContentGalery from "@components/ArticleContentGalery";
@@ -58,9 +57,9 @@ export const getStaticProps = async ({
 };
 
 export async function getStaticPaths() {
-  const docs = await queryRepeatableDocuments((doc) => doc.type === "comics");
+  const allPosts = await getAllComicsWithSlug();
   return {
-    paths: docs.map((doc) => `/comics/${doc.uid}`),
+    paths: allPosts?.map(({ node }) => `/comics/${node._meta.uid}`) || [],
     fallback: true,
   };
 }

@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { RichText } from "prismic-reactjs";
 
 import Error from "pages/_error";
-import { getPoem } from "@utils/prismic-graphql";
+import { getPoem, getAllPoemsWithSlug } from "@utils/prismic-graphql";
 import { queryRepeatableDocuments } from "@utils/prismic-rest";
 import Layout from "@components/Layout";
 import ArticleIntro from "@components/ArticleIntro";
@@ -56,13 +56,14 @@ export const getStaticProps = async ({
       preview,
       poem: poem?.poemas ?? null,
     },
+    revalidate: 60 * 60,
   };
 };
 
 export async function getStaticPaths() {
-  const docs = await queryRepeatableDocuments((doc) => doc.type === "poemas");
+  const allPosts = await getAllPoemsWithSlug();
   return {
-    paths: docs.map((doc) => `/poemas/${doc.uid}`),
+    paths: allPosts?.map(({ node }) => `/poemas/${node._meta.uid}`) || [],
     fallback: true,
   };
 }

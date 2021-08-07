@@ -4,8 +4,7 @@ import { RichText } from "prismic-reactjs";
 
 import Error from "pages/_error";
 import Layout from "@components/Layout";
-import { getDownload } from "@utils/prismic-graphql";
-import { queryRepeatableDocuments } from "@utils/prismic-rest";
+import { getDownload, getAllDownloadsWithSlug } from "@utils/prismic-graphql";
 import ArticleIntro from "@components/ArticleIntro";
 import AuthorBox from "@components/AuthorBox";
 
@@ -82,11 +81,9 @@ export const getStaticProps = async ({
 };
 
 export async function getStaticPaths() {
-  const docs = await queryRepeatableDocuments(
-    (doc) => doc.type === "descargas"
-  );
+  const allPosts = await getAllDownloadsWithSlug();
   return {
-    paths: docs.map((doc) => `/descargas/${doc.uid}`),
+    paths: allPosts?.map(({ node }) => `/descargas/${node._meta.uid}`) || [],
     fallback: true,
   };
 }

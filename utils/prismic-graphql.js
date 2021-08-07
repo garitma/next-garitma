@@ -70,6 +70,63 @@ export async function getPoem(uid, previewData) {
   return data;
 }
 
+export async function getAllPoemsWithSlug() {
+  const data = await fetchAPI(
+    gql`
+      {
+        allPoemass {
+          edges {
+            node {
+              _meta {
+                uid
+              }
+            }
+          }
+        }
+      }
+    `
+  );
+  return data?.allPoemass?.edges;
+}
+
+export async function getAllComicsWithSlug() {
+  const data = await fetchAPI(
+    gql`
+      {
+        allComicss {
+          edges {
+            node {
+              _meta {
+                uid
+              }
+            }
+          }
+        }
+      }
+    `
+  );
+  return data?.allComicss?.edges;
+}
+
+export async function getAllDownloadsWithSlug() {
+  const data = await fetchAPI(
+    gql`
+      {
+        allDescargass {
+          edges {
+            node {
+              _meta {
+                uid
+              }
+            }
+          }
+        }
+      }
+    `
+  );
+  return data?.allDescargass?.edges;
+}
+
 export async function getQuote(uid, previewData) {
   const data = await fetchAPI(
     gql`
@@ -195,98 +252,4 @@ export async function getPage(uid, previewData) {
   );
 
   return data.page;
-}
-
-export async function getSimilarDownload(id, previewData) {
-  const data = await fetchAPI(
-    gql`
-      query similarComics($id: String!) {
-        allDescargass(similar: { documentId: $id, max: 30 }, first: 4) {
-          edges {
-            node {
-              title
-              featured_img
-              date
-              _meta {
-                uid
-              }
-            }
-          }
-        }
-      }
-    `,
-    {
-      previewData,
-      variables: {
-        lang: API_LOCALE,
-        id,
-      },
-    }
-  );
-
-  return data;
-}
-
-export async function getSimilarPoems(id, previewData) {
-  if (!poem?.poemas?._meta?.id) {
-    return undefined;
-  }
-
-  const data = await fetchAPI(
-    gql`
-      query similarPoems($id: String!) {
-        allPoemass(similar: { documentId: $id, max: 10 }, first: 4) {
-          edges {
-            node {
-              title
-              featured_img
-              date
-              _meta {
-                uid
-              }
-            }
-          }
-        }
-      }
-    `,
-    {
-      previewData,
-      variables: {
-        lang: API_LOCALE,
-        id,
-      },
-    }
-  );
-
-  return data;
-}
-
-export async function getSimilarComics(id, previewData) {
-  const data = await fetchAPI(
-    gql`
-      query similarComics($id: String!) {
-        allComicss(similar: { documentId: $id, max: 30 }, first: 4) {
-          edges {
-            node {
-              title
-              featured_img
-              date
-              _meta {
-                uid
-              }
-            }
-          }
-        }
-      }
-    `,
-    {
-      previewData,
-      variables: {
-        lang: API_LOCALE,
-        id,
-      },
-    }
-  );
-
-  return data;
 }
