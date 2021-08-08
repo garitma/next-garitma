@@ -2,6 +2,7 @@ import { GetStaticProps, GetStaticPaths } from "next";
 import { useRouter } from "next/router";
 import { RichText } from "prismic-reactjs";
 import Section from "aura-design/section";
+import Grid from "aura-design/grid";
 import Button from "aura-design/button";
 import Link from "next/link";
 
@@ -10,10 +11,12 @@ import { getArchives } from "@utils/prismic-rest";
 import { POSTS_TYPES } from "@utils/constants";
 import Layout from "@components/Layout";
 import Pagination from "@components/Pagination";
+import ModuleSmart from "@components/ModuleSmart";
 
 const Archive = ({ archives, page }) => {
   const router = useRouter();
   const type = router.query.type.toString();
+  const archiveCols = ["frases", "descargas"].includes(type) ? "three" : "one";
 
   const seo = {
     title: `${RichText.asText(page.title)} página ${archives.page}`,
@@ -27,15 +30,11 @@ const Archive = ({ archives, page }) => {
         <p className="h3 light">{RichText.asText(page.excerpt)}</p>
       </Section>
       <Section>
-        {archives.results.map((item, index) => {
-          return (
-            <div key={index}>
-              <Link href={`/${type}/${item.uid}`} passHref>
-                <Button mode="link">{RichText.asText(item.data.title)}</Button>
-              </Link>
-            </div>
-          );
-        })}
+        <Grid col={archiveCols}>
+          {archives.results.map((item) => {
+            return <ModuleSmart {...item} type={type} key={item.id} />;
+          })}
+        </Grid>
       </Section>
       <Pagination archives={archives} archiveType={type} />
     </Layout>

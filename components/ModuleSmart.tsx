@@ -2,28 +2,102 @@ import Image from "next/image";
 import Link from "next/link";
 import { RichText } from "prismic-reactjs";
 
-const ModuleSmart = ({ doc }) => {
-  return (
-    <div className="mod">
-      <div className="mod zoom">
-        <Link href={`/${doc.type}/${doc.uid}`}>
-          <a>
-            <Image
-              src={doc.data.featured_img.url}
-              alt={doc.data.featured_img.alt}
-              width={1140}
-              height={570}
-              loading="eager"
-            />
-          </a>
-        </Link>
-      </div>
-      <div className="aura centertxt">
-        <span className="mod-title">{RichText.asText(doc.data.title)}</span>
-        <p className="truncate">{RichText.asText(doc.data.excerpt)}</p>
-      </div>
-    </div>
-  );
+const ModuleSmart = ({ data, uid, type, ...props }) => {
+  const squareLoader = ({ src, width, height }) => {
+    return `${src}&w=400&h=400&fit=crop`;
+  };
+
+  switch (type) {
+    case "frases":
+      return (
+        <div className="mod" {...props}>
+          <div className="aura">
+            <blockquote>{RichText.asText(data.title || [])}</blockquote>
+          </div>
+        </div>
+      );
+    case "comics":
+    case "poemas":
+      return (
+        <div className="mod" {...props}>
+          <div className="halo">
+            <div className="layer small-12 medium-3">
+              <div className="wall-pad zoom">
+                <Link
+                  href={{
+                    pathname: `/${type}/[uid]`,
+                    query: { uid },
+                  }}
+                >
+                  <a>
+                    <Image
+                      src={`${data.featured_img.url}`}
+                      loader={squareLoader}
+                      width={400}
+                      height={400}
+                    />
+                  </a>
+                </Link>
+              </div>
+            </div>
+            <div className="layer small-12 medium-9">
+              <Link
+                href={{
+                  pathname: `/${type}/[uid]`,
+                  query: { uid },
+                }}
+              >
+                <a>
+                  <h3 className="h2">{RichText.asText(data.title)}</h3>
+                </a>
+              </Link>
+              <p>{RichText.asText(data.excerpt)}</p>
+            </div>
+          </div>
+        </div>
+      );
+      case "descargas":
+      return (
+        <div className="mod" {...props}>
+          <div className="halo">
+            <div className="layer small-12 ">
+              <div className="wall-pad zoom">
+                <Link
+                  href={{
+                    pathname: `/${type}/[uid]`,
+                    query: { uid },
+                  }}
+                >
+                  <a>
+                    <Image
+                      src={`${data.featured_img.url}`}
+                      loader={squareLoader}
+                      width={400}
+                      height={400}
+                    />
+                  </a>
+                </Link>
+              </div>
+            </div>
+            <div className="layer small-12 ">
+              <Link
+                href={{
+                  pathname: `/${type}/[uid]`,
+                  query: { uid },
+                }}
+              >
+                <a>
+                  <h3 className="h2">{RichText.asText(data.title)}</h3>
+                </a>
+              </Link>
+              <p>{RichText.asText(data.excerpt)}</p>
+            </div>
+          </div>
+        </div>
+      );
+    default:
+      return <></>;
+  }
 };
 
 export default ModuleSmart;

@@ -2,6 +2,8 @@ import { GetStaticProps, GetStaticPaths } from "next";
 import { useRouter } from "next/router";
 import { RichText } from "prismic-reactjs";
 import Section from "aura-design/section";
+import AuthorBox from "@components/AuthorBox";
+import Image from "next/image"
 
 import {
   getPoem,
@@ -23,7 +25,15 @@ const SinglePost = ({ doc }) => {
     slug: router.asPath,
   };
 
-  return <Layout seo={seo} text={RichText.asText(doc.title || [])}></Layout>;
+
+  return (
+    <Layout seo={seo} text={RichText.asText(doc.title || [])}>
+     
+      <Section>
+        <AuthorBox />
+      </Section>
+    </Layout>
+  );
 };
 
 export const getStaticProps: GetStaticProps = async ({
@@ -47,9 +57,10 @@ export const getStaticProps: GetStaticProps = async ({
   }
 
   const singlePostQuery = {
-    poemas: async (uid, previewData) => await getPoem(uid, previewData),
-    comics: async (uid, previewData) => getComic(uid, previewData),
-    descargables: async (uid, previewData) => getDownload(uid, previewData),
+    poemas: async (uid: string, previewData) => await getPoem(uid, previewData),
+    comics: async (uid: string, previewData) => await getComic(uid, previewData),
+    descargas: async (uid: string, previewData) => await
+      getDownload(uid, previewData),
   };
 
   try {
@@ -77,7 +88,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const typesQuery = {
     poemas: getAllPoemsWithSlug(),
     comics: getAllComicsWithSlug(),
-    descargables: getAllDownloadsWithSlug(),
+    descargas: getAllDownloadsWithSlug(),
   };
 
   for (let type of POSTS_TYPES) {
