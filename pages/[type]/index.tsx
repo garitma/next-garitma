@@ -2,6 +2,8 @@ import { GetStaticProps, GetStaticPaths } from "next";
 import { useRouter } from "next/router";
 import { RichText } from "prismic-reactjs";
 import Section from "aura-design/section";
+import Button from "aura-design/button";
+import Link from "next/link";
 
 import { getPage } from "@utils/prismic-graphql";
 import { getArchives } from "@utils/prismic-rest";
@@ -11,7 +13,7 @@ import Pagination from "@components/Pagination";
 
 const Archive = ({ archives, page }) => {
   const router = useRouter();
-  const type = router.query.type.toString()
+  const type = router.query.type.toString();
 
   const seo = {
     title: `${RichText.asText(page.title)} página ${archives.page}`,
@@ -28,7 +30,9 @@ const Archive = ({ archives, page }) => {
         {archives.results.map((item, index) => {
           return (
             <div key={index}>
-              <p>{RichText.asText(item.data.title)}</p>
+              <Link href={`/${type}/${item.uid}`} passHref>
+                <Button mode="link">{RichText.asText(item.data.title)}</Button>
+              </Link>
             </div>
           );
         })}
