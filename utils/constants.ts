@@ -28,3 +28,9 @@ export const POSTS_TYPES = [
   "comics",
   "descargas"
 ]
+
+export const POSTS_TYPE_ID = {
+  poemas: "poemas",
+  comics: "comics",
+  descargables: "descargables",
+};

@@ -68,7 +68,7 @@ export const getStaticProps: GetStaticProps = async ({
 
     return {
       props: { preview, archives, page },
-      revalidate: 60 * 60,
+      revalidate: 60 * 5,
     };
   } catch (e) {
     return { notFound: true };
