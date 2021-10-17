@@ -13,20 +13,11 @@ const HeroBanner = () => {
       }}
       color="purple"
       className="centertxt"
+      container="smash"
     >
-      <h2 className="mb0">Ven conmigo a mi imaginación</h2>
-      <p className="smash">
-        Te doy la bienvenida a mi blog de arte donde cuento y dibujo historias.
-      </p>
+      <h2 className="mb0 mt0">Te doy la bienvenida a mi imaginación</h2>
       <div className="aura" />
-      <div className="halo halign">
-        <Image
-          src="https://images.prismic.io/garitma/5cb162e5-78fd-42ca-a221-dec5bd36900f_serie-lealtad.jpg?auto=compress,format"
-          width={1920 / 2}
-          height={800 / 2}
-          alt="Historias de Garitma"
-        />
-      </div>
+      <div dangerouslySetInnerHTML={{__html:`<div style="padding:54.58% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/633782179?h=344e202200&color=cd9ffb&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>`}} />
     </Section>
   );
 };

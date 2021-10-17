@@ -22,6 +22,7 @@ export const SITE_DESCRIPTIO =
 export const API_URL_KIT = "https://garitma.cdn.prismic.io/api/v2";
 export const GRAPHQL_API_URL = "https://garitma.prismic.io/graphql";
 export const API_TOKEN = process.env.ACCESS_TOKEN;
+
 export const POSTS_TYPES = [
   "poemas",
   "frases",
@@ -33,4 +34,10 @@ export const POSTS_TYPE_ID = {
   poemas: "poemas",
   comics: "comics",
   descargas: "descargas",
+};
+
+export const POSTS_TYPE_LABEL = {
+  poemas: "Poemas",
+  comics: "Cómics",
+  descargas: "Descargas",
 };

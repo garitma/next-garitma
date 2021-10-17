@@ -1,12 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import { RichText } from "prismic-reactjs";
 
-const ModuleSmart = ({ data, uid, type, ...props }) => {
-  const squareLoader = ({ src, width, height }) => {
-    return `${src}&w=400&h=400&fit=crop`;
-  };
+import Image from "@components/Image";
 
+const ModuleSmart = ({ data, uid, type, ...props }) => {
   switch (type) {
     case "frases":
       return (
@@ -32,9 +29,8 @@ const ModuleSmart = ({ data, uid, type, ...props }) => {
                   <a>
                     <Image
                       src={`${data.featured_img.url}`}
-                      loader={squareLoader}
+                      aspectRatio="1:1"
                       width={400}
-                      height={400}
                     />
                   </a>
                 </Link>
@@ -56,7 +52,7 @@ const ModuleSmart = ({ data, uid, type, ...props }) => {
           </div>
         </div>
       );
-      case "descargas":
+    case "descargas":
       return (
         <div className="mod" {...props}>
           <div className="halo">
@@ -71,9 +67,8 @@ const ModuleSmart = ({ data, uid, type, ...props }) => {
                   <a>
                     <Image
                       src={`${data.featured_img.url}`}
-                      loader={squareLoader}
+                      aspectRatio="16:9"
                       width={400}
-                      height={400}
                     />
                   </a>
                 </Link>
@@ -87,10 +82,10 @@ const ModuleSmart = ({ data, uid, type, ...props }) => {
                 }}
               >
                 <a>
-                  <h3 className="h2">{RichText.asText(data.title)}</h3>
+                  <h3 className="h6">{RichText.asText(data.title)}</h3>
                 </a>
               </Link>
-              <p>{RichText.asText(data.excerpt)}</p>
+           
             </div>
           </div>
         </div>

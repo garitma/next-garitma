@@ -253,3 +253,69 @@ export async function getPage(uid, previewData) {
 
   return data.page;
 }
+
+export async function getHome(previewData) {
+  const data = await fetchAPI(
+    gql`
+      query {
+        allPoemass(sortBy: date_DESC, first: 3) {
+          edges {
+            node {
+              title
+              featured_img
+              _meta {
+                uid
+                id
+                tags
+              }
+            }
+          }
+        }
+        allComicss(sortBy: date_DESC, first: 3) {
+          edges {
+            node {
+              title
+              featured_img
+              _meta {
+                uid
+                id
+                tags
+              }
+            }
+          }
+        }
+        allFrasess(sortBy: date_DESC, first: 3) {
+          edges {
+            node {
+              title
+              question
+              _meta {
+                uid
+                id
+                tags
+              }
+            }
+          }
+        }
+        allDescargass(sortBy: date_DESC, first: 4) {
+          edges {
+            node {
+              title
+              featured_img
+              _meta {
+                uid
+                id
+                tags
+              }
+            }
+          }
+        }
+      }
+    `,
+    {
+      previewData,
+    }
+  );
+
+  return data;
+}

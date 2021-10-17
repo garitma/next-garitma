@@ -1,9 +1,10 @@
 import { GetStaticProps, GetStaticPaths } from "next";
 import { useRouter } from "next/router";
+import { ReactCusdis } from "react-cusdis";
 import { RichText } from "prismic-reactjs";
 import Section from "aura-design/section";
-import AuthorBox from "@components/AuthorBox";
-import Image from "next/image"
+import Image from "next/image";
+import Link from "next/link";
 
 import {
   getPoem,
@@ -13,10 +14,12 @@ import {
   getDownload,
   getAllDownloadsWithSlug,
 } from "@utils/prismic-graphql";
-import { POSTS_TYPES, POSTS_TYPE_ID } from "@utils/constants";
+import { POSTS_TYPES, POSTS_TYPE_ID, POSTS_TYPE_LABEL } from "@utils/constants";
 import Layout from "@components/Layout";
+import AuthorBox from "@components/AuthorBox";
+import ArticleContent from "@components/ArticleContent";
 
-const SinglePost = ({ doc }) => {
+const SinglePost = ({ doc, type }) => {
   const router = useRouter();
 
   const seo = {
@@ -25,12 +28,34 @@ const SinglePost = ({ doc }) => {
     slug: router.asPath,
   };
 
-
   return (
-    <Layout seo={seo} text={RichText.asText(doc.title || [])}>
-     
-      <Section>
+    <Layout seo={seo} text={POSTS_TYPE_LABEL[type]}>
+      <Section style={{backgroundColor: doc.color}}>
+        <div className="smash">
+          <Link href={`/${type}`}>
+            <a className="button-link">
+              <i className="icon arrowLeft" /> Volver a todos los{" "}
+              {POSTS_TYPE_LABEL[type].toLowerCase()}
+            </a>
+          </Link>
+        </div>
+        <ArticleContent doc={doc} type={type} />
+      </Section>
+      <Section style={{backgroundColor: doc.color}}>
         <AuthorBox />
+      </Section>
+      <Section>
+        <h3>Cajita de comentarios</h3>
+        <ReactCusdis
+          lang="es"
+          attrs={{
+            host: "https://cusdis.com",
+            appId: "29de8be7-c3b2-4a70-8554-2e32de338327",
+            pageId: doc?._meta?.id,
+            pageTitle: `${RichText.asText(doc?.title || [])}`,
+            pageUrl: `https://garitma.com${router.asPath}`,
+          }}
+        />
       </Section>
     </Layout>
   );
@@ -58,9 +83,10 @@ export const getStaticProps: GetStaticProps = async ({
 
   const singlePostQuery = {
     poemas: async (uid: string, previewData) => await getPoem(uid, previewData),
-    comics: async (uid: string, previewData) => await getComic(uid, previewData),
-    descargas: async (uid: string, previewData) => await
-      getDownload(uid, previewData),
+    comics: async (uid: string, previewData) =>
+      await getComic(uid, previewData),
+    descargas: async (uid: string, previewData) =>
+      await getDownload(uid, previewData),
   };
 
   try {
@@ -72,6 +98,7 @@ export const getStaticProps: GetStaticProps = async ({
 
     return {
       props: {
+        type,
         doc: doc?.[POSTS_TYPE_ID[type]] ?? null,
         preview,
       },
