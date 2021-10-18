@@ -33,7 +33,7 @@ const Home = ({ allPoemas, allComics, allFrases, allDescargas }) => (
       <Section className="h6" passDiv>
         <Grid col="three">
           {allPoemas.map(({ node }) => (
-            <div className="mod zoom" id={node._meta.id}>
+            <div className="mod zoom" key={node._meta.id}>
               <Link href={`/poemas/${node._meta.uid}`}>
                 <a>
                   <Image
@@ -69,13 +69,14 @@ const Home = ({ allPoemas, allComics, allFrases, allDescargas }) => (
       <Section className="h6" passDiv>
         <Grid col="three">
           {allComics.map(({ node }) => (
-            <div className="mod zoom" id={node._meta.id}>
+            <div className="mod zoom" key={node._meta.id}>
               <Link href={`/comics/${node._meta.uid}`}>
                 <a>
                   <Image
                     aspectRatio="1:2"
                     width="1140"
                     src={node.featured_img.url}
+                    alt={node.featured_img.alt}
                   />
                 </a>
               </Link>
@@ -105,7 +106,7 @@ const Home = ({ allPoemas, allComics, allFrases, allDescargas }) => (
       <Section className="h6" passDiv>
         <Grid col="three">
           {allFrases.map(({ node }) => (
-            <div className="mod zoom" id={node._meta.id}>
+            <div className="mod zoom" key={node._meta.id}>
               <div className="aura valign vfluid">
                 <blockquote className="mt0 h3 centertxt">
                   {RichText.asText(node.title)}
@@ -124,12 +125,13 @@ const Home = ({ allPoemas, allComics, allFrases, allDescargas }) => (
       </p>
       <Grid col="fourd">
         {allDescargas.map(({ node }) => (
-          <div className="zoom" id={node._meta.id}>
+          <div className="zoom" key={node._meta.id}>
             <Link href={`/descargas/${node._meta.uid}`}>
               <a>
                 <Image
                   aspectRatio="16:9"
                   src={node.featured_img.url}
+                  alt={node.featured_img.alt}
                   width="400"
                 />
               </a>

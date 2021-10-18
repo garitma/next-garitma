@@ -3,25 +3,34 @@ import Icon from "aura-design/icon";
 import Section from "aura-design/section";
 import Grid from "aura-design/grid";
 import Button from "aura-design/button";
-import Image from "next/image";
 
-const MyFooter = () => {
+import Image from "@components/Image";
+
+type Props = {
+  isSuscribePage?: boolean;
+};
+
+const MyFooter = ({ isSuscribePage }: Props) => {
   return (
     <footer>
-      <Section color="orange-rose">
-        <Grid col="two">
-          <div>
-            <h3>
-              Mantente al día conmigo, te enviaré algo al correo de vez en
-              cuando.
-            </h3>
-            <Button>Suscribirse</Button>
-          </div>
-          <div>
-            <img src="https://media.giphy.com/media/edYNMFY1Fm8JP8eXVs/giphy.gif" />
-          </div>
-        </Grid>
-      </Section>
+      {!isSuscribePage && (
+        <Section color="orange-rose">
+          <Grid col="two">
+            <div>
+              <h3>
+                Mantente al día conmigo, te enviaré algo al correo de vez en
+                cuando.
+              </h3>
+              <Link href="/suscribirse" passHref>
+                <Button>Suscribirse</Button>
+              </Link>
+            </div>
+            <div>
+              <img src="https://media.giphy.com/media/edYNMFY1Fm8JP8eXVs/giphy.gif" />
+            </div>
+          </Grid>
+        </Section>
+      )}
       <Section>
         <Grid col="two">
           <div className="one">
@@ -29,7 +38,7 @@ const MyFooter = () => {
               <Image
                 src="https://images.prismic.io/garitma/281392c3-2020-4925-b71e-1d28db63a5bf_garitma-logo.png?auto=compress,format&w=96"
                 width={48}
-                height={48}
+                aspectRatio="1:1"
                 alt="Logo Garitma"
               />
             </div>

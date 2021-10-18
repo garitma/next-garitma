@@ -22,17 +22,18 @@ type Props = {
   text?: string,
   children?: React.ReactNode
   seo?: Seo
+  isSuscribePage?: boolean
 };
 
 
-const Layout = ({ children, text, seo }: Props) => {
+const Layout = ({ children, text, seo, isSuscribePage }: Props) => {
   return (
     <main>
       <div className="page">
         <Meta {...seo} />
         <Header text={text} />
         <div className="page-body">{children}</div>
-        <Footer />
+        <Footer isSuscribePage={isSuscribePage}/>
       </div>
     </main>
   );

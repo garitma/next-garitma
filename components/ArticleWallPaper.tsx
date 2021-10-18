@@ -18,7 +18,7 @@ const ArticleWallPaper = ({ doc }) => {
         <div className="aura" />
       </div>
       <div className="centertxt">
-        <Image src={doc.featured_img.url} width={400} aspectRatio="16:9" />
+        <Image src={doc.featured_img.url} alt={doc.featured_img.alt}  width={400} aspectRatio="16:9" />
         <p>{RichText.asText(doc?.excerpt || [])}</p>
       </div>
 

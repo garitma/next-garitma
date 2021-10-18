@@ -1,5 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
+
+import Image from "@components/Image";
 
 const Header = ({ text }) => {
   return (
@@ -19,16 +20,14 @@ const Header = ({ text }) => {
                   <Image
                     src="https://images.prismic.io/garitma/281392c3-2020-4925-b71e-1d28db63a5bf_garitma-logo.png?auto=compress,format&w=96"
                     width={48}
-                    height={48}
+                    aspectRatio="1:1"
                     priority={true}
                     alt="Logo Garitma"
                   />
                 </a>
               </Link>
             </li>
-            <li className="mod">
-      
-            </li>
+            <li className="mod"></li>
           </ul>
         </div>
         <div>

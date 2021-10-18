@@ -30,16 +30,18 @@ const ArticleComic = ({ doc }) => {
           </Button>
           <Image
             src={doc.gallery[step].gallery_image.url}
+            alt={doc.gallery[step].gallery_image.alt}
             aspectRatio="1:1"
             width={1140}
           />
         </div>
         <div className="aureole five fixed">
           {doc.gallery.map((item, index) => (
-            <div className="pre-disabled zoom">
+            <div className="pre-disabled zoom" key={index}>
               <a onClick={() => setStep(index)}>
                 <Image
                   src={item.gallery_image.url}
+                  alt={item.gallery_image.alt}
                   width={1140}
                   aspectRatio="1:1"
                 />
