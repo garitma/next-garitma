@@ -18,7 +18,7 @@ const Suscribe = () => {
         </div>
       </Section>
       <Section color="purple" container="smash">
-        <div className="centertxt">
+        <div className="centertxt mod-media">
           <img src="https://media.giphy.com/media/edYNMFY1Fm8JP8eXVs/giphy.gif" />
         </div>
         <div className="smosh pad">

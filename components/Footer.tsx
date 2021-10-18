@@ -25,7 +25,7 @@ const MyFooter = ({ isSuscribePage }: Props) => {
                 <Button>Suscribirse</Button>
               </Link>
             </div>
-            <div>
+            <div className="mod-media">
               <img src="https://media.giphy.com/media/edYNMFY1Fm8JP8eXVs/giphy.gif" />
             </div>
           </Grid>
