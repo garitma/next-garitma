@@ -1,11 +1,3 @@
 *:root {
   --aura-font-stack: ryo-gothic-plusn, sans-serif;
-  --aura-accents-2: #f0f0f7;
-  --aura-input-bg: var(--aura-accents-2);
-  --cusdis--color-btn-text: #fff !important;
-  --cusdis--color-btn-bg-default: var(--aura-accents-primary) !important;
-}
-
-.submit-btn {
-  border-radius: var(--aura-button-radius) !important;
 }
