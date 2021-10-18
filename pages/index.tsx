@@ -148,8 +148,8 @@ const Home = ({ allPoemas, allComics, allFrases, allDescargas }) => (
     <Section color="pink-purple" className="h6 ">
       <h3 className="centertxt">Descubre también</h3>
       <Grid col="two">
-        <a href="https://garitmatica.com" target="_blank" rel="noopener">
-          <div className="mod zoom">
+        {/* <a href="https://garitmatica.com" target="_blank" rel="noopener"> */}
+          <div className="mod disabled">
             <Image
               aspectRatio="1:2"
               width="1140"
@@ -160,7 +160,7 @@ const Home = ({ allPoemas, allComics, allFrases, allDescargas }) => (
               <p>Tienda de Garitma</p>
             </div>
           </div>
-        </a>
+        {/* </a> */}
         <a href="https://elgaritmatico.com" target="_blank" rel="noopener">
           <div className="mod zoom">
             <Image
