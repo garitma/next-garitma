@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { RichText } from "prismic-reactjs";
+import { RichText, Date } from "prismic-reactjs";
 import Button from "aura-design/button";
 
 import Image from "@components/Image";
+import { API_LOCALE } from "@utils/constants";
 
 const ArticleComic = ({ doc }) => {
   const [step, setStep] = useState(0);
@@ -21,19 +22,37 @@ const ArticleComic = ({ doc }) => {
     <article>
       <div className="smash">
         <h2>{RichText.asText(doc?.title || [])}</h2>
+        <time itemProp="datePublished">
+          {Intl.DateTimeFormat(API_LOCALE, {
+            year: "numeric",
+            month: "long",
+            day: "2-digit",
+          }).format(Date(doc.date))}
+        </time>
         <div className="anchor">
-          <Button mode="link" isDisabled={!hasPrevStep} onClick={handleOnPrev}>
-            <i className="icon arrowLeft" />
-          </Button>
-          <Button mode="link" isDisabled={!hasNextStep} onClick={handleOnNext}>
-            <i className="icon arrowRight" />
-          </Button>
           <Image
             src={doc.gallery[step].gallery_image.url}
             alt={doc.gallery[step].gallery_image.alt}
             aspectRatio="1:1"
             width={1140}
           />
+          <div className=" aura">
+            <Button
+              mode="pill"
+              isDisabled={!hasPrevStep}
+              onClick={handleOnPrev}
+            >
+              <i className="icon arrowLeft" />
+            </Button>
+            <span className="aura" />
+            <Button
+              mode="pill"
+              isDisabled={!hasNextStep}
+              onClick={handleOnNext}
+            >
+              <i className="icon arrowRight" />
+            </Button>
+          </div>
         </div>
         <div className="aureole five fixed">
           {doc.gallery.map((item, index) => (

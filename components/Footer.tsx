@@ -22,7 +22,7 @@ const MyFooter = ({ isSuscribePage }: Props) => {
                 cuando.
               </h3>
               <Link href="/suscribirse" passHref>
-                <Button>Suscribirse</Button>
+                <Button data-analytics-title="Suscríbete a Garitma">Suscribirse</Button>
               </Link>
             </div>
             <div className="mod-media">

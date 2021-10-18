@@ -12,6 +12,7 @@ const ArticleWallPaper = ({ doc }) => {
         <a
           className="button-fill"
           href={`${doc?.featured_img?.url}&dl=${doc?.featured_img?.alt}.jpg`}
+          data-analytics-title={`Descarga de ${RichText.asText(doc?.title || [])}`}
         >
           Descargar fondo de pantalla
         </a>
