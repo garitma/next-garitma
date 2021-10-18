@@ -32,7 +32,7 @@ const MyFooter = ({ isSuscribePage }: Props) => {
         </Section>
       )}
       <Section>
-        <Grid col="two">
+        <Grid col="six">
           <div className="one">
             <div className="centertxt-small">
               <Image
@@ -43,6 +43,10 @@ const MyFooter = ({ isSuscribePage }: Props) => {
               />
             </div>
           </div>
+          <div/>
+          <div/>
+          <div/>
+          <div/>
           <div className="two smosh">
             <ul className="nav-list">
               <li className="item">
@@ -78,7 +82,8 @@ const MyFooter = ({ isSuscribePage }: Props) => {
             </ul>
           </div>
         </Grid>
-        <ul className="nav-list smosh">
+        <div className="aura" />
+        <ul className="aureole six centertxt-small">
           <li className="item">
             <Link href="/informacion-legal">
               <a> Terminos de uso</a>
@@ -89,8 +94,12 @@ const MyFooter = ({ isSuscribePage }: Props) => {
               <a>Políticas de privacidad</a>
             </Link>
           </li>
-          <li>© 2021 Garitma.</li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li className="centertxt-small righttxt">© 2021 Garitma.</li>
         </ul>
+        <div className="aura" />
       </Section>
     </footer>
   );
