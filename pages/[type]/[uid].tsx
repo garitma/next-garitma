@@ -14,6 +14,7 @@ import {
   getAllDownloadsWithSlug,
 } from "@utils/prismic-graphql";
 import { POSTS_TYPES, POSTS_TYPE_ID, POSTS_TYPE_LABEL } from "@utils/constants";
+import Schema from "@components/Schema";
 import Layout from "@components/Layout";
 import AuthorBox from "@components/AuthorBox";
 import ArticleContent from "@components/ArticleContent";
@@ -30,6 +31,10 @@ const SinglePost = ({ doc, type }) => {
 
   return (
     <Layout seo={seo} text={POSTS_TYPE_LABEL[type]}>
+      <Schema
+        title={RichText.asText(doc?.title || [])}
+        image={doc.featured_img.url}
+      />
       <Section style={{ backgroundColor: doc.color }}>
         <div className="smash">
           <Link href={`/${type}`}>
