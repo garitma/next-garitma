@@ -169,7 +169,7 @@ const Home = ({ allPoemas, allComics, allFrases, allDescargas }) => (
               src="https://images.prismic.io/garitma/56356c52-350c-4661-b9b2-fecfc72a2ae3_subheader-elgaritmatico.jpg?auto=compress,format"
             />
             <div className="aura">
-              <h4 className="h6 mb0 mt0">El Garitmática</h4>
+              <h4 className="h6 mb0 mt0">El Garitmático</h4>
               <p>Noticias de Garitma York</p>
             </div>
           </div>
