@@ -148,19 +148,19 @@ const Home = ({ allPoemas, allComics, allFrases, allDescargas }) => (
     <Section color="pink-purple" className="h6 ">
       <h3 className="centertxt">Descubre también</h3>
       <Grid col="two">
-        {/* <a href="https://garitmatica.com" target="_blank" rel="noopener"> */}
-          <div className="mod disabled">
+        <a href="https://garitmatica.com" target="_blank" rel="noopener"> 
+          <div className="mod">
             <Image
               aspectRatio="1:2"
               width="1140"
-              src="https://images.prismic.io/garitma/35feb851-666f-4e82-b488-00da3f6df722_cuadernos-strike-portada.jpg?auto=compress,format&fit=crop&w=1024&h=1024"
+              src="https://images.prismic.io/garitma/83a0724d-0872-466f-a191-aab313061b35_cover-principal.jpg?auto=compress,format&fit=crop&w=1200"
             />
             <div className="aura">
               <h4 className="h6 mb0 mt0">Garitmática</h4>
-              <p>Tienda de Garitma</p>
+              <p>La tienda oficial de Garitma</p>
             </div>
           </div>
-        {/* </a> */}
+        </a>
         <a href="https://elgaritmatico.com" target="_blank" rel="noopener">
           <div className="mod zoom">
             <Image
