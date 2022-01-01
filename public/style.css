@@ -7,3 +7,7 @@
     text-align: center !important;
   }
 }
+
+.dark.not-focus input:focus {
+  filter: invert(0);
+}

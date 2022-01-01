@@ -97,7 +97,7 @@ const MyFooter = ({ isSuscribePage }: Props) => {
           <li></li>
           <li></li>
           <li></li>
-          <li className="centertxt-small righttxt">© 2021 Garitma.</li>
+          <li className="centertxt-small righttxt">© 2022 Garitma.</li>
         </ul>
         <div className="aura" />
       </Section>
