@@ -1,15 +1,17 @@
-# App de arte y entretenimiento de Garitma
+# Next Garitmatic
 
-App de arte y entretenimiento con CMS Prismic.io y Next JS.
+This is the core app of Garitma using [Next.js](https://github.com/zeit/next.js/) and [Prismic.io](http://prismic.io).
 
-## ¿Cómo funciona?
+## Prerequisites
 
-Requiere Node.JS 10
+You will need [Node.js](https://nodejs.org) version 10.0 or greater installed on your system.
 
-- `npm install` para instalar las dependencias.
-- `npm run dev` para el entorno de desarrollo
-- `npm run build && npm start` para el entorno de producción.
+## How it works?
 
-## Licencia
+- `yarn install` for install the dependencies.
+- `vercel env pull` for pull evirorment variables.
+- `yarn dev` for development environment
+- `yarn build && yarn start` for production environment.
 
-MIT
+
+The app should now be up and running at http://localhost:3000 
