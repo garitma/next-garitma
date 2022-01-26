@@ -67,7 +67,7 @@ const ModuleSmart = ({ data, uid, type, ...props }) => {
                   <a>
                     <Image
                       src={`${data.featured_img.url}`}
-                      aspectRatio="16:9"
+                      aspectRatio="9:16"
                       width={400}
                     />
                   </a>
