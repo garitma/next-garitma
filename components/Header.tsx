@@ -22,6 +22,7 @@ const Header = ({ text }) => {
                     width={48}
                     aspectRatio="1:1"
                     alt="Logo Garitma"
+                    priority={true}
                   />
                 </a>
               </Link>
