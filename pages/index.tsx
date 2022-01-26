@@ -30,7 +30,7 @@ const Home = ({ allPoemas, allComics, allFrases, allDescargas }) => (
         </p>
         <Button href="/poemas">Leer poemas</Button>
       </Section>
-      <Section className="h6" passDiv>
+      <Section color="teal-green" className="h6" passDiv>
         <Grid col="three">
           {allPoemas.map(({ node }) => (
             <div className="mod zoom" key={node._meta.id}>
@@ -66,7 +66,7 @@ const Home = ({ allPoemas, allComics, allFrases, allDescargas }) => (
           <Button>Leer cómics</Button>
         </Link>
       </Section>
-      <Section className="h6" passDiv>
+      <Section className="h6" color="pink" passDiv>
         <Grid col="three">
           {allComics.map(({ node }) => (
             <div className="mod zoom" key={node._meta.id}>
@@ -103,7 +103,7 @@ const Home = ({ allPoemas, allComics, allFrases, allDescargas }) => (
           <Button>Leer frases</Button>
         </Link>
       </Section>
-      <Section className="h6" passDiv>
+      <Section color="blue" className="h6" passDiv>
         <Grid col="three">
           {allFrases.map(({ node }) => (
             <div className="mod zoom" key={node._meta.id}>
@@ -129,7 +129,7 @@ const Home = ({ allPoemas, allComics, allFrases, allDescargas }) => (
             <Link href={`/descargas/${node._meta.uid}`}>
               <a>
                 <Image
-                  aspectRatio="16:9"
+                  aspectRatio="9:16"
                   src={node.featured_img.url}
                   alt={node.featured_img.alt}
                   width="400"

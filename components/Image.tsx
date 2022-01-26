@@ -1,12 +1,21 @@
-import Image from "next/image";
+import Image, { ImageProps } from "next/image";
 
-const MyImage = ({ width, src, aspectRatio, fit = "crop", ...props }) => {
+type Props = {
+  width?: any,
+  height?: any,
+  src: any,
+  aspectRatio?: "1:1" | "1:2" | "4:3" | "16:9" | "9:16",
+  fit?: "clamp" | "clip" | "crop" | "facearea" | "fill" | "fillmax" | "max" | "min",
+  alt?: String
+}
+
+const MyImage = ({ width, height, src, aspectRatio, fit = "crop", ...props }: Props & ImageProps) => {
   const shimmer = (w, h) => `
     <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
         <linearGradient id="g">
         <stop stop-color="#fee8fc" offset="20%" />
-        <stop stop-color="#fee8fc" offset="50%" />
+        <stop stop-color="#f3e8fe" offset="50%" />
         <stop stop-color="#fee8fc" offset="70%" />
         </linearGradient>
     </defs>
@@ -24,10 +33,11 @@ const MyImage = ({ width, src, aspectRatio, fit = "crop", ...props }) => {
     "1:1": 1,
     "1:2": 1 / 2,
     "4:3": 3 / 4,
-    "16:9": 16 /9  ,
+    "16:9": 9 / 16,
+    "9:16": 16 / 9,
   };
 
-  const height = calcAspectRatio(aspectRatio, width);
+  const heightCalc = aspectRatio ? calcAspectRatio(aspectRatio, width) : height;
 
   function calcAspectRatio(aspectRatio, width) {
     const ratio = aspetRatioToRatio[aspectRatio];
@@ -36,6 +46,10 @@ const MyImage = ({ width, src, aspectRatio, fit = "crop", ...props }) => {
   }
 
   const loader = (args) => {
+    if(!aspectRatio){
+      return `${args.src}&fit=${fit}&w=${args.width}&h=${args.height}`;
+    }
+    
     const loaderHeight = calcAspectRatio(aspectRatio, args.width);
 
     return `${args.src}&fit=${fit}&w=${args.width}&h=${loaderHeight}`;
@@ -45,7 +59,7 @@ const MyImage = ({ width, src, aspectRatio, fit = "crop", ...props }) => {
     <Image
       src={src}
       width={width}
-      height={height}
+      height={heightCalc}
       loader={loader}
       placeholder="blur"
       blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
