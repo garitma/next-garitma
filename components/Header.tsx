@@ -12,7 +12,7 @@ const Header = ({ text }) => {
             "url(https://images.prismic.io/garitma/a1b3faf2-cdb0-4bc4-b515-877c0da12a96_header_aura_design_system_garitma.jpg?auto=compress,format)",
         }}
       >
-        <div className="smush aura">
+        <div className="smush wall-pad">
           <ul className="nav-list">
             <li className="logo-circle">
               <Link href="/">
@@ -31,7 +31,7 @@ const Header = ({ text }) => {
           </ul>
         </div>
         <div>
-          <h1 className="light centertxt">{text}</h1>
+          <h1 className="light centertxt mb0 mt0">{text}</h1>
         </div>
         <nav className="fluid smosh">
           <ul className="nav-list fluid flowx">
