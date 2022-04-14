@@ -5,10 +5,11 @@ const ArticleWallPaper = ({ doc }) => {
   return (
     <article>
       <div className="smash">
-        <h2>{RichText.asText(doc?.title || [])}</h2>
-        
+        <h2 className="motion-fadeUp mounted">
+          {RichText.asText(doc?.title || [])}
+        </h2>
       </div>
-      <div className="centertxt">
+      <div className="centertxt motion-fadeUp mounted">
         <a
           className="button-fill"
           href={`${doc?.featured_img?.url}&dl=${doc?.featured_img?.alt}.jpg`}
@@ -18,11 +19,15 @@ const ArticleWallPaper = ({ doc }) => {
         </a>
         <div className="aura" />
       </div>
-      <div className="centertxt">
-        <Image src={doc.featured_img.url} alt={doc.featured_img.alt}  width={400} aspectRatio="9:16" />
+      <div className="centertxt motion-fadeUp mounted">
+        <Image
+          src={doc.featured_img.url}
+          alt={doc.featured_img.alt}
+          width={400}
+          aspectRatio="9:16"
+        />
         <p>{RichText.asText(doc?.excerpt || [])}</p>
       </div>
-
     </article>
   );
 };

@@ -15,7 +15,7 @@ const MyFooter = ({ isSuscribePage }: Props) => {
     <footer>
       {!isSuscribePage && (
         <Section color="orange-rose">
-          <Grid col="two">
+          <Grid col="two" className="motion-fadeUp">
             <div>
               <h3>
                 Mantente al día conmigo, te enviaré algo al correo de vez en

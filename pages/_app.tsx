@@ -1,23 +1,25 @@
-import type { AppProps} from 'next/app'
-import { useEffect } from 'react'
-import Script from 'next/script'
-import { useRouter } from 'next/router'
+import { useEffect } from "react";
+import type { AppProps } from "next/app";
+import Script from "next/script";
+import { useRouter } from "next/router";
 import "aura-design/style.css";
+import WithMotionObserver from "aura-design/motion";
 
-import {GTM_ID, pageview} from "@utils/gtag"
+import { GTM_ID, pageview } from "@utils/gtag";
 import "../public/style.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const router = useRouter()
+  const router = useRouter();
   useEffect(() => {
-    router.events.on('routeChangeComplete', pageview)
+    router.events.on("routeChangeComplete", pageview);
     return () => {
-      router.events.off('routeChangeComplete', pageview)
-    }
-  }, [router.events])
+      router.events.off("routeChangeComplete", pageview);
+    };
+  }, [router.events]);
 
-  return <>
-   <Script
+  return (
+    <>
+      <Script
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
@@ -29,8 +31,11 @@ function MyApp({ Component, pageProps }: AppProps) {
           `,
         }}
       />
-  <Component {...pageProps} />
-  </>
+      <WithMotionObserver>
+        <Component {...pageProps} />
+      </WithMotionObserver>
+    </>
+  );
 }
 
 export default MyApp;

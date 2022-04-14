@@ -15,13 +15,16 @@ const HeroBanner = () => {
       className="centertxt"
       container="smash"
     >
-      <h2 className="mb0 mt0">Te doy la bienvenida a mi imaginación</h2>
+      <h2 className="mb0 mt0 motion-fadeUp mounted">Te doy la bienvenida a mi imaginación</h2>
       <div className="aura" />
+      <div className="motion-fadeUp mounted">
+
       <Image 
         src="https://images.prismic.io/garitma/5cb162e5-78fd-42ca-a221-dec5bd36900f_serie-lealtad.jpg?auto=compress,format" 
         aspectRatio="1:2"
         width="715"
       />
+      </div>
     </Section>
   );
 };

@@ -8,7 +8,7 @@ type Props = {
 };
 
 const AuthorBox = ({ avatar, name, description }: Props) => (
-  <div className="pad mod">
+  <div className="pad mod motion-fadeUp">
     <div className="halo">
       <div className="layer small-4">
         <div className="halo halign">
@@ -19,7 +19,7 @@ const AuthorBox = ({ avatar, name, description }: Props) => (
               alt={name || "Pablopvsky"}
               src={
                 avatar ||
-                "https://images.prismic.io/garitma/2114bcaa-f7e0-4bb1-8039-fac166f00fd9_2020-2.jpg?auto=compress,format"
+                "https://images.prismic.io/garitma/ce06af7b-7602-4be4-84fc-60598bbee530_2022.jpg?auto=compress,format&w=180&h=180&fit=crop"
               }
             />
           </div>

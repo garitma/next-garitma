@@ -31,7 +31,7 @@ const Header = ({ text }) => {
           </ul>
         </div>
         <div>
-          <h1 className="light centertxt mb0 mt0">{text}</h1>
+          <h1 className="light centertxt mb0 mt0 motion-fadeUp motion">{text}</h1>
         </div>
         <nav className="fluid smosh">
           <ul className="nav-list fluid flowx">

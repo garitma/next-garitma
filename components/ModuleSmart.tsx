@@ -7,7 +7,7 @@ const ModuleSmart = ({ data, uid, type, ...props }) => {
   switch (type) {
     case "frases":
       return (
-        <div className="mod" {...props}>
+        <div className="mod motion-fadeUp" {...props}>
           <div className="aura">
             <blockquote>{RichText.asText(data.title || [])}</blockquote>
           </div>
@@ -16,7 +16,7 @@ const ModuleSmart = ({ data, uid, type, ...props }) => {
     case "comics":
     case "poemas":
       return (
-        <div className="mod" {...props}>
+        <div className="mod motion-fadeUp" {...props}>
           <div className="halo">
             <div className="layer small-12 medium-3">
               <div className="wall-pad zoom">
@@ -54,7 +54,7 @@ const ModuleSmart = ({ data, uid, type, ...props }) => {
       );
     case "descargas":
       return (
-        <div className="mod" {...props}>
+        <div className="mod motion-fadeUp" {...props}>
           <div className="halo">
             <div className="layer small-12 ">
               <div className="wall-pad zoom">

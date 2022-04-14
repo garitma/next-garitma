@@ -21,7 +21,7 @@ const ArticleComic = ({ doc }) => {
   return (
     <article>
       <div className="smash">
-        <h2>{RichText.asText(doc?.title || [])}</h2>
+        <h2 className="motion-fadeUp mounted">{RichText.asText(doc?.title || [])}</h2>
         <time itemProp="datePublished">
           {Intl.DateTimeFormat(API_LOCALE, {
             year: "numeric",

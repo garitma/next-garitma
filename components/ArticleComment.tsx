@@ -25,6 +25,7 @@ const ArticleComment = ({ title, id, path }) => {
   }
 
   return (
+    <div className="motion-fadeUp">
     <div
       id="cusdis_thread"
       data-host="https://cusdis.com"
@@ -35,6 +36,7 @@ const ArticleComment = ({ title, id, path }) => {
       ref={cudis}
       data-theme="lightc"
     />
+    </div>
   );
 };
 
