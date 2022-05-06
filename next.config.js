@@ -3,7 +3,7 @@
  **/
 
 module.exports = {
-  target: "serverless",
+  swcMinify: false,
   images: {
     loader: "imgix",
     path: "",
