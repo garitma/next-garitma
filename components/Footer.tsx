@@ -13,24 +13,6 @@ type Props = {
 const MyFooter = ({ isSuscribePage }: Props) => {
   return (
     <footer>
-      {!isSuscribePage && (
-        <Section color="orange-rose">
-          <Grid col="two" className="motion-fadeUp">
-            <div>
-              <h3>
-                Mantente al día conmigo, te enviaré algo al correo de vez en
-                cuando.
-              </h3>
-              <Link href="/suscribirse" passHref>
-                <Button data-analytics-title="Newsletter Garitma">Suscribirse</Button>
-              </Link>
-            </div>
-            <div className="mod-media">
-              <img src="https://media.giphy.com/media/edYNMFY1Fm8JP8eXVs/giphy.gif" />
-            </div>
-          </Grid>
-        </Section>
-      )}
       <Section>
         <Grid col="six">
           <div className="one">
