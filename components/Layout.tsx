@@ -4,7 +4,8 @@ import NProgress from "nprogress";
 
 import Header from "@components/Header";
 import Footer from "@components/Footer";
-import Meta, {Seo} from "@components/Meta";
+import ActionBar from "@components/ActionBar";
+import Meta, { Seo } from "@components/Meta";
 
 Router.events.on("routeChangeStart", () => {
   NProgress.start();
@@ -19,21 +20,21 @@ Router.events.on("routeChangeError", () => {
 });
 
 type Props = {
-  text?: string,
-  children?: React.ReactNode
-  seo?: Seo
-  isSuscribePage?: boolean
+  text?: string;
+  children?: React.ReactNode;
+  seo?: Seo;
+  isSuscribePage?: boolean;
 };
-
 
 const Layout = ({ children, text, seo, isSuscribePage }: Props) => {
   return (
     <main>
+      <ActionBar />
       <div className="page">
         <Meta {...seo} />
         <Header text={text} />
         <div className="page-body">{children}</div>
-        <Footer isSuscribePage={isSuscribePage}/>
+        <Footer isSuscribePage={isSuscribePage} />
       </div>
     </main>
   );

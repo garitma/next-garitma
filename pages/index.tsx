@@ -190,6 +190,7 @@ export const getStaticProps: GetStaticProps = async ({
 }) => {
   try {
     const doc = await getHome(previewData);
+    console.log(doc)
     return {
       props: {
         allPoemas: doc?.allPoemass?.edges ?? null,
@@ -200,6 +201,7 @@ export const getStaticProps: GetStaticProps = async ({
       },
     };
   } catch (e) {
+    console.log(e)
     return { notFound: true };
   }
 };
