@@ -1,5 +1,5 @@
 export const FAV_ICON =
-  "https://images.prismic.io/garitma%2F7bcfd3a3-4da2-4b73-9402-612e7b20ce1c_favicon-pwa.png?auto=compress,format";
+  "https://images.prismic.io/garitma/a837c068-59a1-485d-ac59-bf9db76c129c_logo-stack.png?auto=compress,format";
 export const API_LOCALE = "es-co";
 export const DATE_FORMAT = {
   year: "numeric",
