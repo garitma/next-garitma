@@ -25,10 +25,10 @@ const MyFooter = ({ isSuscribePage }: Props) => {
               />
             </div>
           </div>
-          <div/>
-          <div/>
-          <div/>
-          <div/>
+          <div />
+          <div />
+          <div />
+          <div />
           <div className="two smosh">
             <ul className="nav-list">
               <li className="item">
@@ -67,14 +67,20 @@ const MyFooter = ({ isSuscribePage }: Props) => {
         <div className="aura" />
         <ul className="aureole six centertxt-small">
           <li className="item">
-            <Link href="/informacion-legal">
-              <a> Terminos de uso</a>
-            </Link>
+            <a
+              href="https://privacy.garitma.com"
+              target="_blank"
+            >
+              Terminos de uso
+            </a>
           </li>
           <li className="item">
-            <Link href="/informacion-legal">
-              <a>Políticas de privacidad</a>
-            </Link>
+            <a
+              href="https://privacy.garitma.com"
+              target="_blank"
+            >
+              Políticas de privacidad
+            </a>
           </li>
           <li></li>
           <li></li>
