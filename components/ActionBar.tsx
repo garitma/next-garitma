@@ -8,7 +8,7 @@ const ActionBar = () => {
           <span className="wall-pad info-text info">Nuevo</span> • Ya está
           disponible en Colombia 🇨🇴 mi tienda en linea de cuadernos Garitmática.
           <Button mode="link" href="https://garitmatica.com" target="_blank">
-            Conocer ↗
+            Conocer
           </Button>
         </p>
       </div>
