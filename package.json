@@ -9,7 +9,7 @@
   "license": "MIT",
   "dependencies": {
     "@prismicio/client": "^5.1.0",
-    "aura-design": "^0.1.35",
+    "aura-design": "^0.2.0",
     "graphql": "^16.3.0",
     "graphql-request": "^4.2.0",
     "next": "^12.1.5",
