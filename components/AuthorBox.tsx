@@ -8,7 +8,7 @@ type Props = {
 };
 
 const AuthorBox = ({ avatar, name, description }: Props) => (
-  <div className="pad mod motion-fadeUp">
+  <div className="pad mod ">
     <div className="halo">
       <div className="layer small-4">
         <div className="halo halign">

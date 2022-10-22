@@ -4,7 +4,6 @@ import NProgress from "nprogress";
 
 import Header from "@components/Header";
 import Footer from "@components/Footer";
-import ActionBar from "@components/ActionBar";
 import Meta, { Seo } from "@components/Meta";
 
 Router.events.on("routeChangeStart", () => {
@@ -29,7 +28,6 @@ type Props = {
 const Layout = ({ children, text, seo, isSuscribePage }: Props) => {
   return (
     <main>
-      <ActionBar />
       <div className="page">
         <Meta {...seo} />
         <Header text={text} />

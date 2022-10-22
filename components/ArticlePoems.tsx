@@ -6,10 +6,10 @@ const ArticlePoems = ({ doc }) => {
   return (
     <article>
       <div className="smash">
-        <h2 className="motion-fadeUp mounted">
+        <h2 className=" mounted">
           {RichText.asText(doc?.title || [])}
         </h2>
-        <time className="motion-fadeUp mounted" itemProp="datePublished">
+        <time className=" mounted" itemProp="datePublished">
           {Intl.DateTimeFormat(API_LOCALE, {
             year: "numeric",
             month: "long",
@@ -17,7 +17,7 @@ const ArticlePoems = ({ doc }) => {
           }).format(Date(doc.date))}
         </time>
       </div>
-      <div className="motion-fadeUp mounted">
+      <div className=" mounted">
         <Image
           src={doc.featured_img.url}
           alt={doc.featured_img.alt}

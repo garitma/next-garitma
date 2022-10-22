@@ -13,27 +13,27 @@ import HeroBanner from "@components/HeroBanner";
 const Home = ({ allPoemas, allComics, allFrases, allDescargas }) => (
   <Layout text="Garitma">
     <HeroBanner />
-    <Section color="purple" container="smash" className="h6 centertxt">
-      <p className="motion-fadeUp mounted">
+    <Section color="purple" container="smash" className="h6 centertxt motion-fadeUp">
+      <p className=" mounted">
         Esta es mi imaginación, un espacio personal cargado de arte. Todo
         comenzó como un espacio para subir mis poemas y dibujos sin miedo a las
         críticas, no soy el mejor en lo que hago, pero lo hago. Porque éste es
         un espacio donde las cosas están mejor hechas que perfectas.
       </p>
     </Section>
-    <section>
+    <section className="motion-fadeUp">
       <Section color="teal-green" className="h6" passDiv>
-        <h3 className="motion-fadeUp">Poemas</h3>
-        <p className="motion-fadeUp">
+        <h3 className="">Poemas</h3>
+        <p className="">
           Poemas cortos de amor, desamor y de la vida cotidiana. Mensajes
           bonitos que te servirán de inspiración para decirle a alguien.
         </p>
-        <div className="motion-fadeUp">
+        <div className="">
           <Button href="/poemas">Leer poemas</Button>
         </div>
       </Section>
       <Section color="teal-green" className="h6" passDiv>
-        <Grid col="three" className="motion-fadeUp">
+        <Grid col="three" className="">
           {allPoemas.map(({ node }) => (
             <div className="mod zoom" key={node._meta.id}>
               <Link href={`/poemas/${node._meta.uid}`}>
@@ -57,21 +57,21 @@ const Home = ({ allPoemas, allComics, allFrases, allDescargas }) => (
         </Grid>
       </Section>
     </section>
-    <section>
+    <section className="motion-fadeUp">
       <Section color="pink" className="h6" passDiv>
-        <h3 className="motion-fadeUp">Cómics</h3>
-        <p className="motion-fadeUp">
+        <h3 className="">Cómics</h3>
+        <p className="">
           Las increibles aventuras de Chan, Coco, Garritas y Puntitas. Historias
           que te harán sonreír, empatizar y llorar.
         </p>
-        <div className="motion-fadeUp">
+        <div className="">
           <Link href="/comics" passHref>
             <Button>Leer cómics</Button>
           </Link>
         </div>
       </Section>
       <Section className="h6" color="pink" passDiv>
-        <Grid col="three" className="motion-fadeUp">
+        <Grid col="three" className="">
           {allComics.map(({ node }) => (
             <div className="mod zoom" key={node._meta.id}>
               <Link href={`/comics/${node._meta.uid}`}>
@@ -96,10 +96,10 @@ const Home = ({ allPoemas, allComics, allFrases, allDescargas }) => (
         </Grid>
       </Section>
     </section>
-    <section>
+    <section className="motion-fadeUp">
       <Section color="blue" className="h6" passDiv>
-        <h3 className="motion-fadeUp">Frases</h3>
-        <p className="motion-fadeUp">
+        <h3 className="">Frases</h3>
+        <p className="">
           Frases para decirle a alguien. Son frases comunes un tanto no tan
           comunes que han sido mis mensajes, pensamientos y reflexiones.
         </p>
@@ -121,13 +121,13 @@ const Home = ({ allPoemas, allComics, allFrases, allDescargas }) => (
         </Grid>
       </Section>
     </section>
-    <Section color="orange" className="h6 centertxt">
-      <h3 className="motion-fadeUp">Fondos de pantalla</h3>
-      <p className="motion-fadeUp">
+    <Section color="orange" className="h6 centertxt motion-fadeUp">
+      <h3 className="">Fondos de pantalla</h3>
+      <p className="">
         Fondos de pantalla para tu celular hechos con arte y amor. Cada fondo de
         pantalla es único y puedes usarlo en tu móvil o tablet totalente gratis.
       </p>
-      <Grid col="fourd" className="motion-fadeUp">
+      <Grid col="fourd" className="">
         {allDescargas.map(({ node }) => (
           <div className="zoom" key={node._meta.id}>
             <Link href={`/descargas/${node._meta.uid}`}>
@@ -143,42 +143,11 @@ const Home = ({ allPoemas, allComics, allFrases, allDescargas }) => (
           </div>
         ))}
       </Grid>
-      <div className="pad motion-fadeUp">
+      <div className="pad ">
         <Link href="/descargas" passHref>
           <Button>Ver fondos de pantalla</Button>
         </Link>
       </div>
-    </Section>
-    <Section color="pink-purple" className="h6 ">
-      <h3 className="centertxt motion-fadeUp">Descubre también</h3>
-      <Grid col="two" className="motion-fadeUp">
-        <a href="https://garitmatica.com" target="_blank" rel="noopener">
-          <div className="mod">
-            <Image
-              aspectRatio="1:2"
-              width="1140"
-              src="https://images.prismic.io/garitma/83a0724d-0872-466f-a191-aab313061b35_cover-principal.jpg?auto=compress,format&fit=crop&w=1200"
-            />
-            <div className="aura">
-              <h4 className="h6 mb0 mt0">Garitmática</h4>
-              <p>La tienda oficial de Garitma</p>
-            </div>
-          </div>
-        </a>
-        <a href="https://elgaritmatico.com" target="_blank" rel="noopener">
-          <div className="mod zoom">
-            <Image
-              aspectRatio="1:2"
-              width="1140"
-              src="https://images.prismic.io/garitma/56356c52-350c-4661-b9b2-fecfc72a2ae3_subheader-elgaritmatico.jpg?auto=compress,format"
-            />
-            <div className="aura">
-              <h4 className="h6 mb0 mt0">El Garitmático</h4>
-              <p>Noticias de Garitma York</p>
-            </div>
-          </div>
-        </a>
-      </Grid>
     </Section>
   </Layout>
 );
@@ -190,7 +159,7 @@ export const getStaticProps: GetStaticProps = async ({
 }) => {
   try {
     const doc = await getHome(previewData);
-    console.log(doc)
+
     return {
       props: {
         allPoemas: doc?.allPoemass?.edges ?? null,
@@ -201,7 +170,7 @@ export const getStaticProps: GetStaticProps = async ({
       },
     };
   } catch (e) {
-    console.log(e)
+    console.log(e);
     return { notFound: true };
   }
 };

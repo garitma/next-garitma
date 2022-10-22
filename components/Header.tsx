@@ -31,32 +31,8 @@ const Header = ({ text }) => {
           </ul>
         </div>
         <div>
-          <h1 className="light centertxt mb0 mt0 motion-fadeUp motion">{text}</h1>
+          <h1 className="light centertxt mb0 mt0  motion">{text}</h1>
         </div>
-        <nav className="fluid smosh">
-          <ul className="nav-list fluid flowx">
-            <li className="item p0">
-              <Link href="/poemas">
-                <a className="button-menu">Poemas</a>
-              </Link>
-            </li>
-            <li className="item p0">
-              <Link href="/comics">
-                <a className="button-menu">Cómics</a>
-              </Link>
-            </li>
-            <li className="item p0">
-              <Link href="/frases">
-                <a className="button-menu">Frases</a>
-              </Link>
-            </li>
-            <li className="item p0">
-              <Link href="/descargas">
-                <a className="button-menu">Descargas</a>
-              </Link>
-            </li>
-          </ul>
-        </nav>
       </header>
     </>
   );

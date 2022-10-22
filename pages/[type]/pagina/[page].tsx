@@ -27,7 +27,7 @@ const Archive = ({ archives, page }) => {
   return (
     <Layout seo={seo} text={RichText.asText(page.title)}>
       <Section className="centertxt">
-        <p className="h3 light motion-fadeUp mounted">{RichText.asText(page.excerpt)}</p>
+        <p className="h3 light  mounted">{RichText.asText(page.excerpt)}</p>
       </Section>
       <Section>
         <Grid col={archiveCols}>

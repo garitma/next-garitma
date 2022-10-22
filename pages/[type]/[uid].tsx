@@ -36,7 +36,7 @@ const SinglePost = ({ doc, type }) => {
         image={doc.featured_img.url}
       />
       <Section style={{ backgroundColor: doc.color }}>
-        <div className="smash motion-fadeUp mounted">
+        <div className="smash  mounted">
           <Link href={`/${type}`}>
             <a className="button-link">
               <i className="icon arrowLeft" /> Volver a todos los{" "}
@@ -50,7 +50,7 @@ const SinglePost = ({ doc, type }) => {
         <AuthorBox />
       </Section>
       <Section>
-        <h3 className="motion-fadeUp">Cajita de comentarios</h3>
+        <h3 className="">Cajita de comentarios</h3>
         <ArticleComment
           title={RichText.asText(doc?.title || [])}
           id={doc?._meta?.id}
