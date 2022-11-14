@@ -1,0 +1,18 @@
+{
+  "_cts": {
+    "home": {}
+  },
+  "slices/marketing": {
+    "HeroBanner": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "ScrollFixed": {},
+    "SectionScroll": {
+      "default": {
+        "primary": {}
+      }
+    }
+  }
+}

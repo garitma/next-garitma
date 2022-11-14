@@ -1,14 +1,15 @@
 import Head from "next/head";
+import Script from "next/script";
 
 type Props = {
-    title: string
-    image: string
-}
+  title: string;
+  image: string;
+};
 
-const Schema = ({title, image}: Props) => {
+const Schema = ({ title, image }: Props) => {
   return (
     <Head>
-      <script
+      <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: `

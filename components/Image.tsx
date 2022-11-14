@@ -1,16 +1,33 @@
-import Image, { ImageProps } from "next/image";
+import NextImage, { ImageProps } from "next/image";
+
+type AspectRation = "1:1" | "1:2" | "4:3" | "16:9" | "9:16";
 
 type Props = {
-  width?: any,
-  height?: any,
-  src: any,
-  aspectRatio?: "1:1" | "1:2" | "4:3" | "16:9" | "9:16",
-  fit?: "clamp" | "clip" | "crop" | "facearea" | "fill" | "fillmax" | "max" | "min",
-  alt?: String
-}
+  width?: any;
+  height?: any;
+  src: any;
+  aspectRatio?: AspectRation;
+  fit?:
+    | "clamp"
+    | "clip"
+    | "crop"
+    | "facearea"
+    | "fill"
+    | "fillmax"
+    | "max"
+    | "min";
+  alt?: String;
+};
 
-const MyImage = ({ width, height, src, aspectRatio, fit = "crop", ...props }: Props & ImageProps) => {
-  const shimmer = (w, h) => `
+const Image = ({
+  width,
+  height,
+  src,
+  aspectRatio,
+  fit = "crop",
+  ...props
+}: Props & ImageProps) => {
+  const shimmer = (w: number, h: number) => `
     <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
         <linearGradient id="g">
@@ -24,7 +41,7 @@ const MyImage = ({ width, height, src, aspectRatio, fit = "crop", ...props }: Pr
     <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
     </svg>`;
 
-  const toBase64 = (str) =>
+  const toBase64 = (str: string) =>
     typeof window === "undefined"
       ? Buffer.from(str).toString("base64")
       : window.btoa(str);
@@ -39,24 +56,24 @@ const MyImage = ({ width, height, src, aspectRatio, fit = "crop", ...props }: Pr
 
   const heightCalc = aspectRatio ? calcAspectRatio(aspectRatio, width) : height;
 
-  function calcAspectRatio(aspectRatio, width) {
+  function calcAspectRatio(aspectRatio: AspectRation, width: number) {
     const ratio = aspetRatioToRatio[aspectRatio];
 
     return Math.floor(width * ratio);
   }
 
   const loader = (args) => {
-    if(!aspectRatio){
+    if (!aspectRatio) {
       return `${args.src}&fit=${fit}&w=${args.width}&h=${args.height}`;
     }
-    
+
     const loaderHeight = calcAspectRatio(aspectRatio, args.width);
 
     return `${args.src}&fit=${fit}&w=${args.width}&h=${loaderHeight}`;
   };
 
   return (
-    <Image
+    <NextImage
       src={src}
       width={width}
       height={heightCalc}
@@ -68,4 +85,4 @@ const MyImage = ({ width, height, src, aspectRatio, fit = "crop", ...props }: Pr
   );
 };
 
-export default MyImage;
+export default Image;

@@ -1,10 +1,11 @@
 import { FAV_ICON } from "@utils/constants";
+import Script from "next/script";
 
 const HeadContent = () => {
   return (
     <>
-      <script src="//use.typekit.net/gqm2kup.js"></script>
-      <script
+      <Script src="//use.typekit.net/gqm2kup.js" />
+      <Script
         dangerouslySetInnerHTML={{
           __html: `try{Typekit.load({ async: true });}catch(e){}`,
         }}

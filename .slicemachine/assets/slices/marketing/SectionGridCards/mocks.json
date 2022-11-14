@@ -1,0 +1,33 @@
+[
+  {
+    "variation": "default",
+    "version": "sktwi1xtmkfgx8626",
+    "items": [
+      {
+        "title": [
+          {
+            "type": "heading2",
+            "text": "Fireplace",
+            "spans": []
+          }
+        ],
+        "description": [
+          {
+            "type": "paragraph",
+            "text": "Consectetur id pariatur reprehenderit excepteur Lorem voluptate et id. Cillum ipsum id excepteur non fugiat ut aliqua. Exercitation occaecat ex irure ipsum fugiat in velit aliquip occaecat labore.",
+            "spans": []
+          }
+        ],
+        "link": {
+          "link_type": "Web",
+          "url": "https://prismic.io"
+        }
+      }
+    ],
+    "primary": {
+      "color": "purple",
+      "columns": "three"
+    },
+    "slice_type": "section_grid_cards"
+  }
+]

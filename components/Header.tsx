@@ -6,11 +6,8 @@ const Header = ({ text }) => {
   return (
     <>
       <header
-        className="blue aura"
-        style={{
-          backgroundImage:
-            "url(https://images.prismic.io/garitma/a1b3faf2-cdb0-4bc4-b515-877c0da12a96_header_aura_design_system_garitma.jpg?auto=compress,format)",
-        }}
+        className="purple aura"
+     
       >
         <div className="smush wall-pad">
           <ul className="nav-list">

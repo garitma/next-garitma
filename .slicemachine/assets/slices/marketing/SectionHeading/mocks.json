@@ -1,0 +1,28 @@
+[
+  {
+    "variation": "default-slice",
+    "version": "sktwi1xtmkfgx8626",
+    "items": [
+      {}
+    ],
+    "primary": {
+      "title": [
+        {
+          "type": "heading1",
+          "text": "Forward",
+          "spans": []
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Qui sunt deserunt in consectetur do sint minim tempor laborum duis aliqua amet.",
+          "spans": []
+        }
+      ],
+      "color": "green",
+      "align": "right-text"
+    },
+    "slice_type": "hero_section_split"
+  }
+]
