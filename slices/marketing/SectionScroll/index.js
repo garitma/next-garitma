@@ -1,6 +1,8 @@
 import React from "react";
 import Section from "aura-design/section";
-import * as prismicH from "@prismicio/helpers"
+import * as prismicH from "@prismicio/helpers";
+
+import Image from "@components/Image";
 
 /**
  * @typedef {import("@prismicio/client").Content.SectionScrollSlice} SectionScrollSlice
@@ -8,15 +10,24 @@ import * as prismicH from "@prismicio/helpers"
  * @param { SectionScrollProps }
  */
 const SectionScroll = ({ slice }) => (
-  <Section color={slice.primary.color}>
+  <Section color={slice.primary.color} className="motion-fadeUp">
     <div
       style={{
-        backgroundImage: `url(${slice.primary.image.url})`,
         height: "80vh",
+        contain: "paint",
       }}
-      className="valign background pad"
+      className="anchor pad"
     >
-      <h3 className="h1">{prismicH.asText(slice.primary.title)}</h3>
+      <div className="sticky">
+        <div className="pin right top">
+          <Image {...slice.primary.image} />
+        </div>
+      </div>
+      <div className="valign vfluid">
+        <h3 className="h1 anchor" style={{zIndex: 99}}>
+          {prismicH.asText(slice.primary.title)}
+        </h3>
+      </div>
     </div>
   </Section>
 );
