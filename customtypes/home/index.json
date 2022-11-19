@@ -15,6 +15,9 @@
             },
             "section_scroll": {
               "type": "SharedSlice"
+            },
+            "hero_section_split": {
+              "type": "SharedSlice"
             }
           }
         }

@@ -27,3 +27,8 @@
     background-size: 33% auto;
   }
 }
+
+.b0 {
+  border: 0 !important;
+}
+

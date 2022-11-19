@@ -24,7 +24,7 @@ interface HomeDocumentData {
  * Slice for *Home → Slice Zone*
  *
  */
-type HomeDocumentDataSlicesSlice = HeroBannerSlice | SectionScrollSlice;
+type HomeDocumentDataSlicesSlice = HeroBannerSlice | SectionScrollSlice | HeroSectionSplitSlice;
 /**
  * Home document from Prismic
  *
@@ -35,7 +35,120 @@ type HomeDocumentDataSlicesSlice = HeroBannerSlice | SectionScrollSlice;
  * @typeParam Lang - Language API ID of the document.
  */
 export type HomeDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
-export type AllDocumentTypes = HomeDocument;
+/** Content for Menu Tab documents */
+interface MenuTabDocumentData {
+    /**
+     * Title field in *Menu Tab*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: This is title of the tab...
+     * - **API ID Path**: menu-tab.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+    /**
+     * link field in *Menu Tab*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: menu-tab.link
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    link: prismicT.LinkField;
+    /**
+     * Slice Zone field in *Menu Tab*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: menu-tab.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices: prismicT.SliceZone<MenuTabDocumentDataSlicesSlice>;
+}
+/**
+ * Slice for *Menu Tab → Slice Zone*
+ *
+ */
+type MenuTabDocumentDataSlicesSlice = MenuSubTabSlice;
+/**
+ * Menu Tab document from Prismic
+ *
+ * - **API ID**: `menu-tab`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type MenuTabDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<MenuTabDocumentData>, "menu-tab", Lang>;
+/** Content for Menu documents */
+interface MenuDocumentData {
+    /**
+     * topPromoBanner field in *Menu*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: Banner a the top of the page..
+     * - **API ID Path**: menu.topPromoBanner
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    topPromoBanner: prismicT.KeyTextField;
+    /**
+     * Logo field in *Menu*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: menu.logo
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    logo: prismicT.ImageField<never>;
+    /**
+     * MenuTabs field in *Menu*
+     *
+     * - **Field Type**: Group
+     * - **Placeholder**: *None*
+     * - **API ID Path**: menu.menuTabs[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/group
+     *
+     */
+    menuTabs: prismicT.GroupField<Simplify<MenuDocumentDataMenuTabsItem>>;
+}
+/**
+ * Item in Menu → MenuTabs
+ *
+ */
+export interface MenuDocumentDataMenuTabsItem {
+    /**
+     * menuTab field in *Menu → MenuTabs*
+     *
+     * - **Field Type**: Content Relationship
+     * - **Placeholder**: *None*
+     * - **API ID Path**: menu.menuTabs[].menuTab
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    menuTab: prismicT.RelationField<"menu-tab">;
+}
+/**
+ * Menu document from Prismic
+ *
+ * - **API ID**: `menu`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type MenuDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<MenuDocumentData>, "menu", Lang>;
+export type AllDocumentTypes = HomeDocument | MenuTabDocument | MenuDocument;
 /**
  * Primary content in HeroBanner → Primary
  *
@@ -236,10 +349,75 @@ interface HeroSectionSplitSliceDefaultSlicePrimary {
  */
 export type HeroSectionSplitSliceDefaultSlice = prismicT.SharedSliceVariation<"default-slice", Simplify<HeroSectionSplitSliceDefaultSlicePrimary>, never>;
 /**
+ * Primary content in SectionHeading → Primary
+ *
+ */
+interface HeroSectionSplitSliceWithImagePrimary {
+    /**
+     * Title field in *SectionHeading → Primary*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: hero_section_split.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+    /**
+     * Description field in *SectionHeading → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: A nice description of your feature
+     * - **API ID Path**: hero_section_split.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+    /**
+     * color field in *SectionHeading → Primary*
+     *
+     * - **Field Type**: Select
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero_section_split.primary.color
+     * - **Documentation**: https://prismic.io/docs/core-concepts/select
+     *
+     */
+    color: prismicT.SelectField<"white" | "yellow" | "green" | "lemon-green" | "pink-purple" | "pink" | "orange-rose" | "orange" | "purple" | "snow" | "teal-green" | "blue">;
+    /**
+     * align field in *SectionHeading → Primary*
+     *
+     * - **Field Type**: Select
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero_section_split.primary.align
+     * - **Documentation**: https://prismic.io/docs/core-concepts/select
+     *
+     */
+    align: prismicT.SelectField<"center-text" | "left-text" | "right-text">;
+    /**
+     * Image field in *SectionHeading → Primary*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: hero_section_split.primary.image
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    image: prismicT.ImageField<never>;
+}
+/**
+ * With Image variation for SectionHeading Slice
+ *
+ * - **API ID**: `withImage`
+ * - **Description**: `HeroSectionSplit`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HeroSectionSplitSliceWithImage = prismicT.SharedSliceVariation<"withImage", Simplify<HeroSectionSplitSliceWithImagePrimary>, never>;
+/**
  * Slice variation for *SectionHeading*
  *
  */
-type HeroSectionSplitSliceVariation = HeroSectionSplitSliceDefaultSlice;
+type HeroSectionSplitSliceVariation = HeroSectionSplitSliceDefaultSlice | HeroSectionSplitSliceWithImage;
 /**
  * SectionHeading Shared Slice
  *
@@ -443,6 +621,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { HomeDocumentData, HomeDocumentDataSlicesSlice, HomeDocument, AllDocumentTypes, HeroBannerSliceDefaultPrimary, HeroBannerSliceDefault, HeroBannerSliceVariation, HeroBannerSlice, SectionGridCardsSliceDefaultPrimary, SectionGridCardsSliceDefaultItem, SectionGridCardsSliceDefault, SectionGridCardsSliceVariation, SectionGridCardsSlice, HeroSectionSplitSliceDefaultSlicePrimary, HeroSectionSplitSliceDefaultSlice, HeroSectionSplitSliceVariation, HeroSectionSplitSlice, SectionScrollSliceDefaultPrimary, SectionScrollSliceDefault, SectionScrollSliceVariation, SectionScrollSlice, FooterColumnSliceDefaultSlicePrimary, FooterColumnSliceDefaultSliceItem, FooterColumnSliceDefaultSlice, FooterColumnSliceVariation, FooterColumnSlice, MenuSubTabSliceDefaultSlicePrimary, MenuSubTabSliceDefaultSliceItem, MenuSubTabSliceDefaultSlice, MenuSubTabSliceVariation, MenuSubTabSlice };
+        export type { HomeDocumentData, HomeDocumentDataSlicesSlice, HomeDocument, MenuTabDocumentData, MenuTabDocumentDataSlicesSlice, MenuTabDocument, MenuDocumentData, MenuDocumentDataMenuTabsItem, MenuDocument, AllDocumentTypes, HeroBannerSliceDefaultPrimary, HeroBannerSliceDefault, HeroBannerSliceVariation, HeroBannerSlice, SectionGridCardsSliceDefaultPrimary, SectionGridCardsSliceDefaultItem, SectionGridCardsSliceDefault, SectionGridCardsSliceVariation, SectionGridCardsSlice, HeroSectionSplitSliceDefaultSlicePrimary, HeroSectionSplitSliceDefaultSlice, HeroSectionSplitSliceWithImagePrimary, HeroSectionSplitSliceWithImage, HeroSectionSplitSliceVariation, HeroSectionSplitSlice, SectionScrollSliceDefaultPrimary, SectionScrollSliceDefault, SectionScrollSliceVariation, SectionScrollSlice, FooterColumnSliceDefaultSlicePrimary, FooterColumnSliceDefaultSliceItem, FooterColumnSliceDefaultSlice, FooterColumnSliceVariation, FooterColumnSlice, MenuSubTabSliceDefaultSlicePrimary, MenuSubTabSliceDefaultSliceItem, MenuSubTabSliceDefaultSlice, MenuSubTabSliceVariation, MenuSubTabSlice };
     }
 }

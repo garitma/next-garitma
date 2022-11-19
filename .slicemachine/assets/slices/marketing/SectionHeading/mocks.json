@@ -9,19 +9,54 @@
       "title": [
         {
           "type": "heading1",
-          "text": "Forward",
+          "text": "Attached",
           "spans": []
         }
       ],
       "description": [
         {
           "type": "paragraph",
-          "text": "Qui sunt deserunt in consectetur do sint minim tempor laborum duis aliqua amet.",
+          "text": "Irure et incididunt amet elit exercitation qui. Amet non cillum officia.",
           "spans": []
         }
       ],
-      "color": "green",
-      "align": "right-text"
+      "color": "yellow",
+      "align": "left-text"
+    },
+    "slice_type": "hero_section_split"
+  },
+  {
+    "variation": "withImage",
+    "version": "sktwi1xtmkfgx8626",
+    "items": [
+      {}
+    ],
+    "primary": {
+      "title": [
+        {
+          "type": "heading1",
+          "text": "Store",
+          "spans": []
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Adipisicing aute incididunt laboris culpa ullamco.",
+          "spans": []
+        }
+      ],
+      "color": "lemon-green",
+      "align": "center-text",
+      "image": {
+        "dimensions": {
+          "width": 900,
+          "height": 500
+        },
+        "alt": null,
+        "copyright": null,
+        "url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b"
+      }
     },
     "slice_type": "hero_section_split"
   }

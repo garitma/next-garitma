@@ -295,6 +295,75 @@
               },
               "items": {},
               "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            },
+            {
+              "id": "withImage",
+              "name": "With Image",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "HeroSectionSplit",
+              "primary": {
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Title",
+                    "placeholder": "This is where it all begins...",
+                    "allowTargetBlank": true,
+                    "single": "heading1"
+                  }
+                },
+                "description": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "paragraph",
+                    "label": "Description",
+                    "placeholder": "A nice description of your feature"
+                  }
+                },
+                "color": {
+                  "type": "Select",
+                  "config": {
+                    "label": "color",
+                    "placeholder": "",
+                    "options": [
+                      "white",
+                      "yellow",
+                      "green",
+                      "lemon-green",
+                      "pink-purple",
+                      "pink",
+                      "orange-rose",
+                      "orange",
+                      "purple",
+                      "snow",
+                      "teal-green",
+                      "blue"
+                    ]
+                  }
+                },
+                "align": {
+                  "type": "Select",
+                  "config": {
+                    "label": "align",
+                    "placeholder": "",
+                    "options": [
+                      "center-text",
+                      "left-text",
+                      "right-text"
+                    ]
+                  }
+                },
+                "image": {
+                  "type": "Image",
+                  "config": {
+                    "label": "Image",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
+                }
+              },
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
             }
           ]
         },
@@ -309,19 +378,54 @@
               "title": [
                 {
                   "type": "heading1",
-                  "text": "Forward",
+                  "text": "Attached",
                   "spans": []
                 }
               ],
               "description": [
                 {
                   "type": "paragraph",
-                  "text": "Qui sunt deserunt in consectetur do sint minim tempor laborum duis aliqua amet.",
+                  "text": "Irure et incididunt amet elit exercitation qui. Amet non cillum officia.",
                   "spans": []
                 }
               ],
-              "color": "green",
-              "align": "right-text"
+              "color": "yellow",
+              "align": "left-text"
+            },
+            "slice_type": "hero_section_split"
+          },
+          "withImage": {
+            "variation": "withImage",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "title": [
+                {
+                  "type": "heading1",
+                  "text": "Store",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Adipisicing aute incididunt laboris culpa ullamco.",
+                  "spans": []
+                }
+              ],
+              "color": "lemon-green",
+              "align": "center-text",
+              "image": {
+                "dimensions": {
+                  "width": 900,
+                  "height": 500
+                },
+                "alt": null,
+                "copyright": null,
+                "url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b"
+              }
             },
             "slice_type": "hero_section_split"
           }

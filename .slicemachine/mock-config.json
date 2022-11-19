@@ -1,6 +1,22 @@
 {
   "_cts": {
-    "home": {}
+    "home": {},
+    "menu": {},
+    "poems_page": {
+      "title": {
+        "config": {
+          "patternType": "HEADING",
+          "blocks": 1
+        }
+      },
+      "excerpt": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      }
+    },
+    "quotes_page": {}
   },
   "slices/marketing": {
     "HeroBanner": {
@@ -13,6 +29,7 @@
       "default": {
         "primary": {}
       }
-    }
+    },
+    "SectionHeading": {}
   }
 }

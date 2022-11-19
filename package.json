@@ -31,10 +31,6 @@
     "url": "https://github.com/garitma/next-garitmic"
   },
   "devDependencies": {
-    "@prismicio/types": "^0.2.3",
-    "@types/node": "^16.4.13",
-    "@types/react": "^17.0.16",
-    "slice-machine-ui": "^0.5.2",
-    "typescript": "^4.3.5"
+    "slice-machine-ui": "^0.5.2"
   }
 }
