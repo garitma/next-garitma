@@ -10,7 +10,7 @@ import Image from "@components/Image";
  * @param { SectionScrollProps }
  */
 const SectionScroll = ({ slice }) => (
-  <Section color={slice.primary.color} className="motion-fadeUp">
+  <Section color={slice.primary.color}>
     <div
       style={{
         height: "80vh",

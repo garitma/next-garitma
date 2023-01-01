@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import Script from "next/script";
 import { useRouter } from "next/router";
 import "aura-design/style.css";
-import WithMotionObserver from "aura-design/motion";
 
 import { GTM_ID, pageview } from "@utils/gtag";
 import "../public/style.css";
@@ -30,9 +29,7 @@ function MyApp({ Component, pageProps }) {
           `,
         }}
       />
-      <WithMotionObserver>
-        <Component {...pageProps} />
-      </WithMotionObserver>
+      <Component {...pageProps} />
     </>
   );
 }

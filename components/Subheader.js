@@ -5,7 +5,7 @@ import Image from "@components/Image"
 
 const Subheader = ({ title, excerpt, image }) => {
   return (
-    <Section className="center-text motion-fadeUp mounted" color="pink">
+    <Section className="center-text" color="pink">
       <Grid col="two">
         <div className="valign">
           <div>

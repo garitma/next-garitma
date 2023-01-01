@@ -10,7 +10,7 @@ import Image from "@components/Image";
  * @param { HeroBannerProps }
  */
 const HeroBanner = ({ slice }) => (
-  <Section className="center-text motion-fadeUp mounted" color="teal-green" >
+  <Section className="center-text" color="teal-green" >
     <Grid col="two">
       <div>
         <div className="valign vfluid">
