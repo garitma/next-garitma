@@ -286,7 +286,7 @@
                     "label": "align",
                     "placeholder": "",
                     "options": [
-                      "center-text",
+                      "centertxt",
                       "left-text",
                       "right-text"
                     ]
@@ -347,7 +347,7 @@
                     "label": "align",
                     "placeholder": "",
                     "options": [
-                      "center-text",
+                      "centertxt",
                       "left-text",
                       "right-text"
                     ]
@@ -416,7 +416,7 @@
                 }
               ],
               "color": "lemon-green",
-              "align": "center-text",
+              "align": "centertxt",
               "image": {
                 "dimensions": {
                   "width": 900,

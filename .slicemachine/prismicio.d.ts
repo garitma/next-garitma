@@ -337,7 +337,7 @@ interface HeroSectionSplitSliceDefaultSlicePrimary {
      * - **Documentation**: https://prismic.io/docs/core-concepts/select
      *
      */
-    align: prismicT.SelectField<"center-text" | "left-text" | "right-text">;
+    align: prismicT.SelectField<"centertxt" | "left-text" | "right-text">;
 }
 /**
  * Default slice variation for SectionHeading Slice
@@ -392,7 +392,7 @@ interface HeroSectionSplitSliceWithImagePrimary {
      * - **Documentation**: https://prismic.io/docs/core-concepts/select
      *
      */
-    align: prismicT.SelectField<"center-text" | "left-text" | "right-text">;
+    align: prismicT.SelectField<"centertxt" | "left-text" | "right-text">;
     /**
      * Image field in *SectionHeading → Primary*
      *
