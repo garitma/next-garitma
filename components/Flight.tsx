@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 import animation from "@/animations/flight.json";
 
-const Animation = () => {
+const Flight = () => {
   const bodymovinOptions = {
     loop: true,
     autoplay: true,
@@ -52,4 +52,4 @@ const Animation = () => {
   );
 };
 
-export default Animation;
+export default Flight;

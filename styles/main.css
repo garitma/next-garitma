@@ -1,35 +1,33 @@
 *:root {
-    --aura-font-stack: ryo-gothic-plusn, sans-serif;
-  }
+  --aura-font-stack: ryo-gothic-plusn, sans-serif;
+}
 
-  .center-text {
-    text-align: center;
-  }
+#nprogress .bar {
+  background: var(--aura-loader) !important;
+  height: 6.5px !important;
+}
+
+#nprogress .peg {
+  display: none !important;
+}
+
+.flip {
+  transform: scaleX(-1);
+}
+
+html, body, section {
+  block-size: 100%;
+}
+
+html {
+  scroll-snap-type: y;
+}
+
+section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
   
-  @media only screen and (max-width: 767px) {
-    .centertxt-small {
-      text-align: center !important;
-    }
-  }
-  
-  .sticky {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    z-index: 1;
-  }
-  
-  
-  .b0 {
-    border: 0 !important;
-  }
-  
-  #nprogress .bar {
-    background: var(--aura-loader)!important;
-    height: 6.5px!important
-  }
-  
-  #nprogress .peg {
-    display: none!important;
-  }
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -3,6 +3,7 @@ import Grid from "@aura-design/system/grid";
 import dynamic from "next/dynamic";
 
 const Flight = dynamic(() => import("@/components/Flight"), { ssr: false });
+const Grass = dynamic(() => import("@/components/Grass"), { ssr: false });
 
 const Home = ({ doc, menu }) => {
   return (
@@ -12,12 +13,16 @@ const Home = ({ doc, menu }) => {
         className="h-[100vh]"
         subClassName="vfluid"
         style={{
-          backgroundImage: "url('./test.jpg')",
+          backgroundImage: "url('./mountain.jpg')",
           backgroundPosition: "bottom center",
+          backgroundSize: "cover",
         }}
       >
         <div className="absolute left-0 right-0">
           <Flight />
+        </div>
+        <div className="absolute bottom-0 right-0">
+        <Grass />
         </div>
         <Grid col="two" className="vfluid">
           <div className="valign">
@@ -25,6 +30,7 @@ const Home = ({ doc, menu }) => {
           </div>
         </Grid>
       </Section>
+      <Section color="pink" className="h-[100vh]"></Section>
     </>
   );
 };
