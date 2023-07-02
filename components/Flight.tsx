@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import ReactBodymovin from "react-bodymovin";
 import { motion } from "framer-motion";
 
-import {FADE_UP_ANIMATION_VARIANTS} from "@/utils/motion-variants"
 import animation from "@/animations/flight.json";
-
 
 const Animation = () => {
   const bodymovinOptions = {
@@ -16,21 +14,40 @@ const Animation = () => {
 
   return (
     <motion.div
-      initial="hidden"
-      animate="show"
-      viewport={{ once: true }}
-      variants={{
-        hidden: {},
-        show: {
-          transition: {
-            staggerChildren: 0.15,
-          },
-        },
+      initial={{
+        x: 0,
+        y: "-2%",
+      }}
+      animate={{
+        x: "100%",
+        y: [
+          "2%",
+          "-2%",
+          "2%",
+          "-2%",
+          "2%",
+          "-2%",
+          "2%",
+          "-2%",
+          "2%",
+          "-2%",
+          "2%",
+          "-2%",
+          "2%",
+          "-2%",
+          "2%",
+          "-2%",
+          "2%",
+          "-2%",
+          "2%",
+          "-2%",
+        ],
+      }}
+      transition={{
+        duration: 25,
       }}
     >
-      <motion.div className="mt-2" variants={FADE_UP_ANIMATION_VARIANTS}>
-        <ReactBodymovin options={bodymovinOptions} />
-      </motion.div>
+      <ReactBodymovin options={bodymovinOptions} />
     </motion.div>
   );
 };
