@@ -1,6 +1,68 @@
+/* :::::::::: CSS STYLESHEET TEMPLATE :::::::::: */
+
+/* TOKENS */
+
 *:root {
   --aura-font-stack: ryo-gothic-plusn, sans-serif;
+  --aura-text-primary: #1d1f29;
+  --aura-accents-primary: #f5f7f9;
+  --aura-text-primary-inverse: #1d1f29;
+  --aura-button-hover: #f3e2e4;
 }
+
+/* TYPOGRAPHY */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 900;
+}
+
+
+/* LAYOUT */
+
+html,
+body,
+section {
+  block-size: 100%;
+}
+
+html {
+  scroll-snap-type: y;
+  overflow-x: hidden;
+}
+
+section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip {
+  transform: scaleX(-1);
+}
+
+/* SPACING */
+
+/* COLORS */
+
+/* HELPERS */
+
+/* ATOMS */
+
+.button-fill {
+  border-color: #1d1f29
+}
+
+/* MOLECULES */
+
+/* ORGANISMS */
 
 #nprogress .bar {
   background: var(--aura-loader) !important;
@@ -9,25 +71,4 @@
 
 #nprogress .peg {
   display: none !important;
-}
-
-.flip {
-  transform: scaleX(-1);
-}
-
-html, body, section {
-  block-size: 100%;
-}
-
-html {
-  scroll-snap-type: y;
-}
-
-section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
