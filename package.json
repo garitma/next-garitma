@@ -30,14 +30,14 @@
     "url": "https://github.com/garitma/next-garitmic"
   },
   "devDependencies": {
-    "@slicemachine/adapter-next": "^0.3.0",
+    "@slicemachine/adapter-next": "^0.3.20",
     "@types/node": "20.2.5",
     "@types/nprogress": "^0.2.0",
     "@types/react": "18.2.8",
     "@types/react-dom": "18.2.4",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.24",
-    "slice-machine-ui": "^1.2.0",
+    "slice-machine-ui": "^1.17.0",
     "start-slicemachine": "^0.9.0",
     "tailwindcss": "^3.3.2"
   }

@@ -5,7 +5,9 @@ import dynamic from "next/dynamic";
 
 import Layout from "@/components/Layout";
 const Flight = dynamic(() => import("@/components/Flight"), { ssr: false });
-const FlightSecond = dynamic(() => import("@/components/FlightSecond"), { ssr: false });
+const FlightSecond = dynamic(() => import("@/components/FlightSecond"), {
+  ssr: false,
+});
 const Grass = dynamic(() => import("@/components/Grass"), { ssr: false });
 
 const Home = ({ doc, menu }) => {
@@ -13,7 +15,7 @@ const Home = ({ doc, menu }) => {
     <Layout>
       <Section
         color="pink"
-        className="h-[100vh] relative"
+        className="h-[100svh] relative"
         subClassName="vfluid"
         style={{
           backgroundImage: "url('./mountain.jpg')",
@@ -25,9 +27,6 @@ const Home = ({ doc, menu }) => {
           <Flight />
           <FlightSecond />
         </div>
-        <div className="absolute bottom-0 right-0">
-          <Grass />
-        </div>
         <Grid col="two" className="vfluid">
           <div className="valign">
             <Grid col="one" className="z-10">
@@ -37,12 +36,10 @@ const Home = ({ doc, menu }) => {
                 un nombre sin sentido que fue corregido hasta tener sentido.
                 Hoy, Garitma significa, "No te preocupes".
               </p>
-              <Button label="Comienza el viaje" />
             </Grid>
           </div>
         </Grid>
       </Section>
-      <Section color="pink" className="h-[100vh]"></Section>
     </Layout>
   );
 };
