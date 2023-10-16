@@ -2,22 +2,18 @@ import { useState } from "react";
 import Link from "next/link";
 import { MenuIcon, CloseIcon } from "@aura-design/system/dist/icons";
 import Button from "@aura-design/system/button";
+import Image from "next/image";
 
-import Image from "@/components/Image";
-import Menu from "@/components/Menu";
-
-const Header = ({ menu }) => {
+const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="purple">
-      <div className="smush aura">
-        <ul className="nav-list">
-          <li className="item">
-            <Link href="/">
-              <a className="halo aura white circle">
-                <Image {...menu.data.logo} priority={true} />
-              </a>
+    <header className="absolute top-0 left-0 right-0">
+      <div className="smush">
+        <ul className="nav-list h-6">
+          <li className="item valign">
+            <Link href="/" className="halo">
+              <Image src="/logo.png" width={60} height={60} alt="Logo" />
             </Link>
           </li>
           <li></li>
@@ -28,10 +24,10 @@ const Header = ({ menu }) => {
           </li>
           <li className="hide-medium hide-small">
             <ul className="nav-list">
-              <Menu
+              {/* <Menu
                 onClose={() => setIsOpen(false)}
                 menuTabs={menu.data.menuTabs}
-              />
+              /> */}
             </ul>
           </li>
         </ul>
@@ -51,11 +47,6 @@ const Header = ({ menu }) => {
               </Button>
             </li>
           </ul>
-          <Menu
-            onClose={() => setIsOpen(false)}
-            menuTabs={menu.data.menuTabs}
-            isMobile
-          />
         </ul>
       </div>
     </header>
