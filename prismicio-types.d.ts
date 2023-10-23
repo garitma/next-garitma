@@ -4,7 +4,9 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomeDocumentDataSlicesSlice = ElevatedIntroSectionSlice;
+type HomeDocumentDataSlicesSlice =
+  | WaterfallSectionSlice
+  | ElevatedIntroSectionSlice;
 
 /**
  * Content for Home documents
@@ -237,6 +239,61 @@ export type TextBlockSlice = prismic.SharedSlice<
   TextBlockSliceVariation
 >;
 
+/**
+ * Primary content in *WaterfallSection → Primary*
+ */
+export interface WaterfallSectionSliceDefaultPrimary {
+  /**
+   * Title field in *WaterfallSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: waterfall_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *WaterfallSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: waterfall_section.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for WaterfallSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WaterfallSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<WaterfallSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *WaterfallSection*
+ */
+type WaterfallSectionSliceVariation = WaterfallSectionSliceDefault;
+
+/**
+ * WaterfallSection Shared Slice
+ *
+ * - **API ID**: `waterfall_section`
+ * - **Description**: WaterfallSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WaterfallSectionSlice = prismic.SharedSlice<
+  "waterfall_section",
+  WaterfallSectionSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -261,6 +318,10 @@ declare module "@prismicio/client" {
       TextBlockSlice,
       TextBlockSliceVariation,
       TextBlockSliceDefault,
+      WaterfallSectionSlice,
+      WaterfallSectionSliceDefaultPrimary,
+      WaterfallSectionSliceVariation,
+      WaterfallSectionSliceDefault,
     };
   }
 }

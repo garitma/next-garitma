@@ -21,7 +21,6 @@ h6 {
   font-weight: 900;
 }
 
-
 /* LAYOUT */
 
 html,
@@ -38,7 +37,6 @@ html {
 section {
   scroll-snap-align: start;
   scroll-snap-stop: always;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,6 +44,12 @@ section {
 
 .flip {
   transform: scaleX(-1);
+}
+
+@media only screen and (max-width: 767px) {
+  .react-bodymovin-container svg {
+    transform: scale(3);
+  }
 }
 
 /* SPACING */
@@ -57,7 +61,7 @@ section {
 /* ATOMS */
 
 .button-fill {
-  border-color: #1d1f29
+  border-color: #1d1f29;
 }
 
 /* MOLECULES */

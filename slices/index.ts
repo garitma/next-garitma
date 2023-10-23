@@ -5,4 +5,5 @@ import dynamic from "next/dynamic";
 export const components = {
   elevated_intro_section: dynamic(() => import("./ElevatedIntroSection")),
   text_block: dynamic(() => import("./TextBlock")),
+  waterfall_section: dynamic(() => import("./WaterfallSection")),
 };
