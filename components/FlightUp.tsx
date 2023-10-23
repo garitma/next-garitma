@@ -15,39 +15,18 @@ const Flight = () => {
   return (
     <motion.div
       initial={{
-        x: "-95%",
-        y: "-2%",
+        x: "-10%",
+        y: "150%",
+        rotate: -20,
       }}
       animate={{
         x: "100%",
-        y: [
-          "2%",
-          "-2%",
-          "2%",
-          "-2%",
-          "2%",
-          "-2%",
-          "2%",
-          "-2%",
-          "2%",
-          "-2%",
-          "2%",
-          "-2%",
-          "2%",
-          "-2%",
-          "2%",
-          "-2%",
-          "2%",
-          "-2%",
-          "2%",
-          "-2%",
-        ],
+        y: "-30%",
       }}
       transition={{
-        repeat: Infinity, // Infinity will make it loop indefinitely
-        duration: 60,
-        repeatDelay: 0, // Optionally add a delay between each loop iteration
+        duration: 25,
       }}
+  
     >
       <ReactBodymovin options={bodymovinOptions} />
     </motion.div>

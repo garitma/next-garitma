@@ -6,23 +6,23 @@ settings:
 
 dependencies:
   '@aura-design/system':
-    specifier: ^0.4.36
-    version: 0.4.36
+    specifier: ^0.4.43
+    version: 0.4.43
   '@prismicio/client':
-    specifier: ^7.1.0
-    version: 7.1.0
+    specifier: ^7.3.1
+    version: 7.3.1
   '@prismicio/next':
-    specifier: ^1.3.2
-    version: 1.3.2(@prismicio/client@7.1.0)(next@13.4.7)(react@18.2.0)
+    specifier: ^1.3.6
+    version: 1.3.6(@prismicio/client@7.3.1)(next@13.5.5)(react@18.2.0)
   '@prismicio/react':
-    specifier: ^2.7.1
-    version: 2.7.1(@prismicio/client@7.1.0)(react@18.2.0)
+    specifier: ^2.7.3
+    version: 2.7.3(@prismicio/client@7.3.1)(react@18.2.0)
   framer-motion:
     specifier: ^10.12.17
     version: 10.12.17(react-dom@18.2.0)(react@18.2.0)
   next:
-    specifier: ^13.4.7
-    version: 13.4.7(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^13.5.5
+    version: 13.5.5(react-dom@18.2.0)(react@18.2.0)
   nprogress:
     specifier: ^0.2.0
     version: 0.2.0
@@ -38,8 +38,8 @@ dependencies:
 
 devDependencies:
   '@slicemachine/adapter-next':
-    specifier: ^0.3.20
-    version: 0.3.20(@prismicio/client@7.1.0)(@types/uuid@9.0.5)(next@13.4.7)(react@18.2.0)(uuid@9.0.1)
+    specifier: ^0.3.21
+    version: 0.3.21(@prismicio/client@7.3.1)(@types/uuid@9.0.5)(next@13.5.5)(react@18.2.0)(uuid@9.0.1)
   '@types/node':
     specifier: 20.2.5
     version: 20.2.5
@@ -59,8 +59,8 @@ devDependencies:
     specifier: ^8.4.24
     version: 8.4.24
   slice-machine-ui:
-    specifier: ^1.17.0
-    version: 1.17.0(@prismicio/client@7.1.0)(@types/uuid@9.0.5)(uuid@9.0.1)
+    specifier: ^1.18.0
+    version: 1.18.0(@prismicio/client@7.3.1)(@types/uuid@9.0.5)(uuid@9.0.1)
   start-slicemachine:
     specifier: ^0.9.0
     version: 0.9.0(monocle-ts@2.3.13)(newtype-ts@0.3.5)
@@ -80,8 +80,8 @@ packages:
     hasBin: true
     dev: true
 
-  /@aura-design/system@0.4.36:
-    resolution: {integrity: sha512-HcOxn4ANrmAlXeUsZRHM2YeM8ZVTImFdP+o4wz6lzqJivf3KCpTwUdPt5/1uDyr55XEpzWi4yj09VmZfzqNcRQ==}
+  /@aura-design/system@0.4.43:
+    resolution: {integrity: sha512-VU4TqwJQYbydMDpenT6VvcYzKleMqIbGMAjyGulCAI4lsY7FS+lC1eK83yPUkVak7WdiJP6ifsEQ7ohiOTyiVw==}
     dependencies:
       '@types/react': 18.2.8
       react: 18.2.0
@@ -173,75 +173,75 @@ packages:
     engines: {node: '>= 10'}
     dev: true
 
-  /@next/env@13.4.7:
-    resolution: {integrity: sha512-ZlbiFulnwiFsW9UV1ku1OvX/oyIPLtMk9p/nnvDSwI0s7vSoZdRtxXNsaO+ZXrLv/pMbXVGq4lL8TbY9iuGmVw==}
+  /@next/env@13.5.5:
+    resolution: {integrity: sha512-agvIhYWp+ilbScg81s/sLueZo8CNEYLjNOqhISxheLmD/AQI4/VxV7bV76i/KzxH4iHy/va0YS9z0AOwGnw4Fg==}
 
-  /@next/swc-darwin-arm64@13.4.7:
-    resolution: {integrity: sha512-VZTxPv1b59KGiv/pZHTO5Gbsdeoxcj2rU2cqJu03btMhHpn3vwzEK0gUSVC/XW96aeGO67X+cMahhwHzef24/w==}
+  /@next/swc-darwin-arm64@13.5.5:
+    resolution: {integrity: sha512-FvTdcJdTA7H1FGY8dKPPbf/O0oDC041/znHZwXA7liiGUhgw5hOQ+9z8tWvuz0M5a/SDjY/IRPBAb5FIFogYww==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     optional: true
 
-  /@next/swc-darwin-x64@13.4.7:
-    resolution: {integrity: sha512-gO2bw+2Ymmga+QYujjvDz9955xvYGrWofmxTq7m70b9pDPvl7aDFABJOZ2a8SRCuSNB5mXU8eTOmVVwyp/nAew==}
+  /@next/swc-darwin-x64@13.5.5:
+    resolution: {integrity: sha512-mTqNIecaojmyia7appVO2QggBe1Z2fdzxgn6jb3x9qlAk8yY2sy4MAcsj71kC9RlenCqDmr9vtC/ESFf110TPA==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
     optional: true
 
-  /@next/swc-linux-arm64-gnu@13.4.7:
-    resolution: {integrity: sha512-6cqp3vf1eHxjIDhEOc7Mh/s8z1cwc/l5B6ZNkOofmZVyu1zsbEM5Hmx64s12Rd9AYgGoiCz4OJ4M/oRnkE16/Q==}
+  /@next/swc-linux-arm64-gnu@13.5.5:
+    resolution: {integrity: sha512-U9e+kNkfvwh/T8yo+xcslvNXgyMzPPX1IbwCwnHHFmX5ckb1Uc3XZSInNjFQEQR5xhJpB5sFdal+IiBIiLYkZA==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     optional: true
 
-  /@next/swc-linux-arm64-musl@13.4.7:
-    resolution: {integrity: sha512-T1kD2FWOEy5WPidOn1si0rYmWORNch4a/NR52Ghyp4q7KyxOCuiOfZzyhVC5tsLIBDH3+cNdB5DkD9afpNDaOw==}
+  /@next/swc-linux-arm64-musl@13.5.5:
+    resolution: {integrity: sha512-h7b58eIoNCSmKVC5fr167U0HWZ/yGLbkKD9wIller0nGdyl5zfTji0SsPKJvrG8jvKPFt2xOkVBmXlFOtuKynw==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     optional: true
 
-  /@next/swc-linux-x64-gnu@13.4.7:
-    resolution: {integrity: sha512-zaEC+iEiAHNdhl6fuwl0H0shnTzQoAoJiDYBUze8QTntE/GNPfTYpYboxF5LRYIjBwETUatvE0T64W6SKDipvg==}
+  /@next/swc-linux-x64-gnu@13.5.5:
+    resolution: {integrity: sha512-6U4y21T1J6FfcpM9uqzBJicxycpB5gJKLyQ3g6KOfBzT8H1sMwfHTRrvHKB09GIn1BCRy5YJHrA1G26DzqR46w==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     optional: true
 
-  /@next/swc-linux-x64-musl@13.4.7:
-    resolution: {integrity: sha512-X6r12F8d8SKAtYJqLZBBMIwEqcTRvUdVm+xIq+l6pJqlgT2tNsLLf2i5Cl88xSsIytBICGsCNNHd+siD2fbWBA==}
+  /@next/swc-linux-x64-musl@13.5.5:
+    resolution: {integrity: sha512-OuqWSAQHJQM2EsapPFTSU/FLQ0wKm7UeRNatiR/jLeCe1V02aB9xmzuWYo2Neaxxag4rss3S8fj+lvMLzwDaFA==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     optional: true
 
-  /@next/swc-win32-arm64-msvc@13.4.7:
-    resolution: {integrity: sha512-NPnmnV+vEIxnu6SUvjnuaWRglZzw4ox5n/MQTxeUhb5iwVWFedolPFebMNwgrWu4AELwvTdGtWjqof53AiWHcw==}
+  /@next/swc-win32-arm64-msvc@13.5.5:
+    resolution: {integrity: sha512-+yLrOZIIZDY4uGn9bLOc0wTgs+M8RuOUFSUK3BhmcLav9e+tcAj0jyBHD4aXv2qWhppUeuYMsyBo1I58/eE6Dg==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
     optional: true
 
-  /@next/swc-win32-ia32-msvc@13.4.7:
-    resolution: {integrity: sha512-6Hxijm6/a8XqLQpOOf/XuwWRhcuc/g4rBB2oxjgCMuV9Xlr2bLs5+lXyh8w9YbAUMYR3iC9mgOlXbHa79elmXw==}
+  /@next/swc-win32-ia32-msvc@13.5.5:
+    resolution: {integrity: sha512-SyMxXyJtf9ScMH0Dh87THJMXNFvfkRAk841xyW9SeOX3KxM1buXX3hN7vof4kMGk0Yg996OGsX+7C9ueS8ugsw==}
     engines: {node: '>= 10'}
     cpu: [ia32]
     os: [win32]
     requiresBuild: true
     optional: true
 
-  /@next/swc-win32-x64-msvc@13.4.7:
-    resolution: {integrity: sha512-sW9Yt36Db1nXJL+mTr2Wo0y+VkPWeYhygvcHj1FF0srVtV+VoDjxleKtny21QHaG05zdeZnw2fCtf2+dEqgwqA==}
+  /@next/swc-win32-x64-msvc@13.5.5:
+    resolution: {integrity: sha512-n5KVf2Ok0BbLwofAaHiiKf+BQCj1M8WmTujiER4/qzYAVngnsNSjqEWvJ03raeN9eURqxDO+yL5VRoDrR33H9A==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [win32]
@@ -285,12 +285,11 @@ packages:
       uuid: 8.3.2
     dev: true
 
-  /@prismicio/client@7.1.0:
-    resolution: {integrity: sha512-9UvPjPae+7KfdZpUvdDCQG+9GCrR/A0BVFrixj1O7lv7SCJuyp50ZIVm9cc6G49E0HMSHFH592isRKj/xKjP+w==}
+  /@prismicio/client@7.3.1:
+    resolution: {integrity: sha512-9MKR/atr4dIQz8rZsQ4Fe7588qSQF2CYXutYW8O9bJOqlrjvAcC8b1Yvu7AIOksXlxE/aAWPtriQ2JZMiTFjNw==}
     engines: {node: '>=14.15.0'}
     dependencies:
-      '@prismicio/richtext': 2.1.5
-      imgix-url-builder: 0.0.3
+      imgix-url-builder: 0.0.4
 
   /@prismicio/custom-types-client@1.1.0:
     resolution: {integrity: sha512-nJqWD8RikdMaU+xH8t5Hy6tUBWM57cq1yGofsKUHu/UWySIpgo4SA+1SieD11+xzRr7a1b/a/ThA2imJB0DYfQ==}
@@ -322,28 +321,28 @@ packages:
       uuid: 8.3.2
     dev: true
 
-  /@prismicio/next@1.3.2(@prismicio/client@7.1.0)(next@13.4.7)(react@18.2.0):
-    resolution: {integrity: sha512-EVs5S0gD0sL6FbxXs29+DyobZl/QOiaKrFbNT3tCekNEO1HXkP+B+ZpA/djlvE9ffiyPbtPOC5B2zyypPXAmPQ==}
+  /@prismicio/next@1.3.6(@prismicio/client@7.3.1)(next@13.5.5)(react@18.2.0):
+    resolution: {integrity: sha512-eRZm0NSuhr7KCdcETQDnERSypWYTmZv272IbhLrUuc6xme/0GrNeRhQSYaCIOl+QlKygGbnMdKBA0jtcE0k5RQ==}
     engines: {node: '>=14.15.0'}
     peerDependencies:
       '@prismicio/client': ^6 || ^7
       next: ^13.4.5
       react: ^18
     dependencies:
-      '@prismicio/client': 7.1.0
+      '@prismicio/client': 7.3.1
       imgix-url-builder: 0.0.4
-      next: 13.4.7(react-dom@18.2.0)(react@18.2.0)
+      next: 13.5.5(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
     dev: false
 
-  /@prismicio/react@2.7.1(@prismicio/client@7.1.0)(react@18.2.0):
-    resolution: {integrity: sha512-AEPL1Ng6K5+dqUG6RTARMQg3g3oGWcIjRl5bgGaJwvRP43wp3gltdZm4P/63XV3Rb4MuMdp7IRT93XGhzLwkww==}
+  /@prismicio/react@2.7.3(@prismicio/client@7.3.1)(react@18.2.0):
+    resolution: {integrity: sha512-4Fr19mcJPCDCQUvCYUjphgFH6bzoNeamIVubDvDTdedYYGT+SjKCwNRIElDJIh6QMCU8zqvVAT4jAS3Tok5hlw==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
       '@prismicio/client': ^6 || ^7
       react: ^18
     dependencies:
-      '@prismicio/client': 7.1.0
+      '@prismicio/client': 7.3.1
       '@prismicio/richtext': 2.1.5
       react: 18.2.0
     dev: false
@@ -353,12 +352,13 @@ packages:
     engines: {node: '>=12.7.0'}
     dependencies:
       '@prismicio/types': 0.2.8
+    dev: false
 
   /@prismicio/simulator@0.1.4:
     resolution: {integrity: sha512-aBDwGghM8LqXOvdbJWJScBTpY8wuVl3CyCWFqiFwqC8l5SPrQtD2CwEVX0UCB0azPlisb7l7al5Wcg2nxQ6xrQ==}
     engines: {node: '>=14.15.0'}
     dependencies:
-      '@prismicio/client': 7.1.0
+      '@prismicio/client': 7.3.1
       '@types/statuses': 2.0.2
       statuses: 2.0.1
     dev: true
@@ -461,8 +461,8 @@ packages:
     resolution: {integrity: sha512-RNiOoTPkptFtSVzQevY/yWtZwf/RxyVnPy/OcA9HBM3MlGDnBEYL5B41H0MTn0Uec8Hi+2qUtTfG2WWZBmMejQ==}
     dev: true
 
-  /@slicemachine/adapter-next@0.3.20(@prismicio/client@7.1.0)(@types/uuid@9.0.5)(next@13.4.7)(react@18.2.0)(uuid@9.0.1):
-    resolution: {integrity: sha512-hEGaRuzlwaji4AOCf/OJjsDmnPI+Qm44SIKaHqPy2NgT0OJ28NGDNjW7TEqtCi+2mWc8yfgEfIhuXJGiMMRang==}
+  /@slicemachine/adapter-next@0.3.21(@prismicio/client@7.3.1)(@types/uuid@9.0.5)(next@13.5.5)(react@18.2.0)(uuid@9.0.1):
+    resolution: {integrity: sha512-5gSppfCr1xL3GEqjjOkbiRd6MJfsqFb2EBv+lybSO2uGT36M4dSBWTZp9w/XwFL8yLMbm6k6SyrVCQtLy+kq8w==}
     engines: {node: '>=14.15.0'}
     peerDependencies:
       next: ^11 || ^12 || ^13
@@ -470,17 +470,17 @@ packages:
     dependencies:
       '@prismicio/simulator': 0.1.4
       '@prismicio/types-internal': 2.3.1(@types/uuid@9.0.5)(fp-ts@2.16.0)(io-ts-types@0.5.19)(io-ts@2.2.20)(uuid@9.0.1)
-      '@slicemachine/plugin-kit': 0.4.20(@prismicio/client@7.1.0)
+      '@slicemachine/plugin-kit': 0.4.21(@prismicio/client@7.3.1)
       common-tags: 1.8.2
       fp-ts: 2.16.0
       io-ts: 2.2.20(fp-ts@2.16.0)
       io-ts-types: 0.5.19(fp-ts@2.16.0)(io-ts@2.2.20)(monocle-ts@2.3.13)(newtype-ts@0.3.5)
       monocle-ts: 2.3.13(fp-ts@2.16.0)
       newtype-ts: 0.3.5(fp-ts@2.16.0)(monocle-ts@2.3.13)
-      next: 13.4.7(react-dom@18.2.0)(react@18.2.0)
+      next: 13.5.5(react-dom@18.2.0)(react@18.2.0)
       node-fetch: 3.3.1
       pascal-case: 3.1.2
-      prismic-ts-codegen: 0.1.19(@prismicio/client@7.1.0)
+      prismic-ts-codegen: 0.1.19(@prismicio/client@7.3.1)
       react: 18.2.0
     transitivePeerDependencies:
       - '@prismicio/client'
@@ -489,8 +489,8 @@ packages:
       - uuid
     dev: true
 
-  /@slicemachine/manager@0.14.0(@prismicio/client@7.1.0)(@types/uuid@9.0.5)(uuid@9.0.1):
-    resolution: {integrity: sha512-1v0wRpd5pggbAM0svvS/Mnsod4wyO0aCcd76b0Q1jhx2lYllE/5lBx4Kkos98NnSg9U3EnhrleFr16oRkbnNPg==}
+  /@slicemachine/manager@0.15.0(@prismicio/client@7.3.1)(@types/uuid@9.0.5)(uuid@9.0.1):
+    resolution: {integrity: sha512-/FIoT5vCd/Ht4Do/NWDRWRSLFqO1Od1jiVQ+W9tLtfWNNbYho6TwxlNU1RGUlt84zQq54zCFPA6Fdx2KJiSZuw==}
     engines: {node: '>=14.15.0'}
     peerDependencies:
       msw: ^1.1.0
@@ -502,7 +502,7 @@ packages:
       '@prismicio/custom-types-client': 1.2.0-alpha.0
       '@prismicio/mocks': 2.0.0-alpha.2
       '@prismicio/types-internal': 2.3.1(@types/uuid@9.0.5)(fp-ts@2.16.0)(io-ts-types@0.5.19)(io-ts@2.2.20)(uuid@9.0.1)
-      '@slicemachine/plugin-kit': 0.4.20(@prismicio/client@7.1.0)
+      '@slicemachine/plugin-kit': 0.4.21(@prismicio/client@7.3.1)
       '@wooorm/starry-night': 1.7.0
       analytics-node: 6.2.0
       cookie: 0.5.0
@@ -601,8 +601,8 @@ packages:
       - io-ts-types
     dev: true
 
-  /@slicemachine/plugin-kit@0.4.20(@prismicio/client@7.1.0):
-    resolution: {integrity: sha512-YGU7CscgvF/WblZBM1R7dMAqV482ya+Vkl1wvwuI6Z02KjfPs9uxRRudJR5gGB7HFk0R3ScpioQr/LMzjV31hA==}
+  /@slicemachine/plugin-kit@0.4.21(@prismicio/client@7.3.1):
+    resolution: {integrity: sha512-IyYGYpfk3dWMjYcoAcVZ6O/4ioK+fT8zTx1zfgFUo4xpwTC+6itXd8aIhyWW4ePO2v4CpMgMHCaiCLS2oy8cEQ==}
     engines: {node: '>=14.15.0'}
     dependencies:
       common-tags: 1.8.2
@@ -612,14 +612,14 @@ packages:
       io-ts: 2.2.20(fp-ts@2.16.0)
       io-ts-reporters: 2.0.1(fp-ts@2.16.0)(io-ts@2.2.20)
       prettier: 2.8.8
-      prismic-ts-codegen: 0.1.19(@prismicio/client@7.1.0)
+      prismic-ts-codegen: 0.1.19(@prismicio/client@7.3.1)
     transitivePeerDependencies:
       - '@prismicio/client'
       - '@prismicio/types'
     dev: true
 
-  /@swc/helpers@0.5.1:
-    resolution: {integrity: sha512-sJ902EfIzn1Fa+qYmjdQqh8tPsoxyBz+8yBKC2HKUxyezKJFwPGOn7pv4WY6QuQW//ySQi5lJjA/ZT9sNWWNTg==}
+  /@swc/helpers@0.5.2:
+    resolution: {integrity: sha512-E4KcWTpoLHqwPHLxidpOqQbcrZVgi0rsmmZXUle1jXmJfuIf/UWpczUJ7MZZ5tlxytgJXyp0w4PGkkeLiuIdZw==}
     dependencies:
       tslib: 2.5.3
 
@@ -1706,14 +1706,9 @@ packages:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
     dev: true
 
-  /imgix-url-builder@0.0.3:
-    resolution: {integrity: sha512-8Oc2Cn4+jF06sEfJcVPlWYfD2F6RjrwIMbk1xEzux8unoB5LsvFc/GL1BQ47HPaeE12ReX2nMUcjUslGYWLxHA==}
-    engines: {node: '>=12.7.0'}
-
   /imgix-url-builder@0.0.4:
     resolution: {integrity: sha512-JRLydfxGTTbSSOG82ewuCgnmw/CzIPzoDqpP3UYD7RE+QWS8ZZbpF87ZuRqtcbEKdxahRsExinuKRxPZVvukWA==}
     engines: {node: '>=12.7.0'}
-    dev: false
 
   /import-meta-resolve@2.2.2:
     resolution: {integrity: sha512-f8KcQ1D80V7RnqVm+/lirO9zkOxjGxhaTC1IPrBGd3MEfNgmNG67tSUO9gTi2F3Blr2Az6g1vocaxzkVnWl9MA==}
@@ -2502,44 +2497,40 @@ packages:
       monocle-ts: 2.3.13(fp-ts@2.16.0)
     dev: true
 
-  /next@13.4.7(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-M8z3k9VmG51SRT6v5uDKdJXcAqLzP3C+vaKfLIAM0Mhx1um1G7MDnO63+m52qPdZfrTFzMZNzfsgvm3ghuVHIQ==}
-    engines: {node: '>=16.8.0'}
+  /next@13.5.5(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-LddFJjpfrtrMMw8Q9VLhIURuSidiCNcMQjRqcPtrKd+Fx07MsG7hYndJb/f2d3I+mTbTotsTJfCnn0eZ/YPk8w==}
+    engines: {node: '>=16.14.0'}
     hasBin: true
     peerDependencies:
       '@opentelemetry/api': ^1.1.0
-      fibers: '>= 3.1.0'
       react: ^18.2.0
       react-dom: ^18.2.0
       sass: ^1.3.0
     peerDependenciesMeta:
       '@opentelemetry/api':
         optional: true
-      fibers:
-        optional: true
       sass:
         optional: true
     dependencies:
-      '@next/env': 13.4.7
-      '@swc/helpers': 0.5.1
+      '@next/env': 13.5.5
+      '@swc/helpers': 0.5.2
       busboy: 1.6.0
       caniuse-lite: 1.0.30001508
-      postcss: 8.4.14
+      postcss: 8.4.31
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       styled-jsx: 5.1.1(react@18.2.0)
       watchpack: 2.4.0
-      zod: 3.21.4
     optionalDependencies:
-      '@next/swc-darwin-arm64': 13.4.7
-      '@next/swc-darwin-x64': 13.4.7
-      '@next/swc-linux-arm64-gnu': 13.4.7
-      '@next/swc-linux-arm64-musl': 13.4.7
-      '@next/swc-linux-x64-gnu': 13.4.7
-      '@next/swc-linux-x64-musl': 13.4.7
-      '@next/swc-win32-arm64-msvc': 13.4.7
-      '@next/swc-win32-ia32-msvc': 13.4.7
-      '@next/swc-win32-x64-msvc': 13.4.7
+      '@next/swc-darwin-arm64': 13.5.5
+      '@next/swc-darwin-x64': 13.5.5
+      '@next/swc-linux-arm64-gnu': 13.5.5
+      '@next/swc-linux-arm64-musl': 13.5.5
+      '@next/swc-linux-x64-gnu': 13.5.5
+      '@next/swc-linux-x64-musl': 13.5.5
+      '@next/swc-win32-arm64-msvc': 13.5.5
+      '@next/swc-win32-ia32-msvc': 13.5.5
+      '@next/swc-win32-x64-msvc': 13.5.5
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
@@ -2805,14 +2796,6 @@ packages:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
     dev: true
 
-  /postcss@8.4.14:
-    resolution: {integrity: sha512-E398TUmfAYFPBSdzgeieK2Y1+1cpdxJx8yXbK/m57nRhKSmk1GB2tO4lbLBtlkfPQTDKfe4Xqv1ASWPpayPEig==}
-    engines: {node: ^10 || ^12 || >=14}
-    dependencies:
-      nanoid: 3.3.6
-      picocolors: 1.0.0
-      source-map-js: 1.0.2
-
   /postcss@8.4.24:
     resolution: {integrity: sha512-M0RzbcI0sO/XJNucsGjvWU9ERWxb/ytp1w6dKtxTKgixdtQDq4rmx/g8W1hnaheq9jgwL/oyEdH5Bc4WwJKMqg==}
     engines: {node: ^10 || ^12 || >=14}
@@ -2822,13 +2805,21 @@ packages:
       source-map-js: 1.0.2
     dev: true
 
+  /postcss@8.4.31:
+    resolution: {integrity: sha512-PS08Iboia9mts/2ygV3eLpY5ghnUcfLV/EXTOW1E2qYxJKGGBUtNjN76FYHnMs36RmARn41bC0AZmn+rR0OVpQ==}
+    engines: {node: ^10 || ^12 || >=14}
+    dependencies:
+      nanoid: 3.3.6
+      picocolors: 1.0.0
+      source-map-js: 1.0.2
+
   /prettier@2.8.8:
     resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
 
-  /prismic-ts-codegen@0.1.19(@prismicio/client@7.1.0):
+  /prismic-ts-codegen@0.1.19(@prismicio/client@7.3.1):
     resolution: {integrity: sha512-FvLjF+V2zUOHYTJS++yimMTiMTiilBPBFrOdSz3M45JdYLS2BeUa3QQ2PWsrpcs4qvvtqcOM7rybKIubrS4O7w==}
     engines: {node: '>=12.7.0'}
     hasBin: true
@@ -2841,7 +2832,7 @@ packages:
       '@prismicio/types':
         optional: true
     dependencies:
-      '@prismicio/client': 7.1.0
+      '@prismicio/client': 7.3.1
       '@prismicio/custom-types-client': 1.1.0
       common-tags: 1.8.2
       fast-glob: 3.2.12
@@ -3162,13 +3153,13 @@ packages:
     resolution: {integrity: sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==}
     dev: true
 
-  /slice-machine-ui@1.17.0(@prismicio/client@7.1.0)(@types/uuid@9.0.5)(uuid@9.0.1):
-    resolution: {integrity: sha512-07I5o1RRNoDPGc2ds5bUsKDu9q+ArUwLlyODUB01Cbn8yFdEox2mV2nfaTwBgkJVVEJRSWJAh1YcZXdspiaMZQ==}
+  /slice-machine-ui@1.18.0(@prismicio/client@7.3.1)(@types/uuid@9.0.5)(uuid@9.0.1):
+    resolution: {integrity: sha512-mfpq0Ow7WFiROOoLkueYIX9P9krbbf4QQ4xmOqxjZSJajZCqxR2I2nI+QqyGTKKL6VTfL7l5hkSDp71CwCbeQg==}
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
-      '@slicemachine/manager': 0.14.0(@prismicio/client@7.1.0)(@types/uuid@9.0.5)(uuid@9.0.1)
-      start-slicemachine: 0.12.0(@prismicio/client@7.1.0)(@types/uuid@9.0.5)(uuid@9.0.1)
+      '@slicemachine/manager': 0.15.0(@prismicio/client@7.3.1)(@types/uuid@9.0.5)(uuid@9.0.1)
+      start-slicemachine: 0.12.1(@prismicio/client@7.3.1)(@types/uuid@9.0.5)(uuid@9.0.1)
     transitivePeerDependencies:
       - '@prismicio/client'
       - '@prismicio/types'
@@ -3210,14 +3201,14 @@ packages:
     resolution: {integrity: sha512-XkD+zwiqXHikFZm4AX/7JSCXA98U5Db4AFd5XUg/+9UNtnH75+Z9KxtpYiJZx36mUDVOwH83pl7yvCer6ewM3w==}
     dev: true
 
-  /start-slicemachine@0.12.0(@prismicio/client@7.1.0)(@types/uuid@9.0.5)(uuid@9.0.1):
-    resolution: {integrity: sha512-W/cIzP66Hr8ALUmJEUUdFV9upRm/m9fYFKGHXhfCX9mlm9qcUSK+oECxQ0x+puVQmaw0IZlcAPqTPjw25VfFkg==}
+  /start-slicemachine@0.12.1(@prismicio/client@7.3.1)(@types/uuid@9.0.5)(uuid@9.0.1):
+    resolution: {integrity: sha512-1o+5u4BtMB+9bb64/kMdZi0Y6qJ049+lgQTqf4Yc3nGD7cNr/xmFIBC+07+n/6drqkvtU9N3zq5XsjGNIxK/DA==}
     engines: {node: '>=14.15.0'}
     hasBin: true
     dependencies:
       '@prismicio/mocks': 2.0.0-alpha.2
       '@prismicio/types-internal': 2.3.1(@types/uuid@9.0.5)(fp-ts@2.16.0)(io-ts-types@0.5.19)(io-ts@2.2.20)(uuid@9.0.1)
-      '@slicemachine/manager': 0.14.0(@prismicio/client@7.1.0)(@types/uuid@9.0.5)(uuid@9.0.1)
+      '@slicemachine/manager': 0.15.0(@prismicio/client@7.3.1)(@types/uuid@9.0.5)(uuid@9.0.1)
       body-parser: 1.20.2
       chalk: 4.1.2
       cors: 2.8.5
@@ -3669,9 +3660,6 @@ packages:
     resolution: {integrity: sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==}
     engines: {node: '>=12.20'}
     dev: true
-
-  /zod@3.21.4:
-    resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
 
   /zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}

@@ -8,7 +8,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="absolute top-0 left-0 right-0">
+    <header className="absolute top-0 left-0 right-0 z-20">
       <div className="smush">
         <ul className="nav-list h-6">
           <li className="item valign">
@@ -18,9 +18,9 @@ const Header = () => {
           </li>
           <li></li>
           <li className="hide-large">
-            <Button mode="link" onClick={() => setIsOpen(true)}>
+            {/* <Button mode="link" onClick={() => setIsOpen(true)}>
               <MenuIcon />
-            </Button>
+            </Button> */}
           </li>
           <li className="hide-medium hide-small">
             <ul className="nav-list">

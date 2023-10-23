@@ -2,6 +2,6 @@
   "apiEndpoint": "https://garitma.prismic.io/api/v2",
   "repositoryName": "garitma",
   "adapter": "@slicemachine/adapter-next",
-  "libraries": ["./slices/marketing", "./slices/navigation"],
+  "libraries": ["./slices"],
   "localSliceSimulatorURL": "http://localhost:3000/slice-simulator"
 }
