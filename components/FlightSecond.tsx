@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ReactBodymovin from "react-bodymovin";
 import { motion } from "framer-motion";
 
-import animation from "@/animations/flight.json";
+import animation from "@/utils/animations/flight.json";
 
 const Flight = () => {
   const bodymovinOptions = {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ReactBodymovin from "react-bodymovin";
 import { motion } from "framer-motion";
 
-import animation from "@/animations/colored-grass.json";
+import animation from "@/utils/animations/colored-grass.json";
 
 const Grass = () => {
   const bodymovinOptions = {
