@@ -18,16 +18,7 @@ function generateSpacing() {
     theme: {
       spacing: generateSpacing(),
       extend: {
-        colors: {
-          danger: "var(--aura-accents-danger)",
-          success: "var(--aura-accents-primary)",
-          info: "var(--aura-accents-info`)",
-          "accents-0": "var(--aura-accents-0)",
-          "accents-1": "var(--aura-accents-1)",
-          "accents-2": "var(--aura-accents-2)",
-          "accents-3": "var(--aura-accents-3)",
-          "accents-4": "var(--aura-accents-4)",
-        },
+        colors: {},
       },
       screens: {
         md: "767px",

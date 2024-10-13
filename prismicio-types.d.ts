@@ -4,9 +4,52 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomeDocumentDataSlicesSlice =
-  | WaterfallSectionSlice
-  | ElevatedIntroSectionSlice;
+type FooterDocumentDataSlicesSlice = FooterColumnSlice;
+
+/**
+ * Content for Footer documents
+ */
+interface FooterDocumentData {
+  /**
+   * Copyright field in *Footer*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.copyright
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  copyright: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *Footer*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<FooterDocumentDataSlicesSlice>;
+}
+
+/**
+ * Footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<FooterDocumentData>,
+    "footer",
+    Lang
+  >;
+
+type HomeDocumentDataSlicesSlice = ElevatedIntroSectionSlice;
 
 /**
  * Content for Home documents
@@ -21,8 +64,7 @@ interface HomeDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<HomeDocumentDataSlicesSlice>
-  /**
+  slices: prismic.SliceZone<HomeDocumentDataSlicesSlice> /**
    * Meta Description field in *Home*
    *
    * - **Field Type**: Text
@@ -68,112 +110,219 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
-type PoemDocumentDataSlicesSlice = TextBlockSlice;
+type HomepageDocumentDataSlicesSlice = HeroBannerSlice;
 
 /**
- * Content for Poem documents
+ * Content for Homepage documents
  */
-interface PoemDocumentData {
+interface HomepageDocumentData {
   /**
-   * Title field in *Poem*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: poem.title
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.TitleField;
-
-  /**
-   * Description field in *Poem*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: poem.description
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * Slice Zone field in *Poem*
+   * Slice Zone field in *Homepage*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
-   * - **API ID Path**: poem.slices[]
+   * - **API ID Path**: homepage.slices[]
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<PoemDocumentDataSlicesSlice>
-  /**
-   * Meta Description field in *Poem*
+  slices: prismic.SliceZone<HomepageDocumentDataSlicesSlice> /**
+   * Meta Title field in *Homepage*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: poem.meta_description
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: homepage.meta_title
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Homepage*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: homepage.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
   meta_description: prismic.KeyTextField;
 
   /**
-   * Meta Image field in *Poem*
+   * Meta Image field in *Homepage*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: poem.meta_image
+   * - **API ID Path**: homepage.meta_image
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   meta_image: prismic.ImageField<never>;
-
-  /**
-   * Meta Title field in *Poem*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: poem.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_title: prismic.KeyTextField;
 }
 
 /**
- * Poem document from Prismic
+ * Homepage document from Prismic
  *
- * - **API ID**: `poem`
+ * - **API ID**: `homepage`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type HomepageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<HomepageDocumentData>,
+    "homepage",
+    Lang
+  >;
+
+type NavigationDocumentDataSlicesSlice = NavigationItemSlice;
+
+/**
+ * Content for Navigation documents
+ */
+interface NavigationDocumentData {
+  /**
+   * Logo field in *Navigation*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.logo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>;
+
+  /**
+   * Name field in *Navigation*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *Navigation*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<NavigationDocumentDataSlicesSlice>;
+}
+
+/**
+ * Navigation document from Prismic
+ *
+ * - **API ID**: `navigation`
  * - **Repeatable**: `true`
  * - **Documentation**: https://prismic.io/docs/custom-types
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type PoemDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<Simplify<PoemDocumentData>, "poem", Lang>;
-
-export type AllDocumentTypes = HomeDocument | PoemDocument;
+export type NavigationDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<NavigationDocumentData>,
+    "navigation",
+    Lang
+  >;
 
 /**
- * Primary content in *ElevatedIntroSection → Primary*
+ * Content for Settings documents
+ */
+interface SettingsDocumentData {
+  /**
+   * Fav Icon field in *Settings*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.fav_icon
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  fav_icon: prismic.ImageField<never>;
+
+  /**
+   * Site name field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.site_name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  site_name: prismic.KeyTextField;
+
+  /**
+   * Site description field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.site_description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  site_description: prismic.KeyTextField;
+
+  /**
+   * Open Graph field in *Settings*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.open_graph
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  open_graph: prismic.ImageField<never>;
+}
+
+/**
+ * Settings document from Prismic
+ *
+ * - **API ID**: `settings`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SettingsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<SettingsDocumentData>,
+    "settings",
+    Lang
+  >;
+
+export type AllDocumentTypes =
+  | FooterDocument
+  | HomeDocument
+  | HomepageDocument
+  | NavigationDocument
+  | SettingsDocument;
+
+/**
+ * Primary content in *ElevatedIntroSection → Default → Primary*
  */
 export interface ElevatedIntroSectionSliceDefaultPrimary {
   /**
-   * Title field in *ElevatedIntroSection → Primary*
+   * Title field in *ElevatedIntroSection → Default → Primary*
    *
    * - **Field Type**: Title
    * - **Placeholder**: *None*
-   * - **API ID Path**: elevated_intro_section.primary.title
+   * - **API ID Path**: elevated_intro_section.default.primary.title
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   title: prismic.TitleField;
 
   /**
-   * Description field in *ElevatedIntroSection → Primary*
+   * Description field in *ElevatedIntroSection → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: elevated_intro_section.primary.description
+   * - **API ID Path**: elevated_intro_section.default.primary.description
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   description: prismic.RichTextField;
@@ -210,118 +359,312 @@ export type ElevatedIntroSectionSlice = prismic.SharedSlice<
 >;
 
 /**
- * Default variation for TextBlock Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
+ * Primary content in *FooterColumn → Default → Primary*
  */
-export type TextBlockSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Record<string, never>,
-  never
->;
-
-/**
- * Slice variation for *TextBlock*
- */
-type TextBlockSliceVariation = TextBlockSliceDefault;
-
-/**
- * TextBlock Shared Slice
- *
- * - **API ID**: `text_block`
- * - **Description**: TextBlock
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type TextBlockSlice = prismic.SharedSlice<
-  "text_block",
-  TextBlockSliceVariation
->;
-
-/**
- * Primary content in *WaterfallSection → Primary*
- */
-export interface WaterfallSectionSliceDefaultPrimary {
+export interface FooterColumnSliceDefaultPrimary {
   /**
-   * Title field in *WaterfallSection → Primary*
+   * Label field in *FooterColumn → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: waterfall_section.primary.title
+   * - **API ID Path**: footer_column.default.primary.label
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  title: prismic.RichTextField;
-
-  /**
-   * Description field in *WaterfallSection → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: waterfall_section.primary.description
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  description: prismic.RichTextField;
+  label: prismic.RichTextField;
 }
 
 /**
- * Default variation for WaterfallSection Slice
+ * Primary content in *FooterColumn → Items*
+ */
+export interface FooterColumnSliceDefaultItem {
+  /**
+   * Label field in *FooterColumn → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_column.items[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Label link field in *FooterColumn → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_column.items[].label_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  label_link: prismic.LinkField;
+}
+
+/**
+ * Default variation for FooterColumn Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type WaterfallSectionSliceDefault = prismic.SharedSliceVariation<
+export type FooterColumnSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Simplify<WaterfallSectionSliceDefaultPrimary>,
+  Simplify<FooterColumnSliceDefaultPrimary>,
+  Simplify<FooterColumnSliceDefaultItem>
+>;
+
+/**
+ * Primary content in *FooterColumn → Social Media → Primary*
+ */
+export interface FooterColumnSliceSocialMediaPrimary {
+  /**
+   * Label field in *FooterColumn → Social Media → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_column.socialMedia.primary.label
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  label: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *FooterColumn → Items*
+ */
+export interface FooterColumnSliceSocialMediaItem {
+  /**
+   * Icon field in *FooterColumn → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_column.items[].icon
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  icon: prismic.SelectField<"instagram" | "linkedin" | "twitter">;
+
+  /**
+   * Label link field in *FooterColumn → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_column.items[].label_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  label_link: prismic.LinkField;
+}
+
+/**
+ * Social Media variation for FooterColumn Slice
+ *
+ * - **API ID**: `socialMedia`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterColumnSliceSocialMedia = prismic.SharedSliceVariation<
+  "socialMedia",
+  Simplify<FooterColumnSliceSocialMediaPrimary>,
+  Simplify<FooterColumnSliceSocialMediaItem>
+>;
+
+/**
+ * Slice variation for *FooterColumn*
+ */
+type FooterColumnSliceVariation =
+  | FooterColumnSliceDefault
+  | FooterColumnSliceSocialMedia;
+
+/**
+ * FooterColumn Shared Slice
+ *
+ * - **API ID**: `footer_column`
+ * - **Description**: FooterColumn
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterColumnSlice = prismic.SharedSlice<
+  "footer_column",
+  FooterColumnSliceVariation
+>;
+
+/**
+ * Primary content in *HeroBanner → Default → Primary*
+ */
+export interface HeroBannerSliceDefaultPrimary {
+  /**
+   * Title field in *HeroBanner → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_banner.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+}
+
+/**
+ * Default variation for HeroBanner Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroBannerSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HeroBannerSliceDefaultPrimary>,
   never
 >;
 
 /**
- * Slice variation for *WaterfallSection*
+ * Slice variation for *HeroBanner*
  */
-type WaterfallSectionSliceVariation = WaterfallSectionSliceDefault;
+type HeroBannerSliceVariation = HeroBannerSliceDefault;
 
 /**
- * WaterfallSection Shared Slice
+ * HeroBanner Shared Slice
  *
- * - **API ID**: `waterfall_section`
- * - **Description**: WaterfallSection
+ * - **API ID**: `hero_banner`
+ * - **Description**: HeroBanner
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type WaterfallSectionSlice = prismic.SharedSlice<
-  "waterfall_section",
-  WaterfallSectionSliceVariation
+export type HeroBannerSlice = prismic.SharedSlice<
+  "hero_banner",
+  HeroBannerSliceVariation
+>;
+
+/**
+ * Primary content in *NavigationItem → Default → Primary*
+ */
+export interface NavigationItemSliceDefaultPrimary {
+  /**
+   * Label field in *NavigationItem → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation_item.default.primary.label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Link field in *NavigationItem → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation_item.default.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+/**
+ * Primary content in *NavigationItem → Items*
+ */
+export interface NavigationItemSliceDefaultItem {
+  /**
+   * Child label field in *NavigationItem → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation_item.items[].child_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  child_label: prismic.KeyTextField;
+
+  /**
+   * Child link field in *NavigationItem → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation_item.items[].child_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  child_link: prismic.LinkField;
+}
+
+/**
+ * Default variation for NavigationItem Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NavigationItemSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<NavigationItemSliceDefaultPrimary>,
+  Simplify<NavigationItemSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *NavigationItem*
+ */
+type NavigationItemSliceVariation = NavigationItemSliceDefault;
+
+/**
+ * NavigationItem Shared Slice
+ *
+ * - **API ID**: `navigation_item`
+ * - **Description**: NavigationItem
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NavigationItemSlice = prismic.SharedSlice<
+  "navigation_item",
+  NavigationItemSliceVariation
 >;
 
 declare module "@prismicio/client" {
   interface CreateClient {
     (
       repositoryNameOrEndpoint: string,
-      options?: prismic.ClientConfig
+      options?: prismic.ClientConfig,
     ): prismic.Client<AllDocumentTypes>;
+  }
+
+  interface CreateWriteClient {
+    (
+      repositoryNameOrEndpoint: string,
+      options: prismic.WriteClientConfig,
+    ): prismic.WriteClient<AllDocumentTypes>;
+  }
+
+  interface CreateMigration {
+    (): prismic.Migration<AllDocumentTypes>;
   }
 
   namespace Content {
     export type {
+      FooterDocument,
+      FooterDocumentData,
+      FooterDocumentDataSlicesSlice,
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
-      PoemDocument,
-      PoemDocumentData,
-      PoemDocumentDataSlicesSlice,
+      HomepageDocument,
+      HomepageDocumentData,
+      HomepageDocumentDataSlicesSlice,
+      NavigationDocument,
+      NavigationDocumentData,
+      NavigationDocumentDataSlicesSlice,
+      SettingsDocument,
+      SettingsDocumentData,
       AllDocumentTypes,
       ElevatedIntroSectionSlice,
       ElevatedIntroSectionSliceDefaultPrimary,
       ElevatedIntroSectionSliceVariation,
       ElevatedIntroSectionSliceDefault,
-      TextBlockSlice,
-      TextBlockSliceVariation,
-      TextBlockSliceDefault,
-      WaterfallSectionSlice,
-      WaterfallSectionSliceDefaultPrimary,
-      WaterfallSectionSliceVariation,
-      WaterfallSectionSliceDefault,
+      FooterColumnSlice,
+      FooterColumnSliceDefaultPrimary,
+      FooterColumnSliceDefaultItem,
+      FooterColumnSliceSocialMediaPrimary,
+      FooterColumnSliceSocialMediaItem,
+      FooterColumnSliceVariation,
+      FooterColumnSliceDefault,
+      FooterColumnSliceSocialMedia,
+      HeroBannerSlice,
+      HeroBannerSliceDefaultPrimary,
+      HeroBannerSliceVariation,
+      HeroBannerSliceDefault,
+      NavigationItemSlice,
+      NavigationItemSliceDefaultPrimary,
+      NavigationItemSliceDefaultItem,
+      NavigationItemSliceVariation,
+      NavigationItemSliceDefault,
     };
   }
 }

@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect, useState } from "react";
 import ReactBodymovin from "react-bodymovin";
 import { motion } from "framer-motion";

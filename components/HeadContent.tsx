@@ -1,3 +1,5 @@
+import Script from "next/script";
+
 const HeadContent = () => {
   return (
     <>
@@ -12,7 +14,7 @@ const HeadContent = () => {
         name="apple-mobile-web-app-status-bar-style"
         content="black-translucent"
       />
-      <script
+      <Script
         dangerouslySetInnerHTML={{
           __html: ` (function(d) {
                 var config = {
