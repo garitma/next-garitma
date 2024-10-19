@@ -1,10 +1,10 @@
 import { Metadata } from "next";
-import { asText } from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
 
 import { getPrismicSEO } from "@/lib/prismic/utils/seo";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
+import LastPost from "@/components/LatestPost";
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
@@ -12,12 +12,17 @@ export async function generateMetadata(): Promise<Metadata> {
   const settings = await client.getSingle("settings");
   const seo = getPrismicSEO(home, settings);
 
-  return seo
+  return seo;
 }
 
 export default async function Home() {
   const client = createClient();
   const page = await client.getSingle("homepage");
 
-  return <SliceZone slices={page.data.slices} components={components} />;
+  return (
+    <>
+      <SliceZone slices={page.data.slices} components={components} />
+      <LastPost />
+    </>
+  );
 }

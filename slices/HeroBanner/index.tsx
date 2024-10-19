@@ -1,8 +1,12 @@
 import dynamic from "next/dynamic";
-import { Content, isFilled } from "@prismicio/client";
+import { Content, isFilled, asText } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { PrismicRichText } from "@prismicio/react";
 import Section from "@aura-design/system/section";
+import { PrismicNextImage } from "@prismicio/next";
+
+import { InView } from "@/lib/motion-primitives/components/InView";
+import { TextEffect } from "@/lib/motion-primitives/components/TextEffect";
 
 const Flight = dynamic(() => import("@/components/Flight"), {
   ssr: false,
@@ -10,7 +14,6 @@ const Flight = dynamic(() => import("@/components/Flight"), {
 const FlightSecond = dynamic(() => import("@/components/FlightSecond"), {
   ssr: false,
 });
-
 
 /**
  * Props for `HeroBanner`.
@@ -26,16 +29,31 @@ const HeroBanner = ({ slice }: HeroBannerProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       container="smosh"
-      className="text-center relative"
+      className="text-center relative min-h-[99vh] valign"
     >
-      <div className="absolute left-0 right-0 top-0">
-        <Flight />
-        <FlightSecond />
-      </div>
-      <div className="relative z-10">
-      {isFilled.richText(slice.primary.title) && (
-        <PrismicRichText field={slice.primary.title} />
+      {isFilled.image(slice.primary.image) && (
+        <div className="absolute left-0 bottom-0 ">
+          <InView>
+            <PrismicNextImage
+              field={slice.primary.image}
+              className="floating"
+              height={400}
+            />
+          </InView>
+        </div>
       )}
+      <div className="absolute left-0 right-0 top-0">
+        <InView>
+          <Flight />
+          <FlightSecond />
+        </InView>
+      </div>
+
+      <div className="relative z-10 min-w-0.5">
+        {console.log(asText(slice.primary.title))}
+        {isFilled.richText(slice.primary.title) && (
+          <TextEffect>{asText(slice.primary.title)}</TextEffect>
+        )}
       </div>
     </Section>
   );

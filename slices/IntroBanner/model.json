@@ -1,8 +1,8 @@
 {
-  "id": "hero_banner",
+  "id": "intro_banner",
   "type": "SharedSlice",
-  "name": "HeroBanner",
-  "description": "HeroBanner",
+  "name": "IntroBanner",
+  "description": "IntroBanner",
   "variations": [
     {
       "id": "default",
@@ -18,15 +18,16 @@
             "label": "Title",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em"
+            "multi": "heading1,heading2,heading3,heading4,heading5,heading6,strong,em"
           }
         },
-        "image": {
-          "type": "Image",
+        "description": {
+          "type": "StructuredText",
           "config": {
-            "label": "Image",
-            "constraint": {},
-            "thumbnails": []
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
         }
       },
