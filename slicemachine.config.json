@@ -1,5 +1,4 @@
 {
-  "apiEndpoint": "https://garitma.prismic.io/api/v2",
   "repositoryName": "garitma",
   "adapter": "@slicemachine/adapter-next",
   "libraries": ["./slices"],

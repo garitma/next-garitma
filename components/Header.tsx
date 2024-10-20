@@ -1,56 +1,33 @@
-import { useState } from "react";
-import Link from "next/link";
-import { MenuIcon, CloseIcon } from "@aura-design/system/dist/icons";
-import Button from "@aura-design/system/button";
-import Image from "next/image";
+import { PrismicNextImage } from "@prismicio/next";
 
-const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
+import { createClient } from "@/prismicio";
+import { isFilled } from "@prismicio/client";
+import Link from "next/link";
+
+export default async function Header() {
+  const client = createClient();
+  //const settings = await client.getSingle("settings");
+  const menu = await client.getByUID("navigation", "menu");
 
   return (
-    <header className="absolute top-0 left-0 right-0 z-20">
+    <header className="p-2 absolute z-20 left-0 right-0 top-0">
       <div className="smush">
-        <ul className="nav-list h-6">
-          <li className="item valign">
-            <Link href="/" className="halo">
-              <Image src="/logo.png" width={60} height={60} alt="Logo" />
-            </Link>
+        <ul className="nav-list">
+          <li className="item"></li>
+          <li>
+            {isFilled.image(menu.data.logo) && (
+              <Link href="/">
+                <PrismicNextImage
+                  field={menu.data.logo}
+                  width={70}
+                  height={70}
+                />
+              </Link>
+            )}
           </li>
-          <li></li>
-          <li className="hide-large">
-            {/* <Button mode="link" onClick={() => setIsOpen(true)}>
-              <MenuIcon />
-            </Button> */}
-          </li>
-          <li className="hide-medium hide-small">
-            <ul className="nav-list">
-              {/* <Menu
-                onClose={() => setIsOpen(false)}
-                menuTabs={menu.data.menuTabs}
-              /> */}
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <div
-        className={`anchor fluid vfluid hold left top right bottom white aura ${
-          !isOpen ? "hidden" : "active"
-        }`}
-      >
-        <ul className="top right left bottom aureole one centertxt square">
-          <ul className="nav-list">
-            <li></li>
-            <li></li>
-            <li>
-              <Button mode="link" onClick={() => setIsOpen(false)}>
-                <CloseIcon />
-              </Button>
-            </li>
-          </ul>
+          <li className="item"></li>
         </ul>
       </div>
     </header>
   );
-};
-
-export default Header;
+}

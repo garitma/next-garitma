@@ -4,6 +4,10 @@ import dynamic from "next/dynamic";
 
 export const components = {
   elevated_intro_section: dynamic(() => import("./ElevatedIntroSection")),
+  footer_column: dynamic(() => import("./FooterColumn")),
+  hero_banner: dynamic(() => import("./HeroBanner")),
+  image_text_block: dynamic(() => import("./ImageTextBlock")),
+  intro_banner: dynamic(() => import("./IntroBanner")),
+  navigation_item: dynamic(() => import("./NavigationItem")),
   text_block: dynamic(() => import("./TextBlock")),
-  waterfall_section: dynamic(() => import("./WaterfallSection")),
 };
