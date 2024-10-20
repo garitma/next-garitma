@@ -11,7 +11,15 @@ import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import LastPost from "@/components/LatestPost";
 
-export async function generateMetadata({params}): Promise<Metadata> {
+type Params = { uid: string };
+
+export const dynamicParams = false;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Params;
+}): Promise<Metadata> {
   const client = createClient();
   const page = await client.getByUID("post", params.uid);
   const settings = await client.getSingle("settings");
@@ -30,7 +38,11 @@ export default async function SinglePost({ params }) {
         {isFilled.keyText(page.data.title) && (
           <TextEffect per="char">{page.data.title}</TextEffect>
         )}
-        <p><TextEffect per="char" as="em">Por Garitma</TextEffect></p>
+        <p>
+          <TextEffect per="char" as="em">
+            Por Garitma
+          </TextEffect>
+        </p>
         {isFilled.image(page.data.image) && (
           <InView>
             <PrismicNextImage field={page.data.image} height={350} />
@@ -43,4 +55,13 @@ export default async function SinglePost({ params }) {
       <LastPost uid={params.uid} />
     </div>
   );
+}
+
+export async function generateStaticParams() {
+  const client = createClient();
+  const posts = await client.getAllByType("post");
+
+  return posts.map((post) => {
+    return { uid: post.uid };
+  });
 }
