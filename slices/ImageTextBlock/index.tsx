@@ -31,7 +31,7 @@ const ImageTextBlock = ({ slice }: ImageTextBlockProps): JSX.Element => {
             )}
           </InView>
         </div>
-        <div>
+        <div className="text-center">
           {isFilled.image(slice.primary.image) && (
             <InView>
               <PrismicNextImage field={slice.primary.image} />

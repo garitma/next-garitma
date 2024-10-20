@@ -11,26 +11,36 @@ import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import LastPost from "@/components/LatestPost";
 
-export default async function SinglePost() {
+export async function generateMetadata({params}): Promise<Metadata> {
   const client = createClient();
-  const page = await client.getByUID("post", "aceleracion");
+  const page = await client.getByUID("post", params.uid);
+  const settings = await client.getSingle("settings");
+  const seo = getPrismicSEO(page, settings);
+
+  return seo;
+}
+
+export default async function SinglePost({ params }) {
+  const client = createClient();
+  const page = await client.getByUID("post", params.uid);
 
   return (
-    <>
+    <div className="mt-5 relative">
       <Section className="text-center">
         {isFilled.keyText(page.data.title) && (
-          <h1>
-            <TextEffect per="char">{page.data.title}</TextEffect>
-          </h1>
+          <TextEffect per="char">{page.data.title}</TextEffect>
         )}
+        <p><TextEffect per="char" as="em">Por Garitma</TextEffect></p>
         {isFilled.image(page.data.image) && (
           <InView>
             <PrismicNextImage field={page.data.image} height={350} />
           </InView>
         )}
       </Section>
-      <SliceZone slices={page.data.slices} components={components} />
-      <LastPost />
-    </>
+      <article>
+        <SliceZone slices={page.data.slices} components={components} />
+      </article>
+      <LastPost uid={params.uid} />
+    </div>
   );
 }

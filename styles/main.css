@@ -23,6 +23,12 @@ h6 {
 
 /* LAYOUT */
 
+@media only screen and (max-width: 767px) {
+  body .aureole:not(.fixed) {
+      grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 
 .noise {
   position: fixed;
@@ -48,10 +54,18 @@ h6 {
 
 /* COLORS */
 
+*::selection {
+  color: inherit;
+}
+
 /* HELPERS */
 
 /* ATOMS */
 
+img {
+  max-width: 100%;
+  height: auto;
+}
 
 /* MOLECULES */
 

@@ -842,12 +842,12 @@ export interface TextBlockSliceDefaultPrimary {
   /**
    * Content field in *TextBlock → Default → Primary*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: text_block.default.primary.content
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  content: prismic.KeyTextField;
+  content: prismic.RichTextField;
 }
 
 /**

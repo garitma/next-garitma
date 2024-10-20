@@ -29,7 +29,7 @@ const HeroBanner = ({ slice }: HeroBannerProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       container="smosh"
-      className="text-center relative min-h-[99vh] valign"
+      className="text-center relative min-h-[99vh] valign max-w-[100vw]"
     >
       {isFilled.image(slice.primary.image) && (
         <div className="absolute left-0 bottom-0 ">

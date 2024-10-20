@@ -19,7 +19,9 @@ function generateSpacing() {
     theme: {
       spacing: generateSpacing(),
       extend: {
-        colors: {},
+        colors: {
+          purple: "#e8ebfe"
+        },
       },
       screens: {
         md: "767px",
