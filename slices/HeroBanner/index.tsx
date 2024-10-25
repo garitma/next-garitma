@@ -29,7 +29,7 @@ const HeroBanner = ({ slice }: HeroBannerProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       container="smosh"
-      className="text-center relative min-h-[99vh] valign max-w-[100vw]"
+      className="text-center relative min-h-[80vh] valign max-w-[100vw]"
     >
       {isFilled.image(slice.primary.image) && (
         <div className="absolute left-0 bottom-0 ">
@@ -50,7 +50,6 @@ const HeroBanner = ({ slice }: HeroBannerProps): JSX.Element => {
       </div>
 
       <div className="relative z-10 min-w-0.5">
-        {console.log(asText(slice.primary.title))}
         {isFilled.richText(slice.primary.title) && (
           <TextEffect>{asText(slice.primary.title)}</TextEffect>
         )}
