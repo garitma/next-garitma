@@ -21,7 +21,7 @@ const IntroBanner = ({ slice }: IntroBannerProps): JSX.Element => {
       container="smosh"
       className="text-center min-h-[33vh] valign"
     >
-      <InView>
+      <InView viewOptions={{ margin: "0px 0px -50px 0px" }}>
         <Grid col="one">
           {isFilled.image(slice.primary.image) && (
             <div className="flex justify-center">
