@@ -13,7 +13,9 @@ import LastPost from "@/components/LatestPost";
 
 type Params = { uid: string };
 
-export const dynamicParams = false;
+export const relative = 60
+
+export const dynamicParams = true;
 
 export async function generateMetadata({
   params,

@@ -49,67 +49,6 @@ export type FooterDocument<Lang extends string = string> =
     Lang
   >;
 
-type HomeDocumentDataSlicesSlice = ElevatedIntroSectionSlice;
-
-/**
- * Content for Home documents
- */
-interface HomeDocumentData {
-  /**
-   * Slice Zone field in *Home*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */
-  slices: prismic.SliceZone<HomeDocumentDataSlicesSlice> /**
-   * Meta Description field in *Home*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: home.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
-  meta_description: prismic.KeyTextField;
-
-  /**
-   * Meta Image field in *Home*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home.meta_image
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  meta_image: prismic.ImageField<never>;
-
-  /**
-   * Meta Title field in *Home*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: home.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_title: prismic.KeyTextField;
-}
-
-/**
- * Home document from Prismic
- *
- * - **API ID**: `home`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type HomeDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
-
 type HomepageDocumentDataSlicesSlice =
   | ImageTextBlockSlice
   | IntroBannerSlice
@@ -384,66 +323,10 @@ export type SettingsDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | FooterDocument
-  | HomeDocument
   | HomepageDocument
   | NavigationDocument
   | PostDocument
   | SettingsDocument;
-
-/**
- * Primary content in *ElevatedIntroSection → Default → Primary*
- */
-export interface ElevatedIntroSectionSliceDefaultPrimary {
-  /**
-   * Title field in *ElevatedIntroSection → Default → Primary*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: elevated_intro_section.default.primary.title
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.TitleField;
-
-  /**
-   * Description field in *ElevatedIntroSection → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: elevated_intro_section.default.primary.description
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  description: prismic.RichTextField;
-}
-
-/**
- * Default variation for ElevatedIntroSection Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type ElevatedIntroSectionSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<ElevatedIntroSectionSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *ElevatedIntroSection*
- */
-type ElevatedIntroSectionSliceVariation = ElevatedIntroSectionSliceDefault;
-
-/**
- * ElevatedIntroSection Shared Slice
- *
- * - **API ID**: `elevated_intro_section`
- * - **Description**: ElevatedIntroSection
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type ElevatedIntroSectionSlice = prismic.SharedSlice<
-  "elevated_intro_section",
-  ElevatedIntroSectionSliceVariation
->;
 
 /**
  * Primary content in *FooterColumn → Default → Primary*
@@ -904,9 +787,6 @@ declare module "@prismicio/client" {
       FooterDocument,
       FooterDocumentData,
       FooterDocumentDataSlicesSlice,
-      HomeDocument,
-      HomeDocumentData,
-      HomeDocumentDataSlicesSlice,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
@@ -919,10 +799,6 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
-      ElevatedIntroSectionSlice,
-      ElevatedIntroSectionSliceDefaultPrimary,
-      ElevatedIntroSectionSliceVariation,
-      ElevatedIntroSectionSliceDefault,
       FooterColumnSlice,
       FooterColumnSliceDefaultPrimary,
       FooterColumnSliceDefaultItem,
