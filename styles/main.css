@@ -1,0 +1,81 @@
+/* :::::::::: CSS STYLESHEET TEMPLATE :::::::::: */
+
+/* TOKENS */
+
+*:root {
+  --aura-font-stack: ryo-gothic-plusn, sans-serif;
+  --aura-text-primary: #1d1f29;
+  --aura-accents-primary: #f5f7f9;
+  --aura-text-primary-inverse: #1d1f29;
+  --aura-button-hover: #f3e2e4;
+}
+
+/* TYPOGRAPHY */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 900;
+}
+
+/* LAYOUT */
+
+@media only screen and (max-width: 767px) {
+  body .aureole:not(.fixed) {
+      grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+
+.noise {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.1;
+}
+
+.flip {
+  transform: scaleX(-1);
+}
+
+@media only screen and (max-width: 767px) {
+  .react-bodymovin-container svg {
+    transform: scale(3);
+  }
+}
+
+/* SPACING */
+
+/* COLORS */
+
+*::selection {
+  color: inherit;
+}
+
+/* HELPERS */
+
+/* ATOMS */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* MOLECULES */
+
+/* ORGANISMS */
+
+#nprogress .bar {
+  background: var(--aura-loader) !important;
+  height: 6.5px !important;
+}
+
+#nprogress .peg {
+  display: none !important;
+}

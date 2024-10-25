@@ -1,12 +1,9 @@
-/**
- * @type {import('next').NextConfig}
- **/
-
-module.exports = {
-  swcMinify: false,
-  images: {
-    loader: "imgix",
-    path: "",
-    deviceSizes: [320, 420, 768, 1024, 1200],
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: "standalone",
+  typescript: {
+    ignoreBuildErrors: true,
   },
 };
+
+module.exports = nextConfig;
