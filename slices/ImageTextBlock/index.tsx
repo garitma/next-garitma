@@ -21,7 +21,7 @@ const ImageTextBlock = ({ slice }: ImageTextBlockProps): JSX.Element => {
       data-slice-variation={slice.variation}
     >
       <Grid col="two">
-        <div className="valign">
+        <div className="valign p-1">
           <InView>
             {isFilled.richText(slice.primary.title) && (
               <PrismicRichText field={slice.primary.title} />
