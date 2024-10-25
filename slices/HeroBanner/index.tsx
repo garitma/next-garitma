@@ -29,7 +29,7 @@ const HeroBanner = ({ slice }: HeroBannerProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       container="smosh"
-      className="text-center relative min-h-[80vh] valign max-w-[100vw]"
+      className="text-center relative min-h-[80vh] valign"
     >
       {isFilled.image(slice.primary.image) && (
         <div className="absolute left-0 bottom-0 ">
@@ -42,7 +42,7 @@ const HeroBanner = ({ slice }: HeroBannerProps): JSX.Element => {
           </InView>
         </div>
       )}
-      <div className="absolute left-0 right-0 top-0">
+      <div className="absolute left-0 right-0 top-0 max-w-[100vw] overflow-x-hidden min-h-[33vh]">
         <InView>
           <Flight />
           <FlightSecond />
