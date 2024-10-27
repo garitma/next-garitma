@@ -22,6 +22,7 @@ export async function generateMetadata({
 }: {
   params: Params;
 }): Promise<Metadata> {
+  
   const client = createClient();
   const page = await client.getByUID("post", params.uid);
   const settings = await client.getSingle("settings");
