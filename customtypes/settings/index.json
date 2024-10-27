@@ -41,6 +41,13 @@
           },
           "thumbnails": []
         }
+      },
+      "public_url": {
+        "type": "Text",
+        "config": {
+          "label": "Public url",
+          "placeholder": ""
+        }
       }
     }
   }

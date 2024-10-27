@@ -303,6 +303,17 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   open_graph: prismic.ImageField<never>;
+
+  /**
+   * Public url field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.public_url
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  public_url: prismic.KeyTextField;
 }
 
 /**
