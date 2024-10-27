@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Router from "next/router";
 import { asText, isFilled, asLink, Content } from "@prismicio/client";
 
 export function getPrismicSEO(
@@ -12,12 +13,17 @@ export function getPrismicSEO(
   const fullTitle = title ? `${title} | ${siteName}` : siteName;
 
   return {
+    metadataBase: new URL(settings.data.public_url),
     title: fullTitle,
     description,
+    alternates: {
+      canonical: asLink(doc),
+    },
     openGraph: {
       title: fullTitle,
       description,
-      url: isFilled.image(doc.data.meta_image)
+      url:  asLink(doc),
+      images: isFilled.image(doc.data.meta_image)
         ? doc.data.meta_image.url
         : isFilled.image(settings.data.open_graph)
           ? settings.data.open_graph.url
