@@ -8,7 +8,7 @@ import HeadContent from "@/components/HeadContent";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import NoiseBackground from "@/components/NoiseBackground";
-
+import { Toaster } from "sonner";
 
 export default function RootLayout({
   children,
@@ -29,7 +29,7 @@ export default function RootLayout({
 
             <PrismicPreview repositoryName={repositoryName} />
           </div>
-      
+          <Toaster position="top-center"  />
         </main>
       </body>
     </html>

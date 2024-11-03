@@ -21,18 +21,15 @@
     "react": "^18.3.1",
     "react-bodymovin": "^2.0.0",
     "react-dom": "^18.3.1",
+    "resend": "4.0.1-alpha.0",
+    "sonner": "^1.7.0",
     "tailwind-merge": "^2.5.4"
   },
   "scripts": {
-    "dev": "wireit",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "slicemachine": "start-slicemachine"
-  },
-  "wireit": {
-    "dev": {
-      "command": "next dev"
-    }
   },
   "repository": {
     "type": "git",
@@ -48,7 +45,6 @@
     "postcss": "^8.4.47",
     "slice-machine-ui": "^2.8.1",
     "start-slicemachine": "^0.12.31",
-    "tailwindcss": "^3.4.13",
-    "wireit": "^0.14.9"
+    "tailwindcss": "^3.4.13"
   }
 }
