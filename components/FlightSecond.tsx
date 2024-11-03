@@ -6,6 +6,17 @@ import { motion } from "framer-motion";
 import animation from "@/utils/animations/flight.json";
 
 const Flight = () => {
+  
+  const [isMounted, setIsMouted] = useState(false);
+
+  useEffect(() => {
+    setIsMouted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
+
   const bodymovinOptions = {
     loop: true,
     autoplay: true,

@@ -39,10 +39,12 @@ export default async function SinglePost({ params }) {
     <div className="mt-5 relative">
       <Section className="text-center">
         {isFilled.keyText(page.data.title) && (
+          <div className="smash">
           <TextEffect per="char">{page.data.title}</TextEffect>
+          </div>
         )}
         <p>
-          <TextEffect per="char" as="em">
+          <TextEffect per="char" as="span">
             Por Garitma
           </TextEffect>
         </p>

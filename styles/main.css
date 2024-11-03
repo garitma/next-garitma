@@ -8,6 +8,9 @@
   --aura-accents-primary: #f5f7f9;
   --aura-text-primary-inverse: #1d1f29;
   --aura-button-hover: #f3e2e4;
+  --aura-input-bg: transparent;
+  --aura-input-radius: 0;
+  --aura-button-radius: 0
 }
 
 /* TYPOGRAPHY */
@@ -65,6 +68,13 @@ h6 {
 img {
   max-width: 100%;
   height: auto;
+}
+
+input:not(.default) {
+  border: solid 2px
+}
+input:focus {
+  border-color: transparent;
 }
 
 /* MOLECULES */

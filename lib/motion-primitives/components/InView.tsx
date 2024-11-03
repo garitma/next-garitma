@@ -19,15 +19,15 @@ interface InViewProps {
 }
 
 const defaultVariants = {
-  hidden: { opacity: 0, y: 10, filter: 'blur(4px)' }, // Added default variants
-  visible: { opacity: 1, y: 0, filter: 'blur(0px)' },
+  hidden: { opacity: 0, filter: 'blur(9px)' }, // Added default variants
+  visible: { opacity: 1, filter: 'blur(0px)' },
 };
 
 export function InView({
   children,
   variants = defaultVariants, // Use defaultVariants if no variants are provided
-  transition = { duration: 0.3, ease: 'easeInOut' }, // Added default transition
-  viewOptions = { margin: '0px 0px -200px 0px' }, // Added default viewOptions
+  transition = { duration: 0.6, ease: 'easeInOut' }, // Added default transition
+  viewOptions = { margin: '0px 0px -50px 0px' }, // Added default viewOptions
 }: InViewProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, viewOptions);
