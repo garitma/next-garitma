@@ -19,7 +19,7 @@ const IntroBanner = ({ slice }: IntroBannerProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       container="smosh"
-      className="text-center min-h-[33vh] valign"
+      className="text-center min-h-[50vh] valign adobe-garamond-pro"
     >
       <InView viewOptions={{ margin: "0px 0px -50px 0px" }}>
         <Grid col="one">

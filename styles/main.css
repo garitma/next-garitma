@@ -24,6 +24,12 @@ h6 {
   font-weight: 900;
 }
 
+.adobe-garamond-pro {
+  font-family: adobe-garamond-pro;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
 /* LAYOUT */
 
 @media only screen and (max-width: 767px) {

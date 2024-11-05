@@ -14,7 +14,7 @@ export default async function LastPost({ uid }: LastPostProps) {
   const posts = await client.getByType("post", { pageSize: 5 });
 
   return (
-    <Section container="smash" className="min-h-[50vh]">
+    <Section container="smash" className="min-h-[50vh] px-1">
       <InView>
         <h3 className="mb-1.5">Poemas destacados</h3>
 
