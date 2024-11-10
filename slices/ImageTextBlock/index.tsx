@@ -20,25 +20,23 @@ const ImageTextBlock = ({ slice }: ImageTextBlockProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <Grid col="two">
-        <div className="valign p-1">
-          <InView>
+      <InView>
+        <Grid col="two">
+          <div className="valign p-1">
             {isFilled.richText(slice.primary.title) && (
               <PrismicRichText field={slice.primary.title} />
             )}
             {isFilled.richText(slice.primary.description) && (
               <PrismicRichText field={slice.primary.description} />
             )}
-          </InView>
-        </div>
-        <div className="text-center">
-          {isFilled.image(slice.primary.image) && (
-            <InView>
+          </div>
+          <div className="text-center">
+            {isFilled.image(slice.primary.image) && (
               <PrismicNextImage field={slice.primary.image} />
-            </InView>
-          )}
-        </div>
-      </Grid>
+            )}
+          </div>
+        </Grid>
+      </InView>
     </Section>
   );
 };

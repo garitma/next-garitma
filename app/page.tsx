@@ -4,7 +4,7 @@ import { SliceZone } from "@prismicio/react";
 import { getPrismicSEO } from "@/lib/prismic/utils/seo";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
-import LastPost from "@/components/LatestPost";
+import FeaturedPost from "@/components/FeaturedPost";
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
@@ -22,7 +22,7 @@ export default async function Home() {
   return (
     <>
       <SliceZone slices={page.data.slices} components={components} />
-      <LastPost />
+      <FeaturedPost />
     </>
   );
 }

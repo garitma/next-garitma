@@ -17,7 +17,7 @@ const CollectionPost = ({doc}: CollectionPostProps) => {
         href={doc.url}
         className="transform transition duration-500 ease-in-out group flex hover:underline"
       >
-        <h3 className="h6 py-1">{doc.data.title}</h3>
+        <span className="h6 py-1">{doc.data.title}</span>
         {isFilled.image(doc.data.image) && (
           <div className="transition duration-500 ease-in-out bg-white opacity-0 group-hover:opacity-100 flex justify-center ml-2">
             <PrismicNextImage

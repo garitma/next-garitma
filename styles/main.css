@@ -22,6 +22,9 @@ h4,
 h5,
 h6 {
   font-weight: 900;
+  font-family: adobe-garamond-pro;
+  font-weight: bolder;
+  text-transform: uppercase;
 }
 
 .adobe-garamond-pro {
@@ -86,6 +89,10 @@ input:focus {
 /* MOLECULES */
 
 /* ORGANISMS */
+
+.intro-banner  img {
+  width: 30px;
+}
 
 #nprogress .bar {
   background: var(--aura-loader) !important;

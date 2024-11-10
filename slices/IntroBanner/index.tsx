@@ -4,6 +4,8 @@ import Section from "@aura-design/system/section";
 import Grid from "@aura-design/system/grid";
 import { InView } from "@/lib/motion-primitives/components/InView";
 import { PrismicNextImage } from "@prismicio/next";
+import { TextEffect } from "@/lib/motion-primitives/components/TextEffect";
+import { Fragment } from "react";
 
 /**
  * Props for `IntroBanner`.
@@ -14,27 +16,38 @@ export type IntroBannerProps = SliceComponentProps<Content.IntroBannerSlice>;
  * Component for "IntroBanner" Slices.
  */
 const IntroBanner = ({ slice }: IntroBannerProps): JSX.Element => {
+
   return (
     <Section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      container="smosh"
-      className="text-center min-h-[50vh] valign adobe-garamond-pro"
+      container="smash"
+      className="min-h-[50vh] valign adobe-garamond-pro intro-banner h5"
     >
       <InView viewOptions={{ margin: "0px 0px -50px 0px" }}>
-        <Grid col="one">
-          {isFilled.image(slice.primary.image) && (
-            <div className="flex justify-center">
-              <PrismicNextImage field={slice.primary.image} />
-            </div>
-          )}
-          {isFilled.richText(slice.primary.title) && (
-            <PrismicRichText field={slice.primary.title} />
-          )}
-          {isFilled.richText(slice.primary.description) && (
-            <PrismicRichText field={slice.primary.description} />
-          )}
-        </Grid>
+        <div className="flex flex-wrap items-center justify-center">
+          {isFilled.richText(slice.primary.description) &&
+            slice.primary.description.map((item, index) => {
+              switch (item.type) {
+                case "paragraph":
+                  return (
+                    <Fragment key={index}>
+                      {item.text.split("").map((char, i) => (
+                        <span key={i} className="whitespace-pre-wrap">{char}</span>
+                      ))}
+                    </Fragment>
+                  );
+                case "image":
+                  return (
+                    <span className="mx-0.5">
+                      <PrismicNextImage key={index} field={item} />
+                    </span>
+                  );
+                default:
+                  return null;
+              }
+            })}
+        </div>
       </InView>
     </Section>
   );

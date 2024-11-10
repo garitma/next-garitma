@@ -11,7 +11,7 @@ export default async function Footer() {
   return (
     <footer>
       <SuscribeBox />
-      <Section className="p-1 text-center" passDiv>
+      <Section className="p-1 mb-2 text-center" passDiv>
         <PrismicText field={footer.data.copyright} />
       </Section>
     </footer>

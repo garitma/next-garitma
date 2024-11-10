@@ -1,6 +1,7 @@
 import Section from "@aura-design/system/section";
 import Grid from "@aura-design/system/grid";
 
+import { Content, filter } from "@prismicio/client"
 import { createClient } from "@/prismicio";
 import { InView } from "@/lib/motion-primitives/components/InView";
 import CollectionPost from "@/components/CollectionPost";

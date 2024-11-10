@@ -26,7 +26,7 @@ const defaultVariants = {
 export function InView({
   children,
   variants = defaultVariants, // Use defaultVariants if no variants are provided
-  transition = { duration: 0.6, ease: 'easeInOut' }, // Added default transition
+  transition = { duration: 0.3, ease: 'easeInOut' }, // Added default transition
   viewOptions = { margin: '0px 0px -50px 0px' }, // Added default viewOptions
 }: InViewProps) {
   const ref = useRef(null);
