@@ -1,6 +1,8 @@
 import Section from "@aura-design/system/section";
 import Grid from "@aura-design/system/grid";
+import Button from "@aura-design/system/button";
 import { filter } from "@prismicio/client";
+import Link from "next/link";
 
 import { createClient } from "@/prismicio";
 import { InView } from "@/lib/motion-primitives/components/InView";
@@ -29,6 +31,11 @@ export default async function FeaturedPost({ uid }: LastPostProps) {
                 .filter((post) => post.uid !== uid)
                 .map((post) => <CollectionPost doc={post} key={post.id} />)}
           </Grid>
+          <div className="text-center mt-2">
+            <Link href="/blog" passHref legacyBehavior>
+              <Button label="Ver más" mode="link" />
+            </Link>
+          </div>
         </div>
       </InView>
     </Section>

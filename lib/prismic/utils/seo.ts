@@ -3,7 +3,7 @@ import Router from "next/router";
 import { asText, isFilled, asLink, Content } from "@prismicio/client";
 
 export function getPrismicSEO(
-  doc: Content.HomepageDocument | Content.PostDocument,
+  doc: Content.HomepageDocument | Content.PostDocument | Content.BlogDocument,
   settings: Content.SettingsDocument
 ): Metadata {
   const siteName = settings.data.site_name;

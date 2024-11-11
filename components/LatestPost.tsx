@@ -1,7 +1,6 @@
 import Section from "@aura-design/system/section";
 import Grid from "@aura-design/system/grid";
 
-import { Content, filter } from "@prismicio/client"
 import { createClient } from "@/prismicio";
 import { InView } from "@/lib/motion-primitives/components/InView";
 import CollectionPost from "@/components/CollectionPost";
@@ -12,7 +11,10 @@ type LastPostProps = {
 
 export default async function LastPost({ uid }: LastPostProps) {
   const client = createClient();
-  const posts = await client.getByType("post", { pageSize: 5 });
+  const posts = await client.getByType("post", {
+    pageSize: 5,
+    orderings: [{ field: "my.post.date", direction: "desc" }],
+  });
 
   return (
     <Section container="smash" className="min-h-[50vh] px-1">

@@ -22,7 +22,7 @@ const IntroBanner = ({ slice }: IntroBannerProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       container="smash"
-      className="min-h-[50vh] valign adobe-garamond-pro intro-banner h3"
+      className="min-h-[50vh] valign adobe-garamond-pro intro-banner h3 mt-3"
     >
       <InView viewOptions={{ margin: "0px 0px -50px 0px" }}>
         <div className="flex flex-wrap items-center justify-center">
