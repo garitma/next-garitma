@@ -6,6 +6,7 @@ import { isFilled } from "@prismicio/client";
 
 import { TextEffect } from "@/lib/motion-primitives/components/TextEffect";
 import { InView } from "@/lib/motion-primitives/components/InView";
+import { formatDate } from "@/utils/data-view";
 import { getPrismicSEO } from "@/lib/prismic/utils/seo";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
@@ -46,8 +47,12 @@ export default async function SinglePost({ params }) {
         <p>
           <TextEffect per="char" as="span">
             Por Garitma
+          </TextEffect><br />
+          <TextEffect per="char" as="small">
+            {formatDate(page.data.date)}
           </TextEffect>
         </p>
+     
         {isFilled.image(page.data.image) && (
           <InView>
             <PrismicNextImage field={page.data.image} height={350} />

@@ -1,5 +1,5 @@
 
-export const formatDate = (dateString: string) => {
+export const formatDate = (dateString: any) => {
      // Get the current date
      const date = new Date(dateString);
 
