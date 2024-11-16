@@ -17,19 +17,21 @@ const CollectionPost = ({ doc }: CollectionPostProps) => {
       {isFilled.keyText(doc.data.title) && (
         <PrismicNextLink
           href={doc.url}
-          className="transform transition duration-500 ease-in-out group flex hover:underline"
+          className="transform transition duration-500 ease-in-out group flex hover:underline pr-5"
         >
           <span className="h6 py-1">{doc.data.title} </span>
-          <small className="absolute right-0 top-0 bottom-0 valign">{formatDate(doc.data.date)}</small>
           {isFilled.image(doc.data.image) && (
             <div className="transition duration-500 ease-in-out bg-white opacity-0 group-hover:opacity-100 flex justify-center ml-2">
               <PrismicNextImage
                 field={doc.data.image}
-                className="inline-block w-auto h-4 px-2" // Image styles
+                className="inline-block w-auto h-4 px-2 object-contain relative z-20" // Image styles
                 height={300}
               />
             </div>
           )}
+          <small className="absolute right-0 top-0 bottom-0 valign">
+            {formatDate(doc.data.date)}
+          </small>
         </PrismicNextLink>
       )}
     </div>

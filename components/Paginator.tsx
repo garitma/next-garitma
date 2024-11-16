@@ -3,6 +3,11 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 
 const Paginator = ({ posts }) => {
+  
+  if (posts.total_pages === 1) {
+    return <></>;
+  }
+
   const handleOnNext = !posts.next_page
     ? ""
     : `/blog?page=${Number(posts.page + 1)}`;
