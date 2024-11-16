@@ -9,7 +9,6 @@ import { toast } from "sonner";
 import {
   ArrowRightIcon,
   SymbolIcon,
-  CheckCircledIcon,
 } from "@radix-ui/react-icons";
 
 import { newsletterSchema } from "@/utils/validator-schema";

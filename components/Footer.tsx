@@ -9,7 +9,7 @@ export default async function Footer() {
   const footer = await client.getSingle("footer");
 
   return (
-    <footer>
+    <footer id="footer">
       <SuscribeBox />
       <Section className="p-1 mb-2 text-center" passDiv>
         <PrismicText field={footer.data.copyright} />

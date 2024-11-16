@@ -6,6 +6,7 @@ import Grid from "@aura-design/system/grid";
 import { getPrismicSEO } from "@/lib/prismic/utils/seo";
 import { createClient } from "@/prismicio";
 import CollectionPost from "@/components/CollectionPost";
+import Paginator from "@/components/Paginator";
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
@@ -16,11 +17,12 @@ export async function generateMetadata(): Promise<Metadata> {
   return seo;
 }
 
-export default async function Blog() {
+export default async function Blog({ searchParams }) {
   const client = createClient();
 
   const posts = await client.getByType("post", {
-    pageSize: 20,
+    pageSize: 25,
+    page: searchParams?.page ?? 1,
     orderings: [{ field: "my.post.date", direction: "desc" }],
   });
 
@@ -36,6 +38,7 @@ export default async function Blog() {
               <CollectionPost doc={post} key={post.id} />
             ))}
         </Grid>
+        <Paginator posts={posts} />
       </Section>
     </div>
   );

@@ -7,6 +7,9 @@ import { PrismicNextImage } from "@prismicio/next";
 
 import { InView } from "@/lib/motion-primitives/components/InView";
 import { TextEffect } from "@/lib/motion-primitives/components/TextEffect";
+import Button from "@aura-design/system/button";
+import Grid from "@aura-design/system/grid";
+import Link from "next/link";
 
 const Flight = dynamic(() => import("@/components/Flight"), {
   ssr: false,
@@ -53,6 +56,16 @@ const HeroBanner = ({ slice }: HeroBannerProps): JSX.Element => {
         {isFilled.richText(slice.primary.title) && (
           <TextEffect>{asText(slice.primary.title)}</TextEffect>
         )}
+      </div>
+      <div className="z-20 relative">
+        <Grid col="two">
+          <Link href="/blog">
+            <Button label="Ver blog" isFluid/>
+          </Link>
+          <Link href="#footer">
+            <Button label="Suscribirse" mode="pill" isFluid/>
+          </Link>
+        </Grid>
       </div>
     </Section>
   );
