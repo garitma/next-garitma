@@ -57,7 +57,7 @@ const HeroBanner = ({ slice }: HeroBannerProps): JSX.Element => {
           <TextEffect>{asText(slice.primary.title)}</TextEffect>
         )}
       </div>
-      <div className="z-20 relative">
+      <div className="z-20 relative mt-2">
         <Grid col="two">
           <Link href="/blog">
             <Button label="Ver blog" isFluid/>
