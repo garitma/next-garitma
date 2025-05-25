@@ -10,6 +10,8 @@ import Footer from "@/components/Footer";
 import NoiseBackground from "@/components/NoiseBackground";
 import { Toaster } from "sonner";
 
+const { UMAMI_WEBSITE_ID } = process.env;
+
 export default function RootLayout({
   children,
 }: {
@@ -17,6 +19,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es-co">
+      <head>
+        <script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id={UMAMI_WEBSITE_ID}
+          data-domains="garitma.com"
+        />
+      </head>
       <body>
         <HeadContent />
         <main>
@@ -29,7 +39,7 @@ export default function RootLayout({
 
             <PrismicPreview repositoryName={repositoryName} />
           </div>
-          <Toaster position="top-center"  />
+          <Toaster position="top-center" />
         </main>
       </body>
     </html>
