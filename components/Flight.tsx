@@ -1,19 +1,23 @@
-"use client"
-import React, { useEffect, useState } from "react";
-import ReactBodymovin from "react-bodymovin";
+"use client";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import animation from "@/utils/animations/flight.json";
 
 const Flight = () => {
-  
-  const [isMounted, setIsMouted] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+  const [ReactBodymovin, setReactBodymovin] = useState<any>(null);
 
   useEffect(() => {
-    setIsMouted(true);
+    setIsMounted(true);
+    // Dynamically import react-bodymovin only on client side
+    // @ts-expect-error - react-bodymovin doesn't have type definitions
+    import("react-bodymovin").then((module: any) => {
+      setReactBodymovin(() => module.default);
+    });
   }, []);
 
-  if (!isMounted) {
+  if (!isMounted || !ReactBodymovin) {
     return null;
   }
 

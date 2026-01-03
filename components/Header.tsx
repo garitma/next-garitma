@@ -9,7 +9,7 @@ const Header = () => {
       <Link href="/">
         <Image src="/logo.png" alt="logo" width={85} height={85} />
       </Link>
-      <div className="absolute top-0 left-0 w-full h-full -z-10">
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
         <Flight />
       </div>
     </div>

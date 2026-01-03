@@ -20,7 +20,7 @@ export default async function PoemPage({ params }: PageProps) {
 
   return (
     <div className="page">
-      <section className="pad">
+      <section>
         <div className="smash">
           <article>
             {title && (

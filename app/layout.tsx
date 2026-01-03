@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+import { ViewTransition } from 'react'
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -8,7 +9,6 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
 });
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,14 +21,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
-      <body
-        className={`${montserrat.variable} antialiased page-pancake`}
-      >
-        <Header />
-        {children}
-        <Footer />
-      </body>
-    </html>
+    <ViewTransition>
+      <html lang="es">
+        <body className={`${montserrat.variable} antialiased`}>
+          <main className="page-pancake relative">
+            <Header />
+            {children}
+            <Footer />
+          </main>
+        </body>
+      </html>
+    </ViewTransition>
   );
 }
