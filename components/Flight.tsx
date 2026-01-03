@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { motion } from "framer-motion";
 
 import animation from "@/utils/animations/flight.json";
@@ -7,6 +7,22 @@ import animation from "@/utils/animations/flight.json";
 const Flight = () => {
   const [isMounted, setIsMounted] = useState(false);
   const [ReactBodymovin, setReactBodymovin] = useState<any>(null);
+
+  // Generate random y-axis translations for fluid movement
+  const randomYValues = useMemo(() => {
+    const values: string[] = [];
+    const numPoints = 20;
+    const minY = -3;
+    const maxY = 3;
+
+    for (let i = 0; i < numPoints; i++) {
+      // Generate random value between minY and maxY
+      const randomValue = Math.random() * (maxY - minY) + minY;
+      values.push(`${randomValue.toFixed(2)}%`);
+    }
+
+    return values;
+  }, []);
 
   useEffect(() => {
     setIsMounted(true);
@@ -32,37 +48,16 @@ const Flight = () => {
     <motion.div
       initial={{
         x: "-95%",
-        y: "-2%",
+        y: randomYValues[0] || "-2%",
       }}
       animate={{
-        x: "50%",
-        y: [
-          "2%",
-          "-2%",
-          "2%",
-          "-2%",
-          "2%",
-          "-2%",
-          "2%",
-          "-2%",
-          "2%",
-          "-2%",
-          "2%",
-          "-2%",
-          "2%",
-          "-2%",
-          "2%",
-          "-2%",
-          "2%",
-          "-2%",
-          "2%",
-          "-2%",
-        ],
+        x: "51%",
+        y: randomYValues,
       }}
       transition={{
-        repeat: Infinity, // Infinity will make it loop indefinitely
-        duration: 60,
-        repeatDelay: 0, // Optionally add a delay between each loop iteration
+        repeat: Infinity,
+        duration: 45,
+        repeatDelay: 0,
       }}
     >
       <ReactBodymovin options={bodymovinOptions} />
