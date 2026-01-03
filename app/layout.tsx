@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <ViewTransition>
-      <html lang="es">
+      <html lang="es" className="max-w-[100vw] overflow-x-hidden">
         <body className={`${font.className} ${oswald.variable}`}>
           <main className="page-pancake relative">
             <Header />
