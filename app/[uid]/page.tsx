@@ -1,11 +1,36 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 
 import { getPoemContent, parsePoemContent } from "@/utils/content";
+import { generatePoemMetadata } from "@/utils/seo";
 
 interface PageProps {
   params: Promise<{
     uid: string;
   }>;
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { uid } = await params;
+  const content = await getPoemContent(uid);
+
+  if (!content) {
+    return {
+      title: "Poema no encontrado",
+    };
+  }
+
+  const { title, body } = parsePoemContent(content);
+
+  return generatePoemMetadata({
+    poem: {
+      title,
+      body,
+      uid,
+    },
+  });
 }
 
 export default async function PoemPage({ params }: PageProps) {
