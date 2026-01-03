@@ -53,7 +53,7 @@ export default async function PoemPage({ params }: PageProps) {
                 {title}
               </h1>
             )}
-            <div className="p whitespace-pre-line text-grat-12 leading-relaxed">
+            <div className="p whitespace-pre-line text-grat-12 leading-relaxed px-1">
               {body.join("\n")}
             </div>
           </article>

@@ -5,7 +5,7 @@ import Flight from "@/components/Flight";
 
 const Header = () => {
   return (
-    <div className="flex items-center justify-center p-0.5" data-slot="header">
+    <div className="flex items-center justify-center p-0.5 max-w-[100vw] overflow-x-hidden" data-slot="header">
       <Link href="/">
         <Image src="/logo.png" alt="logo" width={85} height={85} />
       </Link>
