@@ -54,15 +54,17 @@ function slugifyTxtFiles() {
     const newFilePath = path.join(poemsDir, newFileName);
 
     // Skip if the filename is already slugified (no change needed)
-    // Use case-insensitive comparison to catch files that only differ in case
-    if (file.toLowerCase() === newFileName.toLowerCase()) {
+    // Use case-sensitive comparison to ensure files are renamed to lowercase
+    if (file === newFileName) {
       console.log(`✓ Skipped (already slugified): ${file}`);
       skippedCount++;
       continue;
     }
 
-    // Check if target file already exists
-    if (fs.existsSync(newFilePath)) {
+    // Check if a different file with the exact target name already exists (case-sensitive check)
+    // On case-insensitive file systems, we need to check the actual directory listing
+    const targetExistsExact = files.some(f => f === newFileName && f !== file);
+    if (targetExistsExact) {
       console.log(`⚠ Skipped (target exists): ${file} -> ${newFileName}`);
       skippedCount++;
       continue;
