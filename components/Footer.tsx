@@ -1,19 +1,24 @@
-import { PrismicText } from "@prismicio/react";
-import { createClient } from "@/prismicio";
-import Section from "@aura-design/system/section";
+import Link from "next/link";
 
-import SuscribeBox from "@/components/SuscribeBox";
-
-export default async function Footer() {
-  const client = createClient();
-  const footer = await client.getSingle("footer");
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
 
   return (
-    <footer>
-      <SuscribeBox />
-      <Section className="p-1 text-center" passDiv>
-        <PrismicText field={footer.data.copyright} />
-      </Section>
+    <footer
+      className="flex items-center justify-center p-1 border-t border-gray-6 mt-2"
+      data-slot="footer"
+    >
+      <div className="text-center">
+        <p className="p text-gray-11">
+          © {currentYear}{" "}
+          <Link href="/" className="text-gray-12 hover:text-accent-9 transition-colors">
+            Garitma
+          </Link>
+        </p>
+      </div>
     </footer>
   );
-}
+};
+
+export default Footer;
+

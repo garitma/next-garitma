@@ -1,28 +1,29 @@
-import { Metadata } from "next";
-import { SliceZone } from "@prismicio/react";
+import Link from "next/link";
+import { getAllPoems } from "@/utils/content";
 
-import { getPrismicSEO } from "@/lib/prismic/utils/seo";
-import { createClient } from "@/prismicio";
-import { components } from "@/slices";
-import LastPost from "@/components/LatestPost";
-
-export async function generateMetadata(): Promise<Metadata> {
-  const client = createClient();
-  const home = await client.getSingle("homepage");
-  const settings = await client.getSingle("settings");
-  const seo = getPrismicSEO(home, settings);
-
-  return seo;
-}
 
 export default async function Home() {
-  const client = createClient();
-  const page = await client.getSingle("homepage");
+  const poems = await getAllPoems();
 
   return (
-    <>
-      <SliceZone slices={page.data.slices} components={components} />
-      <LastPost />
-    </>
+    <div className="page">
+      <section>
+        <div className="smash">
+          <h1 className="h1 mb-4 text-center">Poemas</h1>
+          <ul className="space-y-2 m-1">
+            {poems.map((poem) => (
+              <li key={poem.slug}>
+                <Link
+                  href={`/${poem.slug}`}
+                  className="p text-grat-12 transition-colors block underline"
+                >
+                  {poem.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    </div>
   );
 }
