@@ -4,6 +4,7 @@ interface PoemData {
   title: string | null;
   body: string[];
   uid: string;
+  image?: string | null;
 }
 
 interface GenerateSEOParams {
@@ -24,7 +25,7 @@ export function generatePoemMetadata({
   siteName = "Garitma",
   siteUrl,
 }: GenerateSEOParams): Metadata {
-  const { title, body, uid } = poem;
+  const { title, body, uid, image } = poem;
 
   // Generate description from poem content
   const poemText = body.join(" ").trim();
@@ -62,11 +63,13 @@ export function generatePoemMetadata({
       type: "article",
       url: canonicalUrl,
       siteName,
+      images: image ? [{ url: image, alt: title ?? siteName }] : undefined,
     },
     twitter: {
-      card: "summary",
+      card: image ? "summary_large_image" : "summary",
       title: pageTitle,
       description: ogDescription,
+      images: image ? [image] : undefined,
     },
   };
 }

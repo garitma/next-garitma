@@ -1,6 +1,46 @@
 import { readFile, readdir } from 'fs/promises';
 import { join } from 'path';
 
+const BLOB_MEDIA_ORIGIN =
+  'https://agjr2io12d0kw6qt.public.blob.vercel-storage.com';
+
+const IMAGE_EXTENSIONS = 'png|jpe?g|gif|webp|avif';
+const IMAGE_LINE = /^!\[([^\]]*)\]\(([^)]+)\)\s*$/;
+const IMAGE_FILE = new RegExp(
+  `^[a-zA-Z0-9._-]+\\.(${IMAGE_EXTENSIONS})$`,
+  'i'
+);
+
+export type PoemSegment =
+  | { type: 'text'; value: string }
+  | { type: 'image'; src: string; alt: string };
+
+/**
+ * Image lines in a poem file: `![caption](deseos.png)`
+ * The filename is loaded from the public blob `media` folder.
+ * A full blob URL under `/media/` is also accepted.
+ */
+export function resolveMediaSrc(raw: string): string | null {
+  const value = raw.trim();
+
+  if (/^https?:\/\//i.test(value)) {
+    try {
+      const url = new URL(value);
+      if (url.origin !== BLOB_MEDIA_ORIGIN) return null;
+      if (!url.pathname.startsWith('/media/')) return null;
+      const fileName = url.pathname.slice('/media/'.length);
+      if (!IMAGE_FILE.test(fileName) || fileName.includes('/')) return null;
+      return `${BLOB_MEDIA_ORIGIN}/media/${fileName}`;
+    } catch {
+      return null;
+    }
+  }
+
+  const fileName = value.replace(/^\/?(?:media\/)/, '').replace(/^\/+/, '');
+  if (!IMAGE_FILE.test(fileName) || fileName.includes('/')) return null;
+  return `${BLOB_MEDIA_ORIGIN}/media/${fileName}`;
+}
+
 export async function getPoemContent(uid: string) {
     try {
       const poemsDir = join(process.cwd(), 'content', 'poems');
@@ -27,17 +67,47 @@ export async function getPoemContent(uid: string) {
   export function parsePoemContent(content: string) {
     const lines = content.split('\n');
     let title: string | null = null;
-    let body: string[] = [];
+    let sourceLines = lines;
 
     // Check if first line is a title (starts with #)
     if (lines[0]?.startsWith('#')) {
       title = lines[0].replace(/^#\s*/, '').trim();
-      body = lines.slice(1).filter(line => line.trim() !== '' || body.length > 0);
-    } else {
-      body = lines.filter(line => line.trim() !== '' || body.length > 0);
+      sourceLines = lines.slice(1);
     }
 
-    return { title, body };
+    const body: string[] = [];
+    const segments: PoemSegment[] = [];
+    const textLines: string[] = [];
+
+    const flushText = () => {
+      if (textLines.length === 0) return;
+      segments.push({ type: 'text', value: textLines.join('\n') });
+      textLines.length = 0;
+    };
+
+    for (const line of sourceLines) {
+      const imageMatch = line.match(IMAGE_LINE);
+      if (imageMatch) {
+        const src = resolveMediaSrc(imageMatch[2]);
+        if (src) {
+          flushText();
+          segments.push({
+            type: 'image',
+            src,
+            alt: imageMatch[1].trim(),
+          });
+          continue;
+        }
+      }
+
+      if (line.trim() === '') continue;
+      body.push(line);
+      textLines.push(line);
+    }
+
+    flushText();
+
+    return { title, body, segments };
   }
 
   export async function getAllPoems() {

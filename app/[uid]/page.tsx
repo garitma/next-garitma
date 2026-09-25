@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
+import { PoemImage } from "@/components/PoemImage";
 import { getPoemContent, parsePoemContent } from "@/utils/content";
 import { generatePoemMetadata } from "@/utils/seo";
 
@@ -22,13 +23,16 @@ export async function generateMetadata({
     };
   }
 
-  const { title, body } = parsePoemContent(content);
+  const { title, body, segments } = parsePoemContent(content);
+  const imageSegment = segments.find((segment) => segment.type === "image");
+  const image = imageSegment?.type === "image" ? imageSegment.src : undefined;
 
   return generatePoemMetadata({
     poem: {
       title,
       body,
       uid,
+      image,
     },
   });
 }
@@ -41,7 +45,7 @@ export default async function PoemPage({ params }: PageProps) {
     notFound();
   }
 
-  const { title, body } = parsePoemContent(content);
+  const { title, segments } = parsePoemContent(content);
 
   return (
     <div className="page">
@@ -53,9 +57,26 @@ export default async function PoemPage({ params }: PageProps) {
                 {title}
               </h1>
             )}
-            <div className="p whitespace-pre-line text-grat-12 leading-relaxed px-1">
-              {body.join("\n")}
-            </div>
+            {segments.map((segment, index) =>
+              segment.type === "image" ? (
+                <PoemImage
+                  key={`${segment.src}-${index}`}
+                  src={segment.src}
+                  alt={segment.alt || title || ""}
+                  priority={
+                    segments.findIndex((item) => item.type === "image") ===
+                    index
+                  }
+                />
+              ) : (
+                <div
+                  key={index}
+                  className="p whitespace-pre-line text-grat-12 leading-relaxed px-1"
+                >
+                  {segment.value}
+                </div>
+              )
+            )}
           </article>
         </div>
       </section>
