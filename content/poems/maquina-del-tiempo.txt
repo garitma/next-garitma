@@ -1,5 +1,7 @@
 # Máquina del tiempo
 
+![Máquina del tiempo](maquina-del-tiempo.png)
+
 Tiempo pasado,
 presente y futuro;
 o solo pasado y futuro

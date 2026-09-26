@@ -1,5 +1,7 @@
 # Letrados
 
+![Letrados](letrados.png)
+
 Lo hice antes de verte,
 tú no me viste, tú me leíste.
 Yo no te veo, yo te leo;

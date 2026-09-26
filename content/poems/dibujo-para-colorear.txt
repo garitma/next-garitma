@@ -1,5 +1,7 @@
 # Dibujo para colorear
 
+![Dibujo para colorear](Dibujo-para-colorear.png)
+
 FIN
 
 Andamos simulando

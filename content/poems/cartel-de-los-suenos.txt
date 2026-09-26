@@ -1,5 +1,7 @@
 # Cartel de los sueños
 
+![Cartel de los sueños](Cartel-de-los-suenos.png)
+
 Un cartel en blanco,
 es un cartel de sueños;
 en pocas letras

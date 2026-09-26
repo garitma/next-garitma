@@ -1,5 +1,7 @@
 # Reina del sistema solar
 
+![Reina del sistema solar](reina-del-sistema-solar.png)
+
 Aquella reina
 sin corona
 sin dependencias

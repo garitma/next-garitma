@@ -1,5 +1,7 @@
 # Petaloso
 
+![Petaloso](petaloso.png)
+
 No puedo rechazar
 un saludo
 ese que a lo lejos

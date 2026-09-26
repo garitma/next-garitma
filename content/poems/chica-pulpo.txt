@@ -1,5 +1,7 @@
 # Chica pulpo
 
+![Chica pulpo](chica-pulpo.png)
+
 La chica pulpo sentada
 en un lugar que nunca existió.
 

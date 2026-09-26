@@ -15,6 +15,20 @@ describe("poem media syntax", () => {
     expect(resolveMediaSrc("https://example.com/deseos.png")).toBeNull();
     expect(resolveMediaSrc("../secret.png")).toBeNull();
     expect(resolveMediaSrc("notes.txt")).toBeNull();
+    expect(resolveMediaSrc("folder/deseos.png")).toBeNull();
+  });
+
+  it("resolves blob filenames that contain spaces or accents", () => {
+    const spaced = "fina punteria.jpg";
+    const accented = "corazo\u0301n-de-colbo\u0301n.png";
+
+    expect(resolveMediaSrc(spaced)).toBe(`${MEDIA}/${encodeURIComponent(spaced)}`);
+    expect(resolveMediaSrc(accented)).toBe(
+      `${MEDIA}/${encodeURIComponent(accented)}`
+    );
+    expect(resolveMediaSrc(`${MEDIA}/${encodeURIComponent(spaced)}`)).toBe(
+      `${MEDIA}/${encodeURIComponent(spaced)}`
+    );
   });
 
   it("turns a mentioned image into a segment and keeps the poem text", () => {

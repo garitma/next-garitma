@@ -1,5 +1,7 @@
 # Cantar un dibujo
 
+![Cantar un dibujo](Cantar-un-dibujo.png)
+
 En un bosque de silencio
 Las notas graves, son colores más oscuros;
 Las notas agudas, son colores más claros;

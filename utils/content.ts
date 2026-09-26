@@ -6,18 +6,32 @@ const BLOB_MEDIA_ORIGIN =
 
 const IMAGE_EXTENSIONS = 'png|jpe?g|gif|webp|avif';
 const IMAGE_LINE = /^!\[([^\]]*)\]\(([^)]+)\)\s*$/;
+// Blob names keep spaces and accents (including combining marks). Slashes stay rejected.
 const IMAGE_FILE = new RegExp(
-  `^[a-zA-Z0-9._-]+\\.(${IMAGE_EXTENSIONS})$`,
-  'i'
+  `^[\\p{L}\\p{M}0-9._ -]+\\.(${IMAGE_EXTENSIONS})$`,
+  'iu'
 );
 
 export type PoemSegment =
   | { type: 'text'; value: string }
   | { type: 'image'; src: string; alt: string };
 
+function mediaUrl(fileName: string): string | null {
+  if (
+    !IMAGE_FILE.test(fileName) ||
+    fileName.includes('/') ||
+    fileName.includes('\\')
+  ) {
+    return null;
+  }
+
+  return `${BLOB_MEDIA_ORIGIN}/media/${encodeURIComponent(fileName)}`;
+}
+
 /**
  * Image lines in a poem file: `![caption](deseos.png)`
  * The filename is loaded from the public blob `media` folder.
+ * Spaces and accents are kept exactly as the blob stores them.
  * A full blob URL under `/media/` is also accepted.
  */
 export function resolveMediaSrc(raw: string): string | null {
@@ -28,17 +42,15 @@ export function resolveMediaSrc(raw: string): string | null {
       const url = new URL(value);
       if (url.origin !== BLOB_MEDIA_ORIGIN) return null;
       if (!url.pathname.startsWith('/media/')) return null;
-      const fileName = url.pathname.slice('/media/'.length);
-      if (!IMAGE_FILE.test(fileName) || fileName.includes('/')) return null;
-      return `${BLOB_MEDIA_ORIGIN}/media/${fileName}`;
+      const fileName = decodeURIComponent(url.pathname.slice('/media/'.length));
+      return mediaUrl(fileName);
     } catch {
       return null;
     }
   }
 
   const fileName = value.replace(/^\/?(?:media\/)/, '').replace(/^\/+/, '');
-  if (!IMAGE_FILE.test(fileName) || fileName.includes('/')) return null;
-  return `${BLOB_MEDIA_ORIGIN}/media/${fileName}`;
+  return mediaUrl(fileName);
 }
 
 export async function getPoemContent(uid: string) {

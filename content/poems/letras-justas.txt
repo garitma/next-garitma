@@ -1,5 +1,7 @@
 # Letras justas
 
+![Letras justas](letras-justas.png)
+
 Escribo con pluma,
 pero mi letra es fea;
 Aprendí a escribir,

@@ -1,5 +1,7 @@
 # Palabras en el aire
 
+![Palabras en el aire](palabras-en-el-aire.png)
+
 -¿Por qué estás quemando las palabras?-
 – Porque quiero que queden en el aire –
 – ¿Qué más da que estén en el aire ?-

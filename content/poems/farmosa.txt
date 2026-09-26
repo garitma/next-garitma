@@ -1,5 +1,7 @@
 # La teoría de la palabra Farmosa
 
+![La teoría de la palabra Farmosa](farmosa.png)
+
 Va por la vida
 con una varita
 magica,

@@ -1,5 +1,7 @@
 # Cadena de días graciosos
 
+![Cadena de días graciosos](cadena-de-dias-graciosos.jpg)
+
 Hoy es un día gracioso
 pues la alegría va pasar
 en cualquier momento

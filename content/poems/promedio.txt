@@ -1,5 +1,7 @@
 # Promedio
 
+![Promedio](Promedio.png)
+
 Como hablar de las cosas simples
 para ello deben ser poco compuestas
 poco menos del promedio

@@ -1,5 +1,7 @@
 # Esto no es
 
+![Esto no es](esto-no-es.png)
+
 Esto no es un cuaderno, es una bitácora;
 esto no es un lapicero, es una pluma;
 esto no es una hoja, es un árbol;
