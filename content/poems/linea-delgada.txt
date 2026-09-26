@@ -1,5 +1,7 @@
 # Línea delgada
 
+![Línea delgada](Linea-delgada.png)
+
 Una línea más vista
 es la línea más delgada
 es una línea importada

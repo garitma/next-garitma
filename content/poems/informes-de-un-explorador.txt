@@ -1,5 +1,7 @@
 # Informes de un explorador
 
+![Informes de un explorador](informes-de-un-explorador.png)
+
 Lleva memoria,
 Sucio y garabateando,
 documento que se nutre

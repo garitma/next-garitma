@@ -1,5 +1,7 @@
 # Palito de oro
 
+![Palito de oro](palito-de-oro.png)
+
 Tengo un palito
 es un palito seco
 pero es de oro.

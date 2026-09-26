@@ -1,4 +1,7 @@
 # Leer en voz alta
+
+![Leer en voz alta](leer-en-voz-alta.jpg)
+
 Hay noches
 en las que escucho tu voz
 martillando mis recuerdos.

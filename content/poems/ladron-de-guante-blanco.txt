@@ -1,5 +1,7 @@
 # Ladrón de guante blanco
 
+![Ladrón de guante blanco](ladron-de-guante-blanco.png)
+
 Hay que ser ladrón
 de guante blanco,
 robar todos los cuadros del salón

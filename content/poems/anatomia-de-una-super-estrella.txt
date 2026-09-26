@@ -1,5 +1,7 @@
 # Anatomía de una súper estrella
 
+![Anatomía de una súper estrella](anatomia-de-una-super-estrella.png)
+
 Las súper estrellas
 son sistemáticamente
 mejores que el resto.

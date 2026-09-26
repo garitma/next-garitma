@@ -1,5 +1,7 @@
 # Páginas de chocolate
 
+![Páginas de chocolate](paginas-de-chocolate.png)
+
 Inspiro
 respiro
 el dulce aroma

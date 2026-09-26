@@ -1,5 +1,7 @@
 # Viaje de las cosas
 
+![Viaje de las cosas](viaje-de-las-cosas.png)
+
 Cosas que no son de exploración,
 lejos han de encallar,
 en puertos que no son los propios,

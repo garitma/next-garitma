@@ -1,5 +1,7 @@
 # El verdadero caballo de Troya
 
+![El verdadero caballo de Troya](el-verdadero-caballo-de-troya.png)
+
 El caballo verdadero de Troya
 sufre del mal
 de ser consumido por muchos
